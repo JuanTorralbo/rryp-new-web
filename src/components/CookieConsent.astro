@@ -1,0 +1,243 @@
+---
+import { FIRM } from "../data/firm";
+import { getDictionary, type Locale } from "../i18n";
+
+export interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+---
+
+<!-- Banner y gestor RGPD / LSSI replicando Complianz de rrypglobal.com -->
+<section
+  class="cookie-dialog"
+  id="rryp-cookie-dialog"
+  role="dialog"
+  aria-labelledby="cookie-dialog-title"
+  aria-describedby="cookie-dialog-desc"
+  hidden
+>
+  <div class="cookie-header">
+    <h2 class="cookie-title" id="cookie-dialog-title">{t.cookieTitle}</h2>
+    <button
+      type="button"
+      class="cookie-close"
+      id="cookie-close-btn"
+      aria-label={t.cookieClose}
+    >
+      ×
+    </button>
+  </div>
+
+  <p class="cookie-body" id="cookie-dialog-desc">{t.cookieBody}</p>
+
+  <div class="cookie-prefs" id="cookie-prefs-panel" hidden>
+    <details class="cookie-cat">
+      <summary class="cookie-cat-summary">
+        <span class="cookie-cat-name">{t.cookieCatFuncTitle}</span>
+        <span class="cookie-cat-status cookie-cat-status--locked">{t.cookieAlwaysActive}</span>
+      </summary>
+      <p class="cookie-cat-desc">{t.cookieCatFuncDesc}</p>
+    </details>
+
+    <details class="cookie-cat">
+      <summary class="cookie-cat-summary">
+        <span class="cookie-cat-name">{t.cookieCatPrefTitle}</span>
+        <label class="cookie-switch">
+          <input type="checkbox" id="cookie-opt-preferences" />
+          <span class="cookie-slider" aria-hidden="true"></span>
+        </label>
+      </summary>
+      <p class="cookie-cat-desc">{t.cookieCatPrefDesc}</p>
+    </details>
+
+    <details class="cookie-cat">
+      <summary class="cookie-cat-summary">
+        <span class="cookie-cat-name">{t.cookieCatStatTitle}</span>
+        <label class="cookie-switch">
+          <input type="checkbox" id="cookie-opt-statistics" />
+          <span class="cookie-slider" aria-hidden="true"></span>
+        </label>
+      </summary>
+      <p class="cookie-cat-desc">{t.cookieCatStatDesc}</p>
+    </details>
+
+    <details class="cookie-cat">
+      <summary class="cookie-cat-summary">
+        <span class="cookie-cat-name">{t.cookieCatMktTitle}</span>
+        <label class="cookie-switch">
+          <input type="checkbox" id="cookie-opt-marketing" />
+          <span class="cookie-slider" aria-hidden="true"></span>
+        </label>
+      </summary>
+      <p class="cookie-cat-desc">{t.cookieCatMktDesc}</p>
+    </details>
+  </div>
+
+  <div class="cookie-actions">
+    <button type="button" class="btn btn--lime btn--compact" id="cookie-accept-btn">
+      {t.cookieAccept}
+    </button>
+    <button type="button" class="btn btn--outline-dark btn--compact" id="cookie-deny-btn">
+      {t.cookieDeny}
+    </button>
+    <button type="button" class="btn btn--outline-dark btn--compact" id="cookie-prefs-btn">
+      {t.cookieViewPrefs}
+    </button>
+    <button type="button" class="btn btn--outline-dark btn--compact" id="cookie-save-btn" hidden>
+      {t.cookieSavePrefs}
+    </button>
+  </div>
+
+  <div class="cookie-links">
+    <a href={FIRM.legalLinks.cookies} target="_blank" rel="noopener noreferrer">{t.legalCookies}</a>
+    <a href={FIRM.legalLinks.privacy} target="_blank" rel="noopener noreferrer">{t.legalPrivacy}</a>
+    <a href={FIRM.legalLinks.notice} target="_blank" rel="noopener noreferrer">{t.legalNotice}</a>
+  </div>
+</section>
+
+<!-- Pestana flotante post-consentimiento (abajo a la derecha, igual que rrypglobal.com) -->
+<button
+  type="button"
+  class="cookie-manage-pill"
+  id="rryp-cookie-manage-btn"
+  hidden
+>
+  {t.cookieManagePill}
+</button>
+
+<script is:inline>
+  (function () {
+    var STORAGE_KEY = "rryp_cookie_consent_v1";
+    var dialog = document.getElementById("rryp-cookie-dialog");
+    var manageBtn = document.getElementById("rryp-cookie-manage-btn");
+    var prefsPanel = document.getElementById("cookie-prefs-panel");
+    var acceptBtn = document.getElementById("cookie-accept-btn");
+    var denyBtn = document.getElementById("cookie-deny-btn");
+    var prefsBtn = document.getElementById("cookie-prefs-btn");
+    var saveBtn = document.getElementById("cookie-save-btn");
+    var closeBtn = document.getElementById("cookie-close-btn");
+    var optPref = document.getElementById("cookie-opt-preferences");
+    var optStat = document.getElementById("cookie-opt-statistics");
+    var optMkt = document.getElementById("cookie-opt-marketing");
+
+    if (!dialog || !manageBtn) return;
+
+    function readConsent() {
+      try {
+        var raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) return JSON.parse(raw);
+      } catch (_) {}
+      var m = document.cookie.match(/(?:^|;\s*)rryp_consent=([^;]+)/);
+      if (m) {
+        try { return JSON.parse(decodeURIComponent(m[1])); } catch (_) {}
+      }
+      return null;
+    }
+
+    function applyConsent(state) {
+      window.RRYP_CONSENT = state;
+      if (optPref) optPref.checked = Boolean(state.preferences);
+      if (optStat) optStat.checked = Boolean(state.statistics);
+      if (optMkt) optMkt.checked = Boolean(state.marketing);
+      window.dispatchEvent(new CustomEvent("rryp:consent", { detail: state }));
+    }
+
+    function persistConsent(state) {
+      var payload = {
+        functional: true,
+        preferences: Boolean(state.preferences),
+        statistics: Boolean(state.statistics),
+        marketing: Boolean(state.marketing),
+        ts: Date.now(),
+      };
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (_) {}
+      document.cookie =
+        "rryp_consent=" +
+        encodeURIComponent(JSON.stringify(payload)) +
+        "; path=/; max-age=15552000; SameSite=Lax";
+      applyConsent(payload);
+      dialog.hidden = true;
+      manageBtn.hidden = false;
+    }
+
+    function openDialog(showPrefs) {
+      var current = readConsent() || { functional: true, preferences: false, statistics: false, marketing: false };
+      if (optPref) optPref.checked = Boolean(current.preferences);
+      if (optStat) optStat.checked = Boolean(current.statistics);
+      if (optMkt) optMkt.checked = Boolean(current.marketing);
+      if (prefsPanel && prefsBtn && saveBtn) {
+        prefsPanel.hidden = !showPrefs;
+        prefsBtn.hidden = Boolean(showPrefs);
+        saveBtn.hidden = !showPrefs;
+      }
+      dialog.hidden = false;
+      manageBtn.hidden = true;
+    }
+
+    // Exponer API global para que el bloque de YouTube pueda aceptar Marketing en 1 clic
+    window.RRYP_SET_CONSENT = function (partial) {
+      var prev = readConsent() || { functional: true, preferences: false, statistics: false, marketing: false };
+      persistConsent({
+        preferences: "preferences" in partial ? partial.preferences : prev.preferences,
+        statistics: "statistics" in partial ? partial.statistics : prev.statistics,
+        marketing: "marketing" in partial ? partial.marketing : prev.marketing,
+      });
+    };
+
+    var saved = readConsent();
+    if (saved) {
+      applyConsent(saved);
+      dialog.hidden = true;
+      manageBtn.hidden = false;
+    } else {
+      applyConsent({ functional: true, preferences: false, statistics: false, marketing: false });
+      dialog.hidden = false;
+      manageBtn.hidden = true;
+    }
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener("click", function () {
+        persistConsent({ preferences: true, statistics: true, marketing: true });
+      });
+    }
+    if (denyBtn) {
+      denyBtn.addEventListener("click", function () {
+        persistConsent({ preferences: false, statistics: false, marketing: false });
+      });
+    }
+    if (prefsBtn && prefsPanel && saveBtn) {
+      prefsBtn.addEventListener("click", function () {
+        prefsPanel.hidden = false;
+        prefsBtn.hidden = true;
+        saveBtn.hidden = false;
+      });
+    }
+    if (saveBtn) {
+      saveBtn.addEventListener("click", function () {
+        persistConsent({
+          preferences: optPref ? optPref.checked : false,
+          statistics: optStat ? optStat.checked : false,
+          marketing: optMkt ? optMkt.checked : false,
+        });
+      });
+    }
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function () {
+        dialog.hidden = true;
+        manageBtn.hidden = false;
+      });
+    }
+    dialog.querySelectorAll(".cookie-switch").forEach(function (sw) {
+      sw.addEventListener("click", function (ev) {
+        ev.stopPropagation();
+      });
+    });
+
+    manageBtn.addEventListener("click", function () {
+      openDialog(true);
+    });
+  })();
+</script>

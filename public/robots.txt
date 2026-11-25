@@ -1,0 +1,35 @@
+# RRYP Global - Politica de rastreo SEO y GEO
+# Permitimos el acceso completo a motores de busqueda tradicionales y rastreadores de citacion de IA.
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://rrypglobal.com/sitemap.xml
+# Referencia estructurada para motores generativos (GEO):
+# https://rrypglobal.com/llms.txt
+# https://rrypglobal.com/llms-full.txt

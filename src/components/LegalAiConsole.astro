@@ -1,0 +1,410 @@
+---
+import { FIRM } from "../data/firm";
+import { getDictionary, type Locale } from "../i18n";
+
+export interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+
+const aiConfig = JSON.stringify({
+  lang,
+  feedUrl: `/data/blog-${lang}.json`,
+  calendly: FIRM.calendly,
+  whatsappUrl: FIRM.whatsappUrl,
+  strings: {
+    modeLive: t.aiModeLive,
+    modeLocal: t.aiModeLocal,
+    userRole: t.aiUserRole,
+    thinking: t.aiThinking,
+    citationsLabel: t.aiCitationsLabel,
+    urgentHeader: t.aiUrgentHeader,
+    fallbackIntro: t.aiFallbackIntro,
+    fallbackFollowup: t.aiFallbackFollowup,
+    routes: {
+      urgent: {
+        id: "urgent",
+        badge: t.aiUrgentBadge,
+        title: t.aiUrgentTitle,
+        desc: t.aiUrgentDesc,
+        cta: t.aiUrgentCta,
+        url: FIRM.calendly.urgent,
+        secondaryCta: t.aiUrgentSec,
+        secondaryUrl: FIRM.whatsappUrl,
+      },
+      legal: {
+        id: "legal",
+        badge: t.aiLegalBadge,
+        title: t.aiLegalTitle,
+        desc: t.aiLegalDesc,
+        cta: t.aiLegalCta,
+        url: FIRM.calendly.legal,
+        secondaryCta: t.aiLegalSec,
+        secondaryUrl: FIRM.calendly.initial,
+      },
+      initial: {
+        id: "initial",
+        badge: t.aiInitBadge,
+        title: t.aiInitTitle,
+        desc: t.aiInitDesc,
+        cta: t.aiInitCta,
+        url: FIRM.calendly.initial,
+        secondaryCta: t.aiInitSec,
+        secondaryUrl: FIRM.calendly.legal,
+      },
+    },
+  },
+});
+---
+
+<section class="ai-section" id="asistente-ia" aria-labelledby="ai-console-title">
+  <div class="container">
+    <div class="ai-console">
+      <div class="ai-console-header">
+        <div class="ai-console-title-wrap">
+          <h2 class="ai-console-title" id="ai-console-title">{t.aiTitle}</h2>
+          <span class="ai-mode-badge" id="ai-mode-badge">{t.aiModeLocal}</span>
+        </div>
+        <button type="button" class="btn btn--outline-dark btn--compact" id="ai-key-toggle">
+          {t.aiKeyBtn}
+        </button>
+      </div>
+
+      <div class="ai-key-panel" id="ai-key-panel" hidden>
+        <select id="ai-provider-select" class="ai-key-input" style="max-width: 240px;" aria-label="AI provider">
+          <option value="groq">Groq GPT-OSS 120B</option>
+          <option value="gemini">Google Gemini 2.5 Flash</option>
+        </select>
+        <input
+          type="password"
+          id="ai-key-input"
+          class="ai-key-input"
+          placeholder={t.aiKeyPlaceholder}
+          aria-label={t.aiKeyPlaceholder}
+        />
+        <button type="button" class="btn btn--lime btn--compact" id="ai-key-save">
+          {t.aiKeySave}
+        </button>
+        <p class="ai-key-note">{t.aiKeyHint}</p>
+      </div>
+
+      <div class="ai-prompts" aria-label={t.ariaAiPrompts}>
+        <button type="button" class="ai-prompt-chip" data-ai-prompt={t.aiChip1Prompt}>
+          {t.aiChip1Label}
+        </button>
+        <button type="button" class="ai-prompt-chip" data-ai-prompt={t.aiChip2Prompt}>
+          {t.aiChip2Label}
+        </button>
+        <button type="button" class="ai-prompt-chip" data-ai-prompt={t.aiChip3Prompt}>
+          {t.aiChip3Label}
+        </button>
+        <button type="button" class="ai-prompt-chip" data-ai-prompt={t.aiChip4Prompt}>
+          {t.aiChip4Label}
+        </button>
+      </div>
+
+      <div class="ai-chat-thread" id="ai-chat-thread" aria-live="polite">
+        <div class="ai-msg ai-msg--assistant">
+          <div class="ai-msg-role">RRYP Legal Intelligence AI</div>
+          <div class="ai-msg-body">
+            <p>{t.aiWelcome1}</p>
+            <p>{t.aiWelcome2}</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="ai-chat-form" id="ai-chat-form">
+        <input
+          type="text"
+          id="ai-chat-input"
+          class="ai-chat-input"
+          placeholder={t.aiInputPlaceholder}
+          aria-label={t.ariaAiInput}
+          required
+        />
+        <button type="submit" id="ai-chat-submit" class="btn btn--lime">
+          {t.aiSubmitBtn}
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script id="rryp-ai-config" type="application/json" set:html={aiConfig} />
+
+<script is:inline>
+  (function () {
+    var cfgEl = document.getElementById("rryp-ai-config");
+    if (!cfgEl) return;
+    var cfg = JSON.parse(cfgEl.textContent || "{}");
+    var S = cfg.strings;
+    var history = [];
+    var localizedPosts = [];
+
+    fetch(cfg.feedUrl)
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (data) { if (Array.isArray(data)) localizedPosts = data; })
+      .catch(function () {});
+
+    var threadEl = document.getElementById("ai-chat-thread");
+    var formEl = document.getElementById("ai-chat-form");
+    var inputEl = document.getElementById("ai-chat-input");
+    var submitBtn = document.getElementById("ai-chat-submit");
+    var modeBadge = document.getElementById("ai-mode-badge");
+    var keyToggle = document.getElementById("ai-key-toggle");
+    var keyPanel = document.getElementById("ai-key-panel");
+    var providerSelect = document.getElementById("ai-provider-select");
+    var keyInput = document.getElementById("ai-key-input");
+    var keySaveBtn = document.getElementById("ai-key-save");
+
+    if (!threadEl || !formEl || !inputEl) return;
+
+    function escapeHtml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function normalize(str) {
+      return String(str || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function detectRoute(query) {
+      var q = normalize(query);
+      if (/(lo necesito ya|necesito ya|ya mismo|ahora mismo|hoy mismo|para hoy|cuanto antes|no puede esperar|sin espera|inmediat|asap|right now|immediately|urgente|urgencia|urgent|dringend|sofort|срочно|немедленно|紧急|马上|立刻|inminente|plazo|embargo|sustraccion|abduction|entfuhrung|похищ|带离|secuestro|detencion|oede|extradicion|emergencia)/.test(q)) {
+        return S.routes.urgent;
+      }
+      if (/(divorcio|divorce|scheidung|развод|离婚|custodia|custody|sorgerecht|опек|监护|herencia|estate|erbfall|наслед|继承|sucesion|testamento|patrimonio|wealth|vermogen|капитал|财富|ganancial|cripto|crypto|empresa|company|unternehmen|компани|企业|socio|inversor|investor|contrato|contract|vertrag|контракт|合同|demanda|litigio|litigation|prozess|спор|诉讼|exequatur|sentencia|competencia|jurisdiccion|jurisdiction|管辖|reconducir|construir)/.test(q)) {
+        return S.routes.legal;
+      }
+      return S.routes.initial;
+    }
+
+    function shouldShowBooking(query, turns, route) {
+      var q = normalize(query);
+      if (/(cita|agendar|reservar|precio|tarifa|honorario|cuanto cuesta|book|appointment|fee|price|termin|kosten|preis|consulta|запис|стоимост|预约|费用|价格)/.test(q)) {
+        return true;
+      }
+      if (route && route.id === "urgent") return true;
+      return turns >= 2;
+    }
+
+    function escalateHeaderToUrgent() {
+      var headerCta = document.querySelector(".header-cta");
+      if (headerCta) {
+        headerCta.textContent = S.urgentHeader;
+        headerCta.setAttribute("data-urgent-direct", "true");
+        if (headerCta.tagName === "A") {
+          headerCta.setAttribute("href", cfg.calendly.urgent);
+          headerCta.setAttribute("target", "_blank");
+          headerCta.setAttribute("rel", "noopener noreferrer");
+        } else {
+          headerCta.onclick = function () {
+            window.open(cfg.calendly.urgent, "_blank", "noopener,noreferrer");
+          };
+        }
+      }
+    }
+
+    function retrieveArticles(query) {
+      if (!localizedPosts.length) return [];
+      var words = normalize(query).split(/[^a-z0-9\u0400-\u04ff\u4e00-\u9fff]+/).filter(function (w) { return w.length >= 2; });
+      if (!words.length) return [];
+      return localizedPosts
+        .map(function (p) {
+          var hay = normalize(p.title + " " + p.category + " " + p.excerpt);
+          var score = 0;
+          words.forEach(function (w) { if (hay.includes(w)) score += 3; });
+          return { post: p, score: score };
+        })
+        .filter(function (x) { return x.score > 0; })
+        .sort(function (a, b) { return b.score - a.score; })
+        .slice(0, 3)
+        .map(function (x) { return x.post; });
+    }
+
+    var liveEndpoint = null;
+    function detectLiveEndpoint() {
+      var candidates = ["/api/legal-intelligence/status", "http://127.0.0.1:8095/api/legal-intelligence/status"];
+      function tryNext(idx) {
+        if (idx >= candidates.length) return;
+        fetch(candidates[idx])
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (st) {
+            if (st && st.connected) {
+              liveEndpoint = candidates[idx].replace("/status", "");
+              if (modeBadge) {
+                modeBadge.textContent = S.modeLive.replace("{provider}", st.provider || "Groq GPT-OSS 120B");
+              }
+            } else {
+              tryNext(idx + 1);
+            }
+          })
+          .catch(function () { tryNext(idx + 1); });
+      }
+      tryNext(0);
+    }
+    detectLiveEndpoint();
+
+    if (keyToggle && keyPanel) {
+      keyToggle.addEventListener("click", function () {
+        if (keyPanel.hasAttribute("hidden")) keyPanel.removeAttribute("hidden");
+        else keyPanel.setAttribute("hidden", "");
+      });
+    }
+
+    if (keySaveBtn && keyInput) {
+      keySaveBtn.addEventListener("click", function () {
+        var k = keyInput.value.trim();
+        var prov = providerSelect ? providerSelect.value : "groq";
+        sessionStorage.setItem("rryp_ai_provider", prov);
+        if (k) {
+          sessionStorage.setItem("rryp_ai_key", k);
+          if (modeBadge) {
+            modeBadge.textContent = S.modeLive.replace("{provider}", prov === "groq" ? "Groq GPT-OSS 120B" : "Gemini 2.5 Flash");
+          }
+        } else {
+          sessionStorage.removeItem("rryp_ai_key");
+          if (modeBadge) modeBadge.textContent = S.modeLocal;
+        }
+        if (keyPanel) keyPanel.setAttribute("hidden", "");
+      });
+    }
+
+    function renderMessage(role, text, refs, route) {
+      var wrap = document.createElement("div");
+      wrap.className = "ai-msg ai-msg--" + role;
+      var html = String(text)
+        .split(/\n{2,}/)
+        .map(function (p) {
+          return "<p>" + escapeHtml(p).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>").replace(/\n/g, "<br />") + "</p>";
+        })
+        .join("");
+
+      if (role === "assistant" && refs && refs.length) {
+        html += '<div class="ai-citations"><p class="ai-citations-label">' + escapeHtml(S.citationsLabel) + '</p><ul class="ai-citations-list">';
+        refs.forEach(function (p) {
+          html += '<li><a href="' + escapeHtml(p.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(p.title) + " ↗</a></li>";
+        });
+        html += "</ul></div>";
+      }
+
+      if (role === "assistant" && route) {
+        html +=
+          '<div class="ai-booking-card">' +
+          '<p class="ai-booking-badge">' + escapeHtml(route.badge) + "</p>" +
+          '<p class="ai-booking-title">' + escapeHtml(route.title) + "</p>" +
+          '<p class="ai-booking-desc">' + escapeHtml(route.desc) + "</p>" +
+          '<div class="ai-booking-actions">' +
+          '<a href="' + escapeHtml(route.url) + '" target="_blank" rel="noopener noreferrer" class="btn btn--lime btn--compact">' + escapeHtml(route.cta) + "</a>" +
+          '<a href="' + escapeHtml(route.secondaryUrl) + '" target="_blank" rel="noopener noreferrer" class="ai-booking-secondary">' + escapeHtml(route.secondaryCta) + "</a>" +
+          "</div></div>";
+      }
+
+      wrap.innerHTML =
+        '<div class="ai-msg-role">' +
+        (role === "user" ? escapeHtml(S.userRole) : "RRYP Legal Intelligence AI") +
+        '</div><div class="ai-msg-body">' +
+        html +
+        "</div>";
+      threadEl.appendChild(wrap);
+      threadEl.scrollTop = threadEl.scrollHeight;
+    }
+
+    async function callAi(query, refs, turns) {
+      if (liveEndpoint) {
+        try {
+          var res = await fetch(liveEndpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              message: query,
+              lang: cfg.lang,
+              history: history.slice(-8),
+              relevantArticles: refs.map(function (p) { return { title: p.title, url: p.url }; }),
+              userTurnCount: turns,
+            }),
+          });
+          if (res.ok) {
+            var data = await res.json();
+            if (data && data.reply) return String(data.reply).replace(/\u00b7/g, ",").trim();
+          }
+        } catch (_) {}
+      }
+
+      var key = (sessionStorage.getItem("rryp_ai_key") || "").trim();
+      var prov = sessionStorage.getItem("rryp_ai_provider") || "groq";
+      if (key && prov === "groq") {
+        try {
+          var gRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Authorization: "Bearer " + key },
+            body: JSON.stringify({
+              model: "openai/gpt-oss-120b",
+              messages: [
+                { role: "system", content: "You are RRYP Legal Intelligence AI for RRYP Global. Reply strictly in locale '" + cfg.lang + "'. Never use middle dot." },
+                { role: "user", content: query },
+              ],
+              temperature: 0.35,
+              max_tokens: 700,
+            }),
+          });
+          if (gRes.ok) {
+            var gData = await gRes.json();
+            var txt = gData && gData.choices && gData.choices[0] && gData.choices[0].message && gData.choices[0].message.content;
+            if (txt) return String(txt).replace(/\u00b7/g, ",").trim();
+          }
+        } catch (_) {}
+      }
+
+      return S.fallbackIntro + "\n\n" + S.fallbackFollowup;
+    }
+
+    async function handlePrompt(text) {
+      var clean = String(text || "").trim();
+      if (!clean) return;
+      renderMessage("user", clean);
+      inputEl.value = "";
+      if (submitBtn) submitBtn.disabled = true;
+
+      var thinking = document.createElement("div");
+      thinking.className = "ai-msg ai-msg--assistant ai-msg--thinking";
+      thinking.innerHTML = '<div class="ai-msg-role">RRYP Legal Intelligence AI</div><div class="ai-msg-body"><p>' + escapeHtml(S.thinking) + "</p></div>";
+      threadEl.appendChild(thinking);
+      threadEl.scrollTop = threadEl.scrollHeight;
+
+      var turns = history.filter(function (m) { return m.role === "user"; }).length + 1;
+      var refs = retrieveArticles(clean);
+      var route = detectRoute(clean);
+      var showBooking = shouldShowBooking(clean, turns, route);
+      if (route.id === "urgent") escalateHeaderToUrgent();
+
+      var reply = await callAi(clean, refs, turns);
+      thinking.remove();
+
+      history.push({ role: "user", text: clean });
+      history.push({ role: "assistant", text: reply });
+      renderMessage("assistant", reply, refs, showBooking ? route : null);
+      if (submitBtn) submitBtn.disabled = false;
+      inputEl.focus();
+    }
+
+    formEl.addEventListener("submit", function (e) {
+      e.preventDefault();
+      handlePrompt(inputEl.value);
+    });
+
+    document.querySelectorAll("[data-ai-prompt]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        handlePrompt(btn.getAttribute("data-ai-prompt") || btn.textContent || "");
+      });
+    });
+  })();
+</script>

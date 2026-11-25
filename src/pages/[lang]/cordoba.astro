@@ -1,0 +1,106 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { FIRM } from "../../data/firm";
+import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = getDictionary(lang);
+const office = FIRM.offices[2];
+
+const localSchema = {
+  "@type": "LegalService",
+  name: "RRYP Global Córdoba",
+  url: `${FIRM.siteUrl}${localizedPath(lang, "cordoba")}`,
+  telephone: FIRM.phone,
+  email: FIRM.email,
+  parentOrganization: { "@id": `${FIRM.siteUrl}/#organization` },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: office.street,
+    postalCode: office.postalCode,
+    addressLocality: office.city,
+    addressCountry: "ES",
+  },
+  geo: { "@type": "GeoCoordinates", latitude: office.lat, longitude: office.lng },
+};
+---
+
+<BaseLayout
+  lang={lang}
+  slug="cordoba"
+  title={t.metaCordobaTitle}
+  description={t.metaCordobaDesc}
+  ogImage={office.photo}
+  preloadImage={office.photo}
+  breadcrumbLabel="Córdoba"
+  jsonLdExtra={[localSchema]}
+>
+  <section class="subhero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.ariaBreadcrumb}>
+        <a href={localizedPath(lang)}>{t.bcHome}</a>
+        <span>/</span>
+        <a href={`${localizedPath(lang)}#sedes`}>{t.bcOffices}</a>
+        <span>/</span>
+        <span>Córdoba</span>
+      </nav>
+
+      <div class="subhero-grid">
+        <div>
+          <p class="eyebrow hero-anim">{t.officeEyebrow}</p>
+          <h1 class="hero-title hero-anim hero-anim--d1" set:html={t.officeCordobaTitle} />
+          <p class="hero-lead hero-anim hero-anim--d2">{t.cordobaLead}</p>
+          <div class="hero-cta-group hero-anim hero-anim--d3">
+            <a href={FIRM.calendly.legal} target="_blank" rel="noopener noreferrer" class="btn btn--lime">{t.pCta350}</a>
+            <a href={FIRM.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn--outline-dark">WhatsApp {FIRM.phone}</a>
+          </div>
+        </div>
+        <div class="photo-slot photo-slot--16x9 has-photo hero-anim hero-anim--d4">
+          <img fetchpriority="high" decoding="async" class="slot-photo" src={office.photo} alt={t.altCordobaOffice} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-cream">
+    <div class="container">
+      <div class="offices-layout">
+        <div class="offices-list">
+          <div class="office-row">
+            <h2 class="office-city">{t.officeAddressLabel}</h2>
+            <p class="office-address">{office.fullAddress}</p>
+          </div>
+          <div class="office-row">
+            <h2 class="office-city">{t.officeHoursLabel}</h2>
+            <p class="office-address">{t.officeHoursDetail}</p>
+          </div>
+          <div class="office-row">
+            <h2 class="office-city">{t.officePracticeLabel}</h2>
+            <p class="office-address">{t.cordobaPractice}</p>
+          </div>
+        </div>
+        <aside class="contact-panel">
+          <div class="contact-block">
+            <p class="contact-label">{t.contactPhoneLabel}</p>
+            <a href={FIRM.phoneHref} class="contact-value">{FIRM.phone}</a>
+          </div>
+          <div class="contact-block">
+            <p class="contact-label">{t.contactEmailLabel}</p>
+            <a href={FIRM.emailHref} class="contact-value">{FIRM.email}</a>
+          </div>
+          <div class="contact-block">
+            <p class="contact-label">{t.officeOthersLabel}</p>
+            <p class="contact-sub">
+              <a href={localizedPath(lang, "madrid")}>Madrid →</a><br />
+              <a href={localizedPath(lang, "malaga")}>{t.officeMalagaLink}</a>
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

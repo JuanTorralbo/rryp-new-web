@@ -1,0 +1,732 @@
+{
+  "en": {
+    "13325": {
+      "t": "Acquittal of client for assault and threat offences",
+      "e": "The Provincial Court acquitted one of our RRYP Global clients of assault and threat offences. Learn how our team proved the lack of evidence and ..."
+    },
+    "13352": {
+      "t": "International parental measures agreement",
+      "e": "Managing parental agreements across different countries. At RRYP Global we are intervening in a complex negotiation process of parental measures in which the ..."
+    },
+    "13410": {
+      "t": "How to grant a notarial power of attorney for litigation in Spain",
+      "e": "What are the legal requirements and procedure for granting a notarial power of attorney for litigation in Spain when the grantor is abroad? When a person who lives ..."
+    },
+    "13436": {
+      "t": "International treaties: what they are, how they are signed, and how they bind states",
+      "e": "Understanding what they are, how they are signed, and the effects they produce in Spanish law is not merely an academic interest: it is key for companies operating in multiple countries, for investors, for ..."
+    },
+    "13480": {
+      "t": "The role of the Public Prosecutor's Office in Spain",
+      "e": "The Public Prosecutor's Office is a key component of the Spanish judicial system. Its mission is to defend legality, citizens' rights, and the public interest. It acts in all types of ..."
+    },
+    "13523": {
+      "t": "Differences between ordinary and summary proceedings",
+      "e": "Ordinary vs. summary proceedings: differences, amounts, and strategy. Two 'tracks' toward the same goal: a civil judgment. Those who first approach civil jurisdiction ..."
+    },
+    "13531": {
+      "t": "Is it legal to use another person's image in an advertisement with artificial intelligence?",
+      "e": "Legal liability for deepfakes in advertising: using another person's image in AI-generated ads. Artificial intelligence is revolutionizing digital advertising, but ..."
+    },
+    "13916": {
+      "t": "What is an international legal boutique?",
+      "e": "An international legal boutique is a firm specialized in cross-border legal matters. Its work begins where the 'normal' becomes complicated: multiple countries, multiple ..."
+    },
+    "14594": {
+      "t": "How to prove unfair competition in digital environments",
+      "e": "In the dynamic market landscape today, where transactions close in milliseconds and a brand's reputation can be affected by an algorithm, law has ..."
+    },
+    "14617": {
+      "t": "How the insolvency of an international corporate group is managed",
+      "e": "International expansion is a common strategy for many corporate groups. However, when financial difficulties arise, the multinational structure complicates ..."
+    },
+    "14622": {
+      "t": "When an International Custody Arrangement Is Not Legally Viable (and Why Insisting Can Worsen the Situation)",
+      "e": "An international custody is not viable when it is pursued in the wrong country, through the wrong procedural route, or with a solution that does not truly protect the child. Many people seek..."
+    },
+    "14699": {
+      "t": "When can automated decisions pose a legal risk in the company?",
+      "e": "Digital platforms use algorithms to make increasingly consequential decisions: from showing content or setting prices to blocking accounts or granting credit. When ..."
+    },
+    "14873": {
+      "t": "Where is an international divorce with significant assets processed? Residences, nationalities, and assets for selecting the appropriate jurisdiction",
+      "e": "In a high-asset international divorce, the question is not who is right, but which country can adjudicate the case and to what extent. That choice determines timelines, costs, ..."
+    },
+    "14982": {
+      "t": "International Child Abduction: Documentation You Need to Act Today",
+      "e": "If you fear a child abduction or are already experiencing an international abduction, time works against you. In such cases, suspicion is insufficient. You must be able to demonstrate. The..."
+    },
+    "14988": {
+      "t": "How to Recover Unpaid Invoices from Foreign Companies from Spain",
+      "e": "When a foreign company leaves an invoice unpaid, the problem is not solely financial. For a medium‑sized or large enterprise with international operations, a default..."
+    },
+    "14997": {
+      "t": "Estates with Crypto Assets: Comparative Law for High‑Net‑Worth Clients",
+      "e": "Crypto assets are already part of the real estate of many families, founders, and investors. However, when multiple jurisdictions are involved, the issue ceases to be merely technological. It becomes..."
+    },
+    "15001": {
+      "t": "Difference Between Heir and Legatee in International Law",
+      "e": "How an inheritance changes when the will is foreign. In an international succession, being an heir is not the same as being a legatee, nor is it the same as being a legitime. That..."
+    },
+    "15013": {
+      "t": "What Happens If the Child Refuses to Return to Their Country of Origin?",
+      "e": "When a family crisis has an international component, a single statement can completely alter the strategy: \"my child says they do not want to return.\" At that moment, many parents..."
+    },
+    "15016": {
+      "t": "ERP, Technology Consulting, and Contracts: The Three Legal Mistakes That Inflate Costs",
+      "e": "Implementing an ERP (Enterprise Resource Planning) system is a strategic investment. This system facilitates the integration of key business areas onto a single platform such as..."
+    },
+    "15079": {
+      "t": "Common Mistakes in International Custody",
+      "e": "When an internationally mobile couple separates, the dispute over the children is not limited to deciding who they spend more time with or how vacations are allocated. In a custody..."
+    },
+    "15114": {
+      "t": "Exequatur Lawyers in Spain: Why RRYP Global Makes the Difference",
+      "e": "When someone seeks exequatur counsel in Spain, they are not merely looking for a legal explanation. They are seeking a practical solution. That is precisely where RRYP Global..."
+    },
+    "15321": {
+      "t": "How to Administer an Estate Without a Will or Known Heirs",
+      "e": "When a person dies intestate and, moreover, no one can clearly identify the relatives entitled to inherit, the situation does not remain in a legal \"limbo.\" In Spain there is..."
+    },
+    "15327": {
+      "t": "International Divorce: How to Choose the Competent Court and Why This Decision Determines Everything",
+      "e": "If you are seeking international divorce attorneys in Spain, there is one issue you must resolve before almost any other: which country should adjudicate your case. It is not a trivial detail..."
+    },
+    "15335": {
+      "t": "International Child Abduction Involving Spain: What the Central Authority Can Do and When",
+      "e": "When a parent fears that the other will take the child to another country, or discovers that the child has not returned after a vacation, a visit, or a temporary stay, urgency dominates the situation...."
+    },
+    "15369": {
+      "t": "What Is an Intestate Succession",
+      "e": "When a person dies, one of the first questions that arise is: who inherits? The answer seems straightforward when a clear and valid will exists. But it does not always happen..."
+    },
+    "15380": {
+      "t": "Settlement of Community Property with Cryptocurrencies",
+      "e": "How Bitcoin and other cryptoassets are divided in a divorce. In a settlement of community property involving Bitcoin, ether, or stablecoins, several common questions arise: who owns..."
+    },
+    "15382": {
+      "t": "Residences, Nationalities, and Assets: Keys to Determining Jurisdiction in an International Divorce",
+      "e": "What truly determines jurisdiction in an international divorce? In an international divorce, the key question is not merely where to file the claim. The decisive question is what..."
+    },
+    "15389": {
+      "t": "Software Licenses and International Exploitation: Silent Errors That Hinder Your Tech Company's Expansion",
+      "e": "The internationalization of a tech company rarely fails due to lack of product quality. In practice, the real obstacle often lies in a much less obvious element..."
+    },
+    "15404": {
+      "t": "Settlement of Community Property for High Net Worth",
+      "e": "How to divide companies, real estate, and investments in a divorce. Settlement of community property for high net worth requires a much more rigorous analysis than that of a family estate..."
+    },
+    "15414": {
+      "t": "Distribution of Cryptoassets in a High-Net-Worth Community Property Settlement: A Comprehensive Legal Guide",
+      "e": "Cryptocurrencies and divorce: when digital assets come into play. The issue is not minor. Unlike other traditional assets, cryptocurrencies pose..."
+    },
+    "15421": {
+      "t": "Settlement of Community Property and Distribution of Digital Assets",
+      "e": "Legal guide for a high-net-worth international divorce. They may represent a substantial portion of the family estate or serve as an investment vehicle, store of value, or channel..."
+    },
+    "15428": {
+      "t": "Exception of Grave Risk in International Child Abduction",
+      "e": "When restitution can be prevented. When a parent discovers that their child has been moved to another country without consent, or that a plan exists to do so, it is referred to as..."
+    },
+    "22409": {
+      "t": "Conflicts Between Founders and Foreign Investors: How to Protect Corporate Control and Value",
+      "e": "Legal keys to anticipate blockages, negotiate the shareholders' agreement, and protect corporate control and value. Conflicts between founders and foreign investors can..."
+    },
+    "22545": {
+      "t": "International Judicial Competence in Spain: Where Should You File Your Claim?",
+      "e": "How to identify the competent court, avoid parallel proceedings, and choose an effective jurisdiction when a dispute involves multiple countries. International judicial competence..."
+    },
+    "22637": {
+      "t": "International Child Abduction Following an Authorized Trip: Can My Ex-Partner Take Our Child to Another Country?",
+      "e": "When a consensual temporary stay can turn into unlawful detention and what measures must be taken to request the child's return. Authorizing a child to travel to..."
+    },
+    "23800": {
+      "t": "Damages and Losses for Breach of an International Contract: How to Prove Losses and Lost Profits",
+      "e": "What a company must demonstrate to claim compensation when a foreign supplier, distributor, or client breaches its obligations. A foreign supplier fails to deliver..."
+    }
+  },
+  "de": {
+    "13325": {
+      "t": "Freispruch eines Mandanten wegen Körperverletzungs- und Bedrohungsdelikten",
+      "e": "Das Provinzgericht sprach einen unserer Mandanten von RRYP Global, der wegen Körperverletzungs- und Bedrohungsdelikten angeklagt war, frei. Erfahren Sie, wie unser Team das Fehlen von Beweisen nachwies und ..."
+    },
+    "13352": {
+      "t": "Internationales Abkommen über elterliche Maßnahmen",
+      "e": "Verwaltung von elterlichen Vereinbarungen zwischen verschiedenen Ländern. Bei RRYP Global sind wir an einem komplexen Verhandlungsprozess über elterliche Maßnahmen beteiligt, bei dem die ..."
+    },
+    "13410": {
+      "t": "Wie man eine notarielle Vollmacht für Rechtsstreitigkeiten in Spanien erteilt",
+      "e": "Welche gesetzlichen Voraussetzungen und welches Verfahren gelten für die Erteilung einer notariellen Vollmacht für Rechtsstreitigkeiten in Spanien, wenn der Vollmachtgeber im Ausland ist? Wenn eine Person, die im Ausland lebt ..."
+    },
+    "13436": {
+      "t": "Internationale Verträge: Was sie sind, wie sie abgeschlossen werden und wie sie Staaten binden",
+      "e": "Zu verstehen, was internationale Verträge sind, wie sie abgeschlossen werden und welche Wirkungen sie im spanischen Recht haben, ist nicht nur ein akademisches Interesse: Es ist entscheidend für Unternehmen, die in mehreren Ländern tätig sind, für Investoren, für ..."
+    },
+    "13480": {
+      "t": "Die Rolle der Staatsanwaltschaft in Spanien",
+      "e": "Die Staatsanwaltschaft ist ein zentrales Element des spanischen Justizsystems. Ihre Aufgabe ist es, die Rechtsordnung, die Rechte der Bürger und das öffentliche Interesse zu verteidigen. Sie wirkt in allen Arten von ..."
+    },
+    "13523": {
+      "t": "Unterschiede zwischen ordentlichem und mündlichem Verfahren",
+      "e": "Ordentliches Verfahren vs. mündliches Verfahren: Unterschiede, Streitwerte und Strategie. Zwei „Spuren“ zum selben Ziel: ein Zivilurteil. Wer zum ersten Mal die Zivilgerichtsbarkeit betritt ..."
+    },
+    "13531": {
+      "t": "Ist die Verwendung des Bildes einer anderen Person in einer Anzeige mit künstlicher Intelligenz rechtlich zulässig?",
+      "e": "Rechtliche Haftung für Deepfakes in der Werbung: Nutzung fremder Bilder in Anzeigen mit künstlicher Intelligenz. Künstliche Intelligenz revolutioniert die digitale Werbung, jedoch ..."
+    },
+    "13916": {
+      "t": "Was ist eine internationale Rechtsboutique?",
+      "e": "Eine internationale Rechtsboutique ist eine Kanzlei, die sich auf grenzüberschreitende Rechtsangelegenheiten spezialisiert hat. Ihre Tätigkeit beginnt dort, wo das „Normale“ kompliziert wird: mehrere Länder, mehrere ..."
+    },
+    "14594": {
+      "t": "Wie man unlauteren Wettbewerb im digitalen Umfeld nachweist",
+      "e": "Im dynamischen Marktumfeld von heute, in dem Transaktionen in Millisekunden abgeschlossen werden und der Ruf einer Marke durch einen Algorithmus beeinträchtigt werden kann, hat das Recht ..."
+    },
+    "14617": {
+      "t": "Wie wird das Insolvenzverfahren eines internationalen Unternehmensverbunds verwaltet",
+      "e": "Die internationale Expansion ist für viele Unternehmensgruppen eine gängige Strategie. Sobald jedoch finanzielle Schwierigkeiten auftreten, verkompliziert die multinationale Struktur ..."
+    },
+    "14622": {
+      "t": "Wann ein internationales Sorgerecht juristisch nicht tragfähig ist (und warum Durchhalteversuche die Situation verschlimmern können)",
+      "e": "Ein internationales Sorgerecht ist nicht tragfähig, wenn man es im falschen Land, mit dem falschen Verfahren oder mit einer Lösung beantragt, die das Kind wirklich nicht schützt. Viele Menschen suchen..."
+    },
+    "14699": {
+      "t": "Wann können automatisierte Entscheidungen im Unternehmen ein rechtliches Risiko darstellen?",
+      "e": "Digitale Plattformen setzen Algorithmen ein, um immer bedeutendere Entscheidungen zu treffen: von der Anzeige von Inhalten über die Preisfestsetzung bis hin zur Sperrung von Konten oder der Gewährung von Krediten. Wenn ..."
+    },
+    "14873": {
+      "t": "Wo wird eine internationale Scheidung mit erheblichem Vermögen verhandelt? Wohnsitze, Staatsangehörigkeiten und Vermögenswerte zur optimalen Jurisdiktionswahl",
+      "e": "Bei einer internationalen Scheidung mit hohem Vermögen steht nicht die Frage nach dem Recht, sondern welches Land befugt ist, den Fall zu verhandeln und in welchem Umfang. Diese Wahl bestimmt die Verfahrensdauer, die Kosten, ..."
+    },
+    "14982": {
+      "t": "Internationale Entführung von Minderjährigen: Welche Unterlagen Sie heute benötigen, um zu handeln",
+      "e": "Wenn Sie eine Entführung von Minderjährigen befürchten oder bereits eine internationale Entführung erleben, arbeitet die Zeit gegen Sie. In solchen Fällen reicht ein Verdacht nicht aus. Man muss nachweisen können. Das..."
+    },
+    "14988": {
+      "t": "Wie man unbezahlte Rechnungen von ausländischen Unternehmen aus Spanien einfordert",
+      "e": "Wenn ein ausländisches Unternehmen eine Rechnung unbezahlte lässt, ist das Problem nicht nur finanzieller Natur. Für ein mittelständisches oder großes Unternehmen mit internationaler Tätigkeit bedeutet ein Nichtzahlung..."
+    },
+    "14997": {
+      "t": "Vermögen mit Krypto-Assets: Vergleichendes Recht für vermögende Mandanten",
+      "e": "Krypto-Assets sind bereits Teil des realen Vermögens vieler Familien, Gründer und Investoren. Doch wenn mehrere Länder beteiligt sind, wird das Problem nicht mehr ausschließlich technologisch. Es..."
+    },
+    "15001": {
+      "t": "Unterschied zwischen Erbe und Legatar im internationalen Recht",
+      "e": "Wie sich ein Erbe ändert, wenn das Testament ausländisch ist. In einer internationalen Erbschaft ist es nicht dasselbe, Erbe zu sein wie Legatar, und es ist auch nicht dasselbe, ein legitimes Erbe zu sein. Das..."
+    },
+    "15013": {
+      "t": "Was passiert, wenn das Kind nicht in das Herkunftsland zurückkehren möchte?",
+      "e": "Wenn eine familiäre Krise einen internationalen Aspekt hat, kann ein Satz die gesamte Strategie völlig verändern: „Mein Kind sagt, es wolle nicht zurückkehren“. In diesem Moment..."
+    },
+    "15016": {
+      "t": "ERP, technologische Beratung und Verträge: Die drei rechtlichen Fehler, die Kosten in die Höhe treiben",
+      "e": "Die Implementierung eines ERP (Enterprise Resource Planning) ist eine strategische Investition. Dieses System erleichtert die Integration in einer einzigen Plattform zentraler Unternehmensbereiche..."
+    },
+    "15079": {
+      "t": "Häufige Fehler bei internationalen Sorgerechtsregelungen",
+      "e": "Wenn ein Paar mit internationalem Leben sich trennt, beschränkt sich die Diskussion über die Kinder nicht darauf, mit wem sie die meiste Zeit verbringen oder wie die Ferien aufgeteilt werden. Bei einer Sorgerechtsregelung..."
+    },
+    "15114": {
+      "t": "Exequatur-Anwälte in Spanien: Warum RRYP Global den Unterschied macht",
+      "e": "Wenn jemand nach Exequatur-Anwälten in Spanien sucht, sucht er nicht nur eine juristische Erklärung. Er sucht eine reale Lösung. Genau das ist der Punkt, an dem RRYP Global..."
+    },
+    "15321": {
+      "t": "Wie man ein Erbe ohne Testament und ohne bekannte Erben verwaltet?",
+      "e": "Wenn eine Person ohne Testament stirbt und zudem niemand eindeutig die berechtigten Verwandten ermittelt, bleibt die Situation nicht in einem juristischen „Limbo“. In Spanien gibt es..."
+    },
+    "15327": {
+      "t": "Internationale Scheidung: Wie man die zuständige Gerichtsbarkeit auswählt und warum diese Entscheidung alles bestimmt",
+      "e": "Wenn Sie nach Anwälten für internationale Scheidungen in Spanien suchen, gibt es eine Frage, die Sie vor fast allem anderen klären müssen: Welches Land Ihren Fall behandeln soll. Es ist kein Detail...."
+    },
+    "15335": {
+      "t": "Internationale Entführung mit Spanien: Was die zentrale Behörde tun kann und wann",
+      "e": "Wenn ein Elternteil befürchtet, dass der andere das Kind in ein anderes Land mitnimmt, oder feststellt, dass er nach Urlaub, Besuch oder einer vorübergehenden Aufenthaltsdauer nicht zurückgekehrt ist, steht die Dringlichkeit im Vordergrund...."
+    },
+    "15369": {
+      "t": "Was ist eine gesetzliche Erbfolge",
+      "e": "Wenn eine Person stirbt, stellt sich zunächst die Frage: Wer erbt? Die Antwort scheint einfach, wenn ein klares und gültiges Testament vorliegt. Das ist jedoch nicht immer der Fall..."
+    },
+    "15380": {
+      "t": "Aufteilung des Zugewinns mit Kryptowährungen",
+      "e": "Wie Bitcoin und andere Krypto-Assets in einer Scheidung aufgeteilt werden. Bei der Aufteilung des Zugewinns mit Bitcoin, Ether oder Stablecoins entstehen häufige Fragen: Wem gehören..."
+    },
+    "15382": {
+      "t": "Wohnsitz, Staatsangehörigkeit und Vermögen: Schlüsselfaktoren zur Bestimmung der Gerichtsbarkeit bei einer internationalen Scheidung",
+      "e": "Was bestimmt tatsächlich die Gerichtsbarkeit bei einer internationalen Scheidung? Bei einer internationalen Scheidung ist die zentrale Frage nicht nur, wo die Klage eingereicht wird. Entscheidend ist, welches..."
+    },
+    "15389": {
+      "t": "Softwarelizenzen und internationale Nutzung: Die stillen Fehler, die das Wachstum Ihres Tech-Unternehmens bremsen",
+      "e": "Die Internationalisierung eines Technologieunternehmens scheitert selten an mangelnder Produktqualität. In der Praxis liegt das eigentliche Hindernis häufig in einem viel weniger offensichtlichen Faktor..."
+    },
+    "15404": {
+      "t": "Aufteilung des Zugewinns bei hohem Vermögen",
+      "e": "Wie Unternehmen, Immobilien und Investitionen in einer Scheidung aufzuteilen sind. Die Aufteilung des Zugewinns bei hohem Vermögen erfordert eine wesentlich gründlichere Analyse als bei einem durchschnittlichen Familienvermögen..."
+    },
+    "15414": {
+      "t": "Aufteilung von Krypto-Assets bei der Auflösung einer Zugewinngemeinschaft mit hohem Vermögen – Vollständiger Rechtsleitfaden",
+      "e": "Kryptowährungen und Scheidung: Wenn digitales Vermögen ins Spiel kommt. Die Thematik ist nicht zu unterschätzen. Im Unterschied zu traditionellen Vermögenswerten werfen Kryptowährungen rechtliche Probleme auf..."
+    },
+    "15421": {
+      "t": "Auflösung der Zugewinngemeinschaft und Aufteilung digitaler Vermögenswerte",
+      "e": "Rechtsleitfaden für eine internationale Scheidung mit hohem Vermögen. Digitale Vermögenswerte können einen wesentlichen Teil des Familienvermögens darstellen oder als Investitionsvehikel, Wertreserve oder Kanal dienen..."
+    },
+    "15428": {
+      "t": "Ausnahme bei erheblichem Risiko in der internationalen Kindesentführung",
+      "e": "Wann die Rückgabe verhindert werden kann. Wenn ein Elternteil entdeckt, dass das Kind ohne Zustimmung in ein anderes Land verlegt wurde oder ein Plan dafür besteht, spricht man von..."
+    },
+    "22409": {
+      "t": "Konflikte zwischen Gründern und ausländischen Investoren: Wie Kontrolle und Unternehmenswert zu schützen sind",
+      "e": "Rechtliche Schlüsselpunkte, um Blockaden vorzubeugen, Gesellschaftervereinbarungen zu verhandeln und Kontrolle sowie Wert des Unternehmens zu schützen. Konflikte zwischen Gründern und ausländischen Investoren können..."
+    },
+    "22545": {
+      "t": "Internationale Gerichtsbarkeit in Spanien: Wo ist die Klage einzureichen?",
+      "e": "Wie das zuständige Gericht zu ermitteln, parallele Verfahren zu vermeiden und eine wirksame Gerichtsbarkeit zu wählen, wenn ein Konflikt mehrere Länder betrifft. Internationale Gerichtsbarkeit..."
+    },
+    "22637": {
+      "t": "Internationale Kindesentführung nach genehmigter Reise: Kann mein Ex-Partner unser Kind im Ausland behalten?",
+      "e": "Wann ein genehmigter vorübergehender Aufenthalt zu einer unrechtmäßigen Festhaltung werden kann und welche Maßnahmen zu ergreifen sind, um die Rückkehr des Kindes zu verlangen. Die Erlaubnis, dass ein Kind reist..."
+    },
+    "23800": {
+      "t": "Schadensersatz wegen Vertragsverletzung eines internationalen Vertrags: Wie Verluste und entgangenen Gewinn nachzuweisen sind",
+      "e": "Was ein Unternehmen nachweisen muss, um eine Entschädigung zu verlangen, wenn ein ausländischer Lieferant, Vertriebspartner oder Kunde seine Pflichten verletzt. Ein ausländischer Lieferant liefert nicht..."
+    }
+  },
+  "pt": {
+    "13325": {
+      "t": "Absolvição de cliente por delitos de lesões e ameaças",
+      "e": "A Audiência Provincial absolve um dos nossos clientes da RRYP Global acusado de delitos de lesões e ameaças. Conheça como a nossa equipa conseguiu demonstrar a falta de provas e..."
+    },
+    "13352": {
+      "t": "Convenção de medidas paternofiliais internacionais",
+      "e": "Gestão de acordos paternofiliais entre países distintos. Na RRYP Global estamos a intervir num complexo processo de negociação de medidas paternofiliais no qual os..."
+    },
+    "13410": {
+      "t": "Como conceder um poder notarial para litígios na Espanha",
+      "e": "Quais são os requisitos legais e o procedimento para conceder um poder notarial para litígios na Espanha quando o outorgante se encontra no estrangeiro? Quando uma pessoa que vive..."
+    },
+    "13436": {
+      "t": "Tratados internacionais: o que são, como se assinam e como obrigam os Estados",
+      "e": "Entender o que são, como se assinam e quais efeitos produzem no Direito espanhol não é apenas um interesse académico: é fundamental para empresas que operam em vários países, para investidores, para..."
+    },
+    "13480": {
+      "t": "O papel do Ministério Fiscal na Espanha",
+      "e": "O Ministério Fiscal é uma peça-chave do sistema judicial espanhol. A sua missão é defender a legalidade, os direitos dos cidadãos e o interesse público. Atua em todo tipo de..."
+    },
+    "13523": {
+      "t": "Diferenças entre julgamento ordinário e verbal",
+      "e": "Julgamento ordinário vs. julgamento verbal: diferenças, quantias e estratégia. Dois “caminhos” para um mesmo objetivo: uma sentença civil. Quem se aproxima pela primeira vez da jurisdição civil..."
+    },
+    "13531": {
+      "t": "É legal usar a imagem de outra pessoa num anúncio com inteligência artificial?",
+      "e": "Responsabilidade legal por deepfakes na publicidade: uso de imagem alheia em anúncios com inteligência artificial. A inteligência artificial está a revolucionar a publicidade digital, mas..."
+    },
+    "13916": {
+      "t": "O que é uma boutique jurídica internacional?",
+      "e": "Uma boutique jurídica internacional é um despacho especializado em assuntos jurídicos com componente transfronteiriço. O seu trabalho começa onde o “normal” se complica: vários países, vários..."
+    },
+    "14594": {
+      "t": "Como provar a concorrência desleal em ambientes digitais",
+      "e": "No dinâmico cenário do mercado atual, onde as transações se concluem em milissegundos e a reputação de uma marca pode ser afetada por um algoritmo, o Direito tem..."
+    },
+    "14617": {
+      "t": "Como se gere o concurso de um grupo empresarial internacional",
+      "e": "A expansão internacional é uma estratégia habitual para muitos grupos empresariais. No entanto, quando surgem dificuldades financeiras, a estrutura multinacional complica..."
+    },
+    "14622": {
+      "t": "Quando uma custódia internacional não é juridicamente viável (e por que insistir pode agravar a situação)",
+      "e": "Uma custódia internacional não é viável quando se tenta requerer no país errado, com o procedimento errado ou com uma solução que não protege de verdade o menor. Muitas pessoas procuram..."
+    },
+    "14699": {
+      "t": "Quando podem representar um risco legal as decisões automatizadas na empresa?",
+      "e": "As plataformas digitais utilizam algoritmos para adotar decisões cada vez mais relevantes: desde mostrar conteúdo ou fixar preços até bloquear contas ou conceder crédito. Quando..."
+    },
+    "14873": {
+      "t": "Onde se tramita um divórcio internacional com património relevante? Residências, nacionalidades e bens para escolher corretamente a jurisdição",
+      "e": "Em um divórcio internacional de alto património, a questão não é quem tem razão, mas sim qual país pode conhecer do caso e com que alcance. Essa escolha condiciona tempos, custos,..."
+    },
+    "14982": {
+      "t": "Subtração internacional de menores: que documentação precisas para agir hoje.",
+      "e": "Se temes uma subtração de menores ou já estás a viver uma subtração internacional, o tempo joga contra ti. Nestes casos, não basta suspeitar. É preciso poder demonstrar. O..."
+    },
+    "14988": {
+      "t": "Como reclamar faturas impagadas a empresas estrangeiras a partir de Espanha",
+      "e": "Quando uma empresa estrangeira deixa uma fatura sem pagar, o problema não é apenas financeiro. Para uma empresa média ou grande empresa com atividade internacional, um impago..."
+    },
+    "14997": {
+      "t": "Patrimonios com criptoativos: direito comparado para clientes de alto património",
+      "e": "Os criptoativos já fazem parte do património real de muitas famílias, fundadores e investidores. Mas, quando intervêm vários países, o problema deixa de ser apenas tecnológico. Passa..."
+    },
+    "15001": {
+      "t": "Diferença entre herdeiro e legatário no direito internacional",
+      "e": "Como muda uma herança quando o testamento é estrangeiro. Numa sucessão internacional, não é o mesmo ser herdeiro que ser legatário, nem o mesmo ser legitimário. Essa..."
+    },
+    "15013": {
+      "t": "O que acontece se o menor não quiser regressar ao país de origem?",
+      "e": "Quando uma crise familiar tem um componente internacional, uma frase pode alterar completamente a estratégia: “o meu filho diz que não quer regressar”. Nesse momento, muitos pais..."
+    },
+    "15016": {
+      "t": "ERP, consultoria tecnológica e contratos: os 3 erros jurídicos que aumentam os custos",
+      "e": "A implementação de um ERP (Enterprise Resource Planning) é um investimento estratégico. Este sistema facilita a integração, numa única plataforma, de áreas-chave da empresa, como..."
+    },
+    "15079": {
+      "t": "Erros comuns em custódias internacionais",
+      "e": "Quando um casal com vida internacional se separa, a discussão sobre os filhos não se limita a decidir com quem passam mais tempo ou como se repartem as férias. Numa custódia..."
+    },
+    "15114": {
+      "t": "Advogados de exequatur em Espanha: por que a RRYP Global faz a diferença",
+      "e": "Quando alguém procura advogados de exequatur em Espanha, não está a buscar apenas uma explicação jurídica. Está a procurar uma solução real. Esse é precisamente o ponto em que a RRYP Global..."
+    },
+    "15321": {
+      "t": "Como gerir uma herança sem testamento nem herdeiros conhecidos?",
+      "e": "Quando uma pessoa falece sem testamento e, ainda, ninguém identifica claramente os familiares com direito a herdar, a situação não fica num \"limbo\" jurídico. Em Espanha existe..."
+    },
+    "15327": {
+      "t": "Divórcio internacional: como escolher o país competente e por que essa decisão condiciona tudo.",
+      "e": "Se está à procura de advogados de divórcios internacionais em Espanha, há uma questão que deve resolver antes de quase tudo: que país deve conduzir o seu caso. Não se trata de um detalhe..."
+    },
+    "15335": {
+      "t": "Subtração internacional com Espanha: o que pode fazer a Autoridade Central e quando",
+      "e": "Quando um progenitor tem receio de que o outro leve o menor para outro país, ou descobre que este ainda não regressou após umas férias, uma visita ou uma estadia temporária, a urgência domina tudo...."
+    },
+    "15369": {
+      "t": "O que é uma sucessão intestada",
+      "e": "Quando uma pessoa falece, uma das primeiras questões que surgem é: quem herda? A resposta parece simples quando existe um testamento claro e válido. Mas nem sempre acontece..."
+    },
+    "15380": {
+      "t": "Liquidação de bens comuns com criptomoedas",
+      "e": "Como se partilham Bitcoin e outros cripto‑activos num divórcio. Numa liquidação de bens comuns com Bitcoin, ether ou stablecoins, surgem várias dúvidas muito comuns: de quem são..."
+    },
+    "15382": {
+      "t": "Residências, nacionalidades e património: chaves para determinar a jurisdição num divórcio internacional",
+      "e": "O que determina realmente a jurisdição num divórcio internacional? Num divórcio internacional, a questão chave não é apenas onde apresentar a ação. A questão decisiva é o que..."
+    },
+    "15389": {
+      "t": "Licenças de software e exploração internacional: os erros silenciosos que impedem a expansão da sua empresa tecnológica",
+      "e": "A internacionalização de uma empresa tecnológica raramente fracassa por falta de qualidade do produto. Na prática, o verdadeiro obstáculo costuma estar num elemento muito menos..."
+    },
+    "15404": {
+      "t": "Liquidação de bens comuns para alto património",
+      "e": "Como repartir empresas, imóveis e investimentos num divórcio. A liquidação de bens comuns para alto património exige uma análise muito mais rigorosa do que a de um património familiar..."
+    },
+    "15414": {
+      "t": "Partilha de cripto‑activos numa liquidação de bens comuns de alto património – Guia jurídico completo",
+      "e": "Criptomoedas e divórcio: quando o património digital entra em jogo. A questão não é menor. Ao contrário de outros ativos tradicionais, as criptomoedas levantam problemas jurídicos..."
+    },
+    "15421": {
+      "t": "Liquidação da sociedade conjugal e partilha de ativos digitais",
+      "e": "Guia jurídico para um divórcio internacional de alto património. Podem representar uma parte substancial do património familiar ou servir como veículo de investimento, reserva de valor ou canal..."
+    },
+    "15428": {
+      "t": "Exceção de grave risco na subtração internacional de menores",
+      "e": "Quando pode impedir a restituição. Quando um progenitor descobre que o seu filho foi trasladado para outro país sem consentimento, ou que existe um plano para o fazer, é denominado..."
+    },
+    "22409": {
+      "t": "Conflitos entre fundadores e investidores estrangeiros: como proteger o controlo e o valor da empresa",
+      "e": "Chaves jurídicas para antecipar bloqueios, negociar o pacto de sócios e proteger o controlo e o valor da empresa. Os conflitos entre fundadores e investidores estrangeiros podem..."
+    },
+    "22545": {
+      "t": "Competência judicial internacional em Espanha: onde deve apresentar a sua ação?",
+      "e": "Como identificar o tribunal competente, evitar procedimentos paralelos e escolher uma jurisdição eficaz quando um conflito afeta vários países. A competência judicial internacional..."
+    },
+    "22637": {
+      "t": "Subtração internacional de menores após uma viagem autorizada: pode o meu ex‑parceiro ficar com o nosso filho noutro país?",
+      "e": "Quando uma estadia temporária consentida pode transformar‑se numa retenção ilícita e que medidas devem ser adotadas para solicitar o retorno do menor. Autorizar que um filho viaje ao..."
+    },
+    "23800": {
+      "t": "Danos e prejuízos por incumprimento de um contrato internacional: como comprovar as perdas e o lucro cessante",
+      "e": "O que uma empresa deve demonstrar para reclamar uma indemnização quando um fornecedor, distribuidor ou cliente estrangeiro incumpre as suas obrigações. Um fornecedor estrangeiro não entrega um..."
+    }
+  },
+  "ru": {
+    "13325": {
+      "t": "Оправдание клиента по обвинениям в причинении телесных повреждений и угрозах",
+      "e": "Провинциальный суд оправдал одного из наших клиентов RRYP Global, обвиняемого в преступлениях, связанных с причинением телесных повреждений и угрозами. Узнайте, как наша команда доказала отсутствие доказательств и..."
+    },
+    "13352": {
+      "t": "Международное соглашение о родительско-детских мерах",
+      "e": "Управление родительско-детскими соглашениями между разными странами. В RRYP Global мы участвуем в сложном процессе переговоров о родительско-детских мерах, в котором..."
+    },
+    "13410": {
+      "t": "Как оформить нотариальную доверенность для судебных разбирательств в Испании",
+      "e": "Каковы юридические требования и процедура оформления нотариальной доверенности для судебных разбирательств в Испании, если доверитель находится за границей? Когда лицо, проживающее..."
+    },
+    "13436": {
+      "t": "Международные договоры: что это, как они подписываются и как обязывают государства",
+      "e": "Понимание того, что такое международные договоры, как они подписываются и какие последствия они имеют в испанском праве, не является лишь академическим интересом: это важно для компаний, работающих в нескольких странах, инвесторов, для..."
+    },
+    "13480": {
+      "t": "Роль прокуратуры в Испании",
+      "e": "Прокуратура является ключевым элементом испанской судебной системы. Ее миссия — защищать законность, права граждан и общественный интерес. Она действует во всех типах..."
+    },
+    "13523": {
+      "t": "Различия между обычным и устным судом",
+      "e": "Обычный суд vs. устный суд: различия, суммы и стратегия. Два «трека» к одной цели: гражданское решение. Тот, кто впервые обращается в гражданскую юрисдикцию..."
+    },
+    "13531": {
+      "t": "Разрешено ли использовать изображение другого лица в рекламе с применением искусственного интеллекта?",
+      "e": "Юридическая ответственность за дипфейки в рекламе: использование чужого изображения в рекламных роликах с искусственным интеллектом. Искусственный интеллект революционизирует цифровую рекламу, но..."
+    },
+    "13916": {
+      "t": "Что такое международная юридическая бутик?",
+      "e": "Международная юридическая бутик — это фирма, специализирующаяся на правовых вопросах с трансграничным компонентом. Ее работа начинается там, где «обычное» усложняется: несколько стран, несколько..."
+    },
+    "14594": {
+      "t": "Как доказать недобросовестную конкуренцию в цифровой среде",
+      "e": "В динамичном современном рынке, где сделки завершаются за миллисекунды, а репутация бренда может быть затронута алгоритмом, право столкнулось с..."
+    },
+    "14617": {
+      "t": "Как управлять конкурсным процессом международной группы компаний",
+      "e": "Международная экспансия является обычной стратегией для многих корпоративных групп. Однако при возникновении финансовых трудностей многонациональная структура усложняет..."
+    },
+    "14622": {
+      "t": "Когда международное опекунство юридически недопустимо (и почему настойчивость может ухудшить ситуацию)",
+      "e": "Международное опекунство недопустимо, когда его запрашивают в неверной стране, через неверный путь или с решением, которое не обеспечивает реальную защиту ребёнка. Многие ищут..."
+    },
+    "14699": {
+      "t": "Когда автоматизированные решения в компании могут представлять юридический риск?",
+      "e": "Цифровые платформы используют алгоритмы для принятия всё более значимых решений: от показа контента и установления цен до блокировки аккаунтов и предоставления кредита. Когда..."
+    },
+    "14873": {
+      "t": "Где рассматривается международный развод с существенным имуществом? Резиденции, гражданства и активы для правильного выбора юрисдикции",
+      "e": "В международном разводе с высоким уровнем имущества вопрос не в том, кто прав, а в том, какая страна может рассмотреть дело и с каким охватом. Этот выбор определяет сроки, затраты,..."
+    },
+    "14982": {
+      "t": "Международное похищение несовершеннолетних: какая документация необходима для действий сегодня.",
+      "e": "Если вы опасаетесь похищения несовершеннолетних или уже переживаете международное похищение, время играет против вас. В таких случаях недостаточно просто подозревать. Необходимо доказать. Э..."
+    },
+    "14988": {
+      "t": "Как предъявить претензии за неоплаченные счета иностранным компаниям из Испании.",
+      "e": "Когда иностранная компания оставляет неоплаченный счет, проблема не только финансовая. Для средней или крупной компании с международной деятельностью неоплата..."
+    },
+    "14997": {
+      "t": "Наследства с криптоактивами: сравнительное право для клиентов высокого статуса",
+      "e": "Криптоактивы уже являются частью реального имущества многих семей, основателей и инвесторов. Однако, когда вовлечены несколько стран, проблема перестаёт быть только технологической. Происходит..."
+    },
+    "15001": {
+      "t": "Разница между наследником и лейгатари в международном праве",
+      "e": "Как меняется наследство, когда завещание иностранное. В международном наследовании не то же самое, что быть наследником, что быть лейгатари, и не то же самое, что быть легитимари. Это..."
+    },
+    "15013": {
+      "t": "Что происходит, если несовершеннолетний не хочет возвращаться в страну происхождения?",
+      "e": "Когда семейный кризис имеет международный компонент, фраза может полностью изменить стратегию: «мой ребёнок говорит, что не хочет возвращаться». В этот момент многие родители..."
+    },
+    "15016": {
+      "t": "ERP, технологический консалтинг и контракты: три юридических ошибки, разжигающие расходы",
+      "e": "Внедрение ERP (Enterprise Resource Planning) является стратегической инвестицией. Эта система облегчает интеграцию ключевых областей компании в единую платформу..."
+    },
+    "15079": {
+      "t": "Распространённые ошибки в международных опекунствах",
+      "e": "Когда пара с международной жизнью расстаётся, обсуждение детей не ограничивается тем, с кем они проводят больше времени или как распределяются отпуска. В опекунстве..."
+    },
+    "15114": {
+      "t": "Адвокаты по экзекуатур в Испании: почему RRYP Global выделяется",
+      "e": "Когда кто‑то ищет адвокатов по экзекуатур в Испании, он не ищет только юридическое разъяснение. Он ищет реальное решение. Именно в этом RRYP Global..."
+    },
+    "15321": {
+      "t": "Как управлять наследством без завещания и известных наследников?",
+      "e": "Когда человек умирает без завещания и, кроме того, никто не определяет с точностью родственников, имеющих право на наследство, ситуация не остаётся в юридическом «лимбо». В Испании существует..."
+    },
+    "15327": {
+      "t": "Международный развод: как выбрать компетентную страну и почему это решение определяет всё",
+      "e": "Если вы ищете адвокатов по международным разводам в Испании, есть вопрос, который необходимо решить прежде, чем почти любой другой: какая страна будет рассматривать ваш случай. Это не просто деталь..."
+    },
+    "15335": {
+      "t": "Международное похищение с участием Испании: что может сделать Центральный орган и в какие сроки",
+      "e": "Когда один из родителей опасается, что другой заберет несовершеннолетнего в другую страну, или обнаруживает, что он не вернулся после отпуска, визита или временного пребывания, срочность охватывает всё..."
+    },
+    "15369": {
+      "t": "Что такое наследование без завещания",
+      "e": "Когда человек умирает, один из первых вопросов: кто наследует? Ответ кажется простым, если существует ясный и действительный завещание. Но это не всегда так..."
+    },
+    "15380": {
+      "t": "Ликвидация совместного имущества с криптовалютами",
+      "e": "Как распределяются биткойн и другие криптоактивы при разводе. При ликвидации совместного имущества с биткойном, эфиром или стейблкоинами часто возникают вопросы: кому принадлежат..."
+    },
+    "15382": {
+      "t": "Места жительства, гражданства и имущество: ключевые факторы определения юрисдикции в международном разводе",
+      "e": "Что действительно определяет юрисдикцию в международном разводе? В международном разводе ключевой вопрос не только где подавать иск. Решающее значение имеет то, что..."
+    },
+    "15389": {
+      "t": "Лицензии на программное обеспечение и международная эксплуатация: скрытые ошибки, тормозящие расширение вашей технологической компании",
+      "e": "Интернационализация технологической компании редко проваливается из‑за низкого качества продукта. На практике реальное препятствие обычно кроется в гораздо менее заметном элементе..."
+    },
+    "15404": {
+      "t": "Ликвидация совместного имущества при высоком уровне благосостояния",
+      "e": "Как распределять компании, недвижимость и инвестиции при разводе. Ликвидация совместного имущества при высоком благосостоянии требует гораздо более строгого анализа, чем при семейном имуществе..."
+    },
+    "15414": {
+      "t": "Распределение криптоактивов при ликвидации совместного имущества высокоимущих: полное юридическое руководство",
+      "e": "Криптовалюты и развод: когда цифровое имущество вступает в игру. Вопрос не мал. В отличие от традиционных активов, криптовалюты создают юридические проблемы..."
+    },
+    "15421": {
+      "t": "Ликвидация супружеской совместной собственности и распределение цифровых активов",
+      "e": "Юридическое руководство по международному разводy с высоким имуществом. Цифровые активы могут представлять значительную часть семейного капитала или служить инвестиционным инструментом, резервом стоимости или каналом..."
+    },
+    "15428": {
+      "t": "Исключение тяжёлого риска при международном похищении несовершеннолетних",
+      "e": "Когда может быть препятствием возврат. Когда родитель обнаруживает, что ребёнок был перевезён в другую страну без согласия, или существует план его перемещения, это называется..."
+    },
+    "22409": {
+      "t": "Конфликты между учредителями и иностранными инвесторами: как защитить контроль и стоимость компании",
+      "e": "Юридические ключи для предвидения блокировок, переговоров о соглашении учредителей и защиты контроля и стоимости компании. Конфликты между учредителями и иностранными инвесторами могут..."
+    },
+    "22545": {
+      "t": "Международная подсудность в Испании: где следует подавать иск?",
+      "e": "Как определить компетентный суд, избежать параллельных процедур и выбрать эффективную юрисдикцию, когда конфликт затрагивает несколько стран. Международная подсудность..."
+    },
+    "22637": {
+      "t": "Международное похищение несовершеннолетних после разрешённого путешествия: может ли мой бывший партнёр удержать нашего ребёнка в другой стране?",
+      "e": "Когда согласованное временное пребывание может превратиться в незаконное удержание и какие меры следует принять для требования возвращения ребёнка. Разрешить ребёнку поездку в..."
+    },
+    "23800": {
+      "t": "Убытки и компенсация за неисполнение международного контракта: как доказать понесённые потери и упущенную выгоду",
+      "e": "Что должна доказать компания, чтобы потребовать компенсацию, когда иностранный поставщик, дистрибьютор или клиент нарушает свои обязательства. Иностранный поставщик не поставляет..."
+    }
+  },
+  "zh": {
+    "13325": {
+      "t": "因伤害与威胁罪名为客户辩护获无罪判决",
+      "e": "省级法院宣判我们RRYP Global的客户在伤害与威胁罪指控中无罪。了解我们的团队如何证明证据不足，..."
+    },
+    "13352": {
+      "t": "国际父母子女措施协定",
+      "e": "跨国父母子女措施协议的管理。RRYP Global正参与一项复杂的跨国父母子女措施谈判，涉及..."
+    },
+    "13410": {
+      "t": "如何在西班牙为诉讼授予公证委托书",
+      "e": "当委托人在国外时，授予在西班牙进行诉讼的公证委托书的法律要求与程序是什么？居住在国外的当事人需要遵循的步骤包括..."
+    },
+    "13436": {
+      "t": "国际条约：概念、签署程序及对国家的约束力",
+      "e": "了解国际条约的定义、签署程序及其在西班牙法中的效力，不仅是学术议题，更是跨国企业、投资者等的重要依据，..."
+    },
+    "13480": {
+      "t": "西班牙检察院的职能",
+      "e": "检察院是西班牙司法体系的核心机构，职责是维护法律、保障公民权利及公共利益，参与各类诉讼与监督活动，..."
+    },
+    "13523": {
+      "t": "普通审判与简易审判的区别",
+      "e": "普通审判与简易审判：区别、标的额及策略。两条通向同一目标的路径——民事判决，首次接触民事管辖的当事人应了解..."
+    },
+    "13531": {
+      "t": "在人工智能广告中使用他人形象是否合法？",
+      "e": "深度伪造在广告中的法律责任：使用他人形象的AI广告。人工智能正革新数字广告，但也带来侵权风险，..."
+    },
+    "13916": {
+      "t": "什么是国际法律精品事务所？",
+      "e": "国际法律精品事务所是专注跨境法律事务的律所。其业务起始于常规法律难以适用的情形：涉及多个国家、多个法域，..."
+    },
+    "14594": {
+      "t": "如何在数字环境中证明不正当竞争",
+      "e": "在当今交易以毫秒计、品牌声誉可能受算法影响的动态市场中，法律已对不正当竞争制定了相应的举证标准，..."
+    },
+    "14617": {
+      "t": "如何处理国际企业集团的破产程序",
+      "e": "国际扩张是许多企业集团的常见策略。然而，当出现财务困难时，多国结构会使破产程序更加复杂，..."
+    },
+    "14622": {
+      "t": "何时国际监护在法律上不可行（以及为何坚持可能使情况恶化）",
+      "e": "当在错误的国家、错误的程序或错误的方案下请求国际监护时，国际监护在法律上不可行……"
+    },
+    "14699": {
+      "t": "企业自动化决策何时可能构成法律风险？",
+      "e": "数字平台利用算法做出日益重要的决策：从内容展示、价格设定到账户封禁或授信。此类决策在何种情况下可能引发法律风险，..."
+    },
+    "14873": {
+      "t": "在涉及重大财产的国际离婚应在哪里办理？居住地、国籍及财产如何选择适当的管辖权",
+      "e": "在高额财产的国际离婚中，关键不是谁对，而是哪个国家有权审理案件以及审理范围。此选择决定了时间、费用等因素，..."
+    },
+    "14982": {
+      "t": "国际拐带未成年人：当下行动所需文件",
+      "e": "若您担心未成年人被拐带，或已在经历国际拐带，时间对您不利。"
+    },
+    "14988": {
+      "t": "如何在西班牙向外国企业追讨未付款发票",
+      "e": "当一家外国公司未支付发票时，问题不仅是财务上的。"
+    },
+    "14997": {
+      "t": "拥有加密资产的财产：高净值客户的比较法",
+      "e": "加密资产已成为许多家庭、创始人和投资者的实际资产。"
+    },
+    "15001": {
+      "t": "国际法中继承人和遗赠受益人之间的区别",
+      "e": "当遗嘱为外国时，遗产如何变化？在国际继承中，继承人、遗赠受益人和法定继承人之间的区别……"
+    },
+    "15013": {
+      "t": "若未成年人不愿返回原籍国会怎样？",
+      "e": "当家庭危机具有国际成分时，一句话可能彻底改变策略：“我的孩子说不想回去”。"
+    },
+    "15016": {
+      "t": "ERP、技术咨询与合同：三大法律错误导致成本激增",
+      "e": "ERP（企业资源规划）实施是一项战略性投资。该系统有助于将企业关键领域整合到单一平台……"
+    },
+    "15079": {
+      "t": "国际监护中的常见错误",
+      "e": "当拥有国际生活的夫妻分离时，关于子女的争议并不局限于决定与谁共度更多时间或如何分配假期。"
+    },
+    "15114": {
+      "t": "西班牙执行判决律师：为何RRYP Global脱颖而出",
+      "e": "当有人在西班牙寻找执行判决律师时，他们并非仅仅寻求法律解释，而是寻求实际解决方案。正是这一点使RRYP Global……"
+    },
+    "15321": {
+      "t": "如何处理无遗嘱且无已知继承人的遗产？",
+      "e": "当有人在无遗嘱的情况下去世，且没有人明确识别有继承权的亲属时，情况不会陷入法律“悬而未决”。在西班牙，存在……"
+    },
+    "15327": {
+      "t": "国际离婚：如何选择有管辖权的国家以及为何此决定决定一切",
+      "e": "若您正在寻找西班牙的国际离婚律师，您必须先解决的一个问题几乎比其他任何问题都更重要：哪个国家应受理您的案件。这并非细节……"
+    },
+    "15335": {
+      "t": "与西班牙相关的国际拐带：中央当局可采取的措施及其时机",
+      "e": "当一方父母担心另一方将未成年人带至他国，或发现其在度假、探亲或短期停留后未归时，紧迫性将占据一切……"
+    },
+    "15369": {
+      "t": "何为无遗嘱继承",
+      "e": "当人去世时，首先会问：谁是继承人？若有明确有效的遗嘱，答案似乎简单。但情况并非总是如此……"
+    },
+    "15380": {
+      "t": "加密货币共同财产清算",
+      "e": "离婚时比特币及其他加密资产如何分割——在比特币、以太坊或稳定币的共同财产清算中，常见的疑问包括：这些资产归属……"
+    },
+    "15382": {
+      "t": "居住地、国籍与财产：确定国际离婚管辖权的关键",
+      "e": "究竟是什么决定国际离婚的管辖权？在国际离婚中，关键问题不仅是在哪里提起诉讼，而是……"
+    },
+    "15389": {
+      "t": "软件许可与国际运营：阻碍科技企业扩张的隐性错误",
+      "e": "科技企业的国际化很少因产品质量不足而失败。实际上，真正的障碍往往出现在一个不太显眼的环节……"
+    },
+    "15404": {
+      "t": "高净值共同财产清算",
+      "e": "离婚时如何分割企业、房地产及投资——高净值共同财产清算需要比普通家庭更为严格的分析……"
+    },
+    "15414": {
+      "t": "高净值共同财产清算中的加密资产分割：完整法律指南",
+      "e": "加密货币与离婚：数字财产介入时的法律问题并非小事。与传统资产不同，加密货币带来法律难题……"
+    },
+    "15421": {
+      "t": "夫妻共同财产清算及数字资产分割",
+      "e": "高净值国际离婚的法律指南——数字资产可能构成家庭财富的重要部分，亦可作为投资工具、价值储备或渠道……"
+    },
+    "15428": {
+      "t": "国际拐带未成年人中的重大风险例外",
+      "e": "何时可以阻止返还——当父母发现子女被未经同意转移至他国，或存在转移计划时，即构成……"
+    },
+    "22409": {
+      "t": "创始人与外国投资者之间的冲突：如何保护公司的控制权和价值",
+      "e": "预防僵局、谈判股东协议并保护公司控制权与价值的法律要点。创始人与外国投资者之间的冲突可能……"
+    },
+    "22545": {
+      "t": "西班牙国际司法管辖权：应在何处提起诉讼？",
+      "e": "如何识别有管辖权的法院，避免平行程序，并在冲突涉及多个国家时选择有效的管辖地。国际司法管辖权……"
+    },
+    "22637": {
+      "t": "经授权旅行后国际拐带未成年人：我的前配偶能否在他国扣留我们的子女？",
+      "e": "何时经同意的临时停留会演变为非法扣押，以及应采取何种措施请求未成年人归还。授权子女出行至……"
+    },
+    "23800": {
+      "t": "国际合同违约损害赔偿：如何确认损失及可得利益",
+      "e": "企业在外国供应商、分销商或客户违约时，主张赔偿必须证明的要点。外国供应商未交付……"
+    }
+  }
+}

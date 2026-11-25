@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { FIRM } from "../../data/firm";
+import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = getDictionary(lang);
+---
+
+<BaseLayout
+  lang={lang}
+  slug="careers"
+  title={t.metaCareersTitle}
+  description={t.metaCareersDesc}
+  ogImage={FIRM.photos.editorial}
+  breadcrumbLabel={t.bcCareers}
+>
+  <section class="subhero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.ariaBreadcrumb}>
+        <a href={localizedPath(lang)}>{t.bcHome}</a>
+        <span>/</span>
+        <span>{t.bcCareers}</span>
+      </nav>
+
+      <div class="subhero-grid">
+        <div>
+          <p class="eyebrow hero-anim">{t.bcCareers}</p>
+          <h1 class="hero-title hero-anim hero-anim--d1" set:html={t.careersHeroTitle} />
+          <p class="hero-lead hero-anim hero-anim--d2">{t.careersHeroLead}</p>
+        </div>
+
+        <aside class="subhero-aside hero-anim hero-anim--d3">
+          <p class="subhero-aside-label">{t.careersAsideLabel}</p>
+          <p>{t.careersAsideText}</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-cream">
+    <div class="container">
+      <div class="scope-grid">
+        <article class="scope-item">
+          <h3>{t.careersRole1Title}</h3>
+          <p>{t.careersRole1Desc}</p>
+        </article>
+        <article class="scope-item">
+          <h3>{t.careersRole2Title}</h3>
+          <p>{t.careersRole2Desc}</p>
+        </article>
+      </div>
+      <div class="blog-pagination">
+        <a href={`mailto:${FIRM.email}?subject=Careers%20RRYP%20Global`} class="btn btn--dark">
+          {t.careersCta}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

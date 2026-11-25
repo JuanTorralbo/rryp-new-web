@@ -1,0 +1,77 @@
+---
+import "../styles/global.css";
+import { FIRM } from "../data/firm";
+import { DEFAULT_LOCALE, LOCALE_LABELS, LOCALES, localizedPath } from "../i18n";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RRYP Global | International Legal Boutique</title>
+    <meta
+      name="description"
+      content="RRYP Global International Legal Boutique. Private Clients, Private Wealth, and Business Disputes from Madrid, Málaga, and Córdoba in six languages."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0E1211" />
+    <link rel="icon" type="image/png" href="/assets/logos/favicon.png" />
+    <link rel="canonical" href={`${FIRM.siteUrl}/en/`} />
+    {LOCALES.map((loc) => (
+      <link rel="alternate" hreflang={loc} href={`${FIRM.siteUrl}${localizedPath(loc)}`} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={`${FIRM.siteUrl}${localizedPath(DEFAULT_LOCALE)}`} />
+    <script is:inline>
+      (function () {
+        var ua = navigator.userAgent || "";
+        if (/bot|crawl|spider|slurp|facebookexternalhit|linkedinbot|gptbot|claudebot|perplexitybot/i.test(ua)) {
+          return;
+        }
+        var supported = ["es", "en", "de", "pt", "ru", "zh"];
+        var m = document.cookie.match(/(?:^|;\s*)rryp_lang=([a-z]{2})/);
+        var saved = m ? m[1] : null;
+        if (!saved) {
+          try { saved = localStorage.getItem("rryp_lang"); } catch (_) {}
+        }
+        var target = supported.indexOf(saved) !== -1 ? saved : null;
+        if (!target) {
+          var navLangs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
+          for (var i = 0; i < navLangs.length; i++) {
+            var code = String(navLangs[i] || "").toLowerCase().split("-")[0];
+            if (supported.indexOf(code) !== -1) {
+              target = code;
+              break;
+            }
+          }
+        }
+        window.location.replace("/" + (target || "en") + "/");
+      })();
+    </script>
+  </head>
+  <body style="background-color: #0E1211; color: #F7F4ED; min-height: 100vh; display: flex; align-items: center;">
+    <main class="container" style="padding: 64px 0; max-width: 780px;">
+      <img src="/assets/logos/rryp-logo-gold.webp" alt="RRYP Global" width="219" height="80" style="height: 44px; width: auto; margin-bottom: 32px;" />
+      <p class="eyebrow">International Legal Boutique</p>
+      <h1 class="hero-title" style="font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 18px;">
+        RRYP Global
+      </h1>
+      <p class="hero-lead" style="margin-bottom: 32px;">
+        Madrid, Málaga (Marbella and Costa del Sol area) and Córdoba. Select your official language edition:
+      </p>
+      <nav aria-label="Language editions" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px;">
+        {LOCALES.map((loc) => (
+          <a
+            href={localizedPath(loc)}
+            hreflang={loc}
+            class="btn btn--outline-dark"
+            style="justify-content: space-between; width: 100%;"
+          >
+            <span>{LOCALE_LABELS[loc].native}</span>
+            <span style="color: #B89B5E;">/{loc}/</span>
+          </a>
+        ))}
+      </nav>
+    </main>
+  </body>
+</html>

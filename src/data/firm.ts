@@ -1,0 +1,95 @@
+/**
+ * Fuente unica de verdad de los datos reales de RRYP Global.
+ * Regla obligatoria: cero datos inventados, exactamente 3 sedes reales.
+ */
+
+export const FIRM = {
+  brand: "RRYP Global",
+  legalName: "RELACIONATEYPUNTO S.L.",
+  siteUrl: "https://rrypglobal.com",
+  phone: "+34 957 858 952",
+  phoneHref: "tel:+34957858952",
+  whatsappUrl: "https://wa.me/34957858952",
+  email: "info@rrypglobal.com",
+  emailHref: "mailto:info@rrypglobal.com",
+  socials: [
+    { label: "LinkedIn", url: "https://www.linkedin.com/company/rryp-abogados/" },
+    { label: "Instagram", url: "https://www.instagram.com/rrypglobal_abogados/" },
+    { label: "YouTube", url: "https://www.youtube.com/@RRYPGlobal_PodcastAbogados" },
+    { label: "Substack", url: "https://relacionateypunto.substack.com/" },
+  ],
+  calendly: {
+    initial: "https://calendly.com/rrypglobal-info/30min",
+    legal: "https://calendly.com/rryp/consulta-legal",
+    urgent: "https://calendly.com/rryp/consulta_legal_urgente",
+  },
+  legalLinks: {
+    notice: "https://rrypglobal.com/aviso-legal-y-terminos-de-uso/",
+    terms: "https://rrypglobal.com/condiciones-generales-de-contratacion/",
+    cookies: "https://rrypglobal.com/politica-de-cookies/",
+    privacy: "https://rrypglobal.com/politica-de-privacidad-y-proteccion-de-datos/",
+  },
+  guides: {
+    divorcePdf: "https://rrypglobal.com/wp-content/uploads/2026/05/guia_divorcio_internacional_rryp_global.pdf",
+    abductionPdf: "https://rrypglobal.com/wp-content/uploads/edd/2026/05/guia_sustraccion_internacional_menores_rryp_global.pdf",
+  },
+  offices: [
+    {
+      id: "madrid",
+      slug: "madrid",
+      city: "Madrid",
+      street: "Pº de la Castellana 40, 8ª",
+      postalCode: "28046",
+      fullAddress: "Pº de la Castellana 40, 8ª, 28046 Madrid",
+      photo: "/assets/photos/editorial-madrid.webp?v=hd2",
+      lat: 40.4328,
+      lng: -3.6889,
+      hasServiceAreaNote: false,
+    },
+    {
+      id: "malaga",
+      slug: "malaga",
+      city: "Málaga",
+      street: "C/ Martínez Campos 16, 3D",
+      postalCode: "29001",
+      fullAddress: "C/ Martínez Campos 16, 3D, 29001 Málaga",
+      photo: "/assets/photos/hero-malaga-reuniones.webp?v=hd2",
+      lat: 36.7166,
+      lng: -4.4227,
+      hasServiceAreaNote: true,
+    },
+    {
+      id: "cordoba",
+      slug: "cordoba",
+      city: "Córdoba",
+      street: "Avda. Sta. Mª de Trassierra 98",
+      postalCode: "14011",
+      fullAddress: "Avda. Sta. Mª de Trassierra 98, 14011 Córdoba",
+      photo: "/assets/photos/editorial-cordoba.webp?v=hd2",
+      lat: 37.8965,
+      lng: -4.7927,
+      hasServiceAreaNote: false,
+    },
+  ] as const,
+  photos: {
+    hero: "/assets/photos/editorial-cordoba.webp?v=hd2",
+    editorial: "/assets/photos/hero-socias.webp?v=hd2",
+  },
+  team: [
+    { id: "mar-gamez", name: "Mar Gámez", roleKey: "roleMarGamez", bioKey: "bioMarGamez", photo: "/assets/photos/mar-gamez.webp?v=hd3" },
+    { id: "mar-ramirez", name: "Mar Ramírez", roleKey: "roleMarRamirez", bioKey: "bioMarRamirez", photo: "/assets/photos/mar-ramirez.webp?v=hd3" },
+    { id: "antonio-munoz", name: "Antonio Muñoz", roleKey: "roleAntonio", bioKey: "bioAntonio", photo: "/assets/photos/antonio-munoz.webp?v=hd3" },
+    { id: "gonzalo-garcia", name: "Gonzalo García", roleKey: "roleGonzalo", bioKey: "bioGonzalo", photo: "/assets/photos/gonzalo-garcia.webp?v=hd3" },
+    { id: "rosa-gamez", name: "Rosa Gámez", roleKey: "roleRosa", bioKey: "bioRosa", photo: "/assets/photos/rosa-gamez.webp?v=hd3" },
+  ] as const,
+  institutions: [
+    "Universidad Loyola",
+    "EOI",
+    "EUDE Business School",
+    "Cámara de Comercio de Málaga",
+    "Cámara de Comercio de Tenerife",
+    "Promálaga",
+    "IMDEEC",
+    "IPRODECO",
+  ],
+} as const;

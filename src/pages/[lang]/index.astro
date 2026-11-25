@@ -1,0 +1,708 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EntryRoutes from "../../components/EntryRoutes.astro";
+import { FIRM } from "../../data/firm";
+import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = getDictionary(lang);
+
+const faqItems = [
+  { q: t.faq1Q, a: t.faq1A },
+  { q: t.faq2Q, a: t.faq2A },
+  { q: t.faq3Q, a: t.faq3A },
+  { q: t.faq4Q, a: t.faq4A },
+  { q: t.faq5Q, a: t.faq5A },
+  { q: t.faq6Q, a: t.faq6A },
+];
+
+const faqSchema = {
+  "@type": "FAQPage",
+  "@id": `${FIRM.siteUrl}${localizedPath(lang)}#faq`,
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
+const homeIntelCards = [
+  {
+    pillar: "Business Disputes",
+    date: "2026-11-10",
+    title: t.intel1Title,
+    url: "https://rrypglobal.com/danos-perjuicios-incumplimiento-contrato-internacional/",
+  },
+  {
+    pillar: "Private Wealth",
+    date: "2026-04-10",
+    title: t.intel2Title,
+    url: "https://rrypglobal.com/liquidacion-internacional-de-gananciales-para-alto-patrimonio/",
+  },
+  {
+    pillar: "Private Clients",
+    date: "2026-04-09",
+    title: t.intel3Title,
+    url: "https://rrypglobal.com/residencias-nacionalidades-y-patrimonio-claves-para-determinar-la-jurisdiccion-en-un-divorcio-internacional/",
+  },
+  {
+    pillar: "Business Disputes",
+    date: "2026-08-03",
+    title: t.intel4Title,
+    url: "https://rrypglobal.com/conflictos-fundadores-inversores-extranjeros/",
+  },
+];
+---
+
+<BaseLayout
+  lang={lang}
+  slug=""
+  title={t.metaTitle}
+  description={t.metaHomeDesc}
+  ogImage={FIRM.photos.hero}
+  preloadImage={FIRM.photos.hero}
+  activeNav="home"
+  fullFooter={true}
+  jsonLdExtra={[faqSchema]}
+>
+  <!-- Seccion 1: Apertura cinematografica oscura (#0E1211) -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow hero-anim">{t.heroEyebrow}</p>
+          <h1 class="hero-title hero-anim hero-anim--d1" set:html={t.heroTitle} />
+          <p class="hero-lead hero-anim hero-anim--d2">{t.heroLead}</p>
+          <div class="hero-cta-group hero-anim hero-anim--d3">
+            <a href="#vias-de-entrada" class="btn btn--lime">{t.heroPrimaryCta}</a>
+            <a href="#areas" class="btn btn--outline-dark">{t.heroSecondaryCta}</a>
+          </div>
+        </div>
+
+        <div class="photo-slot photo-slot--16x9 has-photo hero-anim hero-anim--d4">
+          <img
+            class="slot-photo"
+            src={FIRM.photos.hero}
+            alt={t.altHeroOffice}
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-strip">
+      <div class="container hero-strip-grid">
+        <div class="hero-strip-item">
+          <span class="hero-strip-label">{t.stripOfficesLabel}</span>
+          <span class="hero-strip-value">{t.stripOfficesValue}</span>
+        </div>
+        <div class="hero-strip-item">
+          <span class="hero-strip-label">{t.stripLangsLabel}</span>
+          <span class="hero-strip-value">{t.stripLangsValue}</span>
+        </div>
+        <div class="hero-strip-item">
+          <span class="hero-strip-label">{t.stripContactLabel}</span>
+          <a href={FIRM.phoneHref} class="hero-strip-value">{t.stripContactValue}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seccion 2: 3 Pilares + Arquitectura del caso + Bloque editorial -->
+  <section class="section-cream" id="areas">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.pillarsEyebrow}</p>
+          <h2 class="section-title">{t.pillarsTitle}</h2>
+        </div>
+        <p class="section-intro">{t.pillarsIntro}</p>
+      </div>
+
+      <div class="pillars-grid">
+        <article class="pillar-card" id="private-clients" data-reveal style="--reveal-delay: 0ms">
+          <div>
+            <span class="pillar-index">01</span>
+            <h3 class="pillar-name">{t.p1Title}</h3>
+            <p class="pillar-desc">{t.p1Desc}</p>
+            <ul class="pillar-list">
+              <li>{t.p1Item1}</li>
+              <li>{t.p1Item2}</li>
+              <li>{t.p1Item3}</li>
+            </ul>
+          </div>
+          <a href={localizedPath(lang, "private-clients")} class="pillar-link">{t.p1Link}</a>
+        </article>
+
+        <article class="pillar-card" id="private-wealth" data-reveal style="--reveal-delay: 90ms">
+          <div>
+            <span class="pillar-index">02</span>
+            <h3 class="pillar-name">{t.p2Title}</h3>
+            <p class="pillar-desc">{t.p2Desc}</p>
+            <ul class="pillar-list">
+              <li>{t.p2Item1}</li>
+              <li>{t.p2Item2}</li>
+              <li>{t.p2Item3}</li>
+            </ul>
+          </div>
+          <a href={localizedPath(lang, "private-wealth")} class="pillar-link">{t.p2Link}</a>
+        </article>
+
+        <article class="pillar-card" id="business-disputes" data-reveal style="--reveal-delay: 180ms">
+          <div>
+            <span class="pillar-index">03</span>
+            <h3 class="pillar-name">{t.p3Title}</h3>
+            <p class="pillar-desc">{t.p3Desc}</p>
+            <ul class="pillar-list">
+              <li>{t.p3Item1}</li>
+              <li>{t.p3Item2}</li>
+              <li>{t.p3Item3}</li>
+            </ul>
+          </div>
+          <a href={localizedPath(lang, "business-disputes")} class="pillar-link">{t.p3Link}</a>
+        </article>
+      </div>
+
+      <!-- Construccion estrategica del caso y reconduccion -->
+      <div class="case-architecture" id="arquitectura-caso">
+        <div class="section-header" data-reveal>
+          <div>
+            <p class="eyebrow eyebrow--on-cream">{t.caseEyebrow}</p>
+            <h2 class="section-title">{t.caseTitle}</h2>
+          </div>
+          <p class="section-intro">{t.caseIntro}</p>
+        </div>
+
+        <div class="case-matrix">
+          <article class="case-panel" data-reveal style="--reveal-delay: 0ms">
+            <div>
+              <p class="case-panel-kicker">{t.case1Kicker}</p>
+              <h3 class="case-panel-title">{t.case1Title}</h3>
+              <p class="case-panel-desc">{t.case1Desc}</p>
+              <ul class="case-steps">
+                <li>{t.case1Step1}</li>
+                <li>{t.case1Step2}</li>
+                <li>{t.case1Step3}</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="case-panel case-panel--dark" data-reveal style="--reveal-delay: 110ms">
+            <div>
+              <p class="case-panel-kicker">{t.case2Kicker}</p>
+              <h3 class="case-panel-title">{t.case2Title}</h3>
+              <p class="case-panel-desc">{t.case2Desc}</p>
+              <ul class="case-steps">
+                <li>{t.case2Step1}</li>
+                <li>{t.case2Step2}</li>
+                <li>{t.case2Step3}</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Bloque editorial con foto real 4:3 -->
+      <div class="editorial-split" id="la-firma">
+        <div class="photo-slot photo-slot--4x3 photo-slot--on-cream has-photo" data-reveal>
+          <img
+            loading="lazy"
+            decoding="async"
+            class="slot-photo"
+            src={FIRM.photos.editorial}
+            alt={t.altFounders}
+          />
+        </div>
+
+        <div class="editorial-copy" data-reveal style="--reveal-delay: 100ms">
+          <p class="eyebrow eyebrow--on-cream">{t.editorialEyebrow}</p>
+          <h3>{t.editorialTitle}</h3>
+          <p>{t.editorialP1}</p>
+          <p>{t.editorialP2}</p>
+
+          <div class="decision-note">
+            <p class="decision-note-title">{t.decisionTitle}</p>
+            <p>{t.decisionText}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seccion 3: Bloque de autoridad y resultados reales en burdeos (#47202D) -->
+  <section class="section-burgundy" aria-labelledby="authority-heading">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow">{t.authEyebrow}</p>
+          <h2 class="section-title" id="authority-heading">{t.authTitle}</h2>
+        </div>
+        <p class="section-intro">{t.authIntro}</p>
+      </div>
+
+      <div class="authority-grid">
+        <div class="authority-item" data-reveal style="--reveal-delay: 0ms">
+          <span class="authority-figure">{t.auth1Num}</span>
+          <h3 class="authority-heading">{t.auth1Head}</h3>
+          <p class="authority-text">{t.auth1Text}</p>
+        </div>
+        <div class="authority-item" data-reveal style="--reveal-delay: 80ms">
+          <span class="authority-figure">{t.auth2Num}</span>
+          <h3 class="authority-heading">{t.auth2Head}</h3>
+          <p class="authority-text">{t.auth2Text}</p>
+        </div>
+        <div class="authority-item" data-reveal style="--reveal-delay: 160ms">
+          <span class="authority-figure">{t.auth3Num}</span>
+          <h3 class="authority-heading">{t.auth3Head}</h3>
+          <p class="authority-text">{t.auth3Text}</p>
+        </div>
+        <div class="authority-item" data-reveal style="--reveal-delay: 240ms">
+          <span class="authority-figure">{t.auth4Num}</span>
+          <h3 class="authority-heading">{t.auth4Head}</h3>
+          <p class="authority-text">{t.auth4Text}</p>
+        </div>
+      </div>
+
+      <div class="results-grid" data-reveal>
+        <article class="result-card">
+          <span class="result-jurisdiction">{t.res1Jur}</span>
+          <h3 class="result-headline">{t.res1Head}</h3>
+          <p class="result-body">{t.res1Body}</p>
+        </article>
+        <article class="result-card">
+          <span class="result-jurisdiction">{t.res2Jur}</span>
+          <h3 class="result-headline">{t.res2Head}</h3>
+          <p class="result-body">{t.res2Body}</p>
+        </article>
+        <article class="result-card">
+          <span class="result-jurisdiction">{t.res3Jur}</span>
+          <h3 class="result-headline">{t.res3Head}</h3>
+          <p class="result-body">{t.res3Body}</p>
+        </article>
+        <article class="result-card">
+          <span class="result-jurisdiction">{t.res4Jur}</span>
+          <h3 class="result-headline">{t.res4Head}</h3>
+          <p class="result-body">{t.res4Body}</p>
+        </article>
+      </div>
+
+      <div class="cases-block" data-reveal>
+        <div class="cases-header">
+          <h3 class="cases-subtitle">{t.casesSubtitle}</h3>
+          <a href={localizedPath(lang, "casos")} class="footer-cta-link" style="margin-top: 0;">
+            {t.casesAllLink}
+          </a>
+        </div>
+        <div class="cases-list">
+          <div class="case-row">
+            <span class="case-pillar-tag">{t.rep1Tag}</span>
+            <p class="case-row-title">{t.rep1Title}</p>
+          </div>
+          <div class="case-row">
+            <span class="case-pillar-tag">{t.rep2Tag}</span>
+            <p class="case-row-title">{t.rep2Title}</p>
+          </div>
+          <div class="case-row">
+            <span class="case-pillar-tag">{t.rep3Tag}</span>
+            <p class="case-row-title">{t.rep3Title}</p>
+          </div>
+          <div class="case-row">
+            <span class="case-pillar-tag">{t.rep4Tag}</span>
+            <p class="case-row-title">{t.rep4Title}</p>
+          </div>
+          <div class="case-row">
+            <span class="case-pillar-tag">{t.rep5Tag}</span>
+            <p class="case-row-title">{t.rep5Title}</p>
+          </div>
+          <div class="case-row">
+            <span class="case-pillar-tag">{t.rep6Tag}</span>
+            <p class="case-row-title">{t.rep6Title}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="active-jurisdictions" data-reveal>
+        <p class="eyebrow">{t.activeJurEyebrow}</p>
+        <div class="jurisdiction-grid">
+          <div class="jurisdiction-item"><span class="jurisdiction-country">{t.aj1Country}</span><span class="jurisdiction-area">{t.aj1Area}</span></div>
+          <div class="jurisdiction-item"><span class="jurisdiction-country">{t.aj2Country}</span><span class="jurisdiction-area">{t.aj2Area}</span></div>
+          <div class="jurisdiction-item"><span class="jurisdiction-country">{t.aj3Country}</span><span class="jurisdiction-area">{t.aj3Area}</span></div>
+          <div class="jurisdiction-item"><span class="jurisdiction-country">{t.aj4Country}</span><span class="jurisdiction-area">{t.aj4Area}</span></div>
+          <div class="jurisdiction-item"><span class="jurisdiction-country">{t.aj5Country}</span><span class="jurisdiction-area">{t.aj5Area}</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seccion 4: Equipo real 4:5 -->
+  <section class="section-cream" id="equipo">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.teamEyebrow}</p>
+          <h2 class="section-title">{t.teamTitle}</h2>
+        </div>
+        <p class="section-intro">{t.teamIntro}</p>
+      </div>
+
+      <div class="team-grid">
+        {FIRM.team.map((member, idx) => (
+          <article class="team-card" data-reveal style={`--reveal-delay: ${idx * 70}ms`}>
+            <div class="photo-slot photo-slot--4x5 photo-slot--on-cream has-photo">
+              <img
+                loading="lazy"
+                decoding="async"
+                class="slot-photo"
+                src={member.photo}
+                alt={`${member.name}, ${t[member.roleKey]}`}
+              />
+            </div>
+            <div class="team-meta">
+              <h3 class="team-name">{member.name}</h3>
+              <p class="team-role">{t[member.roleKey]}</p>
+              <p class="team-bio">{t[member.bioKey]}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Seccion 4B: RRYP Legal Intelligence + 2 Guias PDF -->
+  <section class="section-cream section-cream--bordered" id="legal-intelligence">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.intelEyebrow}</p>
+          <h2 class="section-title">{t.intelTitle}</h2>
+        </div>
+        <p class="section-intro">{t.intelIntro}</p>
+      </div>
+
+      <div class="intel-grid">
+        {homeIntelCards.map((card, idx) => (
+          <article class="intel-card" data-reveal style={`--reveal-delay: ${idx * 70}ms`}>
+            <div>
+              <div class="intel-meta">
+                <span>{card.pillar}</span>
+                <span class="intel-date">{card.date}</span>
+              </div>
+              <h3 class="intel-title">{card.title}</h3>
+            </div>
+            <a href={card.url} target="_blank" rel="noopener noreferrer" class="intel-link">
+              {t.intelRead}
+            </a>
+          </article>
+        ))}
+      </div>
+
+      <div class="blog-pagination">
+        <a href={localizedPath(lang, "legal-intelligence")} class="btn btn--dark">
+          {t.intelOpenAll}
+        </a>
+      </div>
+
+      <div class="guides-row" data-reveal>
+        <div class="guide-card">
+          <div>
+            <span class="guide-tag">{t.guideTag}</span>
+            <h4>{t.guide1Title}</h4>
+          </div>
+          <a href={FIRM.guides.divorcePdf} target="_blank" rel="noopener noreferrer" class="btn btn--lime btn--compact">
+            {t.guideDownload}
+          </a>
+        </div>
+        <div class="guide-card">
+          <div>
+            <span class="guide-tag">{t.guideTag}</span>
+            <h4>{t.guide2Title}</h4>
+          </div>
+          <a href={FIRM.guides.abductionPdf} target="_blank" rel="noopener noreferrer" class="btn btn--lime btn--compact">
+            {t.guideDownload}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seccion 4C: Presencia publica, prensa y academia -->
+  <section class="section-cream section-cream--bordered" id="prensa-medios">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.pressEyebrow}</p>
+          <h2 class="section-title">{t.pressTitle}</h2>
+        </div>
+        <p class="section-intro">{t.pressIntro}</p>
+      </div>
+
+      <div class="press-grid" data-reveal>
+        <div class="press-col">
+          <h3 class="press-col-title">{t.pressCol1}</h3>
+          <ul class="press-list">
+            <li>
+              <span class="press-outlet">laSexta Noticias</span>
+              <span class="press-detail">{t.pressTv1}</span>
+            </li>
+            <li>
+              <span class="press-outlet">laSexta Noticias</span>
+              <span class="press-detail">{t.pressTv2}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="press-col">
+          <h3 class="press-col-title">{t.pressCol2}</h3>
+          <ul class="press-list">
+            <li>
+              <span class="press-outlet">Deutsche Welle</span>
+              <span class="press-detail">{t.pressPub1}</span>
+            </li>
+            <li>
+              <span class="press-outlet">La Razón</span>
+              <span class="press-detail">{t.pressPub2}</span>
+            </li>
+            <li>
+              <span class="press-outlet">Diario Córdoba</span>
+              <span class="press-detail">{t.pressPub3}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="press-col">
+          <h3 class="press-col-title">{t.pressCol3}</h3>
+          <ul class="press-list">
+            <li>
+              <span class="press-outlet">Universidad Loyola</span>
+              <span class="press-detail">{t.pressAcad1}</span>
+            </li>
+            <li>
+              <span class="press-outlet">Cámara de Comercio de Málaga / AAAE</span>
+              <span class="press-detail">{t.pressAcad2}</span>
+            </li>
+            <li>
+              <span class="press-outlet">EPGD Business Law (Florida)</span>
+              <span class="press-detail">{t.pressAcad3}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="institutions-bar" data-reveal aria-label={t.ariaInstitutions}>
+        {FIRM.institutions.map((inst) => (
+          <span>{inst}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Seccion 4C-2: Video de YouTube con bloqueo RGPD por cookies de Marketing (igual que rrypglobal.com) -->
+  <section class="section-dark" id="video-firma">
+    <div class="container">
+      <div class="video-showcase">
+        <div data-reveal>
+          <p class="eyebrow">{t.ytEyebrow}</p>
+          <h2 class="section-title">{t.ytTitle}</h2>
+          <p class="section-intro" style="margin-top: 18px;">{t.ytDesc}</p>
+          <div style="margin-top: 28px;">
+            <a
+              href={FIRM.socials[2].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--outline-dark"
+            >
+              {t.ytMoreLink}
+            </a>
+          </div>
+        </div>
+
+        <div class="video-frame" id="rryp-yt-container" data-embed="https://www.youtube-nocookie.com/embed/u71QLOTkk5M?rel=0">
+          <img
+            src="/assets/photos/youtube-cover.webp"
+            alt={t.ytTitle}
+            loading="lazy"
+            decoding="async"
+            class="video-cover"
+          />
+          <div class="video-gate" id="rryp-yt-gate">
+            <p class="video-gate-title">{t.ytConsentTitle}</p>
+            <p class="video-gate-desc">{t.ytConsentDesc}</p>
+            <button type="button" class="btn btn--lime btn--compact" id="rryp-yt-accept-btn">
+              {t.ytConsentBtn}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seccion 4C-3: Client Feedback / Opiniones de clientes reales (migrado de rrypglobal.com) -->
+  <section class="section-cream section-cream--bordered" id="opiniones-clientes">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.fbEyebrow}</p>
+          <h2 class="section-title">{t.fbTitle}</h2>
+        </div>
+      </div>
+
+      <div class="feedback-grid" data-reveal>
+        <div class="feedback-ratings">
+          <article class="feedback-rating-card">
+            <div class="feedback-score-row">
+              <span class="feedback-score">5,0 / 5</span>
+              <span class="feedback-stars" aria-label="5 de 5">★★★★★</span>
+            </div>
+            <p class="feedback-office-desc">{t.fbMalagaDesc}</p>
+            <a href={localizedPath(lang, "malaga")} class="pillar-link">{t.fbMalagaLink}</a>
+          </article>
+
+          <article class="feedback-rating-card">
+            <div class="feedback-score-row">
+              <span class="feedback-score">4,8 / 5</span>
+              <span class="feedback-stars" aria-label="4,8 de 5">★★★★★</span>
+            </div>
+            <p class="feedback-office-desc">{t.fbCordobaDesc}</p>
+            <a href={localizedPath(lang, "cordoba")} class="pillar-link">{t.fbCordobaLink}</a>
+          </article>
+        </div>
+
+        <blockquote class="feedback-quote-card">
+          <p class="feedback-quote-text">{t.fbQuote1}</p>
+          <p class="feedback-quote-text">{t.fbQuote2}</p>
+          <footer class="feedback-quote-footer">
+            <strong>Mohamed L.</strong>
+            <span>{t.fbAuthorMeta}</span>
+            <span class="feedback-stars" aria-label="5 de 5">★★★★★</span>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var box = document.getElementById("rryp-yt-container");
+      var gate = document.getElementById("rryp-yt-gate");
+      var btn = document.getElementById("rryp-yt-accept-btn");
+      if (!box || !gate) return;
+
+      var mounted = false;
+      function mountVideo() {
+        if (mounted) return;
+        mounted = true;
+        var iframe = document.createElement("iframe");
+        iframe.src = box.getAttribute("data-embed") || "";
+        iframe.title = "RRYP Global YouTube";
+        iframe.loading = "lazy";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        iframe.className = "video-iframe";
+        box.innerHTML = "";
+        box.appendChild(iframe);
+      }
+
+      if (window.RRYP_CONSENT && window.RRYP_CONSENT.marketing) {
+        mountVideo();
+      }
+      window.addEventListener("rryp:consent", function (e) {
+        if (e.detail && e.detail.marketing) mountVideo();
+      });
+      if (btn) {
+        btn.addEventListener("click", function () {
+          if (typeof window.RRYP_SET_CONSENT === "function") {
+            window.RRYP_SET_CONSENT({ marketing: true });
+          } else {
+            mountVideo();
+          }
+        });
+      }
+    })();
+  </script>
+
+  <!-- Seccion 4D: Preguntas frecuentes (SEO + GEO) -->
+  <section class="section-cream section-cream--bordered" id="preguntas-frecuentes">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.faqEyebrow}</p>
+          <h2 class="section-title">{t.faqTitle}</h2>
+        </div>
+        <p class="section-intro">{t.faqIntro}</p>
+      </div>
+
+      <div class="faq-list" data-reveal>
+        {faqItems.map((item, idx) => (
+          <details class="faq-item" open={idx === 0}>
+            <summary>{item.q}</summary>
+            <div class="faq-answer">
+              <p>{item.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Seccion 5: Tres vias de entrada -->
+  <EntryRoutes lang={lang} />
+
+  <!-- Seccion 6: Tres sedes reales y contacto -->
+  <section class="section-cream" id="sedes">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.officesEyebrow}</p>
+          <h2 class="section-title">{t.officesTitle}</h2>
+        </div>
+        <p class="section-intro">{t.officesIntro}</p>
+      </div>
+
+      <div class="offices-layout">
+        <div class="offices-list" data-reveal>
+          {FIRM.offices.map((office) => (
+            <div class="office-row">
+              <h3 class="office-city">
+                <a href={localizedPath(lang, office.slug)}>{office.city} ↗</a>
+              </h3>
+              <div>
+                <p class="office-address">{office.fullAddress}</p>
+                {office.hasServiceAreaNote && <p class="office-note">{t.malagaNote}</p>}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <aside class="contact-panel" data-reveal style="--reveal-delay: 100ms">
+          <div class="contact-block">
+            <p class="contact-label">{t.contactPhoneLabel}</p>
+            <a href={FIRM.phoneHref} class="contact-value">{FIRM.phone}</a>
+            <div class="contact-actions">
+              <a href={FIRM.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn--dark btn--compact">
+                {t.whatsappBtn}
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-block">
+            <p class="contact-label">{t.contactEmailLabel}</p>
+            <a href={FIRM.emailHref} class="contact-value">{FIRM.email}</a>
+            <div class="contact-actions">
+              <a href={FIRM.emailHref} class="btn btn--outline-cream btn--compact">{t.emailBtn}</a>
+            </div>
+          </div>
+
+          <div class="contact-block">
+            <p class="contact-label">{t.contactHoursLabel}</p>
+            <p class="contact-sub">{t.contactHoursValue}</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

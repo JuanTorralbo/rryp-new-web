@@ -1,0 +1,20 @@
+# ==============================================================================
+# RRYP Global - Plan de redirecciones 301 y retirada 410 Gone (Cloudflare Pages / Netlify)
+# ==============================================================================
+# 1. Consolidacion de rutas antiguas hacia los 3 pilares definitivos
+/abogados-familia-internacional/*  /es/private-clients/   301
+/divorcio-internacional/*          /es/private-clients/   301
+/sustraccion-internacional-menores/* /es/private-clients/ 301
+/herencias-internacionales/*       /es/private-clients/   301
+/patrimonio-internacional/*        /es/private-wealth/    301
+/inversion-inmobiliaria/*          /es/private-wealth/    301
+/derecho-mercantil-internacional/* /es/business-disputes/ 301
+/litigacion-internacional/*        /es/business-disputes/ 301
+/blog/*                            /es/legal-intelligence/ 301
+/quienes-somos/*                   /es/la-firma/          301
+/equipo/*                          /es/la-firma/          301
+/casos-de-exito/*                  /es/casos/             301
+
+# 2. Plantilla para los 92 articulos del cubo 3 (auditoria Search Console sin trafico ni enlaces)
+# Sustituir por las URLs definitivas validadas tras exportar Google Search Console (16 meses)
+# /articulo-obsoleto-sin-trafico/  /410.html  410

@@ -1,0 +1,267 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LegalAiConsole from "../../components/LegalAiConsole.astro";
+import { FIRM } from "../../data/firm";
+import { getLocalizedPosts, getPillarLabel } from "../../data/blog";
+import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = getDictionary(lang);
+const posts = getLocalizedPosts(lang);
+
+const countAll = posts.length;
+const countPc = posts.filter((p) => p.pillar === "private-clients").length;
+const countPw = posts.filter((p) => p.pillar === "private-wealth").length;
+const countBd = posts.filter((p) => p.pillar === "business-disputes").length;
+const countSeo = posts.filter((p) => p.pillar === "seo-audit").length;
+const initialPosts = posts.slice(0, 18);
+
+const collectionSchema = {
+  "@type": "CollectionPage",
+  name: t.liTitle,
+  description: t.metaLiDesc,
+  url: `${FIRM.siteUrl}${localizedPath(lang, "legal-intelligence")}`,
+  isPartOf: { "@id": `${FIRM.siteUrl}/#website` },
+  about: { "@id": `${FIRM.siteUrl}/#organization` },
+};
+
+const blogUiConfig = JSON.stringify({
+  feedUrl: `/data/blog-${lang}.json`,
+  showingTmpl: t.blogShowing,
+  loadMoreTmpl: t.blogLoadMore,
+  noResults: t.blogNoResults,
+  readFull: t.blogReadFull,
+  seoLabel: t.blogFilterSeo,
+});
+---
+
+<BaseLayout
+  lang={lang}
+  slug="legal-intelligence"
+  title={t.liTitle}
+  description={t.metaLiDesc}
+  activeNav="intel"
+  breadcrumbLabel={t.liEyebrow}
+  jsonLdExtra={[collectionSchema]}
+>
+  <section class="subhero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.ariaBreadcrumb}>
+        <a href={localizedPath(lang)}>{t.bcHome}</a>
+        <span>/</span>
+        <span>{t.liEyebrow}</span>
+      </nav>
+
+      <div class="subhero-grid">
+        <div>
+          <p class="eyebrow hero-anim">{t.liEyebrow}</p>
+          <h1 class="hero-title hero-anim hero-anim--d1" set:html={t.liHeroTitle} />
+          <p class="hero-lead hero-anim hero-anim--d2">{t.liHeroLead}</p>
+        </div>
+
+        <aside class="subhero-aside hero-anim hero-anim--d3">
+          <p class="subhero-aside-label">{t.liAsideLabel}</p>
+          <p>{t.liAsideText}</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <LegalAiConsole lang={lang} />
+
+  <section class="section-cream">
+    <div class="container">
+      <div class="blog-controls">
+        <div class="blog-search-row">
+          <input
+            type="search"
+            id="blog-search-input"
+            class="blog-search-input"
+            placeholder={t.blogSearchPlaceholder}
+            aria-label={t.ariaBlogSearch}
+          />
+          <span class="blog-count-label" id="blog-count-label">
+            {t.blogShowing
+              .replace("{shown}", String(initialPosts.length))
+              .replace("{total}", String(countAll))}
+          </span>
+        </div>
+
+        <p class="decision-note" style="margin-top: 0;">{t.blogEditionNote}</p>
+
+        <div class="blog-filters" role="group" aria-label={t.ariaBlogFilter}>
+          <button type="button" class="filter-pill" data-filter="all" aria-pressed="true">
+            {t.blogFilterAll} ({countAll})
+          </button>
+          <button type="button" class="filter-pill" data-filter="private-clients" aria-pressed="false">
+            Private Clients ({countPc})
+          </button>
+          <button type="button" class="filter-pill" data-filter="private-wealth" aria-pressed="false">
+            Private Wealth ({countPw})
+          </button>
+          <button type="button" class="filter-pill" data-filter="business-disputes" aria-pressed="false">
+            Business Disputes ({countBd})
+          </button>
+          {countSeo > 0 && (
+            <button type="button" class="filter-pill" data-filter="seo-audit" aria-pressed="false">
+              {t.blogFilterSeo} ({countSeo})
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div class="blog-archive-grid" id="full-blog-grid">
+        {initialPosts.map((post) => (
+          <article class="intel-card">
+            <div>
+              <div class="intel-meta">
+                <span>{post.pillar === "seo-audit" ? t.blogFilterSeo : getPillarLabel(post.pillar)}</span>
+                <span class="intel-date">{post.date}</span>
+              </div>
+              <h3 class="intel-title">{post.title}</h3>
+              <p class="intel-excerpt">{post.excerpt}</p>
+            </div>
+            <a href={post.url} target="_blank" rel="noopener noreferrer" class="intel-link">
+              {t.blogReadFull}
+            </a>
+          </article>
+        ))}
+      </div>
+
+      {countAll > initialPosts.length && (
+        <div class="blog-pagination">
+          <button type="button" id="blog-load-more" class="btn btn--dark">
+            {t.blogLoadMore.replace("{rem}", String(countAll - initialPosts.length))}
+          </button>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<script id="rryp-blog-config" type="application/json" set:html={blogUiConfig} />
+
+<script is:inline>
+  (function () {
+    var cfgEl = document.getElementById("rryp-blog-config");
+    var grid = document.getElementById("full-blog-grid");
+    var searchInput = document.getElementById("blog-search-input");
+    var countLabel = document.getElementById("blog-count-label");
+    var loadMoreBtn = document.getElementById("blog-load-more");
+    if (!cfgEl || !grid) return;
+
+    var cfg = JSON.parse(cfgEl.textContent || "{}");
+    var allPosts = [];
+    var activeFilter = new URLSearchParams(window.location.search).get("pilar") || "all";
+    var searchTerm = "";
+    var visibleCount = 18;
+
+    function esc(s) {
+      return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    function labelFor(pillar) {
+      if (pillar === "private-clients") return "Private Clients";
+      if (pillar === "private-wealth") return "Private Wealth";
+      if (pillar === "business-disputes") return "Business Disputes";
+      return cfg.seoLabel || "SEO";
+    }
+
+    function render() {
+      var q = searchTerm.trim().toLowerCase();
+      var filtered = allPosts.filter(function (p) {
+        if (activeFilter !== "all" && p.pillar !== activeFilter) return false;
+        if (!q) return true;
+        return (
+          String(p.title || "").toLowerCase().includes(q) ||
+          String(p.excerpt || "").toLowerCase().includes(q) ||
+          String(p.category || "").toLowerCase().includes(q)
+        );
+      });
+
+      var slice = filtered.slice(0, visibleCount);
+      if (!slice.length) {
+        grid.innerHTML = '<p class="section-intro">' + esc(cfg.noResults) + "</p>";
+      } else {
+        grid.innerHTML = slice
+          .map(function (p) {
+            return (
+              '<article class="intel-card"><div><div class="intel-meta"><span>' +
+              esc(labelFor(p.pillar)) +
+              '</span><span class="intel-date">' +
+              esc(p.date) +
+              '</span></div><h3 class="intel-title">' +
+              esc(p.title) +
+              '</h3><p class="intel-excerpt">' +
+              esc(p.excerpt) +
+              '</p></div><a href="' +
+              esc(p.url) +
+              '" target="_blank" rel="noopener noreferrer" class="intel-link">' +
+              esc(cfg.readFull) +
+              "</a></article>"
+            );
+          })
+          .join("");
+      }
+
+      if (countLabel) {
+        countLabel.textContent = cfg.showingTmpl
+          .replace("{shown}", String(slice.length))
+          .replace("{total}", String(filtered.length));
+      }
+
+      if (loadMoreBtn) {
+        var rem = filtered.length - slice.length;
+        if (rem > 0) {
+          loadMoreBtn.style.display = "";
+          loadMoreBtn.textContent = cfg.loadMoreTmpl.replace("{rem}", String(rem));
+        } else {
+          loadMoreBtn.style.display = "none";
+        }
+      }
+    }
+
+    function syncFilterButtons() {
+      document.querySelectorAll(".filter-pill[data-filter]").forEach(function (btn) {
+        btn.setAttribute("aria-pressed", btn.getAttribute("data-filter") === activeFilter ? "true" : "false");
+      });
+    }
+
+    fetch(cfg.feedUrl)
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (data) {
+        allPosts = Array.isArray(data) ? data : [];
+        syncFilterButtons();
+        if (activeFilter !== "all") render();
+      })
+      .catch(function () {});
+
+    document.querySelectorAll(".filter-pill[data-filter]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        activeFilter = btn.getAttribute("data-filter") || "all";
+        visibleCount = 18;
+        syncFilterButtons();
+        render();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener("input", function () {
+        searchTerm = searchInput.value || "";
+        visibleCount = 18;
+        render();
+      });
+    }
+
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener("click", function () {
+        visibleCount += 18;
+        render();
+      });
+    }
+  })();
+</script>

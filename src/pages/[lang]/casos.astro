@@ -1,0 +1,181 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { FIRM } from "../../data/firm";
+import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = getDictionary(lang);
+
+const cases = [
+  { pillar: "private-wealth", tag: "Private Wealth", date: t.case01Date, title: t.case01Title, desc: t.case01Desc, url: "https://rrypglobal.com/liquidacion-internacional-de-gananciales-por-importe-superior-a-4-000-000e/" },
+  { pillar: "private-wealth", tag: "Private Wealth", date: t.case02Date, title: t.case02Title, desc: t.case02Desc, url: "https://rrypglobal.com/liquidacion-de-bienes-conyugales-en-estados-unidos-y-espana/" },
+  { pillar: "private-wealth", tag: "Private Wealth", date: t.case03Date, title: t.case03Title, desc: t.case03Desc, url: "https://rrypglobal.com/liquidacion-de-gananciales-con-bienes-en-francia-y-espana/" },
+  { pillar: "private-wealth", tag: "Private Wealth", date: t.case04Date, title: t.case04Title, desc: t.case04Desc, url: "https://rrypglobal.com/divorcio-internacional-con-patrimonio-digital-y-criptoactivos/" },
+  { pillar: "private-wealth", tag: "Private Wealth", date: t.case05Date, title: t.case05Title, desc: t.case05Desc, url: "https://rrypglobal.com/exoneracion-de-deuda-en-concurso-de-acreedores-con-dimension-internacional/" },
+  { pillar: "private-wealth", tag: "Private Wealth", date: t.case06Date, title: t.case06Title, desc: t.case06Desc, url: "https://rrypglobal.com/exoneracion-de-deudas-a-matrimonio-extranjero-en-espana-tras-la-crisis-del-covid/" },
+
+  { pillar: "private-clients", tag: "Private Clients", date: t.case07Date, title: t.case07Title, desc: t.case07Desc, url: "https://rrypglobal.com/impugnacion-de-testamento-de-elevado-patrimonio-otorgado-en-espana-por-causante-extranjero/" },
+  { pillar: "private-clients", tag: "Private Clients", date: t.case08Date, title: t.case08Title, desc: t.case08Desc, url: "https://rrypglobal.com/defensa-de-la-competencia-de-los-tribunales-espanoles-frente-a-eeuu/" },
+  { pillar: "private-clients", tag: "Private Clients", date: t.case09Date, title: t.case09Title, desc: t.case09Desc, url: "https://rrypglobal.com/oposicion-a-la-competencia-de-los-tribunales-portugueses/" },
+  { pillar: "private-clients", tag: "Private Clients", date: t.case10Date, title: t.case10Title, desc: t.case10Desc, url: "https://rrypglobal.com/exequatur-en-espana-de-orden-de-proteccion-dictada-en-pais-extranjero/" },
+  { pillar: "private-clients", tag: "Private Clients", date: t.case11Date, title: t.case11Title, desc: t.case11Desc, url: "https://rrypglobal.com/localizacion-en-espana-de-testamento-otorgado-por-ciudadano-argentino/" },
+  { pillar: "private-clients", tag: "Private Clients", date: t.case12Date, title: t.case12Title, desc: t.case12Desc, url: "https://rrypglobal.com/absolucion-de-cliente-acusado-de-violencia-de-genero-por-su-exmujer-extranjera/" },
+
+  { pillar: "business-disputes", tag: "Business Disputes", date: t.case13Date, title: t.case13Title, desc: t.case13Desc, url: "https://rrypglobal.com/demanda-de-competencia-desleal-en-espana-por-empresa-de-otro-estado-miembro-de-la-union-europea/" },
+  { pillar: "business-disputes", tag: "Business Disputes", date: t.case14Date, title: t.case14Title, desc: t.case14Desc, url: "https://rrypglobal.com/conflicto-internacional-de-patente-entre-empresas-con-controversia-sobre-prioridad/" },
+  { pillar: "business-disputes", tag: "Business Disputes", date: t.case15Date, title: t.case15Title, desc: t.case15Desc, url: "https://rrypglobal.com/contrato-internacional-de-licencia-para-distribucion-en-latinoamerica/" },
+  { pillar: "business-disputes", tag: "Business Disputes", date: t.case16Date, title: t.case16Title, desc: t.case16Desc, url: "https://rrypglobal.com/contrato-internacional-de-software-para-empresa-tecnologica/" },
+  { pillar: "business-disputes", tag: "Business Disputes", date: t.case17Date, title: t.case17Title, desc: t.case17Desc, url: "https://rrypglobal.com/redaccion-de-terminos-y-condiciones-generales-para-marketplace-internacional/" },
+  { pillar: "business-disputes", tag: "Business Disputes", date: t.case18Date, title: t.case18Title, desc: t.case18Desc, url: "https://rrypglobal.com/redaccion-y-revision-de-contrato-internacional-de-cesion-de-credito/" },
+
+  { pillar: "penal", tag: t.case19Tag, date: t.case19Date, title: t.case19Title, desc: t.case19Desc, url: "https://rrypglobal.com/nulidad-de-una-resolucion-de-entrega-dictada-en-un-procedimiento-europeo-ante-la-audiencia-nacional/" },
+  { pillar: "penal", tag: t.case20Tag, date: t.case20Date, title: t.case20Title, desc: t.case20Desc, url: "https://rrypglobal.com/querella-por-estafa-millonaria-en-dos-paises/" },
+];
+
+const collectionSchema = {
+  "@type": "CollectionPage",
+  name: t.metaCasosTitle,
+  description: t.metaCasosDesc,
+  url: `${FIRM.siteUrl}${localizedPath(lang, "casos")}`,
+  isPartOf: { "@id": `${FIRM.siteUrl}/#website` },
+  about: { "@id": `${FIRM.siteUrl}/#organization` },
+};
+---
+
+<BaseLayout
+  lang={lang}
+  slug="casos"
+  title={t.metaCasosTitle}
+  description={t.metaCasosDesc}
+  activeNav="cases"
+  breadcrumbLabel={t.bcCases}
+  jsonLdExtra={[collectionSchema]}
+>
+  <section class="subhero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.ariaBreadcrumb}>
+        <a href={localizedPath(lang)}>{t.bcHome}</a>
+        <span>/</span>
+        <span>{t.bcCases}</span>
+      </nav>
+
+      <div class="subhero-grid">
+        <div>
+          <p class="eyebrow hero-anim">{t.casosEyebrow}</p>
+          <h1 class="hero-title hero-anim hero-anim--d1" set:html={t.casosHeroTitle} />
+          <p class="hero-lead hero-anim hero-anim--d2">{t.casosHeroLead}</p>
+        </div>
+
+        <aside class="subhero-aside hero-anim hero-anim--d3">
+          <p class="subhero-aside-label">{t.casosAsideLabel}</p>
+          <p>{t.casosAsideText}</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-burgundy">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow">{t.casosRecentEyebrow}</p>
+          <h2 class="section-title">{t.casosRecentTitle}</h2>
+        </div>
+        <p class="section-intro">{t.casosRecentIntro}</p>
+      </div>
+
+      <div class="results-grid" data-reveal>
+        <article class="result-card">
+          <span class="result-jurisdiction">{t.res1Jur}</span>
+          <h3 class="result-headline">{t.res1Head}</h3>
+          <p class="result-body">{t.res1Body}</p>
+        </article>
+        <article class="result-card">
+          <span class="result-jurisdiction">{t.res2Jur}</span>
+          <h3 class="result-headline">{t.res2Head}</h3>
+          <p class="result-body">{t.res2Body}</p>
+        </article>
+        <article class="result-card">
+          <span class="result-jurisdiction">{t.res3Jur}</span>
+          <h3 class="result-headline">{t.res3Head}</h3>
+          <p class="result-body">{t.res3Body}</p>
+        </article>
+        <article class="result-card">
+          <span class="result-jurisdiction">{t.res4Jur}</span>
+          <h3 class="result-headline">{t.res4Head}</h3>
+          <p class="result-body">{t.res4Body}</p>
+        </article>
+      </div>
+
+      <div class="active-jurisdictions" data-reveal>
+        <p class="eyebrow">{t.activeJurEyebrow}</p>
+        <div class="jurisdiction-grid">
+          <div class="jurisdiction-item"><span class="jurisdiction-country">{t.aj1Country}</span><span class="jurisdiction-area">{t.aj1Area}</span></div>
+          <div class="jurisdiction-item"><span class="jurisdiction-country">{t.aj2Country}</span><span class="jurisdiction-area">{t.aj2Area}</span></div>
+          <div class="jurisdiction-item"><span class="jurisdiction-country">{t.aj3Country}</span><span class="jurisdiction-area">{t.aj3Area}</span></div>
+          <div class="jurisdiction-item"><span class="jurisdiction-country">{t.aj4Country}</span><span class="jurisdiction-area">{t.aj4Area}</span></div>
+          <div class="jurisdiction-item"><span class="jurisdiction-country">{t.aj5Country}</span><span class="jurisdiction-area">{t.aj5Area}</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-cream">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.casosArchiveEyebrow}</p>
+          <h2 class="section-title">{t.casosArchiveTitle}</h2>
+        </div>
+        <p class="section-intro">{t.casosArchiveIntro}</p>
+      </div>
+
+      <div class="blog-controls">
+        <div class="blog-filters" role="group" aria-label={t.ariaCaseFilter}>
+          <button type="button" class="filter-pill case-filter" data-case-filter="all" aria-pressed="true">{t.casosFilterAll}</button>
+          <button type="button" class="filter-pill case-filter" data-case-filter="private-clients" aria-pressed="false">{t.casosFilterPc}</button>
+          <button type="button" class="filter-pill case-filter" data-case-filter="private-wealth" aria-pressed="false">{t.casosFilterPw}</button>
+          <button type="button" class="filter-pill case-filter" data-case-filter="business-disputes" aria-pressed="false">{t.casosFilterBd}</button>
+          <button type="button" class="filter-pill case-filter" data-case-filter="penal" aria-pressed="false">{t.casosFilterPenal}</button>
+        </div>
+      </div>
+
+      <div class="intel-grid" id="cases-catalog-grid">
+        {cases.map((item) => (
+          <article class="intel-card" data-case-pillar={item.pillar}>
+            <div>
+              <div class="intel-meta">
+                <span>{item.tag}</span>
+                <span class="intel-date">{item.date}</span>
+              </div>
+              <h3 class="intel-title">{item.title}</h3>
+              <p class="intel-excerpt">{item.desc}</p>
+            </div>
+            <a href={item.url} target="_blank" rel="noopener noreferrer" class="intel-link">
+              {t.casosViewSheet}
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  document.querySelectorAll(".case-filter").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var target = btn.getAttribute("data-case-filter");
+      document.querySelectorAll(".case-filter").forEach(function (b) {
+        b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+      });
+      document.querySelectorAll("#cases-catalog-grid .intel-card").forEach(function (card) {
+        var p = card.getAttribute("data-case-pillar");
+        card.style.display = target === "all" || p === target ? "" : "none";
+      });
+    });
+  });
+</script>

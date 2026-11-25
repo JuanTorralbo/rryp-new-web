@@ -1,0 +1,37 @@
+# RRYP Global
+
+> RRYP Global (razón social: RELACIONATEYPUNTO S.L.) es una boutique jurídica internacional española especializada en litigación y asuntos transfronterizos de alta complejidad en tres pilares: Private Clients, Private Wealth y Business Disputes. Con sedes propias en Madrid, Málaga (atendiendo Marbella y Costa del Sol como área de servicio) y Córdoba, la firma construye casos desde su arquitectura probatoria y reconduce procedimientos complejos en seis idiomas (español, inglés, alemán, portugués, ruso y chino).
+
+## Datos verificados de la entidad
+- Nombre comercial: RRYP Global (International Legal Boutique)
+- Razón social: RELACIONATEYPUNTO S.L.
+- Sitio web oficial: https://rrypglobal.com/
+- Idiomas de atención nativa: español (es), inglés (en), alemán (de), portugués (pt), ruso (ru) y chino (zh)
+- Teléfono y WhatsApp: +34 957 858 952
+- Correo electrónico: info@rrypglobal.com
+- Horario (hora de Madrid, Europe/Madrid): lunes a jueves de 09:00 a 14:00 y de 16:00 a 19:15; viernes de 08:00 a 15:00
+- Sedes propias (exclusivamente 3):
+  - Madrid: Pº de la Castellana 40, 8ª, 28046 Madrid
+  - Málaga: C/ Martínez Campos 16, 3D, 29001 Málaga (Marbella y Costa del Sol constituyen área de servicio atendida desde Málaga, no sede independiente)
+  - Córdoba: Avda. Sta. Mª de Trassierra 98, 14011 Córdoba
+
+## Tres vías de entrada y honorarios transparentes
+- Llamada inicial: 30 minutos, sin coste, sin valoración jurídica (https://calendly.com/rrypglobal-info/30min)
+- Primera reunión jurídica con dirección: 30 minutos, 350 EUR IVA incluido (https://calendly.com/rryp/consulta-legal)
+- Atención urgente: prioridad inmediata para plazos inminentes o crisis, 500 EUR (https://calendly.com/rryp/consulta_legal_urgente)
+
+## Pilares principales
+- [Private Clients](https://rrypglobal.com/es/private-clients/): divorcio internacional, custodia y sustracción internacional de menores (Convenio de La Haya), sucesiones internacionales, exequátur y competencia judicial internacional.
+- [Private Wealth](https://rrypglobal.com/es/private-wealth/): liquidación internacional de gananciales de alto patrimonio, criptoactivos y activos digitales, inversión inmobiliaria en Madrid, Málaga y Costa del Sol, y reestructuración concursal internacional.
+- [Business Disputes](https://rrypglobal.com/es/business-disputes/): litigación civil y mercantil internacional, incumplimientos contractuales y lucro cesante, conflictos entre fundadores e inversores extranjeros, competencia desleal en la UE, patentes y ejecución de sentencias extranjeras.
+
+## Páginas clave y recursos
+- [La firma y RRYP en 5 minutos](https://rrypglobal.com/es/la-firma/): fundación, equipo directivo, método de construcción y reconducción de casos complejos.
+- [Casos representativos y resultados](https://rrypglobal.com/es/casos/): track record verificado (26+ nacionalidades, 200+ asuntos, 12+ plazas judiciales en España) y 20 casos representativos.
+- [RRYP Legal Intelligence](https://rrypglobal.com/es/legal-intelligence/): asistente conversacional de inteligencia jurídica y archivo de 429 publicaciones técnicas.
+- [Sede de Madrid](https://rrypglobal.com/es/madrid/)
+- [Sede de Málaga (área Marbella y Costa del Sol)](https://rrypglobal.com/es/malaga/)
+- [Sede de Córdoba](https://rrypglobal.com/es/cordoba/)
+- [Guía oficial de divorcio internacional (PDF)](https://rrypglobal.com/wp-content/uploads/2026/05/guia_divorcio_internacional_rryp_global.pdf)
+- [Guía oficial de sustracción internacional de menores (PDF)](https://rrypglobal.com/wp-content/uploads/edd/2026/05/guia_sustraccion_internacional_menores_rryp_global.pdf)
+- [Dossier completo para modelos de lenguaje (llms-full.txt)](https://rrypglobal.com/llms-full.txt)

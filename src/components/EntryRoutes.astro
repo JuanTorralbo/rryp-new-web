@@ -1,0 +1,81 @@
+---
+import { FIRM } from "../data/firm";
+import { getDictionary, type Locale } from "../i18n";
+
+export interface Props {
+  lang: Locale;
+  heading?: string;
+  intro?: string;
+}
+
+const { lang, heading, intro } = Astro.props;
+const t = getDictionary(lang);
+---
+
+<section class="section-dark" id="vias-de-entrada">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <div>
+        <p class="eyebrow">{t.entryEyebrow}</p>
+        <h2 class="section-title">{heading || t.entryTitle}</h2>
+      </div>
+      <p class="section-intro">{intro || t.entryIntro}</p>
+    </div>
+
+    <div class="entry-grid">
+      <article class="entry-card" data-reveal style="--reveal-delay: 0ms">
+        <div>
+          <p class="entry-tag">{t.e1Tag}</p>
+          <h3 class="entry-title">{t.e1Title}</h3>
+          <p class="entry-fee">{t.e1Fee}</p>
+          <p class="entry-duration">{t.e1Dur}</p>
+          <p class="entry-desc">{t.e1Desc}</p>
+        </div>
+        <a
+          href={FIRM.calendly.initial}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--outline-dark"
+        >
+          {t.e1Btn}
+        </a>
+      </article>
+
+      <article class="entry-card entry-card--featured" data-reveal style="--reveal-delay: 90ms">
+        <div>
+          <p class="entry-tag">{t.e2Tag}</p>
+          <h3 class="entry-title">{t.e2Title}</h3>
+          <p class="entry-fee entry-fee--lime">{t.e2Fee}</p>
+          <p class="entry-duration">{t.e2Dur}</p>
+          <p class="entry-desc">{t.e2Desc}</p>
+        </div>
+        <a
+          href={FIRM.calendly.legal}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--lime"
+        >
+          {t.e2Btn}
+        </a>
+      </article>
+
+      <article class="entry-card" data-reveal style="--reveal-delay: 180ms">
+        <div>
+          <p class="entry-tag">{t.e3Tag}</p>
+          <h3 class="entry-title">{t.e3Title}</h3>
+          <p class="entry-fee">{t.e3Fee}</p>
+          <p class="entry-duration">{t.e3Dur}</p>
+          <p class="entry-desc">{t.e3Desc}</p>
+        </div>
+        <a
+          href={FIRM.calendly.urgent}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--outline-dark"
+        >
+          {t.e3Btn}
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
