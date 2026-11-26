@@ -133,9 +133,11 @@ const blogUiConfig = JSON.stringify({
 
     var cfg = JSON.parse(cfgEl.textContent || "{}");
     var allPosts = [];
-    var activeFilter = new URLSearchParams(window.location.search).get("pilar") || "all";
-    var searchTerm = "";
+    var params = new URLSearchParams(window.location.search);
+    var activeFilter = params.get("pilar") || "all";
+    var searchTerm = params.get("q") || "";
     var visibleCount = 18;
+    if (searchInput && searchTerm) searchInput.value = searchTerm;
 
     function esc(s) {
       return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -216,7 +218,7 @@ const blogUiConfig = JSON.stringify({
       .then(function (data) {
         allPosts = Array.isArray(data) ? data : [];
         syncFilterButtons();
-        if (activeFilter !== "all") render();
+        if (activeFilter !== "all" || searchTerm) render();
       })
       .catch(function () {});
 

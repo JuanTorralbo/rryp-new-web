@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EntryRoutes from "../../components/EntryRoutes.astro";
+import ResponsivePhoto from "../../components/ResponsivePhoto.astro";
 import { FIRM } from "../../data/firm";
 import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
 
@@ -90,14 +91,13 @@ const aboutSchema = {
 
       <div class="editorial-split" data-reveal>
         <div class="photo-slot photo-slot--4x3 photo-slot--on-cream has-photo">
-          <img
-            loading="lazy"
-            decoding="async"
-            class="slot-photo"
-            src={FIRM.photos.editorial}
+          <ResponsivePhoto
+            base={FIRM.photos.editorialBase}
+            widths={FIRM.photos.editorialWidths}
+            sizes="(max-width: 1160px) 92vw, 48vw"
             alt={t.altFounders}
-            width="2000"
-            height="1500"
+            width={1600}
+            height={1200}
           />
         </div>
         <div class="editorial-copy">
@@ -125,11 +125,10 @@ const aboutSchema = {
         {FIRM.team.map((member) => (
           <article class="team-card" data-reveal>
             <div class="photo-slot photo-slot--4x5 photo-slot--on-cream has-photo">
-              <img
-                loading="lazy"
-                decoding="async"
-                class="slot-photo"
-                src={member.photo}
+              <ResponsivePhoto
+                base={member.photoBase}
+                widths={member.photoWidths}
+                sizes="(max-width: 680px) 88vw, (max-width: 1160px) 32vw, 240px"
                 alt={`${member.name}, ${t[member.roleKey]}`}
                 width={member.width}
                 height={member.height}

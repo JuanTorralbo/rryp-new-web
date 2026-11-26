@@ -1,0 +1,21 @@
+{
+  "name": "RRYP Global | International Legal Boutique",
+  "short_name": "RRYP Global",
+  "description": "Dirección jurídica internacional en España para Private Clients, Private Wealth y Business Disputes.",
+  "start_url": "/es/",
+  "display": "standalone",
+  "background_color": "#0E1211",
+  "theme_color": "#0E1211",
+  "icons": [
+    {
+      "src": "/assets/logos/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/logos/rryp-mark-gold.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

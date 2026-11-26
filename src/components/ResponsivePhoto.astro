@@ -1,0 +1,45 @@
+---
+export interface Props {
+  base: string;
+  widths: readonly number[];
+  sizes: string;
+  alt: string;
+  width: number;
+  height: number;
+  className?: string;
+  eager?: boolean;
+  version?: string;
+}
+
+const {
+  base,
+  widths,
+  sizes,
+  alt,
+  width,
+  height,
+  className = "slot-photo",
+  eager = false,
+  version = "v4",
+} = Astro.props;
+
+const q = version ? `?${version}` : "";
+const avifSrcset = widths.map((w) => `/assets/photos/${base}-${w}w.avif${q} ${w}w`).join(", ");
+const webpSrcset = widths.map((w) => `/assets/photos/${base}-${w}w.webp${q} ${w}w`).join(", ");
+const fallbackSrc = `/assets/photos/${base}-${widths[widths.length - 1]}w.webp${q}`;
+---
+
+<picture>
+  <source type="image/avif" srcset={avifSrcset} sizes={sizes} />
+  <source type="image/webp" srcset={webpSrcset} sizes={sizes} />
+  <img
+    src={fallbackSrc}
+    alt={alt}
+    width={width}
+    height={height}
+    class={className}
+    loading={eager ? "eager" : "lazy"}
+    fetchpriority={eager ? "high" : undefined}
+    decoding="async"
+  />
+</picture>

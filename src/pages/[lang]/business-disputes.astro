@@ -21,6 +21,19 @@ const serviceSchema = {
   description: t.metaBdDesc,
   url: `${FIRM.siteUrl}${localizedPath(lang, "business-disputes")}`,
   provider: { "@id": `${FIRM.siteUrl}/#organization` },
+  areaServed: ["España", "Unión Europea", "Madrid", "Málaga", "Córdoba"],
+};
+
+const listSchema = {
+  "@type": "ItemList",
+  name: t.bdBlogTitle,
+  numberOfItems: posts.length,
+  itemListElement: posts.map((p, idx) => ({
+    "@type": "ListItem",
+    position: idx + 1,
+    name: p.title,
+    url: p.url,
+  })),
 };
 ---
 
@@ -29,10 +42,14 @@ const serviceSchema = {
   slug="business-disputes"
   title={t.metaBdTitle}
   description={t.metaBdDesc}
-  ogImage="/assets/photos/hero-malaga-reuniones.webp"
+  ogImage="/assets/photos/hero-malaga-reuniones-1024w.webp"
   activeNav="disputes"
-  breadcrumbLabel="Business Disputes"
-  jsonLdExtra={[serviceSchema]}
+  breadcrumbs={[
+    { name: t.bcHome, url: localizedPath(lang) },
+    { name: t.bcPillar03, url: `${localizedPath(lang)}#areas` },
+    { name: "Business Disputes" },
+  ]}
+  jsonLdExtra={[serviceSchema, listSchema]}
 >
   <section class="subhero">
     <div class="container">

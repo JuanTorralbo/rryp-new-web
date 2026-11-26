@@ -73,15 +73,34 @@ for (const f of files) {
 }
 console.log(`OK: ${files.length} archivos escaneados con 0 puntos intermedios.`);
 
-// 4. Exacta paleta de 5 colores en global.css
-const cssPath = path.join(ROOT, "src/styles/global.css");
-if (fs.existsSync(cssPath)) {
-  const css = fs.readFileSync(cssPath, "utf8");
-  const foundHex = [...new Set((css.match(/#[0-9A-Fa-f]{3,6}/g) || []).map((h) => h.toUpperCase()))].sort();
+// 4. Exacta paleta de 5 colores en todas las hojas CSS de src/styles/
+const stylesDir = path.join(ROOT, "src/styles");
+if (fs.existsSync(stylesDir)) {
+  const allHex = new Set();
+  for (const entry of fs.readdirSync(stylesDir)) {
+    if (!entry.endsWith(".css")) continue;
+    const css = fs.readFileSync(path.join(stylesDir, entry), "utf8");
+    for (const h of css.match(/#[0-9A-Fa-f]{3,6}/g) || []) {
+      allHex.add(h.toUpperCase());
+    }
+  }
+  const foundHex = [...allHex].sort();
   if (JSON.stringify(foundHex) !== JSON.stringify(OFFICIAL_HEX)) {
-    fail(`Paleta alterada en global.css. Esperada ${OFFICIAL_HEX.join(", ")}, encontrada ${foundHex.join(", ")}`);
+    fail(`Paleta alterada en src/styles/*.css. Esperada ${OFFICIAL_HEX.join(", ")}, encontrada ${foundHex.join(", ")}`);
   } else {
-    console.log(`OK: Paleta oficial exacta verificada (${foundHex.join(", ")}).`);
+    console.log(`OK: Paleta oficial exacta verificada en src/styles/*.css (${foundHex.join(", ")}).`);
+  }
+}
+
+// 5. Cobertura completa de sitemap.xml (72 rutas localizadas = 12 rutas x 6 idiomas)
+const sitemapPath = path.join(ROOT, "public/sitemap.xml");
+if (fs.existsSync(sitemapPath)) {
+  const xml = fs.readFileSync(sitemapPath, "utf8");
+  const locCount = (xml.match(/<loc>/g) || []).length;
+  if (locCount < 72) {
+    fail(`sitemap.xml incompleto: ${locCount} URLs (esperadas al menos 72)`);
+  } else {
+    console.log(`OK: sitemap.xml completo (${locCount} URLs localizadas verificadas).`);
   }
 }
 

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EntryRoutes from "../../components/EntryRoutes.astro";
+import ResponsivePhoto from "../../components/ResponsivePhoto.astro";
 import { FIRM } from "../../data/firm";
 import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
 
@@ -83,7 +84,9 @@ const homeIntelCards = [
   title={t.metaTitle}
   description={t.metaHomeDesc}
   ogImage={FIRM.photos.hero}
-  preloadImage={FIRM.photos.hero}
+  preloadBase={FIRM.photos.heroBase}
+  preloadWidths={FIRM.photos.heroWidths}
+  preloadSizes="(max-width: 1160px) 92vw, 52vw"
   activeNav="home"
   fullFooter={true}
   jsonLdExtra={[faqSchema, videoSchema, reviewSchema]}
@@ -103,14 +106,14 @@ const homeIntelCards = [
         </div>
 
         <div class="photo-slot photo-slot--16x9 has-photo hero-anim hero-anim--d4">
-          <img
-            class="slot-photo"
-            src={FIRM.photos.hero}
+          <ResponsivePhoto
+            base={FIRM.photos.heroBase}
+            widths={FIRM.photos.heroWidths}
+            sizes="(max-width: 1160px) 92vw, 52vw"
             alt={t.altHeroOffice}
-            width="2240"
-            height="1260"
-            fetchpriority="high"
-            decoding="async"
+            width={1920}
+            height={1080}
+            eager={true}
           />
         </div>
       </div>
@@ -231,14 +234,13 @@ const homeIntelCards = [
       <!-- Bloque editorial con foto real 4:3 -->
       <div class="editorial-split" id="la-firma">
         <div class="photo-slot photo-slot--4x3 photo-slot--on-cream has-photo" data-reveal>
-          <img
-            loading="lazy"
-            decoding="async"
-            class="slot-photo"
-            src={FIRM.photos.editorial}
+          <ResponsivePhoto
+            base={FIRM.photos.editorialBase}
+            widths={FIRM.photos.editorialWidths}
+            sizes="(max-width: 1160px) 92vw, 48vw"
             alt={t.altFounders}
-            width="2000"
-            height="1500"
+            width={1600}
+            height={1200}
           />
         </div>
 
@@ -377,11 +379,10 @@ const homeIntelCards = [
         {FIRM.team.map((member, idx) => (
           <article class="team-card" data-reveal style={`--reveal-delay: ${idx * 70}ms`}>
             <div class="photo-slot photo-slot--4x5 photo-slot--on-cream has-photo">
-              <img
-                loading="lazy"
-                decoding="async"
-                class="slot-photo"
-                src={member.photo}
+              <ResponsivePhoto
+                base={member.photoBase}
+                widths={member.photoWidths}
+                sizes="(max-width: 680px) 88vw, (max-width: 1160px) 32vw, 240px"
                 alt={`${member.name}, ${t[member.roleKey]}`}
                 width={member.width}
                 height={member.height}
@@ -547,14 +548,14 @@ const homeIntelCards = [
         </div>
 
         <div class="video-frame" id="rryp-yt-container" data-embed="https://www.youtube-nocookie.com/embed/u71QLOTkk5M?rel=0">
-          <img
-            src="/assets/photos/youtube-cover.webp"
+          <ResponsivePhoto
+            base={FIRM.photos.youtubeBase}
+            widths={FIRM.photos.youtubeWidths}
+            sizes="(max-width: 1024px) 92vw, 54vw"
             alt={t.ytTitle}
-            width="1280"
-            height="720"
-            loading="lazy"
-            decoding="async"
-            class="video-cover"
+            width={1280}
+            height={720}
+            className="video-cover"
           />
           <div class="video-gate" id="rryp-yt-gate">
             <p class="video-gate-title">{t.ytConsentTitle}</p>

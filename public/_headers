@@ -7,14 +7,15 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-/*.css
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
-
-/*.js
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/site.webmanifest
+  Content-Type: application/manifest+json; charset=utf-8
+  Cache-Control: public, max-age=86400
 
 /data/*
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400

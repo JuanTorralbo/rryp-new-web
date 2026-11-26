@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EntryRoutes from "../../components/EntryRoutes.astro";
+import ResponsivePhoto from "../../components/ResponsivePhoto.astro";
 import { FIRM } from "../../data/firm";
 import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
 
@@ -16,8 +17,12 @@ const localSchema = {
   "@type": "LegalService",
   name: "RRYP Global Madrid",
   url: `${FIRM.siteUrl}${localizedPath(lang, "madrid")}`,
+  image: `${FIRM.siteUrl}${office.photo.split("?")[0]}`,
   telephone: FIRM.phone,
   email: FIRM.email,
+  priceRange: "350 € - 500 €",
+  knowsLanguage: [...LOCALES],
+  hasMap: office.mapsUrl,
   parentOrganization: { "@id": `${FIRM.siteUrl}/#organization` },
   address: {
     "@type": "PostalAddress",
@@ -27,6 +32,12 @@ const localSchema = {
     addressCountry: "ES",
   },
   geo: { "@type": "GeoCoordinates", latitude: office.lat, longitude: office.lng },
+  areaServed: ["Madrid", "España"],
+  openingHoursSpecification: [
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"], opens: "09:00", closes: "14:00" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"], opens: "16:00", closes: "19:15" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Friday"], opens: "08:00", closes: "15:00" },
+  ],
 };
 ---
 
@@ -36,8 +47,14 @@ const localSchema = {
   title={t.metaMadridTitle}
   description={t.metaMadridDesc}
   ogImage={office.photo}
-  preloadImage={office.photo}
-  breadcrumbLabel="Madrid"
+  preloadBase={office.photoBase}
+  preloadWidths={office.photoWidths}
+  preloadSizes="(max-width: 1160px) 92vw, 48vw"
+  breadcrumbs={[
+    { name: t.bcHome, url: localizedPath(lang) },
+    { name: t.bcOffices, url: `${localizedPath(lang)}#sedes` },
+    { name: "Madrid" },
+  ]}
   jsonLdExtra={[localSchema]}
 >
   <section class="subhero">
@@ -61,14 +78,14 @@ const localSchema = {
           </div>
         </div>
         <div class="photo-slot photo-slot--4x3 has-photo hero-anim hero-anim--d4">
-          <img
-            fetchpriority="high"
-            decoding="async"
-            class="slot-photo"
-            src={office.photo}
+          <ResponsivePhoto
+            base={office.photoBase}
+            widths={office.photoWidths}
+            sizes="(max-width: 1160px) 92vw, 48vw"
             alt={t.altMadridOffice}
             width={office.photoWidth}
             height={office.photoHeight}
+            eager={true}
           />
         </div>
       </div>

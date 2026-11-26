@@ -21,6 +21,19 @@ const serviceSchema = {
   description: t.metaPwDesc,
   url: `${FIRM.siteUrl}${localizedPath(lang, "private-wealth")}`,
   provider: { "@id": `${FIRM.siteUrl}/#organization` },
+  areaServed: ["España", "Madrid", "Málaga", "Marbella", "Costa del Sol", "Córdoba"],
+};
+
+const listSchema = {
+  "@type": "ItemList",
+  name: t.pwBlogTitle,
+  numberOfItems: posts.length,
+  itemListElement: posts.map((p, idx) => ({
+    "@type": "ListItem",
+    position: idx + 1,
+    name: p.title,
+    url: p.url,
+  })),
 };
 ---
 
@@ -29,10 +42,14 @@ const serviceSchema = {
   slug="private-wealth"
   title={t.metaPwTitle}
   description={t.metaPwDesc}
-  ogImage="/assets/photos/editorial-madrid.webp"
+  ogImage="/assets/photos/editorial-madrid-1600w.webp"
   activeNav="wealth"
-  breadcrumbLabel="Private Wealth"
-  jsonLdExtra={[serviceSchema]}
+  breadcrumbs={[
+    { name: t.bcHome, url: localizedPath(lang) },
+    { name: t.bcPillar02, url: `${localizedPath(lang)}#areas` },
+    { name: "Private Wealth" },
+  ]}
+  jsonLdExtra={[serviceSchema, listSchema]}
 >
   <section class="subhero">
     <div class="container">

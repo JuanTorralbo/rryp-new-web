@@ -50,6 +50,16 @@ const collectionSchema = {
   url: `${FIRM.siteUrl}${localizedPath(lang, "casos")}`,
   isPartOf: { "@id": `${FIRM.siteUrl}/#website` },
   about: { "@id": `${FIRM.siteUrl}/#organization` },
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: cases.length,
+    itemListElement: cases.map((c, idx) => ({
+      "@type": "ListItem",
+      position: idx + 1,
+      name: c.title,
+      url: c.url,
+    })),
+  },
 };
 ---
 

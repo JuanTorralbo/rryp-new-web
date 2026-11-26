@@ -8,28 +8,69 @@
    - Burdeos:    #47202D (autoridad y resultados)
    ========================================================================== */
 
+/* Tipografias WOFF2 autoalojadas (100% RGPD sin terceros, subconjuntos unicode-range) */
+
 @font-face {
   font-family: "Fraunces";
-  src: url("/assets/fonts/Fraunces.ttf") format("truetype");
+  src: url("/assets/fonts/fraunces-latin-ext-full-normal.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
-  font-family: "Inter";
-  src: url("/assets/fonts/Inter.ttf") format("truetype");
+  font-family: "Fraunces";
+  src: url("/assets/fonts/fraunces-latin-full-normal.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: "Inter";
-  src: url("/assets/fonts/Inter-Italic.ttf") format("truetype");
+  font-family: "Fraunces";
+  src: url("/assets/fonts/fraunces-latin-ext-full-italic.woff2") format("woff2");
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/fraunces-latin-full-italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/inter-cyrillic-wght-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/inter-latin-ext-wght-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/inter-latin-wght-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -119,64 +160,11 @@ body {
   top: 16px;
 }
 
-/* Acordeon FAQ arquitectonico (SEO + GEO Rich Results) */
-
-.faq-list {
-  border-top: 1px solid var(--line-on-cream);
-}
-
-.faq-item {
-  border-bottom: 1px solid var(--line-on-cream);
-}
-
-.faq-item summary {
-  list-style: none;
-  cursor: pointer;
-  padding-block: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  font-family: var(--font-display);
-  font-size: clamp(19px, 1.9vw, 24px);
-  font-weight: 400;
-  line-height: 1.3;
-  color: var(--rryp-black);
-  transition: color var(--transition-ui);
-}
-
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq-item summary::after {
-  content: "+";
-  font-family: var(--font-brand);
-  font-size: 22px;
-  font-weight: 400;
-  color: var(--rryp-gold);
-  flex-shrink: 0;
-  transition: transform var(--transition-ui);
-}
-
-.faq-item[open] summary::after {
-  content: "-";
-}
-
-.faq-item summary:hover {
-  color: var(--rryp-burgundy);
-}
-
-.faq-answer {
-  padding: 0 0 24px;
-  max-width: 78ch;
-  font-size: 15px;
-  line-height: 1.72;
-  color: var(--text-muted-on-cream);
-}
-
-.faq-answer p {
-  margin: 0;
+section[id],
+article[id],
+footer[id],
+div[id] {
+  scroll-margin-top: 96px;
 }
 
 img {
@@ -207,13 +195,25 @@ button {
 }
 
 .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-brand);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--rryp-gold);
   margin: 0 0 18px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 16px;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.65;
+  flex-shrink: 0;
 }
 
 .eyebrow--on-cream {
@@ -357,45 +357,6 @@ main {
   display: flex;
   align-items: center;
   gap: 14px;
-}
-
-.lang-switcher {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid var(--line-on-dark);
-}
-
-.lang-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  background: transparent;
-  border: 0;
-  border-right: 1px solid var(--line-on-dark);
-  color: rgba(247, 244, 237, 0.72);
-  font-family: var(--font-brand);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  padding: 7px 9px;
-  transition: background-color var(--transition-ui), color var(--transition-ui);
-}
-
-.lang-btn:last-child {
-  border-right: 0;
-}
-
-.lang-btn:hover {
-  color: var(--rryp-cream);
-  background-color: rgba(184, 155, 94, 0.14);
-}
-
-.lang-btn[aria-pressed="true"],
-.lang-btn[aria-current="page"],
-.lang-btn.is-active {
-  background-color: var(--rryp-gold);
-  color: var(--rryp-black);
 }
 
 .btn {
@@ -550,7 +511,7 @@ main {
 .hero {
   background-color: var(--rryp-black);
   color: var(--rryp-cream);
-  padding-top: clamp(48px, 7vw, 92px);
+  padding-top: clamp(36px, 4.8vw, 68px);
   padding-bottom: 0;
 }
 
@@ -559,7 +520,7 @@ main {
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
   gap: clamp(32px, 5vw, 72px);
   align-items: end;
-  padding-bottom: clamp(48px, 6vw, 84px);
+  padding-bottom: clamp(36px, 4.6vw, 60px);
 }
 
 .hero-title {
@@ -621,6 +582,21 @@ main {
 .photo-slot--4x5 {
   aspect-ratio: 4 / 5;
   border-radius: 4px;
+}
+
+.photo-slot picture,
+.video-frame picture {
+  display: contents;
+}
+
+.photo-slot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(184, 155, 94, 0.16);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .photo-slot img.slot-photo {
@@ -2412,277 +2388,7 @@ main {
   gap: 16px;
 }
 
-/* ==========================================================================
-   Consola conversacional RRYP Legal Intelligence AI
-   ========================================================================== */
-
-.ai-section {
-  background-color: var(--rryp-black);
-  color: var(--rryp-cream);
-  padding-block: clamp(40px, 5vw, 68px);
-  border-bottom: 1px solid var(--line-on-dark);
-}
-
-.ai-console {
-  border: 1px solid var(--line-on-dark);
-  background-color: rgba(247, 244, 237, 0.025);
-}
-
-.ai-console-header {
-  padding: 20px 26px;
-  border-bottom: 1px solid var(--line-on-dark);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.ai-console-title-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.ai-console-title {
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 400;
-  margin: 0;
-  color: var(--rryp-cream);
-}
-
-.ai-mode-badge {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 11px;
-  color: var(--rryp-gold);
-}
-
-.ai-key-panel {
-  padding: 16px 26px;
-  border-bottom: 1px solid var(--line-on-dark-subtle);
-  background-color: rgba(184, 155, 94, 0.06);
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.ai-key-panel[hidden] {
-  display: none;
-}
-
-.ai-key-input {
-  flex: 1 1 280px;
-  background-color: var(--rryp-black);
-  border: 1px solid var(--line-on-dark);
-  color: var(--rryp-cream);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 13px;
-  padding: 10px 12px;
-}
-
-.ai-key-note {
-  width: 100%;
-  margin: 0;
-  font-size: 12px;
-  color: var(--text-muted-on-dark);
-}
-
-.ai-prompts {
-  padding: 16px 26px;
-  border-bottom: 1px solid var(--line-on-dark-subtle);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.ai-prompt-chip {
-  background-color: transparent;
-  border: 1px solid var(--line-on-dark);
-  color: var(--rryp-cream);
-  font-size: 12px;
-  padding: 8px 13px;
-  text-align: left;
-  transition: border-color var(--transition-ui), color var(--transition-ui), background-color var(--transition-ui);
-}
-
-.ai-prompt-chip:hover {
-  border-color: var(--rryp-lime);
-  color: var(--rryp-lime);
-  background-color: rgba(225, 237, 99, 0.06);
-}
-
-.ai-chat-thread {
-  padding: 24px 26px;
-  min-height: 280px;
-  max-height: 540px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.ai-msg {
-  padding: 18px 20px;
-  border: 1px solid var(--line-on-dark-subtle);
-}
-
-.ai-msg--user {
-  align-self: flex-end;
-  width: min(760px, 92%);
-  background-color: rgba(184, 155, 94, 0.12);
-  border-color: var(--line-on-dark);
-}
-
-.ai-msg--assistant {
-  align-self: flex-start;
-  width: min(880px, 100%);
-  background-color: rgba(247, 244, 237, 0.03);
-}
-
-.ai-msg-role {
-  font-family: var(--font-brand);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--rryp-gold);
-  margin-bottom: 8px;
-}
-
-.ai-msg-body p {
-  margin: 0 0 12px;
-  font-size: 15px;
-  line-height: 1.68;
-  color: var(--rryp-cream);
-}
-
-.ai-msg-body p:last-child {
-  margin-bottom: 0;
-}
-
-.ai-citations {
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid var(--line-on-dark-subtle);
-}
-
-.ai-citations-label {
-  font-family: var(--font-brand);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--rryp-gold);
-  margin: 0 0 8px;
-}
-
-.ai-citations-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.ai-citations-list a {
-  font-size: 13px;
-  color: var(--rryp-cream);
-  border-bottom: 1px solid rgba(184, 155, 94, 0.35);
-  transition: color var(--transition-ui), border-color var(--transition-ui);
-}
-
-.ai-citations-list a:hover {
-  color: var(--rryp-lime);
-  border-bottom-color: var(--rryp-lime);
-}
-
-.ai-booking-card {
-  margin-top: 18px;
-  padding: 18px 20px;
-  background-color: var(--rryp-burgundy);
-  border: 1px solid var(--line-on-burgundy);
-}
-
-.ai-booking-badge {
-  font-family: var(--font-brand);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--rryp-lime);
-  margin: 0 0 6px;
-}
-
-.ai-booking-title {
-  font-family: var(--font-display);
-  font-size: 20px;
-  color: var(--rryp-cream);
-  margin: 0 0 8px;
-}
-
-.ai-booking-desc {
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: var(--text-muted-on-burgundy);
-  margin: 0 0 14px;
-}
-
-.ai-booking-actions {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.ai-booking-secondary {
-  font-family: var(--font-brand);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--rryp-cream);
-  border-bottom: 1px solid rgba(247, 244, 237, 0.45);
-  padding-bottom: 2px;
-  transition: color var(--transition-ui), border-color var(--transition-ui);
-}
-
-.ai-booking-secondary:hover {
-  color: var(--rryp-lime);
-  border-bottom-color: var(--rryp-lime);
-}
-
-.ai-chat-form {
-  display: flex;
-  gap: 12px;
-  padding: 18px 26px;
-  border-top: 1px solid var(--line-on-dark);
-  background-color: rgba(14, 18, 17, 0.65);
-}
-
-.ai-chat-input {
-  flex: 1;
-  background-color: rgba(247, 244, 237, 0.05);
-  border: 1px solid var(--line-on-dark);
-  color: var(--rryp-cream);
-  font-family: var(--font-body);
-  font-size: 15px;
-  padding: 13px 16px;
-  transition: border-color var(--transition-ui);
-}
-
-.ai-chat-input:focus {
-  outline: none;
-  border-color: var(--rryp-gold);
-}
-
-@media (max-width: 680px) {
-  .ai-chat-form {
-    flex-direction: column;
-  }
-}
+/* Consola IA movida a src/styles/ai-console.css (carga exclusiva en /legal-intelligence/) */
 
 @media (max-width: 1160px) {
   .subhero-grid,
@@ -2877,22 +2583,7 @@ html.is-scrolled .site-header {
   z-index: 2;
 }
 
-/* Selector de idioma segmentado de precision (4px) */
-.lang-switcher {
-  border-radius: var(--radius-arch);
-  padding: 3px;
-  gap: 2px;
-  background-color: rgba(247, 244, 237, 0.04);
-  border: 1px solid rgba(184, 155, 94, 0.3);
-}
-
-.lang-btn {
-  border-right: 0;
-  border-radius: 2px;
-  padding: 5px 8px;
-}
-
-/* Radio unificado 4px en botones, tarjetas, formularios e IA */
+/* Radio unificado 4px en botones, tarjetas y formularios */
 .btn,
 .menu-toggle,
 .case-panel,
@@ -2908,13 +2599,7 @@ html.is-scrolled .site-header {
 .back-to-top,
 .subhero-aside,
 .blog-search-input,
-.filter-pill,
-.ai-console,
-.ai-key-input,
-.ai-prompt-chip,
-.ai-msg,
-.ai-booking-card,
-.ai-chat-input {
+.filter-pill {
   border-radius: var(--radius-arch);
 }
 
@@ -2950,12 +2635,20 @@ html.is-scrolled .site-header {
   text-wrap: pretty;
 }
 
+.authority-figure {
+  font-variation-settings: "opsz" 144, "SOFT" 10;
+}
+
 .authority-figure,
 .entry-fee,
 .pillar-index,
 .result-headline,
 .intel-date {
   font-variant-numeric: tabular-nums;
+}
+
+.hero-strip {
+  padding-bottom: 44px;
 }
 
 /* Iluminacion ambiental arquitectonica estatica en fondos oscuros y burdeos */
@@ -3258,15 +2951,10 @@ html.is-scrolled .site-header {
   margin: 0;
 }
 
-/* Panel de contacto y consola IA con sombra estatica ligera */
+/* Panel de contacto con sombra estatica ligera */
 .contact-panel {
   background-color: rgba(14, 18, 17, 0.02);
   box-shadow: var(--shadow-cream-card);
-}
-
-.ai-console {
-  overflow: hidden;
-  box-shadow: var(--shadow-dark-elevated);
 }
 
 @media (max-width: 1160px) {
@@ -4297,15 +3985,6 @@ html.is-scrolled .site-header {
   .header-actions {
     gap: 6px;
   }
-  .lang-switcher {
-    padding: 2px;
-    gap: 1px;
-  }
-  .lang-btn {
-    padding: 4px 5px;
-    font-size: 10px;
-    letter-spacing: 0.04em;
-  }
   .header-search-btn {
     width: 30px;
     height: 30px;
@@ -4364,5 +4043,29 @@ html.is-scrolled .site-header {
   *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .site-header,
+  .rryp-whatsapp-fixed,
+  .rryp-social-rail,
+  .cookie-dialog,
+  .cookie-manage-pill,
+  .search-overlay,
+  .back-to-top {
+    display: none !important;
+  }
+
+  body,
+  .hero,
+  .subhero,
+  .section-cream,
+  .section-burgundy,
+  .section-dark,
+  .site-footer {
+    background: #F7F4ED !important;
+    color: #0E1211 !important;
+    box-shadow: none !important;
   }
 }

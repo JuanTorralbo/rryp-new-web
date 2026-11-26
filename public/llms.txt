@@ -29,9 +29,19 @@
 - [La firma y RRYP en 5 minutos](https://rrypglobal.com/es/la-firma/): fundación, equipo directivo, método de construcción y reconducción de casos complejos.
 - [Casos representativos y resultados](https://rrypglobal.com/es/casos/): track record verificado (26+ nacionalidades, 200+ asuntos, 12+ plazas judiciales en España) y 20 casos representativos.
 - [RRYP Legal Intelligence](https://rrypglobal.com/es/legal-intelligence/): asistente conversacional de inteligencia jurídica y archivo de 429 publicaciones técnicas.
+- [Penal económico, OEDE y extradición](https://rrypglobal.com/es/penal-economico-extradicion/): defensa ante la Audiencia Nacional, nulidad de órdenes europeas de detención y entrega (OEDE) y litigación penal económica transfronteriza.
 - [Sede de Madrid](https://rrypglobal.com/es/madrid/)
 - [Sede de Málaga (área Marbella y Costa del Sol)](https://rrypglobal.com/es/malaga/)
 - [Sede de Córdoba](https://rrypglobal.com/es/cordoba/)
+- [Careers](https://rrypglobal.com/es/careers/)
 - [Guía oficial de divorcio internacional (PDF)](https://rrypglobal.com/wp-content/uploads/2026/05/guia_divorcio_internacional_rryp_global.pdf)
 - [Guía oficial de sustracción internacional de menores (PDF)](https://rrypglobal.com/wp-content/uploads/edd/2026/05/guia_sustraccion_internacional_menores_rryp_global.pdf)
 - [Dossier completo para modelos de lenguaje (llms-full.txt)](https://rrypglobal.com/llms-full.txt)
+
+## Árboles internacionales verificados (6 idiomas)
+- Español: https://rrypglobal.com/es/
+- English (x-default): https://rrypglobal.com/en/
+- Deutsch: https://rrypglobal.com/de/
+- Português: https://rrypglobal.com/pt/
+- Русский: https://rrypglobal.com/ru/
+- 中文: https://rrypglobal.com/zh/

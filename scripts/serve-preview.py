@@ -26,8 +26,8 @@ BOT_RE = re.compile(
     r"bot|crawl|spider|slurp|mediapartners|facebookexternalhit|linkedinbot|whatsapp|telegrambot|gptbot|claudebot|perplexitybot|oai-searchbot|google-extended|bingpreview",
     re.I,
 )
-COMPRESSIBLE_EXTS = (".html", ".css", ".js", ".json", ".xml", ".txt", ".svg")
-IMMUTABLE_EXTS = (".webp", ".png", ".ttf", ".otf", ".woff2")
+COMPRESSIBLE_EXTS = (".html", ".css", ".js", ".json", ".xml", ".txt", ".svg", ".webmanifest", ".otf", ".ttf")
+IMMUTABLE_EXTS = (".avif", ".webp", ".png", ".ttf", ".otf", ".woff2")
 
 
 def load_env(path):

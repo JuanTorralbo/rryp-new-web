@@ -1,0 +1,298 @@
+/* ==========================================================================
+   Consola conversacional RRYP Legal Intelligence AI
+   Cargada unicamente en /legal-intelligence/ para aligerar el resto del sitio.
+   ========================================================================== */
+
+.ai-section {
+  background-color: var(--rryp-black);
+  color: var(--rryp-cream);
+  padding-block: clamp(34px, 4.5vw, 60px);
+  border-bottom: 1px solid var(--line-on-dark);
+  background-image:
+    radial-gradient(ellipse 64% 48% at 50% 0%, rgba(184, 155, 94, 0.1), transparent 68%);
+}
+
+.ai-console {
+  border: 1px solid var(--line-on-dark);
+  border-radius: var(--radius-arch);
+  overflow: hidden;
+  background-color: rgba(247, 244, 237, 0.025);
+  box-shadow: var(--shadow-dark-elevated);
+}
+
+.ai-console-header {
+  padding: 20px 26px;
+  border-bottom: 1px solid var(--line-on-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.ai-console-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ai-console-title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.2vw, 26px);
+  font-weight: 400;
+  margin: 0;
+  color: var(--rryp-cream);
+}
+
+.ai-mode-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: var(--rryp-gold);
+}
+
+.ai-mode-badge.is-live {
+  color: var(--rryp-lime);
+}
+
+.ai-mode-badge.is-live::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--rryp-lime);
+}
+
+.ai-key-panel {
+  padding: 16px 26px;
+  border-bottom: 1px solid var(--line-on-dark-subtle);
+  background-color: rgba(184, 155, 94, 0.06);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ai-key-panel[hidden],
+#ai-key-toggle[hidden] {
+  display: none !important;
+}
+
+.ai-key-input {
+  flex: 1 1 280px;
+  background-color: var(--rryp-black);
+  border: 1px solid var(--line-on-dark);
+  border-radius: var(--radius-arch);
+  color: var(--rryp-cream);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  padding: 10px 12px;
+}
+
+.ai-key-note {
+  width: 100%;
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-muted-on-dark);
+}
+
+.ai-prompts {
+  padding: 16px 26px;
+  border-bottom: 1px solid var(--line-on-dark-subtle);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ai-prompt-chip {
+  background-color: transparent;
+  border: 1px solid var(--line-on-dark);
+  border-radius: var(--radius-arch);
+  color: var(--rryp-cream);
+  font-size: 12px;
+  padding: 8px 13px;
+  text-align: left;
+  transition: border-color var(--transition-ui), color var(--transition-ui), background-color var(--transition-ui);
+}
+
+.ai-prompt-chip:hover {
+  border-color: var(--rryp-lime);
+  color: var(--rryp-lime);
+  background-color: rgba(225, 237, 99, 0.06);
+}
+
+.ai-chat-thread {
+  padding: 24px 26px;
+  min-height: 280px;
+  max-height: 540px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ai-msg {
+  padding: 18px 20px;
+  border: 1px solid var(--line-on-dark-subtle);
+  border-radius: var(--radius-arch);
+}
+
+.ai-msg--user {
+  align-self: flex-end;
+  width: min(760px, 92%);
+  background-color: rgba(184, 155, 94, 0.12);
+  border-color: var(--line-on-dark);
+}
+
+.ai-msg--assistant {
+  align-self: flex-start;
+  width: min(880px, 100%);
+  background-color: rgba(247, 244, 237, 0.03);
+}
+
+.ai-msg-role {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rryp-gold);
+  margin-bottom: 8px;
+}
+
+.ai-msg-body p {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.68;
+  color: var(--rryp-cream);
+}
+
+.ai-msg-body p:last-child {
+  margin-bottom: 0;
+}
+
+.ai-citations {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-on-dark-subtle);
+}
+
+.ai-citations-label {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rryp-gold);
+  margin: 0 0 8px;
+}
+
+.ai-citations-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ai-citations-list a {
+  font-size: 13px;
+  color: var(--rryp-cream);
+  border-bottom: 1px solid rgba(184, 155, 94, 0.35);
+  transition: color var(--transition-ui), border-color var(--transition-ui);
+}
+
+.ai-citations-list a:hover {
+  color: var(--rryp-lime);
+  border-bottom-color: var(--rryp-lime);
+}
+
+.ai-booking-card {
+  margin-top: 18px;
+  padding: 18px 20px;
+  background-color: var(--rryp-burgundy);
+  border: 1px solid var(--line-on-burgundy);
+  border-radius: var(--radius-arch);
+}
+
+.ai-booking-badge {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rryp-lime);
+  margin: 0 0 6px;
+}
+
+.ai-booking-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--rryp-cream);
+  margin: 0 0 8px;
+}
+
+.ai-booking-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-muted-on-burgundy);
+  margin: 0 0 14px;
+}
+
+.ai-booking-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.ai-booking-secondary {
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rryp-cream);
+  border-bottom: 1px solid rgba(247, 244, 237, 0.45);
+  padding-bottom: 2px;
+  transition: color var(--transition-ui), border-color var(--transition-ui);
+}
+
+.ai-booking-secondary:hover {
+  color: var(--rryp-lime);
+  border-bottom-color: var(--rryp-lime);
+}
+
+.ai-chat-form {
+  display: flex;
+  gap: 12px;
+  padding: 18px 26px;
+  border-top: 1px solid var(--line-on-dark);
+  background-color: rgba(14, 18, 17, 0.65);
+}
+
+.ai-chat-input {
+  flex: 1;
+  background-color: rgba(247, 244, 237, 0.05);
+  border: 1px solid var(--line-on-dark);
+  border-radius: var(--radius-arch);
+  color: var(--rryp-cream);
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 13px 16px;
+  transition: border-color var(--transition-ui);
+}
+
+.ai-chat-input:focus {
+  outline: none;
+  border-color: var(--rryp-gold);
+}
+
+@media (max-width: 680px) {
+  .ai-chat-form {
+    flex-direction: column;
+  }
+}
