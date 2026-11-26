@@ -36,6 +36,11 @@ const blogUiConfig = JSON.stringify({
   noResults: t.blogNoResults,
   readFull: t.blogReadFull,
   seoLabel: t.blogFilterSeo,
+  pillarLabels: {
+    "private-clients": getPillarLabel("private-clients", lang),
+    "private-wealth": getPillarLabel("private-wealth", lang),
+    "business-disputes": getPillarLabel("business-disputes", lang),
+  },
 });
 ---
 
@@ -75,14 +80,14 @@ const blogUiConfig = JSON.stringify({
           <button type="button" class="filter-pill" data-filter="all" aria-pressed="true">
             {t.blogFilterAll} ({countAll})
           </button>
-          <button type="button" class="filter-pill" data-filter="private-clients" aria-pressed="false">
-            Private Clients ({countPc})
-          </button>
           <button type="button" class="filter-pill" data-filter="private-wealth" aria-pressed="false">
-            Private Wealth ({countPw})
+            {getPillarLabel("private-wealth", lang)} ({countPw})
           </button>
           <button type="button" class="filter-pill" data-filter="business-disputes" aria-pressed="false">
-            Business Disputes ({countBd})
+            {getPillarLabel("business-disputes", lang)} ({countBd})
+          </button>
+          <button type="button" class="filter-pill" data-filter="private-clients" aria-pressed="false">
+            {getPillarLabel("private-clients", lang)} ({countPc})
           </button>
           {countSeo > 0 && (
             <button type="button" class="filter-pill" data-filter="seo-audit" aria-pressed="false">
@@ -100,7 +105,7 @@ const blogUiConfig = JSON.stringify({
           <article class="intel-card">
             <div>
               <div class="intel-meta">
-                <span>{post.pillar === "seo-audit" ? t.blogFilterSeo : getPillarLabel(post.pillar)}</span>
+                <span>{post.pillar === "seo-audit" ? t.blogFilterSeo : getPillarLabel(post.pillar, lang)}</span>
                 <span class="intel-date">{post.date}</span>
               </div>
               <h3 class="intel-title">{post.title}</h3>
@@ -148,9 +153,7 @@ const blogUiConfig = JSON.stringify({
     }
 
     function labelFor(pillar) {
-      if (pillar === "private-clients") return "Private Clients";
-      if (pillar === "private-wealth") return "Private Wealth";
-      if (pillar === "business-disputes") return "Business Disputes";
+      if (cfg.pillarLabels && cfg.pillarLabels[pillar]) return cfg.pillarLabels[pillar];
       return cfg.seoLabel || "SEO";
     }
 

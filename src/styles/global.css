@@ -549,6 +549,15 @@ main {
   color: var(--rryp-cream);
 }
 
+.nav-trigger:focus-visible,
+.nav-caret-btn:focus-visible,
+.nav-dropdown-link:focus-visible,
+.nav-dropdown-office:focus-visible {
+  outline: 2px solid var(--rryp-gold);
+  outline-offset: 2px;
+  border-radius: var(--radius-arch);
+}
+
 .header-actions {
   display: flex;
   align-items: center;

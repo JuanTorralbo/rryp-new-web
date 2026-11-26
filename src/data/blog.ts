@@ -75,15 +75,42 @@ export function getLocalizedPosts(locale: Locale, pillar?: PillarId): BlogPost[]
   return list;
 }
 
-export function getPillarLabel(pillar: PillarId): string {
-  switch (pillar) {
-    case "private-clients":
-      return "Private Clients";
-    case "private-wealth":
-      return "Private Wealth";
-    case "business-disputes":
-      return "Business Disputes";
-    default:
-      return "SEO 301 / 410";
+const PILLAR_LABELS: Record<Locale, Record<"private-clients" | "private-wealth" | "business-disputes", string>> = {
+  es: {
+    "private-clients": "Clientes privados",
+    "private-wealth": "Patrimonio",
+    "business-disputes": "Empresa y litigios",
+  },
+  en: {
+    "private-clients": "Private Clients",
+    "private-wealth": "Private Wealth",
+    "business-disputes": "Business Disputes",
+  },
+  de: {
+    "private-clients": "Private Clients",
+    "private-wealth": "Private Wealth",
+    "business-disputes": "Business Disputes",
+  },
+  pt: {
+    "private-clients": "Clientes privados",
+    "private-wealth": "Património",
+    "business-disputes": "Empresa e litígios",
+  },
+  ru: {
+    "private-clients": "Частные клиенты",
+    "private-wealth": "Частный капитал",
+    "business-disputes": "Бизнес и споры",
+  },
+  zh: {
+    "private-clients": "私人客户",
+    "private-wealth": "私人财富",
+    "business-disputes": "企业与争议",
+  },
+};
+
+export function getPillarLabel(pillar: PillarId, lang: Locale = "en"): string {
+  if (pillar === "private-clients" || pillar === "private-wealth" || pillar === "business-disputes") {
+    return PILLAR_LABELS[lang]?.[pillar] ?? PILLAR_LABELS.en[pillar];
   }
+  return "SEO 301 / 410";
 }

@@ -475,6 +475,72 @@ function initNavDropdowns() {
   });
 }
 
+function initDocTocScrollspy() {
+  const tocLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>(".doc-toc-list a[href^='#']"));
+  if (!tocLinks.length || !("IntersectionObserver" in window)) return;
+
+  const pairs = tocLinks
+    .map((link) => {
+      const id = decodeURIComponent(link.getAttribute("href")?.slice(1) || "");
+      const heading = id ? document.getElementById(id) : null;
+      return heading ? { link, heading } : null;
+    })
+    .filter((p): p is { link: HTMLAnchorElement; heading: HTMLElement } => Boolean(p));
+
+  if (!pairs.length) return;
+
+  const setActive = (activeLink: HTMLAnchorElement) => {
+    pairs.forEach(({ link }) => {
+      const isCurrent = link === activeLink;
+      link.classList.toggle("is-active", isCurrent);
+      if (isCurrent) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  };
+
+  setActive(pairs[0].link);
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((e) => e.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (visible.length) {
+        const match = pairs.find((p) => p.heading === visible[0].target);
+        if (match) setActive(match.link);
+      }
+    },
+    { rootMargin: "-96px 0px -65% 0px", threshold: 0 }
+  );
+
+  pairs.forEach(({ heading }) => io.observe(heading));
+}
+
+function initDocUtilities() {
+  document.querySelectorAll<HTMLButtonElement>("[data-copy-url]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const url = window.location.href;
+      const original = btn.textContent || "";
+      const copied = btn.getAttribute("data-copied-label") || "Copied";
+      try {
+        await navigator.clipboard.writeText(url);
+        btn.textContent = copied;
+        btn.classList.add("is-copied");
+        window.setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove("is-copied");
+        }, 2000);
+      } catch {
+        // Fallback silencioso si el navegador bloquea clipboard
+      }
+    });
+  });
+
+  document.querySelectorAll<HTMLButtonElement>("[data-print-doc]").forEach((btn) => {
+    btn.addEventListener("click", () => window.print());
+  });
+}
+
 initHeaderMenus();
 initNavDropdowns();
 initLanguagePersistence();
@@ -482,3 +548,5 @@ initMobileMenu();
 initOfficeStatus();
 initScrollEffects();
 initIntakeForm();
+initDocTocScrollspy();
+initDocUtilities();

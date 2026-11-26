@@ -257,12 +257,61 @@
   font-size: 13px;
   line-height: 1.4;
   color: var(--text-muted-on-cream);
-  padding: 2px 0;
-  transition: color 160ms ease;
+  padding: 3px 0 3px 10px;
+  border-left: 2px solid transparent;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease;
 }
 
 .doc-toc-list a:hover {
   color: var(--rryp-black);
+  border-left-color: rgba(184, 155, 94, 0.55);
+}
+
+.doc-toc-list a.is-active {
+  color: var(--rryp-black);
+  font-weight: 600;
+  border-left-color: var(--rryp-gold);
+}
+
+.doc-util-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.doc-util-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 10px;
+  border-radius: var(--radius-arch);
+  border: 1px solid var(--line-on-cream);
+  background-color: transparent;
+  color: var(--rryp-black);
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.doc-util-btn:hover {
+  background-color: var(--rryp-black);
+  border-color: var(--rryp-black);
+  color: var(--rryp-cream);
+}
+
+.doc-util-btn.is-copied {
+  background-color: var(--rryp-burgundy);
+  border-color: var(--rryp-burgundy);
+  color: var(--rryp-cream);
 }
 
 .doc-cta-card {
