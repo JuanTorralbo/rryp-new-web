@@ -87,7 +87,8 @@ function initSiteSearch() {
     if (matchedArticles.length) {
       html += `<div class="search-group"><p class="search-group-label">${esc(cfg.articlesLabel)}</p><ul class="search-list">`;
       matchedArticles.forEach((a) => {
-        html += `<li><a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer"><strong>${esc(a.title)} ↗</strong><span>${esc(a.date)}</span></a></li>`;
+        const isExt = String(a.url || "").startsWith("http");
+        html += `<li><a href="${esc(a.url)}"${isExt ? ' target="_blank" rel="noopener noreferrer"' : ""}><strong>${esc(a.title)}${isExt ? " ↗" : ""}</strong><span>${esc(a.date)}</span></a></li>`;
       });
       html += "</ul></div>";
     }

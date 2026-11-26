@@ -55,25 +55,25 @@ const homeIntelCards = [
     pillar: "Business Disputes",
     date: "2026-11-10",
     title: t.intel1Title,
-    url: "https://rrypglobal.com/danos-perjuicios-incumplimiento-contrato-internacional/",
+    url: localizedPath(lang, "legal-intelligence/danos-perjuicios-incumplimiento-contrato-internacional"),
   },
   {
     pillar: "Private Wealth",
     date: "2026-04-10",
     title: t.intel2Title,
-    url: "https://rrypglobal.com/liquidacion-internacional-de-gananciales-para-alto-patrimonio/",
+    url: localizedPath(lang, "legal-intelligence/liquidacion-internacional-de-gananciales-para-alto-patrimonio"),
   },
   {
     pillar: "Private Clients",
     date: "2026-04-09",
     title: t.intel3Title,
-    url: "https://rrypglobal.com/residencias-nacionalidades-y-patrimonio-claves-para-determinar-la-jurisdiccion-en-un-divorcio-internacional/",
+    url: localizedPath(lang, "legal-intelligence/residencias-nacionalidades-y-patrimonio-claves-para-determinar-la-jurisdiccion-en-un-divorcio-internacional"),
   },
   {
     pillar: "Business Disputes",
     date: "2026-08-03",
     title: t.intel4Title,
-    url: "https://rrypglobal.com/conflictos-fundadores-inversores-extranjeros/",
+    url: localizedPath(lang, "legal-intelligence/conflictos-fundadores-inversores-extranjeros"),
   },
 ];
 ---
@@ -420,7 +420,7 @@ const homeIntelCards = [
               </div>
               <h3 class="intel-title">{card.title}</h3>
             </div>
-            <a href={card.url} target="_blank" rel="noopener noreferrer" class="intel-link">
+            <a href={card.url} class="intel-link">
               {t.intelRead}
             </a>
           </article>

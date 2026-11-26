@@ -1,6 +1,5 @@
 ---
-import { FIRM } from "../data/firm";
-import { getDictionary, type Locale } from "../i18n";
+import { getDictionary, localizedPath, type Locale } from "../i18n";
 
 export interface Props {
   lang: Locale;
@@ -92,9 +91,9 @@ const t = getDictionary(lang);
   </div>
 
   <div class="cookie-links">
-    <a href={FIRM.legalLinks.cookies} target="_blank" rel="noopener noreferrer">{t.legalCookies}</a>
-    <a href={FIRM.legalLinks.privacy} target="_blank" rel="noopener noreferrer">{t.legalPrivacy}</a>
-    <a href={FIRM.legalLinks.notice} target="_blank" rel="noopener noreferrer">{t.legalNotice}</a>
+    <a href={localizedPath(lang, "legal/cookies")}>{t.legalCookies}</a>
+    <a href={localizedPath(lang, "legal/privacidad")}>{t.legalPrivacy}</a>
+    <a href={localizedPath(lang, "legal/aviso-legal")}>{t.legalNotice}</a>
   </div>
 </section>
 

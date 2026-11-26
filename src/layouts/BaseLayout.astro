@@ -26,6 +26,8 @@ export interface Props {
   urgentHeaderCta?: boolean;
   fullFooter?: boolean;
   noindex?: boolean;
+  availableLocales?: readonly Locale[];
+  langFallbackSlug?: string;
   breadcrumbLabel?: string;
   breadcrumbs?: { name: string; url?: string }[];
   jsonLdExtra?: Record<string, unknown>[];
@@ -45,6 +47,8 @@ const {
   urgentHeaderCta = false,
   fullFooter = false,
   noindex = false,
+  availableLocales,
+  langFallbackSlug = "",
   breadcrumbLabel,
   breadcrumbs,
   jsonLdExtra = [],
@@ -57,9 +61,13 @@ const preloadAvifSrcset =
 
 const t = getDictionary(lang);
 const cleanSlug = slug.replace(/^\/+|\/+$/g, "");
+const validLocales = availableLocales && availableLocales.length > 0 ? availableLocales : LOCALES;
+const langSwitchHref = (loc: Locale) =>
+  localizedPath(loc, validLocales.includes(loc) ? cleanSlug : langFallbackSlug);
 const currentPath = localizedPath(lang, cleanSlug);
 const canonicalUrl = `${FIRM.siteUrl}${currentPath}`;
-const xDefaultUrl = `${FIRM.siteUrl}${localizedPath(DEFAULT_LOCALE, cleanSlug)}`;
+const xDefaultLocale = validLocales.includes(DEFAULT_LOCALE) ? DEFAULT_LOCALE : validLocales[0];
+const xDefaultUrl = `${FIRM.siteUrl}${localizedPath(xDefaultLocale, cleanSlug)}`;
 const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${FIRM.siteUrl}${ogImage}`;
 
 const orgNode = {
@@ -214,7 +222,10 @@ const hasLocalEntryRoutes =
   activeNav === "firm" ||
   cleanSlug === "madrid" ||
   cleanSlug === "malaga" ||
-  cleanSlug === "cordoba";
+  cleanSlug === "cordoba" ||
+  cleanSlug.startsWith("casos/") ||
+  cleanSlug.startsWith("especialidades/") ||
+  cleanSlug.startsWith("legal-intelligence/");
 
 const entryHref = hasLocalEntryRoutes ? "#vias-de-entrada" : `${localizedPath(lang)}#vias-de-entrada`;
 ---
@@ -236,7 +247,7 @@ const entryHref = hasLocalEntryRoutes ? "#vias-de-entrada" : `${localizedPath(la
     <link rel="apple-touch-icon" href="/assets/logos/favicon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="canonical" href={canonicalUrl} />
-    {LOCALES.map((loc) => (
+    {validLocales.map((loc) => (
       <link rel="alternate" hreflang={loc} href={`${FIRM.siteUrl}${localizedPath(loc, cleanSlug)}`} />
     ))}
     <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
@@ -244,7 +255,7 @@ const entryHref = hasLocalEntryRoutes ? "#vias-de-entrada" : `${localizedPath(la
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={FIRM.brand} />
     <meta property="og:locale" content={LOCALE_LABELS[lang].og} />
-    {LOCALES.filter((loc) => loc !== lang).map((loc) => (
+    {validLocales.filter((loc) => loc !== lang).map((loc) => (
       <meta property="og:locale:alternate" content={LOCALE_LABELS[loc].og} />
     ))}
     <meta property="og:title" content={title} />
@@ -377,7 +388,7 @@ const entryHref = hasLocalEntryRoutes ? "#vias-de-entrada" : `${localizedPath(la
             <div class="nav-lang-popover" id="nav-lang-popover" role="group" aria-label={t.ariaLangSwitcher}>
               {LOCALES.map((loc) => (
                 <a
-                  href={localizedPath(loc, cleanSlug)}
+                  href={langSwitchHref(loc)}
                   hreflang={loc}
                   data-set-lang={loc}
                   class={`nav-lang-option ${loc === lang ? "is-active" : ""}`}
@@ -619,7 +630,7 @@ const entryHref = hasLocalEntryRoutes ? "#vias-de-entrada" : `${localizedPath(la
             <ul class="footer-links">
               {LOCALES.map((loc) => (
                 <li>
-                  <a href={localizedPath(loc, cleanSlug)} hreflang={loc} data-set-lang={loc}>
+                  <a href={langSwitchHref(loc)} hreflang={loc} data-set-lang={loc}>
                     /{loc}/ {LOCALE_LABELS[loc].native}
                     {loc === DEFAULT_LOCALE ? " (x-default)" : ""}
                   </a>
@@ -646,10 +657,10 @@ const entryHref = hasLocalEntryRoutes ? "#vias-de-entrada" : `${localizedPath(la
           </div>
 
           <div class="footer-legal-links">
-            <a href={FIRM.legalLinks.notice} target="_blank" rel="noopener noreferrer">{t.legalNotice}</a>
-            <a href={FIRM.legalLinks.terms} target="_blank" rel="noopener noreferrer">{t.legalTerms}</a>
-            <a href={FIRM.legalLinks.cookies} target="_blank" rel="noopener noreferrer">{t.legalCookies}</a>
-            <a href={FIRM.legalLinks.privacy} target="_blank" rel="noopener noreferrer">{t.legalPrivacy}</a>
+            <a href={localizedPath(lang, "legal/aviso-legal")}>{t.legalNotice}</a>
+            <a href={localizedPath(lang, "legal/condiciones")}>{t.legalTerms}</a>
+            <a href={localizedPath(lang, "legal/cookies")}>{t.legalCookies}</a>
+            <a href={localizedPath(lang, "legal/privacidad")}>{t.legalPrivacy}</a>
           </div>
 
           <div class="footer-bottom-right">

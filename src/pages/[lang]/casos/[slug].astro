@@ -1,0 +1,150 @@
+---
+import "../../../styles/editorial-doc.css";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import EntryRoutes from "../../../components/EntryRoutes.astro";
+import { FIRM } from "../../../data/firm";
+import { WP_CASES, getRelatedCases, type WpCaseStudy } from "../../../data/wp";
+import { getDictionary, LOCALES, localizedPath, type Locale } from "../../../i18n";
+
+export function getStaticPaths() {
+  const paths: { params: { lang: Locale; slug: string }; props: { item: WpCaseStudy } }[] = [];
+  for (const lang of LOCALES) {
+    for (const item of WP_CASES) {
+      paths.push({ params: { lang, slug: item.slug }, props: { item } });
+    }
+  }
+  return paths;
+}
+
+const { lang } = Astro.params as { lang: Locale; slug: string };
+const { item } = Astro.props as { item: WpCaseStudy };
+const t = getDictionary(lang);
+const related = getRelatedCases(item.slug, item.pillar, 3);
+
+const articleSchema = {
+  "@type": "Article",
+  headline: item.title,
+  description: item.lead,
+  datePublished: item.date,
+  inLanguage: "es",
+  author: { "@id": `${FIRM.siteUrl}/#organization` },
+  publisher: { "@id": `${FIRM.siteUrl}/#organization` },
+  mainEntityOfPage: `${FIRM.siteUrl}${localizedPath(lang, `casos/${item.slug}`)}`,
+};
+---
+
+<BaseLayout
+  lang={lang}
+  slug={`casos/${item.slug}`}
+  title={`${item.title} | ${t.navCases} | RRYP Global`}
+  description={item.lead}
+  activeNav="cases"
+  urgentHeaderCta={item.pillar === "penal"}
+  breadcrumbs={[
+    { name: t.bcHome, url: localizedPath(lang) },
+    { name: t.bcCases, url: localizedPath(lang, "casos") },
+    { name: item.title },
+  ]}
+  jsonLdExtra={[articleSchema]}
+>
+  <section class="doc-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.ariaBreadcrumb}>
+        <a href={localizedPath(lang)}>{t.bcHome}</a>
+        <span>/</span>
+        <a href={localizedPath(lang, "casos")}>{t.bcCases}</a>
+        <span>/</span>
+        <span>{item.pillarLabel}</span>
+      </nav>
+
+      <div class="doc-hero-inner">
+        <div class="doc-meta-row">
+          <span class="doc-meta-pill">{item.pillarLabel}</span>
+          <span class="doc-meta-muted">{item.date}</span>
+          <span class="doc-meta-muted">{item.readingMin} {t.docReadingMin}</span>
+        </div>
+        <h1 class="doc-title">{item.title}</h1>
+        <p class="doc-lead">{item.lead}</p>
+        <div class="doc-hero-actions">
+          <a href={localizedPath(lang, "casos")} class="btn btn--outline-dark btn--compact">
+            {t.docBackToCases}
+          </a>
+          <a
+            href={`${localizedPath(lang, "legal-intelligence")}?ask=${encodeURIComponent(item.title)}#asistente-ia`}
+            class="btn btn--lime btn--compact"
+          >
+            {t.docAskAiBtn}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="container">
+      <div class="doc-layout">
+        <div>
+          {lang !== "es" && <p class="doc-lang-note">{t.docSpanishFullNote}</p>}
+          <article class="doc-prose" set:html={item.html} />
+        </div>
+
+        <aside class="doc-sidebar">
+          {item.toc.length > 0 && (
+            <nav class="doc-toc-card" aria-label={t.docTocTitle}>
+              <p class="doc-toc-heading">{t.docTocTitle}</p>
+              <ul class="doc-toc-list">
+                {item.toc.slice(0, 12).map((sec) => (
+                  <li>
+                    <a href={`#${sec.id}`}>{sec.text}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
+
+          <div class="doc-cta-card">
+            <p class="consult-eyebrow">{item.pillarLabel}</p>
+            <h2 class="doc-cta-title">{t.docDirectBoxTitle}</h2>
+            <p class="doc-cta-text">{t.docDirectBoxText}</p>
+            <a
+              href={item.pillar === "penal" ? FIRM.calendly.urgent : FIRM.calendly.legal}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--lime btn--compact"
+            >
+              {item.pillar === "penal" ? t.penalUrgentCta : t.pCta350}
+            </a>
+            <a href={FIRM.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn--outline-dark btn--compact">
+              WhatsApp {FIRM.phone}
+            </a>
+          </div>
+        </aside>
+      </div>
+
+      {related.length > 0 && (
+        <div class="doc-related">
+          <p class="eyebrow eyebrow--on-cream">{t.bcCases}</p>
+          <h2 class="section-title">{t.docRelatedCases}</h2>
+          <div class="doc-related-grid">
+            {related.map((rc) => (
+              <article class="intel-card">
+                <div>
+                  <div class="intel-meta">
+                    <span>{rc.pillarLabel}</span>
+                    <span class="intel-date">{rc.date}</span>
+                  </div>
+                  <h3 class="intel-title">{rc.title}</h3>
+                </div>
+                <a href={localizedPath(lang, `casos/${rc.slug}`)} class="intel-link">
+                  {t.casosViewSheet}
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <EntryRoutes lang={lang} heading={t.casosEntryTitle} intro={t.entrySharedIntro} />
+</BaseLayout>

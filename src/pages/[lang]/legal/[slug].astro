@@ -1,0 +1,105 @@
+---
+import "../../../styles/editorial-doc.css";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { FIRM } from "../../../data/firm";
+import { WP_LEGAL_PAGES, type WpLegalPage } from "../../../data/wp";
+import { getDictionary, LOCALES, localizedPath, type Locale } from "../../../i18n";
+
+export function getStaticPaths() {
+  const paths: { params: { lang: Locale; slug: string }; props: { doc: WpLegalPage } }[] = [];
+  for (const lang of LOCALES) {
+    for (const doc of WP_LEGAL_PAGES) {
+      paths.push({ params: { lang, slug: doc.slug }, props: { doc } });
+    }
+  }
+  return paths;
+}
+
+const { lang } = Astro.params as { lang: Locale; slug: string };
+const { doc } = Astro.props as { doc: WpLegalPage };
+const t = getDictionary(lang);
+
+const titleBySlug: Record<string, string> = {
+  "aviso-legal": t.legalNotice,
+  privacidad: t.legalPrivacy,
+  cookies: t.legalCookies,
+  condiciones: t.legalTerms,
+};
+const localizedTitle = titleBySlug[doc.slug] || doc.title;
+
+const webPageSchema = {
+  "@type": "WebPage",
+  name: `${localizedTitle} | RRYP Global`,
+  description: doc.lead,
+  url: `${FIRM.siteUrl}${localizedPath(lang, `legal/${doc.slug}`)}`,
+  isPartOf: { "@id": `${FIRM.siteUrl}/#website` },
+  publisher: { "@id": `${FIRM.siteUrl}/#organization` },
+};
+---
+
+<BaseLayout
+  lang={lang}
+  slug={`legal/${doc.slug}`}
+  title={`${localizedTitle} | RRYP Global`}
+  description={doc.lead}
+  breadcrumbs={[
+    { name: t.bcHome, url: localizedPath(lang) },
+    { name: localizedTitle },
+  ]}
+  jsonLdExtra={[webPageSchema]}
+>
+  <section class="doc-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.ariaBreadcrumb}>
+        <a href={localizedPath(lang)}>{t.bcHome}</a>
+        <span>/</span>
+        <span>{localizedTitle}</span>
+      </nav>
+
+      <div class="doc-hero-inner">
+        <div class="doc-meta-row">
+          <span class="doc-meta-pill">{t.docLegalEyebrow}</span>
+          <span class="doc-meta-muted">{doc.readingMin} {t.docReadingMin}</span>
+          <span class="doc-meta-muted">{FIRM.legalName}</span>
+        </div>
+        <h1 class="doc-title">{localizedTitle}</h1>
+        <p class="doc-lead">{doc.lead}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="container">
+      <div class="doc-layout">
+        <div>
+          {lang !== "es" && <p class="doc-lang-note">{t.docSpanishFullNote}</p>}
+          <article class="doc-prose" set:html={doc.html} />
+        </div>
+
+        <aside class="doc-sidebar">
+          {doc.toc.length > 0 && (
+            <nav class="doc-toc-card" aria-label={t.docTocTitle}>
+              <p class="doc-toc-heading">{t.docTocTitle}</p>
+              <ul class="doc-toc-list">
+                {doc.toc.map((item) => (
+                  <li>
+                    <a href={`#${item.id}`}>{item.text}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
+
+          <div class="doc-cta-card">
+            <p class="consult-eyebrow">{FIRM.brand}</p>
+            <h2 class="doc-cta-title">{FIRM.legalName}</h2>
+            <p class="doc-cta-text">{FIRM.email}<br />{FIRM.phone}</p>
+            <a href={FIRM.calendly.legal} target="_blank" rel="noopener noreferrer" class="btn btn--lime btn--compact">
+              {t.pCta350}
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

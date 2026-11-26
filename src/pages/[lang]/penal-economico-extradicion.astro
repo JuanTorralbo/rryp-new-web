@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { FIRM } from "../../data/firm";
+import { getSpecialtiesByPillar } from "../../data/wp";
 import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
 
 export function getStaticPaths() {
@@ -9,6 +10,7 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Locale };
 const t = getDictionary(lang);
+const specialties = getSpecialtiesByPillar("penal");
 
 const serviceSchema = {
   "@type": "Service",
@@ -74,4 +76,30 @@ const serviceSchema = {
       </div>
     </div>
   </section>
+
+  {specialties.length > 0 && (
+    <section class="section-cream">
+      <div class="container">
+        <p class="eyebrow eyebrow--on-cream">{t.docSpecialtiesEyebrow}</p>
+        <h2 class="section-title">{t.docSpecialtiesTitle}</h2>
+        <div class="specialty-grid" style="margin-top: 28px;">
+          {specialties.map((sp) => (
+            <article class="intel-card">
+              <div>
+                <div class="intel-meta">
+                  <span>{sp.pillarLabel}</span>
+                  <span class="intel-date">{sp.readingMin} {t.docReadingMin}</span>
+                </div>
+                <h3 class="intel-title">{sp.title}</h3>
+                <p class="intel-excerpt">{sp.lead}</p>
+              </div>
+              <a href={localizedPath(lang, `especialidades/${sp.slug}`)} class="intel-link">
+                {t.docExploreSpecialty}
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 </BaseLayout>

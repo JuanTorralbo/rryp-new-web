@@ -295,7 +295,8 @@ const aiConfig = JSON.stringify({
       if (role === "assistant" && refs && refs.length) {
         html += '<div class="ai-citations"><p class="ai-citations-label">' + escapeHtml(S.citationsLabel) + '</p><ul class="ai-citations-list">';
         refs.forEach(function (p) {
-          html += '<li><a href="' + escapeHtml(p.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(p.title) + " ↗</a></li>";
+          var isExt = String(p.url || "").indexOf("http") === 0;
+          html += '<li><a href="' + escapeHtml(p.url) + '"' + (isExt ? ' target="_blank" rel="noopener noreferrer"' : "") + ">" + escapeHtml(p.title) + (isExt ? " ↗" : " →") + "</a></li>";
         });
         html += "</ul></div>";
       }
@@ -410,5 +411,12 @@ const aiConfig = JSON.stringify({
         handlePrompt(btn.getAttribute("data-ai-prompt") || btn.textContent || "");
       });
     });
+
+    // Prefill consulta cuando se llega desde un articulo, caso o especialidad (?ask=...)
+    var askParam = new URLSearchParams(window.location.search).get("ask");
+    if (askParam && inputEl) {
+      inputEl.value = askParam;
+      inputEl.focus();
+    }
   })();
 </script>

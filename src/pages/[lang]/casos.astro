@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EntryRoutes from "../../components/EntryRoutes.astro";
 import { FIRM } from "../../data/firm";
+import { WP_CASES } from "../../data/wp";
 import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
 
 export function getStaticPaths() {
@@ -11,31 +12,48 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: Locale };
 const t = getDictionary(lang);
 
-const cases = [
-  { pillar: "private-wealth", tag: "Private Wealth", date: t.case01Date, title: t.case01Title, desc: t.case01Desc, url: "https://rrypglobal.com/liquidacion-internacional-de-gananciales-por-importe-superior-a-4-000-000e/" },
-  { pillar: "private-wealth", tag: "Private Wealth", date: t.case02Date, title: t.case02Title, desc: t.case02Desc, url: "https://rrypglobal.com/liquidacion-de-bienes-conyugales-en-estados-unidos-y-espana/" },
-  { pillar: "private-wealth", tag: "Private Wealth", date: t.case03Date, title: t.case03Title, desc: t.case03Desc, url: "https://rrypglobal.com/liquidacion-de-gananciales-con-bienes-en-francia-y-espana/" },
-  { pillar: "private-wealth", tag: "Private Wealth", date: t.case04Date, title: t.case04Title, desc: t.case04Desc, url: "https://rrypglobal.com/divorcio-internacional-con-patrimonio-digital-y-criptoactivos/" },
-  { pillar: "private-wealth", tag: "Private Wealth", date: t.case05Date, title: t.case05Title, desc: t.case05Desc, url: "https://rrypglobal.com/exoneracion-de-deuda-en-concurso-de-acreedores-con-dimension-internacional/" },
-  { pillar: "private-wealth", tag: "Private Wealth", date: t.case06Date, title: t.case06Title, desc: t.case06Desc, url: "https://rrypglobal.com/exoneracion-de-deudas-a-matrimonio-extranjero-en-espana-tras-la-crisis-del-covid/" },
+const baseCases = [
+  { pillar: "private-wealth", tag: "Private Wealth", date: t.case01Date, title: t.case01Title, desc: t.case01Desc, slug: "liquidacion-internacional-de-gananciales-por-importe-superior-a-4-000-000e" },
+  { pillar: "private-wealth", tag: "Private Wealth", date: t.case02Date, title: t.case02Title, desc: t.case02Desc, slug: "liquidacion-de-bienes-conyugales-en-estados-unidos-y-espana" },
+  { pillar: "private-wealth", tag: "Private Wealth", date: t.case03Date, title: t.case03Title, desc: t.case03Desc, slug: "liquidacion-de-gananciales-con-bienes-en-francia-y-espana" },
+  { pillar: "private-wealth", tag: "Private Wealth", date: t.case04Date, title: t.case04Title, desc: t.case04Desc, slug: "divorcio-internacional-con-patrimonio-digital-y-criptoactivos" },
+  { pillar: "private-wealth", tag: "Private Wealth", date: t.case05Date, title: t.case05Title, desc: t.case05Desc, slug: "exoneracion-de-deuda-en-concurso-de-acreedores-con-dimension-internacional" },
+  { pillar: "private-wealth", tag: "Private Wealth", date: t.case06Date, title: t.case06Title, desc: t.case06Desc, slug: "exoneracion-de-deudas-a-matrimonio-extranjero-en-espana-tras-la-crisis-del-covid" },
 
-  { pillar: "private-clients", tag: "Private Clients", date: t.case07Date, title: t.case07Title, desc: t.case07Desc, url: "https://rrypglobal.com/impugnacion-de-testamento-de-elevado-patrimonio-otorgado-en-espana-por-causante-extranjero/" },
-  { pillar: "private-clients", tag: "Private Clients", date: t.case08Date, title: t.case08Title, desc: t.case08Desc, url: "https://rrypglobal.com/defensa-de-la-competencia-de-los-tribunales-espanoles-frente-a-eeuu/" },
-  { pillar: "private-clients", tag: "Private Clients", date: t.case09Date, title: t.case09Title, desc: t.case09Desc, url: "https://rrypglobal.com/oposicion-a-la-competencia-de-los-tribunales-portugueses/" },
-  { pillar: "private-clients", tag: "Private Clients", date: t.case10Date, title: t.case10Title, desc: t.case10Desc, url: "https://rrypglobal.com/exequatur-en-espana-de-orden-de-proteccion-dictada-en-pais-extranjero/" },
-  { pillar: "private-clients", tag: "Private Clients", date: t.case11Date, title: t.case11Title, desc: t.case11Desc, url: "https://rrypglobal.com/localizacion-en-espana-de-testamento-otorgado-por-ciudadano-argentino/" },
-  { pillar: "private-clients", tag: "Private Clients", date: t.case12Date, title: t.case12Title, desc: t.case12Desc, url: "https://rrypglobal.com/absolucion-de-cliente-acusado-de-violencia-de-genero-por-su-exmujer-extranjera/" },
+  { pillar: "private-clients", tag: "Private Clients", date: t.case07Date, title: t.case07Title, desc: t.case07Desc, slug: "impugnacion-de-testamento-de-elevado-patrimonio-otorgado-en-espana-por-causante-extranjero" },
+  { pillar: "private-clients", tag: "Private Clients", date: t.case08Date, title: t.case08Title, desc: t.case08Desc, slug: "defensa-de-la-competencia-de-los-tribunales-espanoles-frente-a-eeuu" },
+  { pillar: "private-clients", tag: "Private Clients", date: t.case09Date, title: t.case09Title, desc: t.case09Desc, slug: "oposicion-a-la-competencia-de-los-tribunales-portugueses" },
+  { pillar: "private-clients", tag: "Private Clients", date: t.case10Date, title: t.case10Title, desc: t.case10Desc, slug: "exequatur-en-espana-de-orden-de-proteccion-dictada-en-pais-extranjero" },
+  { pillar: "private-clients", tag: "Private Clients", date: t.case11Date, title: t.case11Title, desc: t.case11Desc, slug: "localizacion-en-espana-de-testamento-otorgado-por-ciudadano-argentino" },
+  { pillar: "private-clients", tag: "Private Clients", date: t.case12Date, title: t.case12Title, desc: t.case12Desc, slug: "absolucion-de-cliente-acusado-de-violencia-de-genero-por-su-exmujer-extranjera" },
 
-  { pillar: "business-disputes", tag: "Business Disputes", date: t.case13Date, title: t.case13Title, desc: t.case13Desc, url: "https://rrypglobal.com/demanda-de-competencia-desleal-en-espana-por-empresa-de-otro-estado-miembro-de-la-union-europea/" },
-  { pillar: "business-disputes", tag: "Business Disputes", date: t.case14Date, title: t.case14Title, desc: t.case14Desc, url: "https://rrypglobal.com/conflicto-internacional-de-patente-entre-empresas-con-controversia-sobre-prioridad/" },
-  { pillar: "business-disputes", tag: "Business Disputes", date: t.case15Date, title: t.case15Title, desc: t.case15Desc, url: "https://rrypglobal.com/contrato-internacional-de-licencia-para-distribucion-en-latinoamerica/" },
-  { pillar: "business-disputes", tag: "Business Disputes", date: t.case16Date, title: t.case16Title, desc: t.case16Desc, url: "https://rrypglobal.com/contrato-internacional-de-software-para-empresa-tecnologica/" },
-  { pillar: "business-disputes", tag: "Business Disputes", date: t.case17Date, title: t.case17Title, desc: t.case17Desc, url: "https://rrypglobal.com/redaccion-de-terminos-y-condiciones-generales-para-marketplace-internacional/" },
-  { pillar: "business-disputes", tag: "Business Disputes", date: t.case18Date, title: t.case18Title, desc: t.case18Desc, url: "https://rrypglobal.com/redaccion-y-revision-de-contrato-internacional-de-cesion-de-credito/" },
+  { pillar: "business-disputes", tag: "Business Disputes", date: t.case13Date, title: t.case13Title, desc: t.case13Desc, slug: "demanda-de-competencia-desleal-en-espana-por-empresa-de-otro-estado-miembro-de-la-union-europea" },
+  { pillar: "business-disputes", tag: "Business Disputes", date: t.case14Date, title: t.case14Title, desc: t.case14Desc, slug: "conflicto-internacional-de-patente-entre-empresas-con-controversia-sobre-prioridad" },
+  { pillar: "business-disputes", tag: "Business Disputes", date: t.case15Date, title: t.case15Title, desc: t.case15Desc, slug: "contrato-internacional-de-licencia-para-distribucion-en-latinoamerica" },
+  { pillar: "business-disputes", tag: "Business Disputes", date: t.case16Date, title: t.case16Title, desc: t.case16Desc, slug: "contrato-internacional-de-software-para-empresa-tecnologica" },
+  { pillar: "business-disputes", tag: "Business Disputes", date: t.case17Date, title: t.case17Title, desc: t.case17Desc, slug: "redaccion-de-terminos-y-condiciones-generales-para-marketplace-internacional" },
+  { pillar: "business-disputes", tag: "Business Disputes", date: t.case18Date, title: t.case18Title, desc: t.case18Desc, slug: "redaccion-y-revision-de-contrato-internacional-de-cesion-de-credito" },
 
-  { pillar: "penal", tag: t.case19Tag, date: t.case19Date, title: t.case19Title, desc: t.case19Desc, url: "https://rrypglobal.com/nulidad-de-una-resolucion-de-entrega-dictada-en-un-procedimiento-europeo-ante-la-audiencia-nacional/" },
-  { pillar: "penal", tag: t.case20Tag, date: t.case20Date, title: t.case20Title, desc: t.case20Desc, url: "https://rrypglobal.com/querella-por-estafa-millonaria-en-dos-paises/" },
+  { pillar: "penal", tag: t.case19Tag, date: t.case19Date, title: t.case19Title, desc: t.case19Desc, slug: "nulidad-de-una-resolucion-de-entrega-dictada-en-un-procedimiento-europeo-ante-la-audiencia-nacional" },
+  { pillar: "penal", tag: t.case20Tag, date: t.case20Date, title: t.case20Title, desc: t.case20Desc, slug: "querella-por-estafa-millonaria-en-dos-paises" },
 ];
+
+const extraSpanishCases =
+  lang === "es"
+    ? WP_CASES.slice(20).map((c) => ({
+        pillar: c.pillar,
+        tag: c.pillarLabel,
+        date: c.date.slice(0, 4),
+        title: c.title,
+        desc: c.lead,
+        slug: c.slug,
+      }))
+    : [];
+
+const cases = [...baseCases, ...extraSpanishCases].map((c) => ({
+  ...c,
+  url: localizedPath(lang, `casos/${c.slug}`),
+}));
 
 const countAll = cases.length;
 const countPc = cases.filter((c) => c.pillar === "private-clients").length;
@@ -172,7 +190,7 @@ const collectionSchema = {
               <h3 class="intel-title">{item.title}</h3>
               <p class="intel-excerpt">{item.desc}</p>
             </div>
-            <a href={item.url} target="_blank" rel="noopener noreferrer" class="intel-link">
+            <a href={item.url} class="intel-link">
               {t.casosViewSheet}
             </a>
           </article>

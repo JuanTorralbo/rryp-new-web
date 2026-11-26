@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import EntryRoutes from "../../components/EntryRoutes.astro";
 import { FIRM } from "../../data/firm";
 import { getLocalizedPosts } from "../../data/blog";
+import { getSpecialtiesByPillar } from "../../data/wp";
 import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
 
 export function getStaticPaths() {
@@ -13,6 +14,7 @@ const { lang } = Astro.params as { lang: Locale };
 const t = getDictionary(lang);
 const posts = getLocalizedPosts(lang, "business-disputes").slice(0, 6);
 const totalCount = getLocalizedPosts(lang, "business-disputes").length;
+const specialties = getSpecialtiesByPillar("business-disputes");
 
 const serviceSchema = {
   "@type": "Service",
@@ -112,6 +114,30 @@ const listSchema = {
           <p>{t.bdS4P}</p>
         </article>
       </div>
+
+      {specialties.length > 0 && (
+        <div class="specialties-block" data-reveal>
+          <p class="eyebrow eyebrow--on-cream">{t.docSpecialtiesEyebrow}</p>
+          <h2 class="section-title">{t.docSpecialtiesTitle}</h2>
+          <div class="specialty-grid">
+            {specialties.map((sp) => (
+              <article class="intel-card">
+                <div>
+                  <div class="intel-meta">
+                    <span>{sp.pillarLabel}</span>
+                    <span class="intel-date">{sp.readingMin} {t.docReadingMin}</span>
+                  </div>
+                  <h3 class="intel-title">{sp.title}</h3>
+                  <p class="intel-excerpt">{sp.lead}</p>
+                </div>
+                <a href={localizedPath(lang, `especialidades/${sp.slug}`)} class="intel-link">
+                  {t.docExploreSpecialty}
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   </section>
 
@@ -169,7 +195,7 @@ const listSchema = {
               <h3 class="intel-title">{post.title}</h3>
               <p class="intel-excerpt">{post.excerpt}</p>
             </div>
-            <a href={post.url} target="_blank" rel="noopener noreferrer" class="intel-link">
+            <a href={post.url} class="intel-link">
               {t.blogReadFull}
             </a>
           </article>

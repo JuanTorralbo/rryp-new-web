@@ -1,0 +1,189 @@
+---
+import "../../../styles/editorial-doc.css";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import EntryRoutes from "../../../components/EntryRoutes.astro";
+import { FIRM } from "../../../data/firm";
+import { WP_SPECIALTIES, getRelatedArticles, getRelatedCases, type WpSpecialty } from "../../../data/wp";
+import { getDictionary, LOCALES, localizedPath, type Locale } from "../../../i18n";
+
+export function getStaticPaths() {
+  const paths: { params: { lang: Locale; slug: string }; props: { item: WpSpecialty } }[] = [];
+  for (const lang of LOCALES) {
+    for (const item of WP_SPECIALTIES) {
+      paths.push({ params: { lang, slug: item.slug }, props: { item } });
+    }
+  }
+  return paths;
+}
+
+const { lang } = Astro.params as { lang: Locale; slug: string };
+const { item } = Astro.props as { item: WpSpecialty };
+const t = getDictionary(lang);
+
+const parentSlug =
+  item.pillar === "penal" ? "penal-economico-extradicion" : item.pillar;
+const activeNav =
+  item.pillar === "private-clients"
+    ? "clients"
+    : item.pillar === "private-wealth"
+      ? "wealth"
+      : item.pillar === "business-disputes"
+        ? "disputes"
+        : "home";
+
+const relatedCases = getRelatedCases("", item.pillar, 3);
+const relatedArticles = getRelatedArticles("", item.pillar === "penal" ? "business-disputes" : item.pillar, 3);
+
+const serviceSchema = {
+  "@type": "Service",
+  name: item.title,
+  serviceType: item.pillarLabel,
+  description: item.lead,
+  url: `${FIRM.siteUrl}${localizedPath(lang, `especialidades/${item.slug}`)}`,
+  provider: { "@id": `${FIRM.siteUrl}/#organization` },
+  areaServed: ["España", "Madrid", "Málaga", "Marbella", "Costa del Sol", "Córdoba"],
+};
+---
+
+<BaseLayout
+  lang={lang}
+  slug={`especialidades/${item.slug}`}
+  title={`${item.title} | RRYP Global`}
+  description={item.lead}
+  activeNav={activeNav}
+  urgentHeaderCta={item.urgent}
+  breadcrumbs={[
+    { name: t.bcHome, url: localizedPath(lang) },
+    { name: item.pillarLabel, url: localizedPath(lang, parentSlug) },
+    { name: item.title },
+  ]}
+  jsonLdExtra={[serviceSchema]}
+>
+  <section class="doc-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.ariaBreadcrumb}>
+        <a href={localizedPath(lang)}>{t.bcHome}</a>
+        <span>/</span>
+        <a href={localizedPath(lang, parentSlug)}>{item.pillarLabel}</a>
+        <span>/</span>
+        <span>{item.title}</span>
+      </nav>
+
+      <div class="doc-hero-inner">
+        <div class="doc-meta-row">
+          <span class="doc-meta-pill">{item.pillarLabel}</span>
+          <span class="doc-meta-muted">{item.readingMin} {t.docReadingMin}</span>
+        </div>
+        <h1 class="doc-title">{item.title}</h1>
+        <p class="doc-lead">{item.lead}</p>
+        <div class="doc-hero-actions">
+          <a
+            href={item.urgent ? FIRM.calendly.urgent : FIRM.calendly.legal}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--lime btn--compact"
+          >
+            {item.urgent ? t.penalUrgentCta : t.pCta350}
+          </a>
+          <a
+            href={`${localizedPath(lang, "legal-intelligence")}?ask=${encodeURIComponent(item.title)}#asistente-ia`}
+            class="btn btn--outline-dark btn--compact"
+          >
+            {t.docAskAiBtn}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="container">
+      <div class="doc-layout">
+        <div>
+          {lang !== "es" && <p class="doc-lang-note">{t.docSpanishFullNote}</p>}
+          <article class="doc-prose" set:html={item.html} />
+        </div>
+
+        <aside class="doc-sidebar">
+          {item.toc.length > 0 && (
+            <nav class="doc-toc-card" aria-label={t.docTocTitle}>
+              <p class="doc-toc-heading">{t.docTocTitle}</p>
+              <ul class="doc-toc-list">
+                {item.toc.map((sec) => (
+                  <li>
+                    <a href={`#${sec.id}`}>{sec.text}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
+
+          <div class="doc-cta-card">
+            <p class="consult-eyebrow">{item.pillarLabel}</p>
+            <h2 class="doc-cta-title">{t.docDirectBoxTitle}</h2>
+            <p class="doc-cta-text">{t.docDirectBoxText}</p>
+            <a
+              href={item.urgent ? FIRM.calendly.urgent : FIRM.calendly.legal}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--lime btn--compact"
+            >
+              {item.urgent ? t.penalUrgentCta : t.pCta350}
+            </a>
+            <a href={FIRM.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn--outline-dark btn--compact">
+              WhatsApp {FIRM.phone}
+            </a>
+          </div>
+        </aside>
+      </div>
+
+      {relatedCases.length > 0 && (
+        <div class="doc-related">
+          <p class="eyebrow eyebrow--on-cream">{t.bcCases}</p>
+          <h2 class="section-title">{t.docRelatedCases}</h2>
+          <div class="doc-related-grid">
+            {relatedCases.map((rc) => (
+              <article class="intel-card">
+                <div>
+                  <div class="intel-meta">
+                    <span>{rc.pillarLabel}</span>
+                    <span class="intel-date">{rc.date}</span>
+                  </div>
+                  <h3 class="intel-title">{rc.title}</h3>
+                </div>
+                <a href={localizedPath(lang, `casos/${rc.slug}`)} class="intel-link">
+                  {t.casosViewSheet}
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {relatedArticles.length > 0 && lang === "es" && (
+        <div class="doc-related">
+          <p class="eyebrow eyebrow--on-cream">RRYP Legal Intelligence</p>
+          <h2 class="section-title">{t.docRelatedArticles}</h2>
+          <div class="doc-related-grid">
+            {relatedArticles.map((art) => (
+              <article class="intel-card">
+                <div>
+                  <div class="intel-meta">
+                    <span>{art.category}</span>
+                    <span class="intel-date">{art.date}</span>
+                  </div>
+                  <h3 class="intel-title">{art.title}</h3>
+                </div>
+                <a href={localizedPath(lang, `legal-intelligence/${art.slug}`)} class="intel-link">
+                  {t.blogReadFull}
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <EntryRoutes lang={lang} intro={t.entrySharedIntro} />
+</BaseLayout>

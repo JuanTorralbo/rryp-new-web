@@ -102,7 +102,7 @@ const blogUiConfig = JSON.stringify({
               <h3 class="intel-title">{post.title}</h3>
               <p class="intel-excerpt">{post.excerpt}</p>
             </div>
-            <a href={post.url} target="_blank" rel="noopener noreferrer" class="intel-link">
+            <a href={post.url} class="intel-link">
               {t.blogReadFull}
             </a>
           </article>
@@ -182,7 +182,7 @@ const blogUiConfig = JSON.stringify({
               esc(p.excerpt) +
               '</p></div><a href="' +
               esc(p.url) +
-              '" target="_blank" rel="noopener noreferrer" class="intel-link">' +
+              '" class="intel-link">' +
               esc(cfg.readFull) +
               "</a></article>"
             );

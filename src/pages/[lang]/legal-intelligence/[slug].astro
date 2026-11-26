@@ -1,0 +1,198 @@
+---
+import "../../../styles/editorial-doc.css";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import EntryRoutes from "../../../components/EntryRoutes.astro";
+import { FIRM } from "../../../data/firm";
+import { getLocalizedPosts, getPillarLabel, type BlogPost, type PillarId } from "../../../data/blog";
+import { WP_ARTICLES, type WpArticle } from "../../../data/wp";
+import { getDictionary, LOCALES, localizedPath, type Locale } from "../../../i18n";
+
+export function getStaticPaths() {
+  const paths: {
+    params: { lang: Locale; slug: string };
+    props: { post: BlogPost; full: WpArticle; availableLocales: Locale[] };
+  }[] = [];
+
+  const bySlug = new Map(WP_ARTICLES.map((a) => [a.slug, a]));
+  const localesBySlug = new Map<string, Locale[]>();
+  const postsByLang = new Map<Locale, BlogPost[]>();
+
+  for (const lang of LOCALES) {
+    const localizedList = getLocalizedPosts(lang);
+    postsByLang.set(lang, localizedList);
+    for (const post of localizedList) {
+      if (!bySlug.has(post.slug)) continue;
+      const arr = localesBySlug.get(post.slug) ?? [];
+      arr.push(lang);
+      localesBySlug.set(post.slug, arr);
+    }
+  }
+
+  for (const lang of LOCALES) {
+    const localizedList = postsByLang.get(lang) ?? [];
+    for (const post of localizedList) {
+      const full = bySlug.get(post.slug);
+      if (full) {
+        paths.push({
+          params: { lang, slug: post.slug },
+          props: { post, full, availableLocales: localesBySlug.get(post.slug) ?? [lang] },
+        });
+      }
+    }
+  }
+  return paths;
+}
+
+const { lang } = Astro.params as { lang: Locale; slug: string };
+const { post, full, availableLocales } = Astro.props as {
+  post: BlogPost;
+  full: WpArticle;
+  availableLocales: Locale[];
+};
+const t = getDictionary(lang);
+
+const pillarLabel = post.pillar === "seo-audit" ? t.blogFilterSeo : getPillarLabel(post.pillar as PillarId);
+const related = getLocalizedPosts(lang, post.pillar === "seo-audit" ? undefined : post.pillar)
+  .filter((p) => p.slug !== post.slug)
+  .slice(0, 3);
+
+const articleSchema = {
+  "@type": "Article",
+  headline: post.title,
+  description: post.excerpt,
+  datePublished: post.date,
+  inLanguage: lang,
+  author: { "@type": "Person", name: full.author },
+  publisher: { "@id": `${FIRM.siteUrl}/#organization` },
+  mainEntityOfPage: `${FIRM.siteUrl}${localizedPath(lang, `legal-intelligence/${post.slug}`)}`,
+};
+---
+
+<BaseLayout
+  lang={lang}
+  slug={`legal-intelligence/${post.slug}`}
+  availableLocales={availableLocales}
+  langFallbackSlug="legal-intelligence"
+  title={`${post.title} | RRYP Legal Intelligence`}
+  description={post.excerpt}
+  activeNav="intel"
+  breadcrumbs={[
+    { name: t.bcHome, url: localizedPath(lang) },
+    { name: "RRYP Legal Intelligence", url: localizedPath(lang, "legal-intelligence") },
+    { name: post.title },
+  ]}
+  jsonLdExtra={[articleSchema]}
+>
+  <section class="doc-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.ariaBreadcrumb}>
+        <a href={localizedPath(lang)}>{t.bcHome}</a>
+        <span>/</span>
+        <a href={localizedPath(lang, "legal-intelligence")}>RRYP Legal Intelligence</a>
+        <span>/</span>
+        <span>{pillarLabel}</span>
+      </nav>
+
+      <div class="doc-hero-inner">
+        <div class="doc-meta-row">
+          <span class="doc-meta-pill">{pillarLabel}</span>
+          <span class="doc-meta-muted">{post.date}</span>
+          <span class="doc-meta-muted">{full.readingMin} {t.docReadingMin}</span>
+          <span class="doc-meta-muted">{full.author}</span>
+        </div>
+        <h1 class="doc-title">{post.title}</h1>
+        <p class="doc-lead">{post.excerpt}</p>
+        <div class="doc-hero-actions">
+          <a href={localizedPath(lang, "legal-intelligence")} class="btn btn--outline-dark btn--compact">
+            {t.docBackToIntel}
+          </a>
+          <a
+            href={`${localizedPath(lang, "legal-intelligence")}?ask=${encodeURIComponent(post.title)}#asistente-ia`}
+            class="btn btn--lime btn--compact"
+          >
+            {t.docAskAiBtn}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="container">
+      <div class="doc-layout">
+        <div>
+          {lang === "es" ? (
+            <article class="doc-prose" set:html={full.html} />
+          ) : (
+            <div>
+              <article class="doc-prose">
+                <p>{post.excerpt}</p>
+              </article>
+              <p class="doc-lang-note">{t.docSpanishFullNote}</p>
+              <details class="doc-orig-details">
+                <summary>{full.title} (ES)</summary>
+                <article class="doc-prose" set:html={full.html} />
+              </details>
+            </div>
+          )}
+        </div>
+
+        <aside class="doc-sidebar">
+          {lang === "es" && full.toc.length > 0 && (
+            <nav class="doc-toc-card" aria-label={t.docTocTitle}>
+              <p class="doc-toc-heading">{t.docTocTitle}</p>
+              <ul class="doc-toc-list">
+                {full.toc.map((sec) => (
+                  <li>
+                    <a href={`#${sec.id}`}>{sec.text}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
+
+          <div class="doc-cta-card">
+            <p class="consult-eyebrow">{pillarLabel}</p>
+            <h2 class="doc-cta-title">{t.docDirectBoxTitle}</h2>
+            <p class="doc-cta-text">{t.docDirectBoxText}</p>
+            <a href={FIRM.calendly.legal} target="_blank" rel="noopener noreferrer" class="btn btn--lime btn--compact">
+              {t.pCta350}
+            </a>
+            <a
+              href={`${localizedPath(lang, "legal-intelligence")}?ask=${encodeURIComponent(post.title)}#asistente-ia`}
+              class="btn btn--outline-dark btn--compact"
+            >
+              {t.docAskAiBtn}
+            </a>
+          </div>
+        </aside>
+      </div>
+
+      {related.length > 0 && (
+        <div class="doc-related">
+          <p class="eyebrow eyebrow--on-cream">RRYP Legal Intelligence</p>
+          <h2 class="section-title">{t.docRelatedArticles}</h2>
+          <div class="doc-related-grid">
+            {related.map((ra) => (
+              <article class="intel-card">
+                <div>
+                  <div class="intel-meta">
+                    <span>{pillarLabel}</span>
+                    <span class="intel-date">{ra.date}</span>
+                  </div>
+                  <h3 class="intel-title">{ra.title}</h3>
+                  <p class="intel-excerpt">{ra.excerpt}</p>
+                </div>
+                <a href={ra.url} class="intel-link">
+                  {t.blogReadFull}
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <EntryRoutes lang={lang} intro={t.entrySharedIntro} />
+</BaseLayout>

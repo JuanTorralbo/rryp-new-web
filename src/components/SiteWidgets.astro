@@ -1,5 +1,6 @@
 ---
 import { FIRM } from "../data/firm";
+import { WP_SPECIALTIES } from "../data/wp";
 import { getDictionary, localizedPath, type Locale } from "../i18n";
 
 export interface Props {
@@ -21,6 +22,15 @@ const searchPages = [
   { title: "Málaga", desc: t.malagaLead, url: localizedPath(lang, "malaga") },
   { title: "Córdoba", desc: t.cordobaLead, url: localizedPath(lang, "cordoba") },
   { title: "Careers", desc: t.careersHeroLead, url: localizedPath(lang, "careers") },
+  ...WP_SPECIALTIES.map((sp) => ({
+    title: sp.title,
+    desc: sp.pillarLabel,
+    url: localizedPath(lang, `especialidades/${sp.slug}`),
+  })),
+  { title: t.legalNotice, desc: FIRM.legalName, url: localizedPath(lang, "legal/aviso-legal") },
+  { title: t.legalPrivacy, desc: FIRM.legalName, url: localizedPath(lang, "legal/privacidad") },
+  { title: t.legalCookies, desc: FIRM.legalName, url: localizedPath(lang, "legal/cookies") },
+  { title: t.legalTerms, desc: FIRM.legalName, url: localizedPath(lang, "legal/condiciones") },
 ];
 
 const searchConfig = JSON.stringify({
