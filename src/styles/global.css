@@ -3413,6 +3413,11 @@ html.is-scrolled .site-header {
   background-color: var(--rryp-cream);
 }
 
+.rryp-whatsapp-fixed svg {
+  display: block;
+  flex-shrink: 0;
+}
+
 /* Dock vertical de redes sociales (borde derecho, posicionado arriba del centro para no colisionar con cookies) */
 .rryp-social-rail {
   position: fixed;

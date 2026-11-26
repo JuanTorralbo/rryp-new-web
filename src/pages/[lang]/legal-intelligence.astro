@@ -48,22 +48,6 @@ const blogUiConfig = JSON.stringify({
   breadcrumbLabel={t.liEyebrow}
   jsonLdExtra={[collectionSchema]}
 >
-  <section class="subhero">
-    <div class="container">
-      <nav class="breadcrumb" aria-label={t.ariaBreadcrumb}>
-        <a href={localizedPath(lang)}>{t.bcHome}</a>
-        <span>/</span>
-        <span>{t.liEyebrow}</span>
-      </nav>
-
-      <div class="subhero-single">
-        <p class="eyebrow hero-anim">{t.liEyebrow}</p>
-        <h1 class="hero-title hero-anim hero-anim--d1" set:html={t.liHeroTitle} />
-        <p class="hero-lead hero-anim hero-anim--d2">{t.liHeroLead}</p>
-      </div>
-    </div>
-  </section>
-
   <LegalAiConsole lang={lang} />
 
   <section class="section-cream">
