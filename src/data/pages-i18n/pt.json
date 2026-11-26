@@ -515,26 +515,45 @@
     ]
   },
   "marGamez": {
+    "highlights": [
+      {
+        "label": "Inscrição",
+        "value": "ICAM n.º 137007 (Madrid)"
+      },
+      {
+        "label": "Docência universitária",
+        "value": "Universidade Loyola"
+      },
+      {
+        "label": "Acreditação externa",
+        "value": "ICEX-CECO / EOI / Aranzadi"
+      },
+      {
+        "label": "Distinção",
+        "value": "TOP 50 Premios Emprendemos"
+      }
+    ],
+    "areasTitle": "Áreas de direção jurídica",
     "sections": [
       {
         "title": "Formação académica",
-        "p1": "Licenciada em Direito e Relações Internacionais pela Universidade Loyola, distinguida como membro da sociedade de honra Alpha Sigma Nu.",
+        "p1": "Dupla licenciatura em Direito e Relações Internacionais na Universidade Loyola, distinguida como membro da sociedade de honra Alpha Sigma Nu.",
         "p2": "Pós-graduação de Acesso à Advocacia em Direito Empresarial Internacional (ISDE / Universidad Carlos III de Madrid) e LL.M. em International Business Law no ISDE."
       },
       {
-        "title": "Experiência profissional e inscrição",
-        "p1": "Sócia cofundadora e Diretora Jurídica da RRYP Global, dirigindo assuntos complexos de família internacional, património, sucessões, contencioso empresarial e penal económico.",
-        "p2": "Advogada inscrita na Ordem dos Advogados de Madrid (ICAM n.º 137007), com percurso anterior em societário internacional e direção jurídica empresarial."
+        "title": "Direção jurídica e empreendedorismo",
+        "p1": "Sócia cofundadora e Diretora Jurídica da RRYP Global (RELACIONATEYPUNTO, S.L., TOP 50 Premios Emprendemos da Junta de Andalucía), liderando assuntos complexos transfronteiriços.",
+        "p2": "Advogada inscrita na Ordem de Madrid (ICAM n.º 137007), com percurso em societário internacional e cofundação de projetos próprios como Cáliz Greenaloe."
       },
       {
         "title": "Docência e publicações",
-        "p1": "Professora associada na Universidade Loyola em Direito Internacional Privado e Direito Comparado, além de docente na EOI, IMDEEC e IPRODECO.",
-        "p2": "Autora no curso de Direito do Comércio Internacional da Aranzadi Thomson Reuters. Trabalha em espanhol e inglês."
+        "p1": "Professora associada na Universidade Loyola em Direito Internacional Privado e Direito Comparado, com homologação docente ICEX-CECO e formação na EOI, IMDEEC e IPRODECO.",
+        "p2": "Autora no curso de Direito do Comércio Internacional da Aranzadi Thomson Reuters. Idiomas de trabalho: espanhol e inglês."
       },
       {
         "title": "Investigação, conferências e media",
-        "p1": "Investigação em resolução de disputas China–UE e joint ventures internacionais; oradora nas Câmaras de Comércio de Málaga, Tenerife e Colômbia, EOI, EUDE e Promálaga.",
-        "p2": "Analista jurídica internacional na laSexta Noticias, Deutsche Welle e La Razón."
+        "p1": "Investigação sobre resolução de disputas China–UE e joint ventures internacionais; oradora nas Câmaras de Comércio de Málaga, Tenerife e Colômbia, EUDE e Promálaga.",
+        "p2": "Analista jurídica internacional na laSexta Noticias, Deutsche Welle, La Razón, Diario Córdoba e El Independiente."
       }
     ]
   },

@@ -515,26 +515,45 @@
     ]
   },
   "marGamez": {
+    "highlights": [
+      {
+        "label": "Zulassung",
+        "value": "ICAM Nr. 137007 (Madrid)"
+      },
+      {
+        "label": "Universitätslehre",
+        "value": "Universität Loyola"
+      },
+      {
+        "label": "Institutionelle Lehre",
+        "value": "ICEX-CECO / EOI / Aranzadi"
+      },
+      {
+        "label": "Auszeichnung",
+        "value": "TOP 50 Premios Emprendemos"
+      }
+    ],
+    "areasTitle": "Juristische Leitungsbereiche",
     "sections": [
       {
         "title": "Akademische Ausbildung",
-        "p1": "Doppelstudium Rechtswissenschaften und Internationale Beziehungen an der Universität Loyola, ausgezeichnet mit der Aufnahme in die Ehrengesellschaft Alpha Sigma Nu.",
-        "p2": "Postgraduiertenstudium zur Anwaltszulassung mit Schwerpunkt Wirtschafts- und internationales Unternehmensrecht (ISDE / Universität Carlos III de Madrid) sowie LL.M. in International Business Law am ISDE."
+        "p1": "Doppelstudium Rechtswissenschaften und Internationale Beziehungen an der Universität Loyola, Mitglied der Ehrengesellschaft Alpha Sigma Nu.",
+        "p2": "Postgraduiertenstudium zur Anwaltszulassung im internationalen Wirtschaftsrecht (ISDE / Universität Carlos III de Madrid) sowie LL.M. in International Business Law am ISDE."
       },
       {
-        "title": "Berufspraxis & Zulassung",
-        "p1": "Mitgründerin und juristische Leiterin von RRYP Global für komplexe grenzüberschreitende Mandate in Familien-, Vermögens-, Erb-, Wirtschafts- und Wirtschaftsstrafrecht.",
-        "p2": "Zugelassene Rechtsanwältin der Rechtsanwaltskammer Madrid (ICAM Nr. 137007) nach herausragendem Staatsexamen, mit vorheriger Praxis im internationalen Gesellschaftsrecht."
+        "title": "Rechtsleitung & Unternehmertum",
+        "p1": "Mitgründerin und juristische Leiterin von RRYP Global (RELACIONATEYPUNTO, S.L., TOP 50 Premios Emprendemos der Junta de Andalucía) für komplexe grenzüberschreitende Mandate.",
+        "p2": "Zugelassene Rechtsanwältin der Rechtsanwaltskammer Madrid (ICAM Nr. 137007), mit Erfahrung im internationalen Gesellschaftsrecht und Mitgründung von Cáliz Greenaloe."
       },
       {
         "title": "Lehre & Publikationen",
-        "p1": "Dozentin an der Universität Loyola für Internationales Privatrecht und Rechtsvergleichung sowie Lehrtätigkeit bei EOI, IMDEEC und IPRODECO.",
-        "p2": "Mitautorin des Fachkurses für Internationales Handelsrecht bei Aranzadi Thomson Reuters. Arbeitssprachen: Spanisch und Englisch."
+        "p1": "Dozentin an der Universität Loyola für Internationales Privatrecht und Rechtsvergleichung; akkreditierte Lehrtätigkeit bei ICEX-CECO sowie EOI, IMDEEC und IPRODECO.",
+        "p2": "Mitautorin des Fachkurses Internationales Handelsrecht bei Aranzadi Thomson Reuters. Arbeitssprachen: Spanisch und Englisch."
       },
       {
         "title": "Forschung, Vorträge & Medien",
-        "p1": "Forschung zu China–EU-Streitbeilegung und internationalen Joint Ventures; Referentin bei Handelskammern in Málaga, Teneriffa und Kolumbien, EOI, EUDE und Promálaga.",
-        "p2": "Regelmäßige juristische Analysen bei laSexta Noticias, Deutsche Welle und La Razón."
+        "p1": "Forschung zu China–EU-Streitbeilegung und internationalen Joint Ventures; Referentin bei Handelskammern in Málaga, Teneriffa und Kolumbien sowie EUDE und Promálaga.",
+        "p2": "Regelmäßige Analysen bei laSexta Noticias, Deutsche Welle, La Razón, Diario Córdoba und El Independiente."
       }
     ]
   },

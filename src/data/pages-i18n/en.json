@@ -515,26 +515,45 @@
     ]
   },
   "marGamez": {
+    "highlights": [
+      {
+        "label": "Bar admission",
+        "value": "Madrid Bar ICAM #137007"
+      },
+      {
+        "label": "University lecturing",
+        "value": "Universidad Loyola"
+      },
+      {
+        "label": "Institutional faculty",
+        "value": "ICEX-CECO / EOI / Aranzadi"
+      },
+      {
+        "label": "Recognition",
+        "value": "TOP 50 Premios Emprendemos"
+      }
+    ],
+    "areasTitle": "Core practice direction",
     "sections": [
       {
         "title": "Academic background",
-        "p1": "Graduated in Law and International Relations at Jesuit Universidad Loyola, where she was inducted into Alpha Sigma Nu, the honour society recognizing academic excellence and personal merit.",
-        "p2": "Completed her Postgraduate Bar Admission Degree specializing in Corporate Law and International Business at ISDE and Universidad Carlos III de Madrid, alongside an LL.M. in International Business Law, Contracting and International Relations at ISDE."
+        "p1": "Dual Degree in Law and International Relations at Jesuit Universidad Loyola, inducted into Alpha Sigma Nu, the honour society recognizing academic excellence and personal merit.",
+        "p2": "Postgraduate Bar Admission Degree specializing in Corporate Law and International Business at ISDE and Universidad Carlos III de Madrid, alongside an LL.M. in International Business Law, Contracting and International Relations at ISDE."
       },
       {
-        "title": "Professional practice & Bar admission",
-        "p1": "Co-founding Partner and Legal Director of RRYP Global, leading high-complexity cross-border matters across international family law, private wealth, estates, corporate litigation and economic crime.",
-        "p2": "Admitted to the Madrid Bar Association as a practising lawyer (ICAM no. 137007) after achieving top marks in the Spanish Bar exam. Her background includes international corporate practice and legal direction of entrepreneurial ventures."
+        "title": "Legal direction & entrepreneurial track record",
+        "p1": "Co-founding Partner and Legal Director of RRYP Global (RELACIONATEYPUNTO, S.L., recognised among the TOP 50 Premios Emprendemos by the Government of Andalusia), leading strategy in cross-border family, private wealth, estates, business litigation and economic crime.",
+        "p2": "Practising member of the Madrid Bar Association (ICAM no. 137007). Her career combines international corporate practice with co-founding and directing legal strategy for ventures such as Cáliz Greenaloe."
       },
       {
-        "title": "Academic teaching & publications",
-        "p1": "Associate Professor at Universidad Loyola, lecturing weekly in Private International Law and Comparative Law, and guest lecturer at EOI, IMDEEC and IPRODECO.",
-        "p2": "Contributing author for the Aranzadi Thomson Reuters International Trade Law programme on international contracting, guarantees, trade finance and dispute resolution. Practises fluently in Spanish and English."
+        "title": "Teaching, institutional accreditation & publications",
+        "p1": "Associate Professor at Universidad Loyola lecturing in Private International Law and Comparative Law, with accredited internationalisation teaching links to ICEX-CECO as well as EOI, IMDEEC and IPRODECO.",
+        "p2": "Contributing author for the Aranzadi Thomson Reuters International Trade Law programme on international contracts, guarantees, trade finance and dispute resolution. Working languages: Spanish and English."
       },
       {
-        "title": "Research, speaking & media",
-        "p1": "Her research covers China–EU dispute resolution mechanisms, international joint ventures and business internationalisation. Regular speaker at the Chambers of Commerce of Málaga, Tenerife and Colombia, EOI, Loyola University, EUDE Business School and Promálaga.",
-        "p2": "Appears regularly as an international legal analyst on laSexta Noticias, Deutsche Welle and La Razón."
+        "title": "Research, speaking & media analysis",
+        "p1": "Research focused on China–EU dispute resolution, international joint ventures and business internationalisation. Speaker at the Chambers of Commerce of Málaga, Tenerife and Colombia, EUDE Business School and Promálaga.",
+        "p2": "Regular international legal commentator in laSexta Noticias, Deutsche Welle, La Razón, Diario Córdoba and El Independiente."
       }
     ]
   },

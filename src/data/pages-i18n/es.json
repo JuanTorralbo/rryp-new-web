@@ -515,26 +515,45 @@
     ]
   },
   "marGamez": {
+    "highlights": [
+      {
+        "label": "Colegiación",
+        "value": "ICAM n.º 137007 (Madrid)"
+      },
+      {
+        "label": "Docencia universitaria",
+        "value": "Universidad Loyola"
+      },
+      {
+        "label": "Acreditación exterior",
+        "value": "ICEX-CECO / EOI / Aranzadi"
+      },
+      {
+        "label": "Reconocimiento",
+        "value": "TOP 50 Premios Emprendemos"
+      }
+    ],
+    "areasTitle": "Áreas de dirección jurídica",
     "sections": [
       {
         "title": "Formación académica",
-        "p1": "Cursó el doble grado en Derecho y Relaciones Internacionales en la Universidad jesuita Loyola, donde fue seleccionada como miembro de Alpha Sigma Nu, la sociedad de honor que reconoce la excelencia académica y el mérito personal.",
-        "p2": "Completó posteriormente el Posgrado de Acceso al Ejercicio de la Abogacía con especialización en Derecho de Empresa y negocios internacionales en ISDE y la Universidad Carlos III de Madrid, así como un LL.M. en International Business Law, Contracting and International Relations en ISDE."
+        "p1": "Doble grado en Derecho y Relaciones Internacionales por la Universidad jesuita Loyola, donde fue distinguida como miembro de Alpha Sigma Nu, la sociedad de honor que reconoce la excelencia académica y el mérito personal.",
+        "p2": "Posgrado de Acceso al Ejercicio de la Abogacía con especialización en Derecho de Empresa y Negocios Internacionales en ISDE y la Universidad Carlos III de Madrid, además de Máster (LL.M.) en International Business Law, Contracting and International Relations en ISDE."
       },
       {
-        "title": "Experiencia profesional y colegiación",
-        "p1": "Socia cofundadora y abogada titular de RRYP Global, dirige asuntos de alta complejidad con dimensión internacional en familia, patrimonio, sucesiones, litigación empresarial y derecho penal económico.",
-        "p2": "Tras obtener una calificación sobresaliente en el examen de acceso a la abogacía, se incorporó como abogada ejerciente al Ilustre Colegio de la Abogacía de Madrid (ICAM n.º 137007). Su recorrido previo incluye práctica mercantil internacional y dirección jurídica en proyectos empresariales propios."
+        "title": "Dirección jurídica y trayectoria emprendedora",
+        "p1": "Socia cofundadora y Directora Jurídica de RRYP Global (RELACIONATEYPUNTO, S.L., distinguida en el TOP 50 de los Premios Emprendemos de la Junta de Andalucía). Dirige la estrategia en familia internacional, patrimonio, sucesiones, litigación empresarial y penal económico.",
+        "p2": "Abogada ejerciente del Ilustre Colegio de la Abogacía de Madrid (ICAM n.º 137007). Su recorrido incluye práctica mercantil internacional y la cofundación y dirección jurídica de proyectos propios como Cáliz Greenaloe."
       },
       {
-        "title": "Actividad académica y publicaciones",
-        "p1": "Profesora asociada de la Universidad Loyola, donde imparte semanalmente Derecho Internacional Privado y Derecho Comparado. Ha ejercido también como docente en la EOI, el IMDEEC e IPRODECO.",
-        "p2": "Participó como autora en el curso de Derecho del Comercio Internacional de Aranzadi Thomson Reuters en contratación internacional, garantías contractuales, financiación exterior y resolución de controversias. Trabaja habitualmente en español e inglés."
+        "title": "Docencia, homologación institucional y publicaciones",
+        "p1": "Profesora asociada en la Universidad Loyola, donde imparte Derecho Internacional Privado y Derecho Comparado. Cuenta con vinculación y homologación docente en internacionalización con ICEX-CECO, además de impartir formación en la EOI, IMDEEC e IPRODECO.",
+        "p2": "Autora en el Curso de Derecho del Comercio Internacional de Aranzadi Thomson Reuters en contratación internacional, garantías, financiación exterior y resolución de controversias. Trabaja en español e inglés."
       },
       {
-        "title": "Investigación, ponencias y medios",
-        "p1": "Sus trabajos de investigación abarcan mecanismos de resolución de conflictos entre China y la Unión Europea, joint ventures internacionales e internacionalización empresarial. Ha sido ponente en las Cámaras de Comercio de Málaga, Tenerife y Colombia, EOI, Universidad Loyola, EUDE Business School y Promálaga.",
-        "p2": "Interviene como analista jurídica internacional en laSexta Noticias, Deutsche Welle y La Razón."
+        "title": "Investigación, ponencias y proyección en medios",
+        "p1": "Sus investigaciones abarcan resolución de conflictos entre China y la Unión Europea, joint ventures internacionales e internacionalización empresarial. Ponente habitual en las Cámaras de Comercio de Málaga, Tenerife y Colombia, EUDE Business School y Promálaga.",
+        "p2": "Interviene como analista jurídica internacional en laSexta Noticias, Deutsche Welle, La Razón, Diario Córdoba y El Independiente."
       }
     ]
   },

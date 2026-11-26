@@ -41,7 +41,9 @@ const personSchema = {
   memberOf: [
     { "@type": "Organization", name: "Ilustre Colegio de la Abogacía de Madrid (ICAM n.º 137007)" },
     { "@type": "Organization", name: "Alpha Sigma Nu" },
+    { "@type": "Organization", name: "ICEX-CECO" },
   ],
+  award: "TOP 50 Premios Emprendemos — Junta de Andalucía",
   knowsLanguage: ["es", "en"],
 };
 ---
@@ -103,7 +105,7 @@ const personSchema = {
           <ResponsivePhoto
             base={marMember.photoBase}
             widths={marMember.photoWidths}
-            sizes="(max-width: 1024px) 240px, 300px"
+            sizes="(max-width: 1024px) 240px, 320px"
             alt={`Mar Gámez Ramírez, ${t.roleMarGamez}`}
             width={marMember.width}
             height={marMember.height}
@@ -111,11 +113,30 @@ const personSchema = {
           />
         </div>
       </div>
+
+      <div class="meet-facts-bar">
+        {content.highlights.map((h) => (
+          <div class="meet-fact">
+            <span class="meet-fact-label">{h.label}</span>
+            <span class="meet-fact-value">{h.value}</span>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
   <section class="section-cream">
     <div class="container">
+      <div style="margin-bottom: 32px;" data-reveal>
+        <p class="eyebrow eyebrow--on-cream">{content.areasTitle}</p>
+        <div class="r5-cities-bar" style="margin-top: 12px;">
+          <a href={localizedPath(lang, "private-clients")}><span>{t.navClients} →</span></a>
+          <a href={localizedPath(lang, "private-wealth")}><span>{t.navWealth} →</span></a>
+          <a href={localizedPath(lang, "business-disputes")}><span>{t.navDisputes} →</span></a>
+          <a href={localizedPath(lang, "penal-economico-extradicion")}><span>{t.bcPenal} →</span></a>
+        </div>
+      </div>
+
       <div class="cv-sections-grid" data-reveal>
         {content.sections.map((sec, idx) => (
           <article class="cv-block">
