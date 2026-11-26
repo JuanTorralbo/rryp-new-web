@@ -4118,6 +4118,7 @@ html.is-scrolled .site-header {
 }
 
 .nav-lang-popover {
+  display: none;
   position: absolute;
   top: calc(100% + 12px);
   right: 0;
@@ -4127,10 +4128,13 @@ html.is-scrolled .site-header {
   border: 1px solid var(--rryp-gold);
   border-radius: var(--radius-arch);
   box-shadow: var(--shadow-dark-elevated);
-  display: flex;
   flex-direction: column;
   gap: 2px;
   z-index: 60;
+}
+
+.nav-lang-popover.is-open {
+  display: flex;
 }
 
 .nav-lang-option {
@@ -4216,9 +4220,8 @@ html.is-scrolled .site-header {
     display: none;
   }
 
-  .nav-lang-popover,
-  .nav-lang-popover[hidden] {
-    display: flex !important;
+  .nav-lang-popover {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 6px;
