@@ -696,7 +696,9 @@ const primaryNav = getPrimaryNav(lang);
 
         {fullFooter && (
           <div class="footer-crossborder">
-            <p class="crossborder-label">Cross-border</p>
+            <p class="crossborder-label">
+              {{ es: "Ámbito internacional", en: "Cross-border", de: "Grenzüberschreitend", pt: "Âmbito internacional", ru: "Трансграничная практика", zh: "跨境业务覆盖" }[lang]}
+            </p>
             <ul class="crossborder-list">
               {t.crossborderCountries.map((country) => (
                 <li>{country}</li>
