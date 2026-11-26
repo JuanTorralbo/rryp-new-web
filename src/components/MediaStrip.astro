@@ -1,0 +1,32 @@
+---
+import { getDictionary, localizedPath, type Locale } from "../i18n";
+
+export interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+const outlets = [
+  "laSexta Noticias",
+  "Deutsche Welle",
+  "La Razón",
+  "Diario Córdoba",
+  "Law&Trends",
+  "Universidad Loyola",
+];
+---
+
+<section class="media-strip" aria-label={t.mediosEyebrow}>
+  <div class="container media-strip-inner">
+    <p class="media-strip-label">{t.mediosEyebrow}</p>
+    <div class="media-strip-logos">
+      {outlets.map((name) => (
+        <span>{name}</span>
+      ))}
+    </div>
+    <a href={localizedPath(lang, "medios")} class="media-strip-link">
+      {t.mediosStripLink}
+    </a>
+  </div>
+</section>

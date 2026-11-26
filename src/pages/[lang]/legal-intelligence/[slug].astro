@@ -56,13 +56,22 @@ const related = getLocalizedPosts(lang, post.pillar === "seo-audit" ? undefined 
   .filter((p) => p.slug !== post.slug)
   .slice(0, 3);
 
+const isMarAuthor = full.author === "Mar Gámez";
+
 const articleSchema = {
   "@type": "Article",
   headline: post.title,
   description: post.excerpt,
   datePublished: post.date,
   inLanguage: lang,
-  author: { "@type": "Person", name: full.author },
+  author: isMarAuthor
+    ? {
+        "@type": "Person",
+        "@id": `${FIRM.siteUrl}/es/equipo/mar-gamez/#person`,
+        name: "Mar Gámez Ramírez",
+        url: `${FIRM.siteUrl}${localizedPath(lang, "equipo/mar-gamez")}`,
+      }
+    : { "@type": "Person", name: full.author },
   publisher: { "@id": `${FIRM.siteUrl}/#organization` },
   mainEntityOfPage: `${FIRM.siteUrl}${localizedPath(lang, `legal-intelligence/${post.slug}`)}`,
 };
@@ -98,7 +107,13 @@ const articleSchema = {
           <span class="doc-meta-pill">{pillarLabel}</span>
           <span class="doc-meta-muted">{post.date}</span>
           <span class="doc-meta-muted">{full.readingMin} {t.docReadingMin}</span>
-          <span class="doc-meta-muted">{full.author}</span>
+          {isMarAuthor ? (
+            <a href={localizedPath(lang, "equipo/mar-gamez")} class="doc-meta-muted" style="text-decoration: underline;">
+              {full.author} ({t.cvIcamLabel})
+            </a>
+          ) : (
+            <span class="doc-meta-muted">{full.author}</span>
+          )}
         </div>
         <h1 class="doc-title">{post.title}</h1>
         <p class="doc-lead">{post.excerpt}</p>

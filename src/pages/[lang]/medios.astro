@@ -1,0 +1,324 @@
+---
+import "../../styles/editorial-doc.css";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EntryRoutes from "../../components/EntryRoutes.astro";
+import { FIRM } from "../../data/firm";
+import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = getDictionary(lang);
+
+const tvAppearances = [
+  {
+    outlet: "laSexta Noticias",
+    topic: "Comercio internacional",
+    title: "Ataques en el Mar Rojo",
+    desc: "Análisis sobre las implicaciones jurídicas y económicas de los ataques en el Mar Rojo y su impacto en las rutas marítimas y el comercio internacional.",
+    ytId: "lO0GP0INVvQ",
+    ytUrl: "https://youtu.be/lO0GP0INVvQ",
+  },
+  {
+    outlet: "laSexta Noticias",
+    topic: "Transporte marítimo",
+    title: "Atasco en el Canal de Panamá",
+    desc: "Valoración del impacto jurídico y económico de las restricciones al tráfico marítimo internacional y sus consecuencias sobre las cadenas de suministro.",
+    ytId: "w7_pgOKkhyM",
+    ytUrl: "https://youtu.be/w7_pgOKkhyM",
+  },
+];
+
+const pressPublications = [
+  {
+    year: "2025",
+    outlet: "La Razón",
+    title: "Admisión a trámite de una querella por presunta estafa a un inversor",
+    url: "https://www.larazon.es/economia/justicia-admite-tramite-querella-presunta-estafa-alvaro-pintado_2025072868871fffabb2960d1fb7a262.html",
+  },
+  {
+    year: "2025",
+    outlet: "Diario Córdoba",
+    title: "Entrevista a Mar Gámez sobre su trayectoria y la evolución de RRYP Global",
+    url: "https://www.diariocordoba.com/cordoba-ciudad/2025/08/18/mar-gamez-cofundadora-relacionate-punto-120700068.html",
+  },
+  {
+    year: "2024",
+    outlet: "Law&Trends",
+    title: "RRYP Global inaugura su primera oficina en Córdoba y consolida su expansión",
+    url: "https://www.lawandtrends.com/noticias/rryp-global/rryp-global-inaugura-su-primera-oficina-en-cordoba-1.html",
+  },
+  {
+    year: "2023",
+    outlet: "Deutsche Welle (DW)",
+    title: "El cambio climático pone en jaque la ruta del Canal de Panamá",
+    url: "https://www.dw.com/es/el-cambio-clim%C3%A1tico-pone-en-jaque-ruta-del-canal-de-panam%C3%A1/a-66603003",
+  },
+];
+
+const academicEngagements = [
+  {
+    org: "Universidad Loyola",
+    topic: "Docencia universitaria en Derecho Internacional Privado y Derecho Comparado",
+  },
+  {
+    org: "AAAE",
+    topic: "Inteligencia Artificial en los negocios: cómo cumplir con la ley sin frenar la innovación",
+  },
+  {
+    org: "Cámara de Comercio de Málaga",
+    topic: "IA en los negocios: cómo prevenir riesgos sin frenar la innovación",
+  },
+  {
+    org: "Universidad Loyola",
+    topic: "Estrategias legales para emprendedores digitales",
+  },
+  {
+    org: "IPRODECO",
+    topic: "Estrategias y aplicaciones de la IA en el comercio internacional",
+  },
+  {
+    org: "Instituciones colaboradoras",
+    topic: "EOI, EUDE Business School, Cámaras de Comercio de Málaga y Tenerife, Promálaga e IMDEEC",
+  },
+];
+
+const collectionSchema = {
+  "@type": "CollectionPage",
+  name: t.mediosTitle,
+  description: t.mediosMetaDesc,
+  url: `${FIRM.siteUrl}${localizedPath(lang, "medios")}`,
+  about: { "@id": `${FIRM.siteUrl}/#organization` },
+  hasPart: [
+    ...tvAppearances.map((v) => ({
+      "@type": "VideoObject",
+      name: `${v.outlet}: ${v.title}`,
+      description: v.desc,
+      embedUrl: `https://www.youtube-nocookie.com/embed/${v.ytId}`,
+      contentUrl: v.ytUrl,
+      publisher: { "@id": `${FIRM.siteUrl}/#organization` },
+    })),
+    {
+      "@type": "VideoObject",
+      name: "Práctica jurídica internacional entre España y Florida (EPGD Business Law)",
+      description: t.mediosIntLead,
+      embedUrl: "https://www.youtube-nocookie.com/embed/ubFo7qdqsTg",
+      contentUrl: "https://youtu.be/ubFo7qdqsTg",
+      publisher: { "@id": `${FIRM.siteUrl}/#organization` },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  lang={lang}
+  slug="medios"
+  title={t.mediosMetaTitle}
+  description={t.mediosMetaDesc}
+  activeNav="firm"
+  breadcrumbs={[
+    { name: t.bcHome, url: localizedPath(lang) },
+    { name: t.bcFirm, url: localizedPath(lang, "la-firma") },
+    { name: t.mediosTitle },
+  ]}
+  jsonLdExtra={[collectionSchema]}
+>
+  <section class="doc-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.ariaBreadcrumb}>
+        <a href={localizedPath(lang)}>{t.bcHome}</a>
+        <span>/</span>
+        <a href={localizedPath(lang, "la-firma")}>{t.bcFirm}</a>
+        <span>/</span>
+        <span>{t.mediosTitle}</span>
+      </nav>
+
+      <div class="doc-hero-inner">
+        <div class="doc-meta-row">
+          <span class="doc-meta-pill">{t.mediosEyebrow}</span>
+          <span class="doc-meta-muted">España / International</span>
+        </div>
+        <h1 class="doc-title">{t.mediosTitle}</h1>
+        <p class="doc-lead">{t.mediosLead}</p>
+        <div class="doc-hero-actions">
+          <a href={localizedPath(lang, "equipo/mar-gamez")} class="btn btn--lime btn--compact">
+            {t.cvProfileBtn}
+          </a>
+          <a href={localizedPath(lang, "rryp-en-5")} class="btn btn--outline-dark btn--compact">
+            {t.r5CtaLabel}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Television nacional (laSexta Noticias) con bloqueo RGPD -->
+  <section class="section-cream">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.mediosTvEyebrow}</p>
+          <h2 class="section-title">{t.mediosTvTitle}</h2>
+        </div>
+        <p class="section-intro">{t.mediosTvLead}</p>
+      </div>
+
+      <div class="media-tv-grid">
+        {tvAppearances.map((item) => (
+          <article class="media-video-card" data-reveal>
+            <div
+              class="media-video-stage"
+              data-rgpd-yt={`https://www.youtube-nocookie.com/embed/${item.ytId}?rel=0`}
+              data-yt-title={`${item.outlet} - ${item.title}`}
+            >
+              <div class="media-video-stage-gate">
+                <span class="media-video-badge">{item.outlet}</span>
+                <p class="video-gate-desc" style="margin: 0; max-width: 44ch;">{t.ytConsentDesc}</p>
+                <button type="button" class="btn btn--lime btn--compact" data-rgpd-yt-accept>
+                  {t.ytConsentBtn}
+                </button>
+              </div>
+            </div>
+            <div class="media-video-body">
+              <span class="eyebrow" style="margin: 0;">{item.topic}</span>
+              <h3 class="media-video-title">{item.title}</h3>
+              <p class="media-video-desc">{item.desc}</p>
+              <div class="media-video-actions">
+                <a href={item.ytUrl} target="_blank" rel="noopener noreferrer" class="btn btn--outline-dark btn--compact">
+                  {t.mediosWatchBtn}
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Publicaciones externas -->
+  <section class="section-cream section-cream--bordered">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.mediosPressEyebrow}</p>
+          <h2 class="section-title">{t.mediosPressTitle}</h2>
+        </div>
+      </div>
+
+      <div class="media-press-grid" data-reveal>
+        {pressPublications.map((pub) => (
+          <article class="media-press-card">
+            <div>
+              <div class="media-press-meta">
+                <span>{pub.outlet}</span>
+                <span>{pub.year}</span>
+              </div>
+              <h3 class="media-press-title">{pub.title}</h3>
+            </div>
+            <a href={pub.url} target="_blank" rel="noopener noreferrer" class="intel-link">
+              {t.mediosReadBtn}
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Academia e instituciones -->
+  <section class="section-cream section-cream--bordered">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.mediosAcadEyebrow}</p>
+          <h2 class="section-title">{t.mediosAcadTitle}</h2>
+        </div>
+        <p class="section-intro">{t.mediosAcadLead}</p>
+      </div>
+
+      <div class="media-acad-grid" data-reveal>
+        {academicEngagements.map((item) => (
+          <article class="media-acad-card">
+            <p class="media-acad-org">{item.org}</p>
+            <h3 class="media-acad-topic">{item.topic}</h3>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Conversacion internacional Espana - Florida (EPGD Business Law) -->
+  <section class="section-dark">
+    <div class="container">
+      <div class="video-showcase">
+        <div data-reveal>
+          <p class="eyebrow">{t.mediosIntEyebrow}</p>
+          <h2 class="section-title">{t.mediosIntTitle}</h2>
+          <p class="section-intro" style="margin-top: 16px;">{t.mediosIntLead}</p>
+          <p class="doc-meta-muted" style="margin-top: 14px;">EPGD Business Law (Florida, Estados Unidos)</p>
+          <div style="margin-top: 24px;">
+            <a href="https://youtu.be/ubFo7qdqsTg" target="_blank" rel="noopener noreferrer" class="btn btn--outline-dark btn--compact">
+              {t.mediosWatchBtn}
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="media-video-stage"
+          style="border: 1px solid var(--rryp-gold); border-radius: var(--radius-arch);"
+          data-rgpd-yt="https://www.youtube-nocookie.com/embed/ubFo7qdqsTg?rel=0"
+          data-yt-title="EPGD Business Law - España y Florida"
+        >
+          <div class="media-video-stage-gate">
+            <span class="media-video-badge">EPGD Business Law (Florida)</span>
+            <p class="video-gate-desc" style="margin: 0; max-width: 44ch;">{t.ytConsentDesc}</p>
+            <button type="button" class="btn btn--lime btn--compact" data-rgpd-yt-accept>
+              {t.ytConsentBtn}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <EntryRoutes lang={lang} intro={t.entrySharedIntro} />
+
+  <script>
+    const mountAllVideos = (consent?: { marketing?: boolean }) => {
+      if (!consent?.marketing) return;
+      document.querySelectorAll<HTMLElement>("[data-rgpd-yt]").forEach((stage) => {
+        if (stage.querySelector("iframe")) return;
+        const src = stage.getAttribute("data-rgpd-yt");
+        const title = stage.getAttribute("data-yt-title") || "RRYP Global Video";
+        if (!src) return;
+        const iframe = document.createElement("iframe");
+        iframe.src = src;
+        iframe.title = title;
+        iframe.loading = "lazy";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        stage.innerHTML = "";
+        stage.appendChild(iframe);
+      });
+    };
+
+    document.querySelectorAll<HTMLButtonElement>("[data-rgpd-yt-accept]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (typeof window.RRYP_SET_CONSENT === "function") {
+          window.RRYP_SET_CONSENT({ marketing: true });
+        } else {
+          mountAllVideos({ marketing: true });
+        }
+      });
+    });
+
+    window.addEventListener("rryp:consent", (ev) => {
+      const customEv = ev as CustomEvent<{ marketing?: boolean }>;
+      mountAllVideos(customEv.detail);
+    });
+    if (window.RRYP_CONSENT?.marketing) {
+      mountAllVideos(window.RRYP_CONSENT);
+    }
+  </script>
+</BaseLayout>

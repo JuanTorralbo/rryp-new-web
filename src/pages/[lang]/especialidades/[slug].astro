@@ -21,7 +21,11 @@ const { item } = Astro.props as { item: WpSpecialty };
 const t = getDictionary(lang);
 
 const parentSlug =
-  item.pillar === "penal" ? "penal-economico-extradicion" : item.pillar;
+  item.pillar === "penal"
+    ? "penal-economico-extradicion"
+    : item.pillar === "malaga"
+      ? "malaga"
+      : item.pillar;
 const activeNav =
   item.pillar === "private-clients"
     ? "clients"
@@ -32,7 +36,11 @@ const activeNav =
         : "home";
 
 const relatedCases = getRelatedCases("", item.pillar, 3);
-const relatedArticles = getRelatedArticles("", item.pillar === "penal" ? "business-disputes" : item.pillar, 3);
+const relatedArticles = getRelatedArticles(
+  "",
+  item.pillar === "penal" ? "business-disputes" : item.pillar === "malaga" ? "private-clients" : item.pillar,
+  3,
+);
 
 const serviceSchema = {
   "@type": "Service",

@@ -1,0 +1,206 @@
+---
+import "../../styles/editorial-doc.css";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EntryRoutes from "../../components/EntryRoutes.astro";
+import { FIRM } from "../../data/firm";
+import { getLocalizedPosts } from "../../data/blog";
+import { WP_DICTIONARY, type WpDictionaryTerm } from "../../data/wp";
+import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = getDictionary(lang);
+
+// Only link to /{lang}/legal-intelligence/{slug}/ if that translation exists; otherwise /es/legal-intelligence/{slug}/ (0 broken links)
+const availableInLang = new Set(getLocalizedPosts(lang).map((p) => p.slug));
+const resolveEntryUrl = (slug: string) =>
+  availableInLang.has(slug)
+    ? localizedPath(lang, `legal-intelligence/${slug}`)
+    : localizedPath("es", `legal-intelligence/${slug}`);
+
+const grouped = new Map<string, WpDictionaryTerm[]>();
+for (const entry of WP_DICTIONARY) {
+  const arr = grouped.get(entry.letter) ?? [];
+  arr.push(entry);
+  grouped.set(entry.letter, arr);
+}
+const letters = Array.from(grouped.keys()).sort();
+
+const glossarySchema = {
+  "@type": "DefinedTermSet",
+  name: t.dictTitle,
+  description: t.dictMetaDesc,
+  url: `${FIRM.siteUrl}${localizedPath(lang, "diccionario-juridico")}`,
+  inLanguage: lang,
+  hasDefinedTerm: WP_DICTIONARY.map((entry) => ({
+    "@type": "DefinedTerm",
+    name: entry.term,
+    description: entry.excerpt,
+    url: `${FIRM.siteUrl}${resolveEntryUrl(entry.slug)}`,
+  })),
+};
+---
+
+<BaseLayout
+  lang={lang}
+  slug="diccionario-juridico"
+  title={t.dictMetaTitle}
+  description={t.dictMetaDesc}
+  activeNav="intel"
+  breadcrumbs={[
+    { name: t.bcHome, url: localizedPath(lang) },
+    { name: "RRYP Legal Intelligence", url: localizedPath(lang, "legal-intelligence") },
+    { name: t.dictTitle },
+  ]}
+  jsonLdExtra={[glossarySchema]}
+>
+  <section class="doc-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.ariaBreadcrumb}>
+        <a href={localizedPath(lang)}>{t.bcHome}</a>
+        <span>/</span>
+        <a href={localizedPath(lang, "legal-intelligence")}>RRYP Legal Intelligence</a>
+        <span>/</span>
+        <span>{t.dictTitle}</span>
+      </nav>
+
+      <div class="doc-hero-inner">
+        <div class="doc-meta-row">
+          <span class="doc-meta-pill">{t.dictEyebrow}</span>
+          <span class="doc-meta-muted">{WP_DICTIONARY.length} {t.dictCountLabel}</span>
+        </div>
+        <h1 class="doc-title">{t.dictTitle}</h1>
+        <p class="doc-lead">{t.dictLead}</p>
+        <div class="doc-hero-actions">
+          <a href={localizedPath(lang, "legal-intelligence")} class="btn btn--outline-dark btn--compact">
+            {t.docBackToIntel}
+          </a>
+          <a href={`${localizedPath(lang, "legal-intelligence")}#asistente-ia`} class="btn btn--lime btn--compact">
+            {t.docAskAiBtn}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-cream">
+    <div class="container">
+      <div class="dict-controls">
+        <div class="dict-search-row">
+          <input
+            type="search"
+            id="dict-search-input"
+            class="dict-search-input"
+            placeholder={t.dictSearchPlaceholder}
+            aria-label={t.dictSearchPlaceholder}
+          />
+          <span class="dict-count" id="dict-count-label" data-suffix={t.dictCountLabel}>
+            {WP_DICTIONARY.length} {t.dictCountLabel}
+          </span>
+        </div>
+
+        <div class="dict-alpha-bar" role="tablist" aria-label="A-Z">
+          <button type="button" class="dict-alpha-btn is-active" data-dict-letter="ALL">
+            {t.dictAllLetters}
+          </button>
+          {letters.map((letter) => (
+            <button type="button" class="dict-alpha-btn" data-dict-letter={letter}>
+              {letter}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <p id="dict-empty-msg" class="doc-lang-note" hidden>{t.dictEmpty}</p>
+
+      <div id="dict-groups">
+        {letters.map((letter) => (
+          <div class="dict-group" data-group-letter={letter}>
+            <h2 class="dict-letter-head">{letter}</h2>
+            <div class="dict-grid">
+              {(grouped.get(letter) ?? []).map((entry) => (
+                <article
+                  class="dict-card"
+                  data-dict-card
+                  data-letter={entry.letter}
+                  data-haystack={`${entry.term} ${entry.title} ${entry.excerpt}`}
+                >
+                  <div>
+                    <div class="intel-meta" style="margin-bottom: 10px;">
+                      <span>{entry.readingMin} {t.docReadingMin}</span>
+                      <span class="intel-date">{entry.date}</span>
+                    </div>
+                    <h3 class="dict-card-term">{entry.term}</h3>
+                    {entry.title.toLowerCase() !== entry.term.toLowerCase() && (
+                      <p class="dict-card-question">{entry.title}</p>
+                    )}
+                    <p class="dict-card-excerpt">{entry.excerpt}</p>
+                  </div>
+                  <a href={resolveEntryUrl(entry.slug)} class="intel-link">
+                    {t.dictReadEntry}
+                  </a>
+                </article>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <EntryRoutes lang={lang} intro={t.entrySharedIntro} />
+
+  <script>
+    const norm = (s: string) =>
+      s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    const input = document.getElementById("dict-search-input") as HTMLInputElement | null;
+    const countEl = document.getElementById("dict-count-label");
+    const emptyEl = document.getElementById("dict-empty-msg");
+    const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-dict-letter]"));
+    const groups = Array.from(document.querySelectorAll<HTMLElement>("[data-group-letter]"));
+    const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-dict-card]"));
+    let activeLetter = "ALL";
+
+    const applyFilter = () => {
+      const q = norm((input?.value || "").trim());
+      let visibleTotal = 0;
+
+      cards.forEach((card) => {
+        const cardLetter = card.getAttribute("data-letter") || "";
+        const hay = norm(card.getAttribute("data-haystack") || "");
+        const letterOk = activeLetter === "ALL" || cardLetter === activeLetter;
+        const queryOk = !q || hay.includes(q);
+        const show = letterOk && queryOk;
+        card.hidden = !show;
+        if (show) visibleTotal += 1;
+      });
+
+      groups.forEach((grp) => {
+        const hasVisible = Boolean(grp.querySelector("[data-dict-card]:not([hidden])"));
+        grp.hidden = !hasVisible;
+      });
+
+      if (countEl) {
+        const suffix = countEl.getAttribute("data-suffix") || "";
+        countEl.textContent = `${visibleTotal} ${suffix}`;
+      }
+      if (emptyEl) {
+        emptyEl.hidden = visibleTotal > 0;
+      }
+    };
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activeLetter = btn.getAttribute("data-dict-letter") || "ALL";
+        buttons.forEach((b) => b.classList.toggle("is-active", b === btn));
+        applyFilter();
+      });
+    });
+
+    input?.addEventListener("input", applyFilter);
+  </script>
+</BaseLayout>

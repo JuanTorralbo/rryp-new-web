@@ -223,11 +223,20 @@ const hasLocalEntryRoutes =
   cleanSlug === "madrid" ||
   cleanSlug === "malaga" ||
   cleanSlug === "cordoba" ||
+  cleanSlug === "medios" ||
+  cleanSlug === "diccionario-juridico" ||
+  cleanSlug === "rryp-en-5" ||
+  cleanSlug === "equipo/mar-gamez" ||
   cleanSlug.startsWith("casos/") ||
   cleanSlug.startsWith("especialidades/") ||
   cleanSlug.startsWith("legal-intelligence/");
 
-const entryHref = hasLocalEntryRoutes ? "#vias-de-entrada" : `${localizedPath(lang)}#vias-de-entrada`;
+const entryHref =
+  cleanSlug === "primera-reunion-juridica"
+    ? "#reserva-rryp"
+    : hasLocalEntryRoutes
+      ? "#vias-de-entrada"
+      : `${localizedPath(lang)}#vias-de-entrada`;
 ---
 
 <!DOCTYPE html>
@@ -602,7 +611,11 @@ const entryHref = hasLocalEntryRoutes ? "#vias-de-entrada" : `${localizedPath(la
               <li><a href={localizedPath(lang, "business-disputes")}>Business Disputes ↗</a></li>
               <li><a href={localizedPath(lang, "casos")}>{t.footerLinkCases}</a></li>
               <li><a href={localizedPath(lang, "la-firma")}>{t.footerLinkFirm}</a></li>
+              <li><a href={localizedPath(lang, "rryp-en-5")}>{t.footerLinkR5}</a></li>
+              <li><a href={localizedPath(lang, "medios")}>{t.footerLinkMedios}</a></li>
+              <li><a href={localizedPath(lang, "primera-reunion-juridica")}>{t.footerLinkMeet}</a></li>
               <li><a href={localizedPath(lang, "legal-intelligence")}>Legal Intelligence AI ↗</a></li>
+              <li><a href={localizedPath(lang, "diccionario-juridico")}>{t.footerLinkDict}</a></li>
               <li><a href={localizedPath(lang, "penal-economico-extradicion")}>{t.footerLinkPenal}</a></li>
               <li><a href={localizedPath(lang, "careers")}>Careers ↗</a></li>
             </ul>

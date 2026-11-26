@@ -1,0 +1,397 @@
+---
+import "../../styles/editorial-doc.css";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { FIRM } from "../../data/firm";
+import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = getDictionary(lang);
+
+const areas = [
+  {
+    title: "Familia internacional",
+    desc: "Divorcio, patrimonio familiar, responsabilidad parental, traslados y restitución internacional de menores.",
+    href: localizedPath(lang, "private-clients"),
+  },
+  {
+    title: "Patrimonio y sucesiones internacionales",
+    desc: "Herencias, testamentos, inmuebles, inversiones y estructuras patrimoniales con elementos internacionales.",
+    href: localizedPath(lang, "private-wealth"),
+  },
+  {
+    title: "Empresa internacional",
+    desc: "Sociedades, socios, contratos, inversiones, responsabilidades y control de activos en varias jurisdicciones.",
+    href: localizedPath(lang, "business-disputes"),
+  },
+  {
+    title: "Litigios internacionales",
+    desc: "Procedimientos en España, Derecho extranjero, medidas cautelares, prueba internacional y reconocimiento de resoluciones.",
+    href: localizedPath(lang, "especialidades/litigios-internacionales"),
+  },
+  {
+    title: "Penal económico y delitos internacionales",
+    desc: "Estafas, apropiaciones, administración desleal, OEDE, extradición y actuaciones desarrolladas en varios países.",
+    href: localizedPath(lang, "penal-economico-extradicion"),
+  },
+];
+
+const strategySteps = [
+  {
+    num: "01",
+    title: "Comprensión completa",
+    desc: "La posición jurídica se analiza junto con sus implicaciones familiares, patrimoniales, empresariales y procesales.",
+  },
+  {
+    num: "02",
+    title: "Dirección única",
+    desc: "La estrategia permanece bajo una sola dirección, aunque intervengan profesionales de distintas materias o jurisdicciones.",
+  },
+  {
+    num: "03",
+    title: "Decisiones proporcionadas",
+    desc: "Cada actuación responde a una necesidad concreta y a un objetivo definido para el cliente.",
+  },
+  {
+    num: "04",
+    title: "Preparación procesal",
+    desc: "La estrategia se formula para negociar cuando resulte conveniente y para sostener el procedimiento cuando sea necesario.",
+  },
+];
+
+const acceptanceChecks = [
+  {
+    num: "01",
+    title: "Encaje profesional",
+    desc: "Correspondencia con la práctica, experiencia y capacidades reales de la firma.",
+  },
+  {
+    num: "02",
+    title: "Ausencia de conflictos",
+    desc: "Verificación previa de inexistencia de relaciones o incompatibilidades que condicionen la actuación.",
+  },
+  {
+    num: "03",
+    title: "Capacidad real",
+    desc: "Disponibilidad suficiente para asumir el mandato con el nivel de atención exigido.",
+  },
+];
+
+const faqs = [
+  {
+    q: "¿Lleva RRYP Global asuntos como el mío?",
+    a: "La firma interviene en familia internacional, patrimonio y sucesiones, empresa internacional, litigios internacionales y penal económico con dimensión transfronteriza. La primera valoración permite confirmar el encaje concreto del asunto.",
+  },
+  {
+    q: "¿Quién dirigirá personalmente el asunto si se acepta el mandato?",
+    a: "La propuesta identifica al abogado responsable, el equipo que intervendrá y las decisiones reservadas a la Dirección Jurídica. En los asuntos dirigidos por Mar Gámez Ramírez, su intervención comprende la estrategia, las decisiones críticas y la supervisión jurídica.",
+  },
+  {
+    q: "¿Puede coordinarse la intervención de profesionales en otros países?",
+    a: "Sí. La firma puede dirigir la actuación en España y coordinar a abogados, asesores fiscales, notarios, peritos u otros profesionales en las jurisdicciones relevantes.",
+  },
+  {
+    q: "¿Qué documentación conviene facilitar antes de la reunión?",
+    a: "Resulta útil remitir una cronología breve, los países implicados, cualquier plazo inmediato y los documentos esenciales. No es necesario enviar inicialmente todo el expediente.",
+  },
+  {
+    q: "¿Qué ocurre después de la reunión?",
+    a: "Se comunicará si procede una actuación adicional o la aceptación del mandato. En ese caso, se remitirá una propuesta que definirá el alcance, la dirección jurídica, los honorarios y las condiciones del encargo.",
+  },
+  {
+    q: "¿Qué ocurre si la firma no puede aceptar o valorar el asunto?",
+    a: "Si antes de la reunión se detecta un conflicto de intereses o que el asunto no puede ser valorado adecuadamente, la reserva será cancelada y se reembolsará íntegramente el importe abonado.",
+  },
+];
+
+const faqSchema = {
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
+
+const serviceSchema = {
+  "@type": "Service",
+  name: t.meetTitle,
+  description: t.meetMetaDesc,
+  provider: { "@id": `${FIRM.siteUrl}/#organization` },
+  offers: [
+    {
+      "@type": "Offer",
+      name: t.e2Title,
+      price: "350",
+      priceCurrency: "EUR",
+      url: FIRM.calendly.legal,
+    },
+    {
+      "@type": "Offer",
+      name: t.e3Title,
+      price: "500",
+      priceCurrency: "EUR",
+      url: FIRM.calendly.urgent,
+    },
+  ],
+};
+---
+
+<BaseLayout
+  lang={lang}
+  slug="primera-reunion-juridica"
+  title={t.meetMetaTitle}
+  description={t.meetMetaDesc}
+  activeNav="firm"
+  breadcrumbs={[
+    { name: t.bcHome, url: localizedPath(lang) },
+    { name: t.meetTitle },
+  ]}
+  jsonLdExtra={[serviceSchema, faqSchema]}
+>
+  <section class="doc-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.ariaBreadcrumb}>
+        <a href={localizedPath(lang)}>{t.bcHome}</a>
+        <span>/</span>
+        <span>{t.meetTitle}</span>
+      </nav>
+
+      <div class="doc-hero-inner">
+        <div class="doc-meta-row">
+          <span class="doc-meta-pill">{t.meetEyebrow}</span>
+          <span class="doc-meta-muted">{t.meetFactFee}</span>
+        </div>
+        <h1 class="doc-title">{t.meetTitle}</h1>
+        <p class="doc-lead">{t.meetLead}</p>
+        <div class="doc-hero-actions">
+          <a href="#reserva-rryp" class="btn btn--lime btn--compact">
+            {t.meetCtaReserve}
+          </a>
+          <a href={localizedPath(lang, "casos")} class="btn btn--outline-dark btn--compact">
+            {t.firmDirCta}
+          </a>
+        </div>
+      </div>
+
+      <div class="meet-facts-bar">
+        <div class="meet-fact">
+          <span class="meet-fact-label">Honorarios</span>
+          <span class="meet-fact-value">{t.meetFactFee}</span>
+        </div>
+        <div class="meet-fact">
+          <span class="meet-fact-label">Naturaleza</span>
+          <span class="meet-fact-value">{t.meetFactDur}</span>
+        </div>
+        <div class="meet-fact">
+          <span class="meet-fact-label">Modalidad</span>
+          <span class="meet-fact-value">{t.meetFactMod}</span>
+        </div>
+        <div class="meet-fact">
+          <span class="meet-fact-label">Dirección</span>
+          <span class="meet-fact-value">{t.meetFactDir}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Areas cubiertas -->
+  <section class="section-cream">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.meetAreasEyebrow}</p>
+          <h2 class="section-title">{t.meetAreasTitle}</h2>
+        </div>
+        <p class="section-intro">
+          La primera valoración está destinada a asuntos con dimensión internacional, patrimonio relevante o alta exigencia procesal.
+        </p>
+      </div>
+
+      <div class="specialty-grid" data-reveal>
+        {areas.map((area) => (
+          <article class="intel-card">
+            <div>
+              <h3 class="intel-title">{area.title}</h3>
+              <p class="intel-excerpt">{area.desc}</p>
+            </div>
+            <a href={area.href} class="intel-link">
+              {t.docReadSpecialty}
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Una sola estrategia + Independencia y reembolso -->
+  <section class="section-cream section-cream--bordered">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.meetStratEyebrow}</p>
+          <h2 class="section-title">{t.meetStratTitle}</h2>
+        </div>
+      </div>
+
+      <div class="specialty-grid" data-reveal>
+        {strategySteps.map((step) => (
+          <article class="pillar-card">
+            <div>
+              <span class="pillar-index">{step.num}</span>
+              <h3 class="pillar-name">{step.title}</h3>
+              <p class="pillar-desc">{step.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="section-header" style="margin-top: 56px;" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.meetIndepEyebrow}</p>
+          <h2 class="section-title">{t.meetIndepTitle}</h2>
+        </div>
+        <p class="section-intro">
+          Dirección jurídica a cargo de <a href={localizedPath(lang, "equipo/mar-gamez")} style="text-decoration: underline;">Mar Gámez Ramírez (ICAM n.º 137007)</a>.
+        </p>
+      </div>
+
+      <div class="pillars-grid" data-reveal>
+        {acceptanceChecks.map((item) => (
+          <article class="pillar-card">
+            <div>
+              <span class="pillar-index">{item.num}</span>
+              <h3 class="pillar-name">{item.title}</h3>
+              <p class="pillar-desc">{item.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <p class="meet-refund-note" data-reveal>
+        {t.meetIndepRefund}
+      </p>
+    </div>
+  </section>
+
+  <!-- Bloque interactivo de reserva con las 3 confirmaciones contractuales -->
+  <section class="section-dark" id="reserva-rryp">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow">{t.meetBookEyebrow}</p>
+          <h2 class="section-title">{t.meetBookTitle}</h2>
+        </div>
+        <p class="section-intro">{t.meetBookLead}</p>
+      </div>
+
+      <div class="meet-booking-box" data-reveal>
+        <div class="meet-check-list">
+          <label class="meet-check-item">
+            <input type="checkbox" data-meet-check />
+            <span>{t.meetCheck1}</span>
+          </label>
+          <label class="meet-check-item">
+            <input type="checkbox" data-meet-check />
+            <span>{t.meetCheck2}</span>
+          </label>
+          <label class="meet-check-item">
+            <input type="checkbox" data-meet-check />
+            <span>
+              {t.meetCheck3Prefix}{" "}
+              <a href={localizedPath(lang, "legal/condiciones")}>{t.legalTerms}</a>,{" "}
+              <a href={localizedPath(lang, "legal/aviso-legal")}>{t.legalNotice}</a>{" "}
+              / <a href={localizedPath(lang, "legal/privacidad")}>{t.legalPrivacy}</a>.
+            </span>
+          </label>
+        </div>
+
+        <p class="meet-book-hint" id="meet-book-hint">{t.meetBookHint}</p>
+
+        <div class="meet-book-actions">
+          <a
+            href={FIRM.calendly.legal}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--lime"
+            data-meet-action
+            aria-disabled="true"
+            tabindex="-1"
+          >
+            {t.meetBookStd}
+          </a>
+          <a
+            href={FIRM.calendly.urgent}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--outline-dark"
+            data-meet-action
+            aria-disabled="true"
+            tabindex="-1"
+          >
+            {t.meetBookUrg}
+          </a>
+          <a
+            href={FIRM.calendly.initial}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--outline-dark"
+          >
+            {t.e1Title} ({t.e1Fee}) →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preguntas frecuentes reales -->
+  <section class="section-cream">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.meetFaqEyebrow}</p>
+          <h2 class="section-title">{t.meetFaqTitle}</h2>
+        </div>
+      </div>
+
+      <div class="meet-faq-list" data-reveal>
+        {faqs.map((item, idx) => (
+          <details class="meet-faq-item" open={idx === 0}>
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const checks = Array.from(document.querySelectorAll<HTMLInputElement>("[data-meet-check]"));
+    const actions = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-meet-action]"));
+    const hint = document.getElementById("meet-book-hint");
+
+    const syncBookingGate = () => {
+      const ready = checks.length > 0 && checks.every((c) => c.checked);
+      actions.forEach((a) => {
+        a.setAttribute("aria-disabled", ready ? "false" : "true");
+        if (ready) {
+          a.removeAttribute("tabindex");
+        } else {
+          a.setAttribute("tabindex", "-1");
+        }
+      });
+      if (hint) {
+        hint.hidden = ready;
+      }
+    };
+
+    checks.forEach((c) => c.addEventListener("change", syncBookingGate));
+    syncBookingGate();
+  </script>
+</BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import MediaStrip from "../../components/MediaStrip.astro";
 import EntryRoutes from "../../components/EntryRoutes.astro";
 import ResponsivePhoto from "../../components/ResponsivePhoto.astro";
 import { FIRM } from "../../data/firm";
@@ -105,11 +106,16 @@ const aboutSchema = {
           <h3>{t.firmDirTitle}</h3>
           <p>{t.firmDirP1}</p>
           <p>{t.firmDirP2}</p>
-          <a href={localizedPath(lang, "casos")} class="btn btn--dark">{t.firmDirCta}</a>
+          <div class="hero-cta-group" style="margin-top: 24px;">
+            <a href={localizedPath(lang, "casos")} class="btn btn--dark">{t.firmDirCta}</a>
+            <a href={localizedPath(lang, "rryp-en-5")} class="btn btn--outline-cream">{t.r5CtaLabel}</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+  <MediaStrip lang={lang} />
 
   <section class="section-cream section-cream--bordered">
     <div class="container">
@@ -122,7 +128,7 @@ const aboutSchema = {
       </div>
 
       <div class="team-grid">
-        {FIRM.team.map((member) => (
+        {FIRM.team.map((member, idx) => (
           <article class="team-card" data-reveal>
             <div class="photo-slot photo-slot--4x5 photo-slot--on-cream has-photo">
               <ResponsivePhoto
@@ -138,6 +144,11 @@ const aboutSchema = {
               <h3 class="team-name">{member.name}</h3>
               <p class="team-role">{t[member.roleKey]}</p>
               <p class="team-bio">{t[member.bioKey]}</p>
+              {idx === 0 && (
+                <a href={localizedPath(lang, "equipo/mar-gamez")} class="team-profile-link">
+                  {t.cvProfileBtn}
+                </a>
+              )}
             </div>
           </article>
         ))}

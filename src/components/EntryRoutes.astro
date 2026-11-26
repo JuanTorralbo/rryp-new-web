@@ -1,6 +1,6 @@
 ---
 import { FIRM } from "../data/firm";
-import { getDictionary, type Locale } from "../i18n";
+import { getDictionary, localizedPath, type Locale } from "../i18n";
 
 export interface Props {
   lang: Locale;
@@ -49,14 +49,22 @@ const t = getDictionary(lang);
           <p class="entry-duration">{t.e2Dur}</p>
           <p class="entry-desc">{t.e2Desc}</p>
         </div>
-        <a
-          href={FIRM.calendly.legal}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn--lime"
-        >
-          {t.e2Btn}
-        </a>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a
+            href={FIRM.calendly.legal}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--lime"
+          >
+            {t.e2Btn}
+          </a>
+          <a
+            href={localizedPath(lang, "primera-reunion-juridica")}
+            style="font-family: var(--font-brand); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rryp-gold); text-align: center;"
+          >
+            {t.footerLinkMeet}
+          </a>
+        </div>
       </article>
 
       <article class="entry-card" data-reveal style="--reveal-delay: 180ms">

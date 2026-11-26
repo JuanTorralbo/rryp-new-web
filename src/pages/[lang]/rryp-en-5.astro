@@ -1,0 +1,331 @@
+---
+import "../../styles/editorial-doc.css";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MediaStrip from "../../components/MediaStrip.astro";
+import EntryRoutes from "../../components/EntryRoutes.astro";
+import { FIRM } from "../../data/firm";
+import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = getDictionary(lang);
+
+const methodSteps = [
+  { num: "01", title: "Entender", desc: "Qué está pasando, qué está en juego y qué quiere conseguir el cliente." },
+  { num: "02", title: "Investigar", desc: "Hechos, documentos, prueba, patrimonio, negocio y contexto." },
+  { num: "03", title: "Conectar", desc: "Personas, empresas, países, procedimientos y disciplinas." },
+  { num: "04", title: "Construir", desc: "Una estrategia jurídicamente defendible y ejecutable." },
+  { num: "05", title: "Ejecutar", desc: "Controlar hitos, plazos, profesionales, prueba y decisiones críticas." },
+];
+
+const situations = [
+  {
+    num: "01",
+    title: "Hay un menor y más de un país.",
+    desc: "Custodia, residencia habitual, traslado, restitución, medidas urgentes o resoluciones de distintos Estados.",
+    href: localizedPath(lang, "especialidades/sustraccion-menores"),
+  },
+  {
+    num: "02",
+    title: "Sabe que existe patrimonio, pero no dónde está todo.",
+    desc: "Sociedades, inmuebles, cuentas, inversiones, participaciones, activos digitales o estructuras en distintos países.",
+    href: localizedPath(lang, "private-wealth"),
+  },
+  {
+    num: "03",
+    title: "Lo que empieza en una empresa acaba afectándole personalmente.",
+    desc: "Socios, contratos, software, competencia desleal, insolvencia, responsabilidad o patrimonio personal.",
+    href: localizedPath(lang, "business-disputes"),
+  },
+  {
+    num: "04",
+    title: "Tiene una resolución extranjera y necesita que produzca efectos en España.",
+    desc: "Sentencias, acuerdos, medidas sobre menores, deudas, divorcios o decisiones patrimoniales.",
+    href: localizedPath(lang, "especialidades/litigios-internacionales"),
+  },
+  {
+    num: "05",
+    title: "Existe una actuación penal o una orden internacional y el tiempo importa.",
+    desc: "OEDE, cooperación judicial penal, extradición, medidas sobre libertad personal o actuaciones urgentes en España.",
+    href: localizedPath(lang, "penal-economico-extradicion"),
+  },
+  {
+    num: "06",
+    title: "Hay varios países y nadie está mirando el conjunto.",
+    desc: "Un abogado ve la parte española, otro la extranjera, pero falta una estrategia común.",
+    href: localizedPath(lang, "la-firma"),
+  },
+  {
+    num: "07",
+    title: "Ya ha hablado con otro abogado, pero la respuesta no encaja con lo que pasa.",
+    desc: "A veces la clave no está en la norma, sino en cómo se han planteado los hechos, la prueba o la jurisdicción.",
+    href: localizedPath(lang, "casos"),
+  },
+  {
+    num: "08",
+    title: "No sabe por dónde empezar.",
+    desc: "Cuéntenos qué ha ocurrido. La calificación jurídica y el orden estratégico forman parte de nuestro trabajo.",
+    href: localizedPath(lang, "primera-reunion-juridica"),
+  },
+];
+
+const courtTiers = [
+  {
+    num: "01",
+    title: "Primera instancia civil y familia",
+    desc: "Procedimientos ante los órganos civiles competentes: familia, patrimonio, sucesiones, contratos, reclamaciones y medidas urgentes o cautelares.",
+  },
+  {
+    num: "02",
+    title: "Instrucción y jurisdicción penal",
+    desc: "Defensa y acusación en procedimientos penales, incluidas controversias económicas y actuaciones con dimensión transfronteriza.",
+  },
+  {
+    num: "03",
+    title: "Audiencias Provinciales (segunda instancia)",
+    desc: "Recursos frente a resoluciones dictadas en primera instancia cuando el procedimiento abre una segunda revisión judicial.",
+  },
+  {
+    num: "04",
+    title: "Audiencia Nacional",
+    desc: "Cooperación judicial penal europea y procedimientos de OEDE y extradición, incluidos debates sobre entrega, situación personal, nulidad y garantías procesales.",
+  },
+];
+
+const spanishCities = [
+  "Madrid",
+  "Córdoba",
+  "Málaga",
+  "Granada",
+  "Santander",
+  "Alicante",
+  "Almería",
+  "Cádiz",
+  "Sevilla",
+  "Guipúzcoa",
+  "Barcelona",
+  "Las Palmas",
+];
+
+const faqs = [
+  {
+    q: "¿Qué tipo de asuntos acepta RRYP Global?",
+    a: "Trabajamos en asuntos complejos conectados con España, especialmente cuando confluyen varios países, patrimonio relevante, empresa, familia internacional o litigación. No intentamos ser el despacho adecuado para todo.",
+  },
+  {
+    q: "¿Quién dirige mi asunto?",
+    a: "La dirección jurídica corresponde a Mar Gámez, con intervención del equipo y, cuando el asunto lo exige, coordinación con profesionales de otras jurisdicciones o especialidades.",
+  },
+  {
+    q: "¿Trabajáis con abogados de otros países?",
+    a: "Sí, cuando el asunto necesita intervención local, Derecho extranjero o actuaciones fuera de España. RRYP coordina la estrategia para que las distintas piezas no funcionen como expedientes aislados.",
+  },
+  {
+    q: "¿Podéis asumir un asunto que ya lleva otro abogado?",
+    a: "Sí. Revisamos lo ocurrido hasta ese momento y reconstruimos la posición desde la que hay que continuar.",
+  },
+  {
+    q: "¿Qué ocurre en la primera reunión jurídica?",
+    a: "Es una reunión jurídica de trabajo con Mar Gámez. Analizamos los hechos, la documentación disponible, los países implicados y qué necesita conseguir. Honorarios: 350 €.",
+  },
+  {
+    q: "¿Cómo se fijan los honorarios después?",
+    a: "En función del trabajo que requiere el asunto, su complejidad, alcance y necesidades de ejecución. El alcance y los honorarios se concretan antes de comenzar el encargo.",
+  },
+  {
+    q: "¿Tengo que saber exactamente qué necesito antes de contactar?",
+    a: "No. Explíquenos qué está ocurriendo. La calificación jurídica forma parte de nuestro trabajo.",
+  },
+];
+
+const faqSchema = {
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<BaseLayout
+  lang={lang}
+  slug="rryp-en-5"
+  title={t.r5MetaTitle}
+  description={t.r5MetaDesc}
+  activeNav="firm"
+  breadcrumbs={[
+    { name: t.bcHome, url: localizedPath(lang) },
+    { name: t.bcFirm, url: localizedPath(lang, "la-firma") },
+    { name: "RRYP en 5'" },
+  ]}
+  jsonLdExtra={[faqSchema]}
+>
+  <section class="doc-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.ariaBreadcrumb}>
+        <a href={localizedPath(lang)}>{t.bcHome}</a>
+        <span>/</span>
+        <a href={localizedPath(lang, "la-firma")}>{t.bcFirm}</a>
+        <span>/</span>
+        <span>RRYP en 5'</span>
+      </nav>
+
+      <div class="doc-hero-inner">
+        <div class="doc-meta-row">
+          <span class="doc-meta-pill">{t.r5Eyebrow}</span>
+          <span class="doc-meta-muted">Madrid / Málaga / Córdoba</span>
+        </div>
+        <h1 class="doc-title">{t.r5Title}</h1>
+        <p class="doc-lead">{t.r5Lead}</p>
+        <div class="doc-hero-actions">
+          <a href={localizedPath(lang, "primera-reunion-juridica")} class="btn btn--lime btn--compact">
+            {t.meetTitle} (350 €) →
+          </a>
+          <a href={localizedPath(lang, "casos")} class="btn btn--outline-dark btn--compact">
+            {t.firmDirCta}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metodo RRYP en 5 pasos -->
+  <section class="section-cream" id="metodo">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.r5MethodEyebrow}</p>
+          <h2 class="section-title">{t.r5MethodTitle}</h2>
+        </div>
+      </div>
+
+      <div class="r5-method-grid" data-reveal>
+        {methodSteps.map((step) => (
+          <article class="r5-step-card">
+            <span class="pillar-index">{step.num}</span>
+            <h3 class="pillar-name">{step.title}</h3>
+            <p class="pillar-desc">{step.desc}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 situaciones reales -->
+  <section class="section-dark">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow">{t.r5SitEyebrow}</p>
+          <h2 class="section-title">{t.r5SitTitle}</h2>
+        </div>
+        <p class="section-intro">{t.r5SitLead}</p>
+      </div>
+
+      <div class="r5-situations-grid" data-reveal>
+        {situations.map((sit) => (
+          <article class="r5-sit-card">
+            <div>
+              <span class="eyebrow" style="margin: 0;">{sit.num}</span>
+              <h3 class="r5-sit-title">{sit.title}</h3>
+              <p class="r5-sit-desc">{sit.desc}</p>
+            </div>
+            <a href={sit.href} class="media-strip-link">
+              {t.docReadSpecialty}
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cifras reales en burdeos -->
+  <section class="section-burgundy">
+    <div class="container">
+      <div class="authority-grid" data-reveal>
+        <div class="authority-item">
+          <span class="authority-figure">200+</span>
+          <h3 class="authority-heading">Asuntos tramitados</h3>
+          <p class="authority-text">Experiencia acumulada en controversias transfronterizas de familia, patrimonio y empresa.</p>
+        </div>
+        <div class="authority-item">
+          <span class="authority-figure">26+</span>
+          <h3 class="authority-heading">Nacionalidades</h3>
+          <p class="authority-text">Clientes particulares, directivos y sociedades con intereses conectados con España.</p>
+        </div>
+        <div class="authority-item">
+          <span class="authority-figure">12+</span>
+          <h3 class="authority-heading">Plazas judiciales</h3>
+          <p class="authority-text">Intervención procesal directa ante juzgados, Audiencias Provinciales y Audiencia Nacional.</p>
+        </div>
+        <div class="authority-item">
+          <span class="authority-figure">3</span>
+          <h3 class="authority-heading">Sedes en España</h3>
+          <p class="authority-text">Madrid, Málaga (con atención a Marbella y Costa del Sol) y Córdoba.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practica procesal en Espana -->
+  <section class="section-cream">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.r5CourtsEyebrow}</p>
+          <h2 class="section-title">{t.r5CourtsTitle}</h2>
+        </div>
+        <p class="section-intro">
+          Dirección jurídica a cargo de <a href={localizedPath(lang, "equipo/mar-gamez")} style="text-decoration: underline;">Mar Gámez Ramírez (ICAM n.º 137007)</a>.
+        </p>
+      </div>
+
+      <div class="r5-courts-grid" data-reveal>
+        {courtTiers.map((court) => (
+          <article class="pillar-card">
+            <div>
+              <span class="pillar-index">{court.num}</span>
+              <h3 class="pillar-name">{court.title}</h3>
+              <p class="pillar-desc">{court.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="r5-cities-bar" data-reveal>
+        {spanishCities.map((city) => (
+          <span>{city}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <MediaStrip lang={lang} />
+
+  <!-- Preguntas esenciales antes de decidir -->
+  <section class="section-cream">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.r5FaqEyebrow}</p>
+          <h2 class="section-title">{t.r5FaqTitle}</h2>
+        </div>
+      </div>
+
+      <div class="meet-faq-list" data-reveal>
+        {faqs.map((item, idx) => (
+          <details class="meet-faq-item" open={idx === 0}>
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <EntryRoutes lang={lang} intro={t.entrySharedIntro} />
+</BaseLayout>

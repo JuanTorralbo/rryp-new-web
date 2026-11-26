@@ -1,8 +1,10 @@
 ---
+import "../../styles/editorial-doc.css";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EntryRoutes from "../../components/EntryRoutes.astro";
 import ResponsivePhoto from "../../components/ResponsivePhoto.astro";
 import { FIRM } from "../../data/firm";
+import { getSpecialtiesByPillar } from "../../data/wp";
 import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
 
 export function getStaticPaths() {
@@ -12,6 +14,7 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: Locale };
 const t = getDictionary(lang);
 const office = FIRM.offices[1];
+const malagaSpecialties = getSpecialtiesByPillar("malaga");
 
 const localSchema = {
   "@type": "LegalService",
@@ -144,6 +147,38 @@ const localSchema = {
       </div>
     </div>
   </section>
+
+  {malagaSpecialties.length > 0 && (
+    <section class="section-cream section-cream--bordered">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <div>
+            <p class="eyebrow eyebrow--on-cream">{t.malagaSpecEyebrow}</p>
+            <h2 class="section-title">{t.malagaSpecTitle}</h2>
+          </div>
+          <p class="section-intro">{t.malagaSpecIntro}</p>
+        </div>
+
+        <div class="specialty-grid" data-reveal>
+          {malagaSpecialties.map((sp) => (
+            <article class="intel-card">
+              <div>
+                <div class="intel-meta">
+                  <span>{sp.pillarLabel}</span>
+                  <span class="intel-date">{sp.readingMin} {t.docReadingMin}</span>
+                </div>
+                <h3 class="intel-title">{sp.title}</h3>
+                <p class="intel-excerpt">{sp.lead}</p>
+              </div>
+              <a href={localizedPath(lang, `especialidades/${sp.slug}`)} class="intel-link">
+                {t.docReadSpecialty}
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <EntryRoutes lang={lang} heading={t.officeEntryTitle} intro={t.entrySharedIntro} />
 </BaseLayout>

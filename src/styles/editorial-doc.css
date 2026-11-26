@@ -341,15 +341,627 @@
   gap: 20px;
 }
 
+/* ==========================================================================
+   Presencia Publica / Medios (TV, prensa, academia y entrevistas)
+   ========================================================================== */
+.media-tv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.media-video-card {
+  background-color: var(--rryp-black);
+  color: var(--rryp-cream);
+  border: 1px solid var(--line-on-dark);
+  border-radius: var(--radius-arch);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.media-video-stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background-color: var(--rryp-burgundy);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px;
+}
+
+.media-video-stage iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.media-video-stage-gate {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.media-video-badge {
+  display: inline-block;
+  font-family: var(--font-brand);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-arch);
+  background-color: rgba(14, 18, 17, 0.72);
+  border: 1px solid var(--rryp-gold);
+  color: var(--rryp-gold);
+}
+
+.media-video-body {
+  padding: 22px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.media-video-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 0;
+  color: var(--rryp-cream);
+}
+
+.media-video-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-muted-on-dark);
+  margin: 0;
+}
+
+.media-video-actions {
+  margin-top: auto;
+  padding-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.media-press-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.media-press-card {
+  background-color: var(--rryp-cream);
+  border: 1px solid var(--line-on-cream);
+  border-radius: var(--radius-arch);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  transition: border-color var(--transition-ui), transform var(--transition-ui);
+}
+
+.media-press-card:hover {
+  border-color: var(--rryp-gold);
+  transform: translateY(-2px);
+}
+
+.media-press-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rryp-gold);
+}
+
+.media-press-title {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 8px 0 0;
+  color: var(--rryp-black);
+}
+
+.media-acad-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.media-acad-card {
+  background-color: rgba(14, 18, 17, 0.025);
+  border: 1px solid var(--line-on-cream);
+  border-radius: var(--radius-arch);
+  padding: 20px 22px;
+}
+
+.media-acad-org {
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rryp-burgundy);
+  margin: 0 0 6px;
+}
+
+.media-acad-topic {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--rryp-black);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Diccionario Juridico Internacional A-Z
+   ========================================================================== */
+.dict-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 34px;
+}
+
+.dict-search-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.dict-search-input {
+  flex: 1 1 320px;
+  background-color: var(--rryp-cream);
+  border: 1px solid var(--line-on-cream);
+  border-radius: var(--radius-arch);
+  padding: 13px 16px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--rryp-black);
+  transition: border-color var(--transition-ui);
+}
+
+.dict-search-input:focus {
+  outline: none;
+  border-color: var(--rryp-burgundy);
+}
+
+.dict-count {
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rryp-burgundy);
+}
+
+.dict-alpha-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 14px 16px;
+  background-color: rgba(14, 18, 17, 0.025);
+  border: 1px solid var(--line-on-cream);
+  border-radius: var(--radius-arch);
+}
+
+.dict-alpha-btn {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--line-on-cream);
+  border-radius: var(--radius-arch);
+  padding: 6px 11px;
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rryp-black);
+  cursor: pointer;
+  transition: background-color var(--transition-ui), color var(--transition-ui), border-color var(--transition-ui);
+}
+
+.dict-alpha-btn:hover,
+.dict-alpha-btn.is-active {
+  background-color: var(--rryp-black);
+  color: var(--rryp-cream);
+  border-color: var(--rryp-black);
+}
+
+.dict-group {
+  margin-bottom: 34px;
+}
+
+.dict-letter-head {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--rryp-burgundy);
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rryp-gold);
+}
+
+.dict-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.dict-card {
+  background-color: var(--rryp-cream);
+  border: 1px solid var(--line-on-cream);
+  border-radius: var(--radius-arch);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  transition: border-color var(--transition-ui), transform var(--transition-ui);
+}
+
+.dict-card:hover {
+  border-color: var(--rryp-gold);
+  transform: translateY(-2px);
+}
+
+.dict-card-term {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--rryp-black);
+  margin: 0 0 6px;
+}
+
+.dict-card-question {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--rryp-burgundy);
+  margin: 0 0 10px;
+}
+
+.dict-card-excerpt {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted-on-cream);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Primera Reunion Juridica (350 EUR) + Checklist Contractual
+   ========================================================================== */
+.meet-facts-bar {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.meet-fact {
+  padding: 16px 18px;
+  border: 1px solid var(--line-on-dark);
+  border-radius: var(--radius-arch);
+  background-color: rgba(247, 244, 237, 0.03);
+}
+
+.meet-fact-label {
+  display: block;
+  font-family: var(--font-brand);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rryp-gold);
+  margin-bottom: 6px;
+}
+
+.meet-fact-value {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--rryp-cream);
+}
+
+.meet-refund-note {
+  margin-top: 28px;
+  padding: 20px 24px;
+  border: 1px solid var(--rryp-gold);
+  border-radius: var(--radius-arch);
+  background-color: rgba(184, 155, 94, 0.09);
+  color: var(--rryp-black);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.meet-booking-box {
+  background-color: var(--rryp-black);
+  color: var(--rryp-cream);
+  border: 1px solid var(--rryp-gold);
+  border-radius: var(--radius-arch);
+  padding: clamp(24px, 4vw, 40px);
+  margin-top: 24px;
+}
+
+.meet-check-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.meet-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--line-on-dark-subtle);
+  border-radius: var(--radius-arch);
+  background-color: rgba(247, 244, 237, 0.03);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--rryp-cream);
+}
+
+.meet-check-item input[type="checkbox"] {
+  margin-top: 3px;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  accent-color: var(--rryp-lime);
+}
+
+.meet-check-item a {
+  color: var(--rryp-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.meet-book-hint {
+  font-size: 13px;
+  color: var(--rryp-gold);
+  margin: 0 0 18px;
+}
+
+.meet-book-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.meet-book-actions .btn[aria-disabled="true"] {
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.meet-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.meet-faq-item {
+  border: 1px solid var(--line-on-cream);
+  border-radius: var(--radius-arch);
+  padding: 18px 22px;
+  background-color: var(--rryp-cream);
+}
+
+.meet-faq-item summary {
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--rryp-black);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.meet-faq-item summary::after {
+  content: "+";
+  font-family: var(--font-brand);
+  font-size: 18px;
+  color: var(--rryp-gold);
+  flex-shrink: 0;
+}
+
+.meet-faq-item[open] summary::after {
+  content: "−";
+}
+
+.meet-faq-item p {
+  margin: 12px 0 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-muted-on-cream);
+}
+
+/* ==========================================================================
+   RRYP en 5 Minutos
+   ========================================================================== */
+.r5-method-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.r5-step-card {
+  border: 1px solid var(--line-on-cream);
+  border-radius: var(--radius-arch);
+  padding: 20px;
+  background-color: var(--rryp-cream);
+}
+
+.r5-situations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.r5-sit-card {
+  border: 1px solid var(--line-on-dark);
+  border-radius: var(--radius-arch);
+  padding: 22px;
+  background-color: rgba(247, 244, 237, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.r5-sit-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--rryp-cream);
+  margin: 6px 0 8px;
+}
+
+.r5-sit-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted-on-dark);
+  margin: 0;
+}
+
+.r5-courts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.r5-cities-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.r5-cities-bar span {
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border: 1px solid var(--line-on-cream);
+  border-radius: var(--radius-arch);
+  color: var(--rryp-black);
+}
+
+/* ==========================================================================
+   Perfil Ejecutivo de Direccion Juridica (Mar Gamez)
+   ========================================================================== */
+.cv-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+  gap: clamp(28px, 5vw, 60px);
+  align-items: center;
+  margin-top: 20px;
+}
+
+.cv-portrait-frame {
+  max-width: 300px;
+  width: 100%;
+  justify-self: end;
+  border: 1px solid var(--rryp-gold);
+  border-radius: var(--radius-arch);
+  overflow: hidden;
+}
+
+.cv-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.cv-sections-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.cv-block {
+  border: 1px solid var(--line-on-cream);
+  border-radius: var(--radius-arch);
+  padding: 24px;
+  background-color: var(--rryp-cream);
+}
+
+.cv-block h2 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0 0 12px;
+  color: var(--rryp-black);
+}
+
+.cv-block p {
+  font-size: 15px;
+  line-height: 1.72;
+  color: var(--text-muted-on-cream);
+  margin: 0 0 12px;
+}
+
+.cv-block p:last-child {
+  margin-bottom: 0;
+}
+
 @media (max-width: 1024px) {
-  .doc-layout {
+  .doc-layout,
+  .cv-hero-grid {
     grid-template-columns: 1fr;
+  }
+  .cv-portrait-frame {
+    justify-self: start;
+    max-width: 240px;
   }
   .doc-sidebar {
     position: static;
   }
   .doc-related-grid,
-  .specialty-grid {
+  .specialty-grid,
+  .media-tv-grid,
+  .media-press-grid,
+  .media-acad-grid,
+  .dict-grid,
+  .meet-facts-bar,
+  .r5-method-grid,
+  .r5-situations-grid,
+  .r5-courts-grid,
+  .cv-sections-grid {
     grid-template-columns: 1fr;
   }
 }

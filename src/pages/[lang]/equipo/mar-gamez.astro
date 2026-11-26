@@ -1,0 +1,200 @@
+---
+import "../../../styles/editorial-doc.css";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import EntryRoutes from "../../../components/EntryRoutes.astro";
+import ResponsivePhoto from "../../../components/ResponsivePhoto.astro";
+import { FIRM } from "../../../data/firm";
+import { getLocalizedPosts } from "../../../data/blog";
+import { getArticlesByAuthor } from "../../../data/wp";
+import { getDictionary, LOCALES, localizedPath, type Locale } from "../../../i18n";
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = getDictionary(lang);
+const marMember = FIRM.team[0];
+const marArticles = getArticlesByAuthor("Mar Gámez", 12);
+const availableInLang = new Set(getLocalizedPosts(lang).map((p) => p.slug));
+const articleHref = (slug: string) =>
+  availableInLang.has(slug)
+    ? localizedPath(lang, `legal-intelligence/${slug}`)
+    : localizedPath("es", `legal-intelligence/${slug}`);
+
+const personSchema = {
+  "@type": "Person",
+  "@id": `${FIRM.siteUrl}/es/equipo/mar-gamez/#person`,
+  name: "Mar Gámez Ramírez",
+  jobTitle: t.roleMarGamez,
+  url: `${FIRM.siteUrl}${localizedPath(lang, "equipo/mar-gamez")}`,
+  image: `${FIRM.siteUrl}${marMember.photo}`,
+  sameAs: ["https://www.linkedin.com/in/marg%C3%A1mez/"],
+  worksFor: { "@id": `${FIRM.siteUrl}/#organization` },
+  alumniOf: [
+    { "@type": "CollegeOrUniversity", name: "Universidad Loyola" },
+    { "@type": "CollegeOrUniversity", name: "ISDE Law & Business School" },
+    { "@type": "CollegeOrUniversity", name: "Universidad Carlos III de Madrid" },
+  ],
+  memberOf: [
+    { "@type": "Organization", name: "Ilustre Colegio de la Abogacía de Madrid (ICAM n.º 137007)" },
+    { "@type": "Organization", name: "Alpha Sigma Nu" },
+  ],
+  knowsLanguage: ["es", "en"],
+};
+---
+
+<BaseLayout
+  lang={lang}
+  slug="equipo/mar-gamez"
+  title={t.cvMetaTitle}
+  description={t.cvMetaDesc}
+  ogImage={marMember.photo}
+  activeNav="firm"
+  breadcrumbs={[
+    { name: t.bcHome, url: localizedPath(lang) },
+    { name: t.bcFirm, url: localizedPath(lang, "la-firma") },
+    { name: "Mar Gámez Ramírez" },
+  ]}
+  jsonLdExtra={[personSchema]}
+>
+  <section class="doc-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.ariaBreadcrumb}>
+        <a href={localizedPath(lang)}>{t.bcHome}</a>
+        <span>/</span>
+        <a href={localizedPath(lang, "la-firma")}>{t.bcFirm}</a>
+        <span>/</span>
+        <span>Mar Gámez Ramírez</span>
+      </nav>
+
+      <div class="cv-hero-grid">
+        <div>
+          <div class="doc-meta-row">
+            <span class="doc-meta-pill">{t.cvEyebrow}</span>
+            <span class="doc-meta-muted">{t.cvIcamLabel}</span>
+          </div>
+          <h1 class="doc-title">{t.cvTitle}</h1>
+          <p class="doc-lead">{t.cvLead}</p>
+          <div class="cv-badges">
+            <span class="doc-meta-pill">Universidad Loyola</span>
+            <span class="doc-meta-pill">LL.M. ISDE</span>
+            <span class="doc-meta-pill">Alpha Sigma Nu</span>
+            <span class="doc-meta-pill">Aranzadi Thomson Reuters</span>
+          </div>
+          <div class="doc-hero-actions">
+            <a href={localizedPath(lang, "primera-reunion-juridica")} class="btn btn--lime btn--compact">
+              {t.meetTitle} (350 €) →
+            </a>
+            <a
+              href="https://www.linkedin.com/in/marg%C3%A1mez/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--outline-dark btn--compact"
+            >
+              {t.cvLinkedInBtn}
+            </a>
+          </div>
+        </div>
+
+        <div class="cv-portrait-frame">
+          <ResponsivePhoto
+            base={marMember.photoBase}
+            widths={marMember.photoWidths}
+            sizes="(max-width: 1024px) 240px, 300px"
+            alt={`Mar Gámez Ramírez, ${t.roleMarGamez}`}
+            width={marMember.width}
+            height={marMember.height}
+            eager={true}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-cream">
+    <div class="container">
+      <div class="cv-sections-grid" data-reveal>
+        <article class="cv-block">
+          <h2>Formación académica</h2>
+          <p>
+            Cursó el doble grado en Derecho y Relaciones Internacionales en la Universidad jesuita Loyola, donde fue
+            seleccionada como miembro de Alpha Sigma Nu, la sociedad de honor que reconoce la excelencia académica y el
+            mérito personal.
+          </p>
+          <p>
+            Completó posteriormente el Posgrado de Acceso al Ejercicio de la Abogacía con especialización en Derecho de
+            Empresa y negocios internacionales en ISDE y la Universidad Carlos III de Madrid, así como un LL.M. en
+            International Business Law, Contracting and International Relations en ISDE.
+          </p>
+        </article>
+
+        <article class="cv-block">
+          <h2>Experiencia profesional y colegiación</h2>
+          <p>
+            Socia cofundadora y abogada titular de RRYP Global, dirige asuntos de alta complejidad con dimensión
+            internacional en familia, patrimonio, sucesiones, litigación empresarial y derecho penal económico.
+          </p>
+          <p>
+            Tras obtener una calificación sobresaliente en el examen de acceso a la abogacía, se incorporó como abogada
+            ejerciente al Ilustre Colegio de la Abogacía de Madrid (ICAM n.º 137007). Su recorrido previo incluye
+            práctica mercantil internacional y dirección jurídica en proyectos empresariales propios.
+          </p>
+        </article>
+
+        <article class="cv-block">
+          <h2>Actividad académica y publicaciones</h2>
+          <p>
+            Profesora asociada de la Universidad Loyola, donde imparte semanalmente Derecho Internacional Privado y
+            Derecho Comparado. Ha ejercido también como docente en la EOI, el IMDEEC e IPRODECO.
+          </p>
+          <p>
+            Participó como autora en el curso de Derecho del Comercio Internacional de Aranzadi Thomson Reuters en
+            contratación internacional, garantías contractuales, financiación exterior y resolución de controversias.
+            Trabaja habitualmente en español e inglés.
+          </p>
+        </article>
+
+        <article class="cv-block">
+          <h2>Investigación, ponencias y medios</h2>
+          <p>
+            Sus trabajos de investigación abarcan mecanismos de resolución de conflictos entre China y la Unión Europea,
+            joint ventures internacionales e internacionalización empresarial. Ha sido ponente en las Cámaras de Comercio
+            de Málaga, Tenerife y Colombia, EOI, Universidad Loyola, EUDE Business School y Promálaga.
+          </p>
+          <p>
+            Interviene como analista jurídica internacional en laSexta Noticias, Deutsche Welle y La Razón.{" "}
+            <a href={localizedPath(lang, "medios")} style="text-decoration: underline;">
+              {t.mediosStripLink}
+            </a>
+          </p>
+        </article>
+      </div>
+
+      {marArticles.length > 0 && (
+        <div class="doc-related">
+          <p class="eyebrow eyebrow--on-cream">{t.cvArticlesEyebrow}</p>
+          <h2 class="section-title">{t.cvArticlesTitle}</h2>
+          <div class="doc-related-grid">
+            {marArticles.map((art) => (
+              <article class="intel-card">
+                <div>
+                  <div class="intel-meta">
+                    <span>{art.category}</span>
+                    <span class="intel-date">{art.date}</span>
+                  </div>
+                  <h3 class="intel-title">{art.title}</h3>
+                </div>
+                <a href={articleHref(art.slug)} class="intel-link">
+                  {t.blogReadFull}
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <EntryRoutes lang={lang} intro={t.entrySharedIntro} />
+</BaseLayout>
