@@ -224,33 +224,82 @@ function initScrollEffects() {
   );
   updateScroll();
 
-  const reveals = document.querySelectorAll<HTMLElement>("[data-reveal]");
-  if (!reveals.length) return;
-
   const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reveals = document.querySelectorAll<HTMLElement>("[data-reveal]");
+
   if (reduced || !("IntersectionObserver" in window)) {
-    reveals.forEach((el) => el.removeAttribute("data-reveal"));
+    reveals.forEach((el) => {
+      el.classList.add("is-visible", "is-settled");
+    });
     return;
   }
 
-  document.documentElement.classList.add("js-enhanced");
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+  // Revelaciones bidireccionales suaves (al bajar y al volver a subir, sin parpadeos ni lag en hover)
+  if (reveals.length) {
+    document.documentElement.classList.add("js-enhanced");
+    const settleTimers = new WeakMap<Element, number>();
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
           const target = entry.target as HTMLElement;
-          target.classList.add("is-visible");
-          io.unobserve(target);
-          window.setTimeout(() => {
-            target.removeAttribute("data-reveal");
-            target.classList.remove("is-visible");
-          }, 700);
-        }
-      });
-    },
-    { threshold: 0.05, rootMargin: "0px 0px -12px 0px" }
-  );
-  reveals.forEach((el) => io.observe(el));
+          const prevTimer = settleTimers.get(target);
+          if (prevTimer) {
+            window.clearTimeout(prevTimer);
+            settleTimers.delete(target);
+          }
+
+          if (entry.isIntersecting) {
+            target.classList.add("is-visible");
+            const delayRaw = target.style.getPropertyValue("--reveal-delay").trim();
+            const delayMs = delayRaw.endsWith("ms") ? parseFloat(delayRaw) || 0 : 0;
+            const tId = window.setTimeout(() => {
+              target.classList.add("is-settled");
+              settleTimers.delete(target);
+            }, 520 + delayMs);
+            settleTimers.set(target, tId);
+          } else if (entry.intersectionRatio === 0) {
+            // Solo reinicia cuando el bloque esta 100% fuera del viewport real (0 parpadeos)
+            const rect = entry.boundingClientRect;
+            if (rect.bottom <= 0) {
+              target.classList.add("reveal-from-top");
+              target.classList.remove("is-visible", "is-settled");
+            } else if (rect.top >= window.innerHeight) {
+              target.classList.remove("reveal-from-top", "is-visible", "is-settled");
+            }
+          }
+        });
+      },
+      { threshold: [0, 0.06], rootMargin: "0px 0px -8px 0px" }
+    );
+    reveals.forEach((el) => io.observe(el));
+  }
+
+  // Re-animacion editorial del hero al volver arriba del todo tras haber bajado
+  const heroSections = document.querySelectorAll<HTMLElement>(".hero, .subhero");
+  if (heroSections.length) {
+    const heroIo = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const hero = entry.target as HTMLElement;
+          if (!entry.isIntersecting && entry.boundingClientRect.bottom <= 0) {
+            hero.classList.remove("hero-replaying");
+            hero.classList.add("hero-ready-replay");
+          } else if (entry.isIntersecting && hero.classList.contains("hero-ready-replay")) {
+            hero.classList.remove("hero-ready-replay");
+            // Forzar reinicio limpio de la animacion CSS solo una vez al entrar
+            void hero.offsetWidth;
+            hero.classList.add("hero-replaying");
+            window.setTimeout(() => {
+              hero.classList.remove("hero-replaying");
+            }, 950);
+          }
+        });
+      },
+      { threshold: [0, 0.08] }
+    );
+    heroSections.forEach((h) => heroIo.observe(h));
+  }
 }
 
 function initIntakeForm() {

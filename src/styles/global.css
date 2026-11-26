@@ -227,16 +227,37 @@ button {
 @keyframes heroFadeUp {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translate3d(0, 16px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroFadeDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
 .hero-anim {
-  animation: heroFadeUp 680ms var(--ease-editorial) both;
+  animation: heroFadeUp 640ms var(--ease-editorial) both;
+}
+
+.hero-ready-replay .hero-anim {
+  animation: none;
+  opacity: 0;
+  transform: translate3d(0, -14px, 0);
+}
+
+.hero-replaying .hero-anim {
+  animation: heroFadeDown 560ms var(--ease-editorial) both;
 }
 
 .hero-anim--d1 { animation-delay: 80ms; }
@@ -244,28 +265,27 @@ button {
 .hero-anim--d3 { animation-delay: 240ms; }
 .hero-anim--d4 { animation-delay: 300ms; }
 
-.js-enhanced [data-reveal] {
+.js-enhanced :where([data-reveal]) {
   opacity: 0;
-  transform: translate3d(0, 14px, 0);
-  transition:
-    opacity 460ms var(--ease-editorial) var(--reveal-delay, 0ms),
-    transform 460ms var(--ease-editorial) var(--reveal-delay, 0ms);
+  transform: translate3d(0, 16px, 0);
 }
 
-.js-enhanced [data-reveal].is-visible {
+.js-enhanced :where([data-reveal]).reveal-from-top:not(.is-visible) {
+  transform: translate3d(0, -14px, 0);
+}
+
+.js-enhanced :where([data-reveal]).is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
+  transition:
+    opacity 480ms var(--ease-editorial) var(--reveal-delay, 0ms),
+    transform 480ms var(--ease-editorial) var(--reveal-delay, 0ms);
 }
 
-.js-enhanced [data-reveal].is-settled {
+.js-enhanced :where([data-reveal]).is-settled {
   opacity: 1;
   transform: none;
   transition-delay: 0ms;
-}
-
-.lang-fading main {
-  opacity: 0.35;
-  transition: opacity 150ms ease;
 }
 
 main {
