@@ -56,17 +56,10 @@ const blogUiConfig = JSON.stringify({
         <span>{t.liEyebrow}</span>
       </nav>
 
-      <div class="subhero-grid">
-        <div>
-          <p class="eyebrow hero-anim">{t.liEyebrow}</p>
-          <h1 class="hero-title hero-anim hero-anim--d1" set:html={t.liHeroTitle} />
-          <p class="hero-lead hero-anim hero-anim--d2">{t.liHeroLead}</p>
-        </div>
-
-        <aside class="subhero-aside hero-anim hero-anim--d3">
-          <p class="subhero-aside-label">{t.liAsideLabel}</p>
-          <p>{t.liAsideText}</p>
-        </aside>
+      <div class="subhero-single">
+        <p class="eyebrow hero-anim">{t.liEyebrow}</p>
+        <h1 class="hero-title hero-anim hero-anim--d1" set:html={t.liHeroTitle} />
+        <p class="hero-lead hero-anim hero-anim--d2">{t.liHeroLead}</p>
       </div>
     </div>
   </section>
