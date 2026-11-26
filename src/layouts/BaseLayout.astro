@@ -291,6 +291,39 @@ const entryHref = hasLocalEntryRoutes ? "#vias-de-entrada" : `${localizedPath(la
             {t.navIntel}
           </a>
 
+          <div class="nav-lang" id="nav-lang">
+            <p class="nav-lang-mobile-label">{t.footerLangsHead}</p>
+            <button
+              type="button"
+              class="nav-lang-toggle"
+              id="nav-lang-toggle"
+              aria-expanded="false"
+              aria-controls="nav-lang-popover"
+              aria-label={t.ariaLangSwitcher}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <circle cx="12" cy="12" r="9.5" />
+                <path d="M2.8 12h18.4M12 2.5a13.5 13.5 0 0 1 0 19M12 2.5a13.5 13.5 0 0 0 0 19" />
+              </svg>
+              <span>{LOCALE_LABELS[lang].code}</span>
+              <span class="nav-lang-caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="nav-lang-popover" id="nav-lang-popover" role="group" aria-label={t.ariaLangSwitcher} hidden>
+              {LOCALES.map((loc) => (
+                <a
+                  href={localizedPath(loc, cleanSlug)}
+                  hreflang={loc}
+                  data-set-lang={loc}
+                  class={`nav-lang-option ${loc === lang ? "is-active" : ""}`}
+                  aria-current={loc === lang ? "page" : undefined}
+                >
+                  <span class="nav-lang-code">{LOCALE_LABELS[loc].code}</span>
+                  <span class="nav-lang-native">{LOCALE_LABELS[loc].native}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
           <div class="mobile-nav-consult">
             <p class="consult-eyebrow">{t.mobileConsultLabel}</p>
             <div class="mobile-nav-consult-grid">
@@ -308,20 +341,6 @@ const entryHref = hasLocalEntryRoutes ? "#vias-de-entrada" : `${localizedPath(la
         </nav>
 
         <div class="header-actions">
-          <nav class="lang-switcher" aria-label={t.ariaLangSwitcher}>
-            {LOCALES.map((loc) => (
-              <a
-                href={localizedPath(loc, cleanSlug)}
-                hreflang={loc}
-                data-set-lang={loc}
-                class={`lang-btn ${loc === lang ? "is-active" : ""}`}
-                aria-current={loc === lang ? "page" : undefined}
-              >
-                {LOCALE_LABELS[loc].code}
-              </a>
-            ))}
-          </nav>
-
           <button
             type="button"
             class="header-search-btn"
@@ -579,19 +598,52 @@ const entryHref = hasLocalEntryRoutes ? "#vias-de-entrada" : `${localizedPath(la
 
     <script is:inline>
       (function () {
-        // Consultation dropdown popover in header
+        // Language selector dropdown inside main menu + consultation dropdown popover
+        var langToggle = document.getElementById("nav-lang-toggle");
+        var langPopover = document.getElementById("nav-lang-popover");
         var consultToggle = document.getElementById("consult-toggle");
         var consultPopover = document.getElementById("consult-popover");
+
+        if (langToggle && langPopover) {
+          langToggle.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var open = langPopover.hidden;
+            if (open && consultPopover && !consultPopover.hidden && consultToggle) {
+              consultPopover.hidden = true;
+              consultToggle.setAttribute("aria-expanded", "false");
+            }
+            langPopover.hidden = !open;
+            langToggle.setAttribute("aria-expanded", String(open));
+          });
+          document.addEventListener("click", function (e) {
+            if (!langPopover.hidden && !langPopover.contains(e.target) && !langToggle.contains(e.target)) {
+              langPopover.hidden = true;
+              langToggle.setAttribute("aria-expanded", "false");
+            }
+          });
+          document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && !langPopover.hidden) {
+              langPopover.hidden = true;
+              langToggle.setAttribute("aria-expanded", "false");
+              langToggle.focus();
+            }
+          });
+        }
+
         if (consultToggle && consultPopover) {
           consultToggle.addEventListener("click", function (e) {
             if (consultToggle.getAttribute("data-urgent-direct") === "true") return;
             e.stopPropagation();
             var open = consultPopover.hidden;
+            if (open && langPopover && !langPopover.hidden && langToggle) {
+              langPopover.hidden = true;
+              langToggle.setAttribute("aria-expanded", "false");
+            }
             consultPopover.hidden = !open;
             consultToggle.setAttribute("aria-expanded", String(open));
           });
           document.addEventListener("click", function (e) {
-            if (!consultPopover.hidden && !consultPopover.contains(e.target) && e.target !== consultToggle) {
+            if (!consultPopover.hidden && !consultPopover.contains(e.target) && !consultToggle.contains(e.target)) {
               consultPopover.hidden = true;
               consultToggle.setAttribute("aria-expanded", "false");
             }
