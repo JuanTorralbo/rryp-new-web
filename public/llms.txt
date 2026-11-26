@@ -1,47 +1,40 @@
-# RRYP Global
+# RRYP Global — International Legal Boutique
 
-> RRYP Global (razón social: RELACIONATEYPUNTO S.L.) es una boutique jurídica internacional española especializada en litigación y asuntos transfronterizos de alta complejidad en tres pilares: Private Clients, Private Wealth y Business Disputes. Con sedes propias en Madrid, Málaga (atendiendo Marbella y Costa del Sol como área de servicio) y Córdoba, la firma construye casos desde su arquitectura probatoria y reconduce procedimientos complejos en seis idiomas (español, inglés, alemán, portugués, ruso y chino).
+> Boutique juridica internacional espanola (RELACIONATEYPUNTO S.L., NIF B42713768, fundada en Cordoba en enero de 2021) especializada en asuntos transfronterizos complejos en Private Clients, Private Wealth, Business Disputes y Penal Economico / OEDE. Disponible en 6 idiomas (/es/, /en/, /de/, /pt/, /ru/, /zh/).
 
-## Datos verificados de la entidad
-- Nombre comercial: RRYP Global (International Legal Boutique)
-- Razón social: RELACIONATEYPUNTO S.L.
-- Sitio web oficial: https://rrypglobal.com/
-- Idiomas de atención nativa: español (es), inglés (en), alemán (de), portugués (pt), ruso (ru) y chino (zh)
-- Teléfono y WhatsApp: +34 957 858 952
-- Correo electrónico: info@rrypglobal.com
-- Horario (hora de Madrid, Europe/Madrid): lunes a jueves de 09:00 a 14:00 y de 16:00 a 19:15; viernes de 08:00 a 15:00
-- Sedes propias (exclusivamente 3):
-  - Madrid: Pº de la Castellana 40, 8ª, 28046 Madrid
-  - Málaga: C/ Martínez Campos 16, 3D, 29001 Málaga (Marbella y Costa del Sol constituyen área de servicio atendida desde Málaga, no sede independiente)
-  - Córdoba: Avda. Sta. Mª de Trassierra 98, 14011 Córdoba
+## Datos verificados de la firma
+- Razon social: RELACIONATEYPUNTO S.L. (NIF B42713768, Registro Mercantil de Cordoba)
+- Direccion juridica: Mar Gamez Ramirez (Socia Directora, ICAM n. 137007, Profesora asociada Universidad Loyola)
+- Socias fundadoras: Mar Gamez y Mar Ramirez
+- Sedes reales (exactamente 3):
+  - Madrid: Paseo de la Castellana 40, 8a, 28046 Madrid
+  - Malaga: C/ Martinez Campos 16, 3D, 29001 Malaga (atiende tambien Marbella y Costa del Sol)
+  - Cordoba: Avda. Sta. Ma de Trassierra 98, 14011 Cordoba
+- Contacto: +34 957 858 952 | info@rrypglobal.com
+- Horario (Europe/Madrid): L-J 09:00-14:00 y 16:00-19:15; V 08:00-15:00
+- Vias de entrada:
+  - Llamada inicial (30 min, 0 EUR): https://calendly.com/rrypglobal-info/30min
+  - Primera reunion juridica (350 EUR IVA incl.): https://calendly.com/rryp/consulta-legal
+  - Atencion urgente (500 EUR): https://calendly.com/rryp/consulta_legal_urgente
 
-## Tres vías de entrada y honorarios transparentes
-- Llamada inicial: 30 minutos, sin coste, sin valoración jurídica (https://calendly.com/rrypglobal-info/30min)
-- Primera reunión jurídica con dirección: 30 minutos, 350 EUR IVA incluido (https://calendly.com/rryp/consulta-legal)
-- Atención urgente: prioridad inmediata para plazos inminentes o crisis, 500 EUR (https://calendly.com/rryp/consulta_legal_urgente)
-
-## Pilares principales
-- [Private Clients](https://rrypglobal.com/es/private-clients/): divorcio internacional, custodia y sustracción internacional de menores (Convenio de La Haya), sucesiones internacionales, exequátur y competencia judicial internacional.
-- [Private Wealth](https://rrypglobal.com/es/private-wealth/): liquidación internacional de gananciales de alto patrimonio, criptoactivos y activos digitales, inversión inmobiliaria en Madrid, Málaga y Costa del Sol, y reestructuración concursal internacional.
-- [Business Disputes](https://rrypglobal.com/es/business-disputes/): litigación civil y mercantil internacional, incumplimientos contractuales y lucro cesante, conflictos entre fundadores e inversores extranjeros, competencia desleal en la UE, patentes y ejecución de sentencias extranjeras.
-
-## Páginas clave y recursos
-- [La firma y RRYP en 5 minutos](https://rrypglobal.com/es/la-firma/): fundación, equipo directivo, método de construcción y reconducción de casos complejos.
-- [Casos representativos y resultados](https://rrypglobal.com/es/casos/): track record verificado (26+ nacionalidades, 200+ asuntos, 12+ plazas judiciales en España) y 20 casos representativos.
-- [RRYP Legal Intelligence](https://rrypglobal.com/es/legal-intelligence/): asistente conversacional de inteligencia jurídica y archivo de 429 publicaciones técnicas.
-- [Penal económico, OEDE y extradición](https://rrypglobal.com/es/penal-economico-extradicion/): defensa ante la Audiencia Nacional, nulidad de órdenes europeas de detención y entrega (OEDE) y litigación penal económica transfronteriza.
-- [Sede de Madrid](https://rrypglobal.com/es/madrid/)
-- [Sede de Málaga (área Marbella y Costa del Sol)](https://rrypglobal.com/es/malaga/)
-- [Sede de Córdoba](https://rrypglobal.com/es/cordoba/)
-- [Careers](https://rrypglobal.com/es/careers/)
-- [Guía oficial de divorcio internacional (PDF)](https://rrypglobal.com/wp-content/uploads/2026/05/guia_divorcio_internacional_rryp_global.pdf)
-- [Guía oficial de sustracción internacional de menores (PDF)](https://rrypglobal.com/wp-content/uploads/edd/2026/05/guia_sustraccion_internacional_menores_rryp_global.pdf)
-- [Dossier completo para modelos de lenguaje (llms-full.txt)](https://rrypglobal.com/llms-full.txt)
-
-## Árboles internacionales verificados (6 idiomas)
-- Español: https://rrypglobal.com/es/
-- English (x-default): https://rrypglobal.com/en/
-- Deutsch: https://rrypglobal.com/de/
-- Português: https://rrypglobal.com/pt/
-- Русский: https://rrypglobal.com/ru/
-- 中文: https://rrypglobal.com/zh/
+## Paginas principales (/es/ y equivalentes en /en/, /de/, /pt/, /ru/, /zh/)
+- Inicio: https://rrypglobal.com/es/
+- Private Clients: https://rrypglobal.com/es/private-clients/
+- Private Wealth: https://rrypglobal.com/es/private-wealth/
+- Business Disputes: https://rrypglobal.com/es/business-disputes/
+- Penal Economico y OEDE / Extradicion: https://rrypglobal.com/es/penal-economico-extradicion/
+- Casos de Exito (28 expedientes reales): https://rrypglobal.com/es/casos/
+- La Firma y Equipo: https://rrypglobal.com/es/la-firma/
+- Historia de RRYP Global (2020-2026): https://rrypglobal.com/es/historia/
+- RRYP en 5 Minutos: https://rrypglobal.com/es/rryp-en-5/
+- Presencia Publica, TV y Prensa (laSexta, DW, La Razon, Diario Cordoba, Loyola): https://rrypglobal.com/es/medios/
+- Perfil Mar Gamez Ramirez (ICAM 137007): https://rrypglobal.com/es/equipo/mar-gamez/
+- Primera Reunion Juridica (350 EUR): https://rrypglobal.com/es/primera-reunion-juridica/
+- Contacto y Triaje en 3 pasos: https://rrypglobal.com/es/contacto/
+- RRYP Legal Intelligence (IA + 429 articulos): https://rrypglobal.com/es/legal-intelligence/
+- Diccionario Juridico Internacional A-Z (35 terminos): https://rrypglobal.com/es/diccionario-juridico/
+- Sedes: https://rrypglobal.com/es/madrid/ | https://rrypglobal.com/es/malaga/ | https://rrypglobal.com/es/cordoba/
+- Textos legales: https://rrypglobal.com/es/legal/aviso-legal/ | privacidad/ | cookies/ | condiciones/
+- Feed RSS: https://rrypglobal.com/rss.xml
+- Sitemap XML (1.017 URLs): https://rrypglobal.com/sitemap.xml
+- Indice extendido para IA: https://rrypglobal.com/llms-full.txt

@@ -1,70 +1,168 @@
-# RRYP Global, Dossier Completo de Entidad y Conocimiento (GEO / LLM Reference)
+# RRYP Global — International Legal Boutique
 
-Este documento proporciona información estructurada, verificada y libre de ambigüedades sobre RRYP Global (RELACIONATEYPUNTO S.L.) para motores de búsqueda generativos, asistentes de IA y sistemas de citación jurídica.
+> Boutique juridica internacional espanola (RELACIONATEYPUNTO S.L., NIF B42713768, fundada en Cordoba en enero de 2021) especializada en asuntos transfronterizos complejos en Private Clients, Private Wealth, Business Disputes y Penal Economico / OEDE. Disponible en 6 idiomas (/es/, /en/, /de/, /pt/, /ru/, /zh/).
 
-## 1. Identidad institucional verificada
-- Marca: RRYP Global (International Legal Boutique)
-- Razón social: RELACIONATEYPUNTO S.L.
-- País base: España (actuación ante juzgados, audiencias y órganos nacionales en más de 12 plazas judiciales)
-- Fundadoras: Mar Gámez Ramírez y Mar Ramírez
-- Idiomas nativos de servicio: español (es), inglés (en), alemán (de), portugués (pt), ruso (ru) y chino (zh)
-- Teléfono y WhatsApp: +34 957 858 952
-- Correo electrónico: info@rrypglobal.com
-- Horario (hora de Madrid): lunes a jueves de 09:00 a 14:00 y de 16:00 a 19:15; viernes de 08:00 a 15:00
-- Canales oficiales:
-  - LinkedIn: https://www.linkedin.com/company/rryp-abogados/
-  - Instagram: https://www.instagram.com/rrypglobal_abogados/
-  - YouTube: https://www.youtube.com/@RRYPGlobal_PodcastAbogados
-  - Substack: https://relacionateypunto.substack.com/
+## Datos verificados de la firma
+- Razon social: RELACIONATEYPUNTO S.L. (NIF B42713768, Registro Mercantil de Cordoba)
+- Direccion juridica: Mar Gamez Ramirez (Socia Directora, ICAM n. 137007, Profesora asociada Universidad Loyola)
+- Socias fundadoras: Mar Gamez y Mar Ramirez
+- Sedes reales (exactamente 3):
+  - Madrid: Paseo de la Castellana 40, 8a, 28046 Madrid
+  - Malaga: C/ Martinez Campos 16, 3D, 29001 Malaga (atiende tambien Marbella y Costa del Sol)
+  - Cordoba: Avda. Sta. Ma de Trassierra 98, 14011 Cordoba
+- Contacto: +34 957 858 952 | info@rrypglobal.com
+- Horario (Europe/Madrid): L-J 09:00-14:00 y 16:00-19:15; V 08:00-15:00
+- Vias de entrada:
+  - Llamada inicial (30 min, 0 EUR): https://calendly.com/rrypglobal-info/30min
+  - Primera reunion juridica (350 EUR IVA incl.): https://calendly.com/rryp/consulta-legal
+  - Atencion urgente (500 EUR): https://calendly.com/rryp/consulta_legal_urgente
 
-## 2. Sedes propias en España (regla estricta: exactamente 3 sedes)
-1. Madrid: Pº de la Castellana 40, 8ª, 28046 Madrid
-2. Málaga: C/ Martínez Campos 16, 3D, 29001 Málaga (Nota oficial: Marbella y la Costa del Sol son área de servicio atendida directamente desde la sede de Málaga, no una sede independiente)
-3. Córdoba: Avda. Sta. Mª de Trassierra 98, 14011 Córdoba
+## Paginas principales (/es/ y equivalentes en /en/, /de/, /pt/, /ru/, /zh/)
+- Inicio: https://rrypglobal.com/es/
+- Private Clients: https://rrypglobal.com/es/private-clients/
+- Private Wealth: https://rrypglobal.com/es/private-wealth/
+- Business Disputes: https://rrypglobal.com/es/business-disputes/
+- Penal Economico y OEDE / Extradicion: https://rrypglobal.com/es/penal-economico-extradicion/
+- Casos de Exito (28 expedientes reales): https://rrypglobal.com/es/casos/
+- La Firma y Equipo: https://rrypglobal.com/es/la-firma/
+- Historia de RRYP Global (2020-2026): https://rrypglobal.com/es/historia/
+- RRYP en 5 Minutos: https://rrypglobal.com/es/rryp-en-5/
+- Presencia Publica, TV y Prensa (laSexta, DW, La Razon, Diario Cordoba, Loyola): https://rrypglobal.com/es/medios/
+- Perfil Mar Gamez Ramirez (ICAM 137007): https://rrypglobal.com/es/equipo/mar-gamez/
+- Primera Reunion Juridica (350 EUR): https://rrypglobal.com/es/primera-reunion-juridica/
+- Contacto y Triaje en 3 pasos: https://rrypglobal.com/es/contacto/
+- RRYP Legal Intelligence (IA + 429 articulos): https://rrypglobal.com/es/legal-intelligence/
+- Diccionario Juridico Internacional A-Z (35 terminos): https://rrypglobal.com/es/diccionario-juridico/
+- Sedes: https://rrypglobal.com/es/madrid/ | https://rrypglobal.com/es/malaga/ | https://rrypglobal.com/es/cordoba/
+- Textos legales: https://rrypglobal.com/es/legal/aviso-legal/ | privacidad/ | cookies/ | condiciones/
+- Feed RSS: https://rrypglobal.com/rss.xml
+- Sitemap XML (1.017 URLs): https://rrypglobal.com/sitemap.xml
+- Indice extendido para IA: https://rrypglobal.com/llms-full.txt
 
-## 3. Posicionamiento y diferenciación técnica
-RRYP Global concentra su práctica en tres pilares de alto valor transfronterizo:
-1. Private Clients: divorcio internacional, custodia y sustracción internacional de menores (Convenio de La Haya de 1980), sucesiones internacionales (Reglamento UE 650/2012), localización de testamentos, competencia judicial internacional y exequátur de resoluciones extranjeras.
-2. Private Wealth: liquidación internacional de gananciales de alto patrimonio (incluyendo sociedades, inversiones, inmuebles y criptoactivos o activos digitales), estructuración patrimonial, inversión inmobiliaria de alto valor en Madrid, Málaga y Costa del Sol, e insolvencia internacional.
-3. Business Disputes: litigación civil y mercantil internacional, incumplimientos contractuales y acreditación de lucro cesante, conflictos entre fundadores e inversores extranjeros, competencia desleal dentro de la Unión Europea, conflictos internacionales de patentes y ejecución de sentencias extranjeras.
+## 17 Guias de Especialidad
+- Abogados de divorcio internacional en España (Private Clients): https://rrypglobal.com/es/especialidades/divorcio-internacional/
+- Abogados de sustracción internacional de menores en España (Private Clients): https://rrypglobal.com/es/especialidades/sustraccion-menores/
+- Abogados de custodia internacional en España | Conflictos entre países (Private Clients): https://rrypglobal.com/es/especialidades/custodia-internacional/
+- Abogados de sucesiones internacionales | Patrimonio transfronterizo (Private Clients): https://rrypglobal.com/es/especialidades/sucesiones-internacionales/
+- Liquidación internacional de bienes conyugales tras divorcio (Private Wealth): https://rrypglobal.com/es/especialidades/liquidacion-bienes-conyugales/
+- Insolvencia y crisis patrimonial internacional (Private Wealth): https://rrypglobal.com/es/especialidades/insolvencia-internacional/
+- Abogados de Litigios internacionales en España | Conflictos transfronterizos (Business Disputes): https://rrypglobal.com/es/especialidades/litigios-internacionales/
+- Abogados de contratos internacionales en España (Business Disputes): https://rrypglobal.com/es/especialidades/contratos-internacionales/
+- Abogados de contratos tecnológicos en España (Business Disputes): https://rrypglobal.com/es/especialidades/contratos-tecnologicos/
+- Abogados de competencia desleal internacional en España (Business Disputes): https://rrypglobal.com/es/especialidades/competencia-desleal-internacional/
+- Abogados de Orden Europea de Detención y Entrega (OEDE) en España (Penal económico y OEDE): https://rrypglobal.com/es/especialidades/oede-extradicion/
+- Abogados de extradición internacional en España (Penal económico y OEDE): https://rrypglobal.com/es/especialidades/extradicion-internacional/
+- Abogados internacionales en Marbella | Familia y patrimonio transfronterizo (Málaga y Costa del Sol): https://rrypglobal.com/es/especialidades/abogados-marbella-costa-del-sol/
+- Abogados de divorcio internacional en Málaga | Patrimonio | Custodia (Málaga y Costa del Sol): https://rrypglobal.com/es/especialidades/divorcio-internacional-malaga/
+- Custodia internacional en Málaga (Málaga y Costa del Sol): https://rrypglobal.com/es/especialidades/custodia-internacional-malaga/
+- Abogados de litigios internacionales en Málaga | Familia, patrimonio y empresa (Málaga y Costa del Sol): https://rrypglobal.com/es/especialidades/litigios-internacionales-malaga/
+- Abogados de derecho penal económico internacional en Málaga (Málaga y Costa del Sol): https://rrypglobal.com/es/especialidades/penal-economico-malaga/
 
-Capacidad diferencial de ingeniería procesal:
-- Construcción estratégica del caso desde el origen: auditoría documental y pericial, aseguramiento previo de la prueba, elección estratégica de foro y ley aplicable, medidas cautelares y diseño integral de la tesis jurídica antes de iniciar cualquier actuación.
-- Reconducción y reconstrucción de casos de máxima complejidad: diagnóstico procesal exhaustivo de expedientes heredados, deteriorados o bloqueados en varias jurisdicciones, corrección técnica de planteamientos, recursos y reordenación probatoria.
+## 28 Casos de Exito Reales
+- Liquidación internacional de gananciales por importe superior a 4.000.000€ (Private Wealth): https://rrypglobal.com/es/casos/liquidacion-internacional-de-gananciales-por-importe-superior-a-4-000-000e/
+- Liquidación de bienes conyugales en Estados Unidos y España (Private Wealth): https://rrypglobal.com/es/casos/liquidacion-de-bienes-conyugales-en-estados-unidos-y-espana/
+- Liquidación de gananciales con bienes en Francia y España (Private Wealth): https://rrypglobal.com/es/casos/liquidacion-de-gananciales-con-bienes-en-francia-y-espana/
+- Divorcio internacional con patrimonio digital y criptoactivos (Private Wealth): https://rrypglobal.com/es/casos/divorcio-internacional-con-patrimonio-digital-y-criptoactivos/
+- Exoneración de deuda en concurso de acreedores con dimensión internacional (Private Wealth): https://rrypglobal.com/es/casos/exoneracion-de-deuda-en-concurso-de-acreedores-con-dimension-internacional/
+- Exoneración de deudas a matrimonio extranjero en España tras la crisis del COVID (Private Wealth): https://rrypglobal.com/es/casos/exoneracion-de-deudas-a-matrimonio-extranjero-en-espana-tras-la-crisis-del-covid/
+- Impugnación de testamento de elevado patrimonio otorgado en España por causante extranjero (Private Clients): https://rrypglobal.com/es/casos/impugnacion-de-testamento-de-elevado-patrimonio-otorgado-en-espana-por-causante-extranjero/
+- Defensa de la competencia de los tribunales españoles frente a EEUU (Private Clients): https://rrypglobal.com/es/casos/defensa-de-la-competencia-de-los-tribunales-espanoles-frente-a-eeuu/
+- Oposición a la competencia de los tribunales portugueses (Private Clients): https://rrypglobal.com/es/casos/oposicion-a-la-competencia-de-los-tribunales-portugueses/
+- Exequátur en España de orden de protección dictada en país extranjero (Private Clients): https://rrypglobal.com/es/casos/exequatur-en-espana-de-orden-de-proteccion-dictada-en-pais-extranjero/
+- Localización en España de testamento otorgado por ciudadano argentino (Private Clients): https://rrypglobal.com/es/casos/localizacion-en-espana-de-testamento-otorgado-por-ciudadano-argentino/
+- Absolución de cliente acusado de violencia de género por su exmujer extranjera (Private Clients): https://rrypglobal.com/es/casos/absolucion-de-cliente-acusado-de-violencia-de-genero-por-su-exmujer-extranjera/
+- Demanda de competencia desleal en España por empresa de otro Estado miembro de la Unión Europea (Business Disputes): https://rrypglobal.com/es/casos/demanda-de-competencia-desleal-en-espana-por-empresa-de-otro-estado-miembro-de-la-union-europea/
+- Conflicto internacional de patente entre empresas con controversia sobre prioridad (Business Disputes): https://rrypglobal.com/es/casos/conflicto-internacional-de-patente-entre-empresas-con-controversia-sobre-prioridad/
+- Contrato internacional de licencia para distribución en Latinoamérica (Business Disputes): https://rrypglobal.com/es/casos/contrato-internacional-de-licencia-para-distribucion-en-latinoamerica/
+- Contrato internacional de software para empresa tecnológica (Business Disputes): https://rrypglobal.com/es/casos/contrato-internacional-de-software-para-empresa-tecnologica/
+- Redacción de términos y condiciones generales para marketplace internacional (Business Disputes): https://rrypglobal.com/es/casos/redaccion-de-terminos-y-condiciones-generales-para-marketplace-internacional/
+- Redacción y revisión de contrato internacional de cesión de crédito (Business Disputes): https://rrypglobal.com/es/casos/redaccion-y-revision-de-contrato-internacional-de-cesion-de-credito/
+- Nulidad de una resolución de entrega dictada en un procedimiento europeo ante la Audiencia Nacional (Penal económico / OEDE): https://rrypglobal.com/es/casos/nulidad-de-una-resolucion-de-entrega-dictada-en-un-procedimiento-europeo-ante-la-audiencia-nacional/
+- Querella por estafa millonaria en dos países (Penal económico / OEDE): https://rrypglobal.com/es/casos/querella-por-estafa-millonaria-en-dos-paises/
+- Reducción sustancial de pensión compensatoria en asunto de alta complejidad patrimonial (Private Wealth): https://rrypglobal.com/es/casos/reduccion-sustancial-de-pension-compensatoria-en-asunto-de-alta-complejidad-patrimonial/
+- Exoneración de deuda de emprendedor tras el fracaso de su proyecto (Private Wealth): https://rrypglobal.com/es/casos/exoneracion-de-deuda-de-emprendedor-tras-el-fracaso-de-su-proyecto/
+- Medidas urgentes para impedir el retorno inmediato de una menor a Portugal (Private Clients): https://rrypglobal.com/es/casos/medidas-urgentes-para-impedir-el-retorno-inmediato-de-una-menor-a-portugal/
+- Guarda y custodia exclusiva con cambio de residencia habitual a Bélgica (Private Clients): https://rrypglobal.com/es/casos/guarda-y-custodia-exclusiva-y-traslado-internacional-de-residencia-de-dos-menores/
+- Solicitud de restitución internacional de un menor retenido en España (Private Clients): https://rrypglobal.com/es/casos/solicitud-de-restitucion-internacional-de-un-menor-retenido-en-espana/
+- Pensión de alimentos y ejecución frente a progenitor residente en Suiza (Private Clients): https://rrypglobal.com/es/casos/pension-de-alimentos-y-ejecucion-frente-a-progenitor-residente-en-suiza/
+- Participación en la negociación de un divorcio en Estados Unidos (Private Clients): https://rrypglobal.com/es/casos/participacion-en-la-negociacion-de-un-divorcio-en-estados-unidos/
+- Querella por estafa vinculada a inversión (Penal económico / OEDE): https://rrypglobal.com/es/casos/querella-por-estafa-vinculada-a-inversion/
 
-## 4. Equipo directivo y operativo real
-- Mar Gámez: Socia Directora y Directora Jurídica. Graduada en Derecho y Relaciones Internacionales por la Universidad Loyola, LL.M. in International Business Law, Contracting and International Relations, y profesora de Derecho Internacional Privado y Derecho Comparado.
-- Mar Ramírez: Socia fundadora. Participa en la estructura societaria, gobierno y desarrollo organizativo de RRYP Global.
-- Antonio Muñoz: Abogado, litigación. Preparación, tramitación procesal y ejecución de estrategias litigiosas internacionales.
-- Gonzalo García: Clientes y desarrollo. Relación con clientes, desarrollo de firma y coordinación operativa.
-- Rosa Gámez: Administración y finanzas. Administración general, control financiero y soporte de las tres sedes.
+## 35 Terminos del Diccionario Juridico Internacional
+- Adquisición de una empresa: https://rrypglobal.com/es/legal-intelligence/en-que-consiste-la-adquisicion-de-una-empresa/
+- Agrupación de Interés Económico o AIE: https://rrypglobal.com/es/legal-intelligence/que-es-una-agrupacion-de-interes-economico-o-aie/
+- Apostilla (de La Haya): https://rrypglobal.com/es/legal-intelligence/que-es-la-apostilla-de-la-haya/
+- Autónomo o sociedad limitada: https://rrypglobal.com/es/legal-intelligence/es-mejor-ser-autonomo-o-sociedad-limitada/
+- Beneficios del comercio internacional: https://rrypglobal.com/es/legal-intelligence/beneficios-del-comercio-internacional/
+- Boutique legal internacional: https://rrypglobal.com/es/legal-intelligence/que-es-una-boutique-legal-internacional/
+- CBAM y su impacto en las importaciones: https://rrypglobal.com/es/legal-intelligence/el-cbam-y-su-impacto-en-las-importaciones/
+- Crisis del Canal de Panamá y comercio internacional: https://rrypglobal.com/es/legal-intelligence/como-la-crisis-del-canal-de-panama-impacta-el-comercio-internacional/
+- Cuentas anuales: https://rrypglobal.com/es/legal-intelligence/que-son-las-cuentas-anuales/
+- Denominaciones de origen: https://rrypglobal.com/es/legal-intelligence/que-son-las-denominaciones-de-origen/
+- Dictamen jurídico: https://rrypglobal.com/es/legal-intelligence/que-es-un-dictamen-juridico/
+- Embajadas y consulados: su papel en el derecho internacional: https://rrypglobal.com/es/legal-intelligence/embajadas-y-consulados-su-papel-en-el-derecho-internacional/
+- Expediente sancionador: https://rrypglobal.com/es/legal-intelligence/que-es-un-expediente-sancionador/
+- Family office: https://rrypglobal.com/es/legal-intelligence/que-es-un-family-office/
+- Funcionamiento del sistema judicial estadounidense: https://rrypglobal.com/es/legal-intelligence/funcionamiento-del-sistema-judicial-estadounidense/
+- Fusión y adquisición de empresas: https://rrypglobal.com/es/legal-intelligence/diferencia-entre-fusion-y-adquisicion-de-empresas/
+- Impacto del bloqueo del Canal de Suez en el Comercio Internacional: https://rrypglobal.com/es/legal-intelligence/impacto-del-bloqueo-del-canal-de-suez-en-el-comercio-internacional/
+- IVA en comercio electrónico internacional: https://rrypglobal.com/es/legal-intelligence/como-funciona-el-iva-en-una-tienda-online-guia-practica-para-vender-al-extranjero/
+- Joint venture en España: https://rrypglobal.com/es/legal-intelligence/como-crear-una-joint-venture-en-espana/
+- Junta General: https://rrypglobal.com/es/legal-intelligence/que-es-la-junta-general/
+- Jurisdicción en un conflicto internacional de custodia: https://rrypglobal.com/es/legal-intelligence/jurisdiccion-en-un-conflicto-internacional-de-custodia/
+- Ley aplicable (Derecho internacional privado): https://rrypglobal.com/es/legal-intelligence/derecho-internacional-privado-ley-aplicable-espana/
+- Mar Rojo y rutas marítimas internacionales: https://rrypglobal.com/es/legal-intelligence/que-esta-pasando-en-el-mar-rojo-con-los-ataques-huties/
+- Nuevas regulaciones de inversión extranjera directa en China: https://rrypglobal.com/es/legal-intelligence/nuevas-regulaciones-de-inversion-extranjera-directa-en-china/
+- Partida arancelaria correcta: https://rrypglobal.com/es/legal-intelligence/como-escoger-la-partida-arancelaria-correcta/
+- Prestación accesoria: https://rrypglobal.com/es/legal-intelligence/que-es-una-prestacion-accesoria/
+- Recurso contencioso administrativo: https://rrypglobal.com/es/legal-intelligence/que-es-un-recurso-contencioso-administrativo/
+- Registro mercantil: https://rrypglobal.com/es/legal-intelligence/que-es-y-para-que-sirve-el-registro-mercantil/
+- Resolución de disputas contractuales: https://rrypglobal.com/es/legal-intelligence/como-resolver-rapidamente-las-disputas-contractuales-en-tu-negocio/
+- Resolución sancionadora: https://rrypglobal.com/es/legal-intelligence/que-es-una-resolucion-sancionadora/
+- Sistema jurídico de China: https://rrypglobal.com/es/legal-intelligence/como-funciona-china-a-nivel-legal/
+- Términos generales de contratación: https://rrypglobal.com/es/legal-intelligence/que-son-los-terminos-generales-de-contratacion/
+- Términos legales esenciales para crear una empresa: https://rrypglobal.com/es/legal-intelligence/20-terminos-legales-para-crear-una-empresa/
+- UTE: https://rrypglobal.com/es/legal-intelligence/que-es-una-ute/
+- Valor patrimonial de una empresa: https://rrypglobal.com/es/legal-intelligence/que-es-el-valor-patrimonial-de-una-empresa/
 
-## 5. Track record real, resultados recientes y jurisdicciones
-- Cifras reales publicadas por la firma: más de 26 nacionalidades entre clientes, más de 200 asuntos internacionales dirigidos, más de 12 localizaciones judiciales en España y 3 sedes propias.
-- Resultados recientes anonimizados:
-  - Controversia familiar de elevada repercusión patrimonial: reducción de una pretensión cercana a 400.000 EUR a un resultado inferior a 50.000 EUR (más de 350.000 EUR de diferencia económica).
-  - España / Estados Unidos: indemnización cercana a 100.000 EUR para cliente expatriado en Estados Unidos con intereses conectados con España.
-  - Menores, España / Portugal: medida judicial urgente adoptada de inmediato para proteger a una menor en controversia internacional.
-  - OEDE, España / Países Bajos: puesta en libertad de cliente reclamada mediante Orden Europea de Detención y Entrega tras defensa seguida en España.
-- Asuntos relevantes en curso y precedentes destacados:
-  - Liquidación matrimonial internacional con patrimonio superior a 4.000.000 EUR (sociedades e inversiones).
-  - Impugnación testamentaria de elevado patrimonio de causante extranjero con testamento otorgado en España.
-  - Querella por presunta estafa millonaria en dos países con reconstrucción de flujos y sociedades.
-  - Liquidación de bienes conyugales en Estados Unidos y España, y en Francia y España.
-  - Divorcio internacional con patrimonio digital y criptoactivos.
-  - Demanda de competencia desleal en España por empresa de otro Estado miembro de la UE.
-  - Conflicto internacional de patente entre empresas sobre prioridad.
-  - Defensa de la competencia de los tribunales españoles frente a Estados Unidos y oposición a competencia portuguesa.
-  - Nulidad de resolución de entrega en procedimiento europeo ante la Audiencia Nacional.
-- Procedimientos judiciales activos fuera de España (coordinación con abogados locales): Estados Unidos, Portugal, Países Bajos, Indonesia y Mauritania.
-- Experiencia acumulada en 20 jurisdicciones cross-border: Reino Unido, Irlanda, Francia, Portugal, Italia, Bélgica, Países Bajos, Alemania, Suiza, Suecia, Estados Unidos, Argentina, Cuba, Haití, Panamá, Marruecos, Mauritania, Emiratos Árabes Unidos, Indonesia y Vanuatu.
-
-## 6. Presencia en medios y academia
-- Televisión nacional: laSexta Noticias (análisis jurídico sobre ataques en el Mar Rojo y restricciones en el Canal de Panamá).
-- Prensa nacional e internacional: Deutsche Welle, La Razón y Diario Córdoba.
-- Docencia e instituciones: Universidad Loyola, EOI, EUDE Business School, Cámara de Comercio de Málaga, Cámara de Comercio de Tenerife, Promálaga, IMDEEC, IPRODECO, AAAE y EPGD Business Law (Florida, EE. UU.).
-
-## 7. Cómo contratar o iniciar un asunto con RRYP Global
-1. Llamada inicial (30 minutos, sin coste, sin valoración jurídica): https://calendly.com/rrypglobal-info/30min
-2. Primera reunión jurídica con dirección (30 minutos, 350 EUR IVA incluido): https://calendly.com/rryp/consulta-legal
-3. Atención jurídica urgente (prioridad inmediata, 500 EUR): https://calendly.com/rryp/consulta_legal_urgente
+## Ultimos 40 Articulos de RRYP Legal Intelligence (de 429 totales)
+- [2026-11-10] Daños y perjuicios por incumplimiento de un contrato internacional: cómo acreditar las pérdidas y el lucro cesante: https://rrypglobal.com/es/legal-intelligence/danos-perjuicios-incumplimiento-contrato-internacional/
+- [2026-08-05] Sustracción internacional de menores tras un viaje autorizado: ¿puede mi expareja quedarse con nuestro hijo en otro país?: https://rrypglobal.com/es/legal-intelligence/sustraccion-internacional-menores-viaje-autorizado/
+- [2026-08-04] Competencia judicial internacional en España: ¿dónde debe presentar su demanda?: https://rrypglobal.com/es/legal-intelligence/competencia-judicial-internacional-espana/
+- [2026-08-03] Conflictos entre fundadores e inversores extranjeros: cómo proteger el control y el valor de la empresa: https://rrypglobal.com/es/legal-intelligence/conflictos-fundadores-inversores-extranjeros/
+- [2026-04-20] Liquidación de la sociedad conyugal y reparto de activos digitales: https://rrypglobal.com/es/legal-intelligence/liquidacion-de-la-sociedad-conyugal-y-reparto-de-activos-digitales/
+- [2026-04-17] Excepción de grave riesgo en la sustracción internacional de menores: https://rrypglobal.com/es/legal-intelligence/excepcion-de-grave-riesgo-en-la-sustraccion-internacional/
+- [2026-04-14] Reparto de criptoactivos en una liquidación de gananciales de alto patrimonio Guía legal completa: https://rrypglobal.com/es/legal-intelligence/reparticion-de-criptoactivos-en-una-liquidacion-de-gananciales/
+- [2026-04-13] Licencias de software y explotación internacional: los errores silenciosos que frenan la expansión de tu empresa tech: https://rrypglobal.com/es/legal-intelligence/licencias-de-software-y-explotacion-internacional-los-errores-silenciosos-que-frenan-la-expansion-de-tu-empresa-tech/
+- [2026-04-13] Qué es una sucesión intestada: https://rrypglobal.com/es/legal-intelligence/que-es-una-sucesion-intestada/
+- [2026-04-10] Liquidación de gananciales para alto patrimonio: https://rrypglobal.com/es/legal-intelligence/liquidacion-internacional-de-gananciales-para-alto-patrimonio/
+- [2026-04-09] Residencias, nacionalidades y patrimonio: claves para determinar la jurisdicción en un divorcio internacional: https://rrypglobal.com/es/legal-intelligence/residencias-nacionalidades-y-patrimonio-claves-para-determinar-la-jurisdiccion-en-un-divorcio-internacional/
+- [2026-04-09] Liquidación de gananciales con criptomonedas: https://rrypglobal.com/es/legal-intelligence/liquidacion-de-gananciales-con-criptomonedas/
+- [2026-04-07] Divorcio internacional: cómo elegir el país competente y por qué esta decisión lo condiciona todo.: https://rrypglobal.com/es/legal-intelligence/abogados-divorcios-internacionales-en-espana/
+- [2026-04-07] Sustracción internacional con España: qué puede hacer la Autoridad Central y cuándo: https://rrypglobal.com/es/legal-intelligence/sustraccion-internacional-con-espana-que-puede-hacer-la-autoridad-central-y-cuando/
+- [2026-04-06] ¿Cómo gestionar una herencia sin testamento ni herederos conocidos?: https://rrypglobal.com/es/legal-intelligence/herencia-sin-testamento-ni-herederos-conocidos/
+- [2026-04-01] Abogados de exequátur en España: por qué RRYP Global marca la diferencia: https://rrypglobal.com/es/legal-intelligence/abogados-de-exequatur-en-espana-por-que-rryp-global-marca-la-diferencia/
+- [2026-04-01] Errores comunes en custodias internacionales: https://rrypglobal.com/es/legal-intelligence/errores-comunes-en-custodias-internacionales/
+- [2026-03-31] Cuándo una custodia internacional no es viable jurídicamente (y por qué insistir puede empeorar la situación): https://rrypglobal.com/es/legal-intelligence/cuando-una-custodia-internacional-no-es-viable/
+- [2026-03-30] ERP, consultoría tecnológica y contratos: los 3 errores legales que disparan los costes: https://rrypglobal.com/es/legal-intelligence/los-tres-errores-legales-erp-consultoria-contratos/
+- [2026-03-30] ¿Qué ocurre si el menor no quiere volver al país de origen?: https://rrypglobal.com/es/legal-intelligence/menor-no-quiere-volver-al-pais-de-origen/
+- [2026-03-26] Patrimonios con criptoactivos: derecho comparado para clientes de alto patrimonio: https://rrypglobal.com/es/legal-intelligence/patrimonios-criptoactivos-derecho-comparado/
+- [2026-03-26] Diferencia entre heredero y legatario en el derecho internacional: https://rrypglobal.com/es/legal-intelligence/diferencia-entre-heredero-y-legatario/
+- [2026-03-25] Sustracción internacional de menores: qué documentación necesitas para actuar hoy.: https://rrypglobal.com/es/legal-intelligence/sustraccion-internacional-de-menores-que-documentacion-necesitas-para-actuar-hoy/
+- [2026-03-24] Cómo reclamar facturas impagadas a empresas extranjeras desde España: https://rrypglobal.com/es/legal-intelligence/reclamar-facturas-impagadas-a-empresas-extranjeras/
+- [2026-03-23] Abogado de divorcio entre extranjeros en España: https://rrypglobal.com/es/legal-intelligence/abogado-de-divorcio-entre-extranjeros-en-espana/
+- [2026-03-20] ¿Se puede impugnar un testamento internacional en España? Claves de viabilidad jurídica: https://rrypglobal.com/es/legal-intelligence/se-puede-impugnar-un-testamento-internacional-en-espana-claves-de-viabilidad-juridica/
+- [2026-03-19] ¿Dónde se tramita un divorcio internacional con patrimonio relevante? Residencias, nacionalidades y bienes para elegir bien la jurisdicción: https://rrypglobal.com/es/legal-intelligence/donde-se-tramita-un-divorcio-internacional-con-patrimonio-relevante/
+- [2026-03-18] ¿Cuándo pueden suponer un riesgo legal las decisiones automatizadas en la empresa?: https://rrypglobal.com/es/legal-intelligence/decisiones-automatizadas-en-la-empresa/
+- [2026-03-17] Por qué no todos los testamentos internacionales son impugnables y cómo saberlo antes de litigar: https://rrypglobal.com/es/legal-intelligence/por-que-no-todos-los-testamentos-internacionales-son-impugnables/
+- [2026-03-16] Cómo se gestiona el concurso de un grupo empresarial internacional: https://rrypglobal.com/es/legal-intelligence/como-gestionar-el-concurso-de-un-grupo-empresarial-internacional/
+- [2026-03-11] Cómo probar la competencia desleal en entornos digitales: https://rrypglobal.com/es/legal-intelligence/probar-competencia-desleal-digital/
+- [2026-03-10] ¿Qué pasa si en una herencia los bienes están en un país en conflicto o paraíso fiscal?: https://rrypglobal.com/es/legal-intelligence/herencia-bienes-extranjero-pais-conflicto-jurisdiccion-no-cooperativa/
+- [2026-03-09] Falsedad documental y testamentos extranjeros: indicios que pueden justificar una impugnación: https://rrypglobal.com/es/legal-intelligence/impugnar-testamento-extranjero-falsedad-documental/
+- [2026-03-06] ¿Se puede invalidar un testamento extranjero en España?: https://rrypglobal.com/es/legal-intelligence/invalidar-testamento-extranjero-en-espana/
+- [2026-03-05] Retención ilícita de un menor: qué es, cómo identificarla y qué hacer si te ocurre: https://rrypglobal.com/es/legal-intelligence/retencion-ilicita-de-un-menor/
+- [2026-03-03] Competencia con ex socios y ex empleados: cómo actuar jurídicamente en entornos tecnológicos: https://rrypglobal.com/es/legal-intelligence/competencia-con-ex-socios-y-ex-empleados/
+- [2026-02-27] Cuándo no conviene impugnar un testamento internacional, aunque parezca injusto: https://rrypglobal.com/es/legal-intelligence/cuando-no-conviene-impugnar-un-testamento-internacional/
+- [2026-02-26] Custodia internacional y cambios de residencia: cuándo un traslado puede generar un problema jurídico: https://rrypglobal.com/es/legal-intelligence/custodia-internacional-y-cambios-de-residencia/
+- [2026-02-23] ¿Cómo consigo que una sentencia de custodia sea obligatoria y ejecutable en otro continente?: https://rrypglobal.com/es/legal-intelligence/custodia-obligatoria-y-ejectutable/
+- [2026-02-20] ¿Qué es una boutique legal internacional?: https://rrypglobal.com/es/legal-intelligence/que-es-una-boutique-legal-internacional/
