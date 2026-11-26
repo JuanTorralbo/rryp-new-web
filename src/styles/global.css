@@ -300,7 +300,7 @@ main {
   position: sticky;
   top: 0;
   z-index: 40;
-  background-color: rgba(14, 18, 17, 0.78);
+  background-color: var(--rryp-black);
   -webkit-backdrop-filter: blur(14px) saturate(115%);
   backdrop-filter: blur(14px) saturate(115%);
   border-bottom: 1px solid var(--line-on-dark);
@@ -436,9 +436,9 @@ main {
   left: -14px;
   min-width: 284px;
   padding: 10px;
-  background-color: rgba(14, 18, 17, 0.82);
-  -webkit-backdrop-filter: blur(18px) saturate(120%);
-  backdrop-filter: blur(18px) saturate(120%);
+  background-color: rgba(14, 18, 17, 0.9);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  backdrop-filter: blur(16px) saturate(120%);
   border: 1px solid rgba(184, 155, 94, 0.28);
   border-radius: var(--radius-arch);
   box-shadow: 0 22px 48px rgba(14, 18, 17, 0.56);
@@ -2823,7 +2823,7 @@ main {
 
 /* Cabecera arquitectonica fija en altura (0 reflow al hacer scroll) + hilo de lectura GPU */
 html.is-scrolled .site-header {
-  background-color: rgba(14, 18, 17, 0.84);
+  background-color: rgba(14, 18, 17, 0.86);
   border-bottom-color: rgba(184, 155, 94, 0.42);
 }
 
@@ -3256,9 +3256,9 @@ html.is-scrolled .site-header {
   top: calc(100% + 12px);
   right: 0;
   width: 320px;
-  background-color: rgba(14, 18, 17, 0.84);
-  -webkit-backdrop-filter: blur(18px) saturate(120%);
-  backdrop-filter: blur(18px) saturate(120%);
+  background-color: rgba(14, 18, 17, 0.9);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  backdrop-filter: blur(16px) saturate(120%);
   border: 1px solid var(--rryp-gold);
   border-radius: var(--radius-arch);
   padding: 20px;
@@ -4072,9 +4072,9 @@ html.is-scrolled .site-header {
   right: 0;
   min-width: 148px;
   padding: 5px;
-  background-color: rgba(14, 18, 17, 0.84);
-  -webkit-backdrop-filter: blur(18px) saturate(120%);
-  backdrop-filter: blur(18px) saturate(120%);
+  background-color: rgba(14, 18, 17, 0.9);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  backdrop-filter: blur(16px) saturate(120%);
   border: 1px solid var(--rryp-gold);
   border-radius: var(--radius-arch);
   box-shadow: var(--shadow-dark-elevated);
