@@ -637,9 +637,9 @@ const primaryNav = getPrimaryNav(lang);
           <div>
             <p class="footer-heading">{t.footerAreasHead}</p>
             <ul class="footer-links">
-              <li><a href={localizedPath(lang, "private-clients")}>Private Clients ↗</a></li>
-              <li><a href={localizedPath(lang, "private-wealth")}>Private Wealth ↗</a></li>
-              <li><a href={localizedPath(lang, "business-disputes")}>Business Disputes ↗</a></li>
+              <li><a href={localizedPath(lang, "private-wealth")}>{primaryNav[0].label} ↗</a></li>
+              <li><a href={localizedPath(lang, "business-disputes")}>{primaryNav[1].label} ↗</a></li>
+              <li><a href={localizedPath(lang, "private-clients")}>{primaryNav[2].label} ↗</a></li>
               <li><a href={localizedPath(lang, "casos")}>{t.footerLinkCases}</a></li>
               <li><a href={localizedPath(lang, "la-firma")}>{t.footerLinkFirm}</a></li>
               <li><a href={localizedPath(lang, "historia")}>{t.footerLinkHist}</a></li>
@@ -654,7 +654,11 @@ const primaryNav = getPrimaryNav(lang);
                   {{ es: "Contacto →", en: "Contact →", de: "Kontakt →", pt: "Contacto →", ru: "Контакты →", zh: "联系我们 →" }[lang]}
                 </a>
               </li>
-              <li><a href={localizedPath(lang, "careers")}>Careers ↗</a></li>
+              <li>
+                <a href={localizedPath(lang, "careers")}>
+                  {{ es: "Carreras ↗", en: "Careers ↗", de: "Karriere ↗", pt: "Carreiras ↗", ru: "Карьера ↗", zh: "招聘 ↗" }[lang]}
+                </a>
+              </li>
             </ul>
           </div>
 

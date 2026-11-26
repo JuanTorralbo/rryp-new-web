@@ -18,11 +18,6 @@ export interface NavGroup {
 }
 
 interface NavCopy {
-  familia: string;
-  familiaAll: string;
-  custodia: string;
-  divorcio: string;
-  sustraccion: string;
   patrimonio: string;
   patrimonioAll: string;
   insolvencia: string;
@@ -32,10 +27,15 @@ interface NavCopy {
   extradicion: string;
   empresa: string;
   empresaAll: string;
+  litigios: string;
   competencia: string;
   contratos: string;
   contratosTech: string;
-  litigios: string;
+  clientes: string;
+  clientesAll: string;
+  divorcio: string;
+  custodia: string;
+  sustraccion: string;
   experiencia: string;
   casos: string;
   prensa: string;
@@ -53,11 +53,6 @@ interface NavCopy {
 
 const NAV_COPY: Record<Locale, NavCopy> = {
   es: {
-    familia: "Familia",
-    familiaAll: "Ver Familia Internacional",
-    custodia: "Custodia internacional",
-    divorcio: "Divorcio internacional",
-    sustraccion: "Sustracción internacional de menores",
     patrimonio: "Patrimonio",
     patrimonioAll: "Ver Patrimonio Internacional",
     insolvencia: "Insolvencia y crisis patrimonial",
@@ -65,12 +60,17 @@ const NAV_COPY: Record<Locale, NavCopy> = {
     sucesiones: "Sucesiones internacionales",
     penal: "Delitos económicos internacionales",
     extradicion: "Extradición internacional y OEDE",
-    empresa: "Empresa",
-    empresaAll: "Ver Empresa Internacional",
+    empresa: "Empresa y litigios",
+    empresaAll: "Ver Empresa y Litigios",
+    litigios: "Litigios internacionales",
     competencia: "Competencia desleal internacional",
     contratos: "Contratos internacionales",
     contratosTech: "Contratos tecnológicos",
-    litigios: "Litigios internacionales",
+    clientes: "Clientes privados",
+    clientesAll: "Ver Clientes Privados y Familia",
+    divorcio: "Divorcio internacional",
+    custodia: "Custodia internacional",
+    sustraccion: "Sustracción internacional de menores",
     experiencia: "Experiencia",
     casos: "Asuntos destacados (28 casos)",
     prensa: "Prensa y medios",
@@ -86,24 +86,24 @@ const NAV_COPY: Record<Locale, NavCopy> = {
     contacto: "Contacto",
   },
   en: {
-    familia: "Family",
-    familiaAll: "View International Family Law",
-    custodia: "International child custody",
-    divorcio: "International divorce",
-    sustraccion: "International child abduction",
-    patrimonio: "Wealth",
-    patrimonioAll: "View International Wealth",
+    patrimonio: "Private Wealth",
+    patrimonioAll: "View Private Wealth",
     insolvencia: "Cross-border insolvency",
     liquidacion: "Marital asset division",
     sucesiones: "International inheritance",
     penal: "Economic crime defense",
     extradicion: "International extradition & EAW",
-    empresa: "Business",
-    empresaAll: "View International Business",
+    empresa: "Business Disputes",
+    empresaAll: "View Business Disputes",
+    litigios: "International litigation",
     competencia: "Unfair competition",
     contratos: "International contracts",
     contratosTech: "Technology contracts",
-    litigios: "International litigation",
+    clientes: "Private Clients",
+    clientesAll: "View Private Clients & Family",
+    divorcio: "International divorce",
+    custodia: "International child custody",
+    sustraccion: "International child abduction",
     experiencia: "Track Record",
     casos: "Representative matters (28 cases)",
     prensa: "Press and media",
@@ -119,24 +119,24 @@ const NAV_COPY: Record<Locale, NavCopy> = {
     contacto: "Contact",
   },
   de: {
-    familia: "Familie",
-    familiaAll: "Internationales Familienrecht",
-    custodia: "Internationales Sorgerecht",
-    divorcio: "Internationale Scheidung",
-    sustraccion: "Internationale Kindesentführung",
-    patrimonio: "Vermögen",
+    patrimonio: "Private Wealth",
     patrimonioAll: "Internationales Vermögensrecht",
     insolvencia: "Grenzüberschreitende Insolvenz",
     liquidacion: "Eheliche Vermögensauseinandersetzung",
     sucesiones: "Internationales Erbrecht",
     penal: "Wirtschaftsstrafrecht",
     extradicion: "Auslieferung und EuHb",
-    empresa: "Unternehmen",
-    empresaAll: "Internationales Unternehmensrecht",
+    empresa: "Business Disputes",
+    empresaAll: "Unternehmen und Prozesse",
+    litigios: "Internationale Prozesse",
     competencia: "Unlauterer Wettbewerb",
     contratos: "Internationale Verträge",
     contratosTech: "Technologieverträge",
-    litigios: "Internationale Prozesse",
+    clientes: "Private Clients",
+    clientesAll: "Privatmandanten und Familie",
+    divorcio: "Internationale Scheidung",
+    custodia: "Internationales Sorgerecht",
+    sustraccion: "Internationale Kindesentführung",
     experiencia: "Erfahrung",
     casos: "Mandate und Fälle (28 Fälle)",
     prensa: "Presse und Medien",
@@ -152,11 +152,6 @@ const NAV_COPY: Record<Locale, NavCopy> = {
     contacto: "Kontakt",
   },
   pt: {
-    familia: "Família",
-    familiaAll: "Ver Família Internacional",
-    custodia: "Guarda internacional de menores",
-    divorcio: "Divórcio internacional",
-    sustraccion: "Subtração internacional de menores",
     patrimonio: "Património",
     patrimonioAll: "Ver Património Internacional",
     insolvencia: "Insolvência e crise patrimonial",
@@ -164,12 +159,17 @@ const NAV_COPY: Record<Locale, NavCopy> = {
     sucesiones: "Sucessões internacionais",
     penal: "Crimes económicos internacionais",
     extradicion: "Extradição internacional e MDE",
-    empresa: "Empresa",
-    empresaAll: "Ver Empresa Internacional",
+    empresa: "Empresa e litígios",
+    empresaAll: "Ver Empresa e Litígios",
+    litigios: "Litígios internacionais",
     competencia: "Concorrência desleal internacional",
     contratos: "Contratos internacionais",
     contratosTech: "Contratos tecnológicos",
-    litigios: "Litígios internacionais",
+    clientes: "Clientes privados",
+    clientesAll: "Ver Clientes Privados e Família",
+    divorcio: "Divórcio internacional",
+    custodia: "Guarda internacional de menores",
+    sustraccion: "Subtração internacional de menores",
     experiencia: "Experiência",
     casos: "Casos de sucesso (28 casos)",
     prensa: "Imprensa e media",
@@ -185,24 +185,24 @@ const NAV_COPY: Record<Locale, NavCopy> = {
     contacto: "Contacto",
   },
   ru: {
-    familia: "Семья",
-    familiaAll: "Международное семейное право",
-    custodia: "Международная опека над детьми",
-    divorcio: "Международный развод",
-    sustraccion: "Международное похищение детей",
-    patrimonio: "Активы",
+    patrimonio: "Частный капитал",
     patrimonioAll: "Международные активы",
     insolvencia: "Трансграничная несостоятельность",
     liquidacion: "Раздел имущества супругов",
     sucesiones: "Международное наследство",
     penal: "Экономические преступления",
     extradicion: "Экстрадиция и ЕОА",
-    empresa: "Бизнес",
-    empresaAll: "Международный бизнес",
+    empresa: "Бизнес и споры",
+    empresaAll: "Международный бизнес и суды",
+    litigios: "Международные суды",
     competencia: "Недобросовестная конкуренция",
     contratos: "Международные контракты",
     contratosTech: "Технологические контракты",
-    litigios: "Международные суды",
+    clientes: "Частные клиенты",
+    clientesAll: "Частные клиенты и семья",
+    divorcio: "Международный развод",
+    custodia: "Международная опека над детьми",
+    sustraccion: "Международное похищение детей",
     experiencia: "Опыт",
     casos: "Знаковые дела (28 кейсов)",
     prensa: "Пресса и СМИ",
@@ -218,24 +218,24 @@ const NAV_COPY: Record<Locale, NavCopy> = {
     contacto: "Контакты",
   },
   zh: {
-    familia: "家庭法",
-    familiaAll: "国际家庭法总览",
-    custodia: "跨境子女抚养权",
-    divorcio: "跨国离婚",
-    sustraccion: "国际儿童诱拐应对",
-    patrimonio: "资产",
+    patrimonio: "私人财富",
     patrimonioAll: "国际资产与财富总览",
     insolvencia: "跨境破产与债务危机",
     liquidacion: "跨国夫妻财产分割",
     sucesiones: "国际遗产继承",
     penal: "国际经济刑事辩护",
     extradicion: "国际引渡与欧洲逮捕令",
-    empresa: "企业",
-    empresaAll: "国际企业与商事总览",
+    empresa: "企业与争议",
+    empresaAll: "国际企业与商事争议",
+    litigios: "国际商事诉讼",
     competencia: "国际不正当竞争",
     contratos: "国际商事合同",
     contratosTech: "科技与软件合同",
-    litigios: "国际商事诉讼",
+    clientes: "私人客户",
+    clientesAll: "私人客户与国际家庭法",
+    divorcio: "跨国离婚",
+    custodia: "跨境子女抚养权",
+    sustraccion: "国际儿童诱拐应对",
     experiencia: "案例",
     casos: "代表性实务案例 (28例)",
     prensa: "媒体与报道",
@@ -255,18 +255,6 @@ const NAV_COPY: Record<Locale, NavCopy> = {
 export function getPrimaryNav(lang: Locale): NavGroup[] {
   const c = NAV_COPY[lang];
   return [
-    {
-      id: "nav-menu-familia",
-      activeKey: "clients",
-      label: c.familia,
-      href: localizedPath(lang, "private-clients"),
-      items: [
-        { label: c.familiaAll, href: localizedPath(lang, "private-clients"), overview: true },
-        { label: c.custodia, href: localizedPath(lang, "especialidades/custodia-internacional") },
-        { label: c.divorcio, href: localizedPath(lang, "especialidades/divorcio-internacional") },
-        { label: c.sustraccion, href: localizedPath(lang, "especialidades/sustraccion-menores") },
-      ],
-    },
     {
       id: "nav-menu-patrimonio",
       activeKey: "wealth",
@@ -288,10 +276,22 @@ export function getPrimaryNav(lang: Locale): NavGroup[] {
       href: localizedPath(lang, "business-disputes"),
       items: [
         { label: c.empresaAll, href: localizedPath(lang, "business-disputes"), overview: true },
+        { label: c.litigios, href: localizedPath(lang, "especialidades/litigios-internacionales") },
         { label: c.competencia, href: localizedPath(lang, "especialidades/competencia-desleal-internacional") },
         { label: c.contratos, href: localizedPath(lang, "especialidades/contratos-internacionales") },
         { label: c.contratosTech, href: localizedPath(lang, "especialidades/contratos-tecnologicos") },
-        { label: c.litigios, href: localizedPath(lang, "especialidades/litigios-internacionales") },
+      ],
+    },
+    {
+      id: "nav-menu-clientes",
+      activeKey: "clients",
+      label: c.clientes,
+      href: localizedPath(lang, "private-clients"),
+      items: [
+        { label: c.clientesAll, href: localizedPath(lang, "private-clients"), overview: true },
+        { label: c.divorcio, href: localizedPath(lang, "especialidades/divorcio-internacional") },
+        { label: c.custodia, href: localizedPath(lang, "especialidades/custodia-internacional") },
+        { label: c.sustraccion, href: localizedPath(lang, "especialidades/sustraccion-menores") },
       ],
     },
     {
