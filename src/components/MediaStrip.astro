@@ -8,12 +8,12 @@ export interface Props {
 const { lang } = Astro.props;
 const t = getDictionary(lang);
 const outlets = [
-  "laSexta Noticias",
-  "Deutsche Welle",
-  "La Razón",
-  "Diario Córdoba",
-  "Law&Trends",
-  "Universidad Loyola",
+  { name: "laSexta Noticias", file: "lasexta-cream.webp", w: 97, h: 120, tall: true },
+  { name: "Deutsche Welle", file: "deutschewelle-cream.webp", w: 211, h: 120, tall: false },
+  { name: "La Razón", file: "larazon-cream.webp", w: 125, h: 120, tall: true },
+  { name: "Diario Córdoba", file: "diariocordoba-cream.webp", w: 129, h: 120, tall: true },
+  { name: "Law&Trends", file: "lawandtrends-cream.webp", w: 194, h: 120, tall: false },
+  { name: "Universidad Loyola", file: "loyola-cream.webp", w: 360, h: 117, tall: false },
 ];
 ---
 
@@ -21,8 +21,16 @@ const outlets = [
   <div class="container media-strip-inner">
     <p class="media-strip-label">{t.mediosEyebrow}</p>
     <div class="media-strip-logos">
-      {outlets.map((name) => (
-        <span>{name}</span>
+      {outlets.map((item) => (
+        <img
+          src={`/assets/media-logos/${item.file}`}
+          alt={item.name}
+          width={item.w}
+          height={item.h}
+          loading="lazy"
+          decoding="async"
+          class={item.tall ? "media-strip-logo media-strip-logo--tall" : "media-strip-logo"}
+        />
       ))}
     </div>
     <a href={localizedPath(lang, "medios")} class="media-strip-link">

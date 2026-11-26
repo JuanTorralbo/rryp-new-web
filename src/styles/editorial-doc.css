@@ -364,12 +364,40 @@
 .media-video-stage {
   position: relative;
   aspect-ratio: 16 / 9;
-  background-color: var(--rryp-burgundy);
+  background-color: var(--rryp-black);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 22px;
+}
+
+.media-video-still {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.56;
+  transition: opacity var(--transition-ui), transform 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.media-video-card:hover .media-video-still {
+  opacity: 0.68;
+  transform: scale(1.02);
+}
+
+.media-video-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(14, 18, 17, 0.16) 0%, rgba(14, 18, 17, 0.88) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.media-video-stage.is-playing::after {
+  display: none;
 }
 
 .media-video-stage iframe {
@@ -378,6 +406,7 @@
   width: 100%;
   height: 100%;
   border: 0;
+  z-index: 3;
 }
 
 .media-video-stage-gate {
@@ -386,7 +415,240 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 12px;
+}
+
+.media-stage-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.media-stage-logo {
+  display: block;
+  height: 36px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+}
+
+.media-press-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+  min-height: 44px;
+}
+
+.media-outlet-logo {
+  display: block;
+  height: 36px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+}
+
+.media-outlet-logo--wide {
+  height: 30px;
+  max-width: 180px;
+}
+
+.media-acad-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+  min-height: 42px;
+}
+
+.media-acad-logo {
+  display: block;
+  height: 34px;
+  width: auto;
+  max-width: 165px;
+  object-fit: contain;
+}
+
+.media-logo-wall {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.media-logo-tile {
+  background-color: var(--rryp-cream);
+  border: 1px solid var(--line-on-cream);
+  border-radius: var(--radius-arch);
+  padding: 22px 18px;
+  min-height: 102px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
+  text-align: center;
+  transition: border-color var(--transition-ui), transform var(--transition-ui);
+}
+
+.media-logo-tile:hover {
+  border-color: var(--rryp-gold);
+  transform: translateY(-2px);
+}
+
+.media-logo-tile img {
+  display: block;
+  max-height: 40px;
+  max-width: 154px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.media-logo-tile span {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted-on-cream);
+}
+
+/* ==========================================================================
+   Historia de RRYP Global (Linea de tiempo arquitectonica 2020 - 2026)
+   ========================================================================== */
+.hist-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 36px;
+  padding-left: 28px;
+  border-left: 1px solid var(--rryp-gold);
+}
+
+.hist-entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(150px, 190px) minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.hist-entry::before {
+  content: "";
+  position: absolute;
+  left: -34px;
+  top: 22px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: var(--rryp-burgundy);
+  border: 2px solid var(--rryp-gold);
+}
+
+.hist-date-col {
+  padding-top: 16px;
+}
+
+.hist-year {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--rryp-burgundy);
+}
+
+.hist-month {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rryp-gold);
+}
+
+.hist-card {
+  background-color: var(--rryp-cream);
+  border: 1px solid var(--line-on-cream);
+  border-radius: var(--radius-arch);
+  padding: 24px 26px;
+  transition: border-color var(--transition-ui), transform var(--transition-ui);
+}
+
+.hist-card:hover {
+  border-color: var(--rryp-gold);
+  transform: translateY(-2px);
+}
+
+.hist-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.hist-card-tag {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rryp-burgundy);
+  padding: 4px 10px;
+  border: 1px solid var(--line-on-cream);
+  border-radius: var(--radius-arch);
+}
+
+.hist-card-logo {
+  display: block;
+  height: 26px;
+  width: auto;
+  max-width: 125px;
+  object-fit: contain;
+}
+
+.hist-card-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.28;
+  color: var(--rryp-black);
+  margin: 0 0 10px;
+}
+
+.hist-card-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-muted-on-cream);
+  margin: 0;
+}
+
+.hist-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+@media (max-width: 900px) {
+  .media-logo-wall {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hist-entry {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .hist-date-col {
+    padding-top: 12px;
+  }
 }
 
 .media-video-badge {

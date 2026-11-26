@@ -2,6 +2,7 @@
 import "../../styles/editorial-doc.css";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EntryRoutes from "../../components/EntryRoutes.astro";
+import ResponsivePhoto from "../../components/ResponsivePhoto.astro";
 import { FIRM } from "../../data/firm";
 import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
 
@@ -15,7 +16,12 @@ const t = getDictionary(lang);
 const tvAppearances = [
   {
     outlet: "laSexta Noticias",
+    logo: "lasexta-cream.webp",
+    logoW: 97,
+    logoH: 120,
+    stillBase: "media-lasexta-mar-rojo",
     topic: "Comercio internacional",
+    date: "Diciembre 2024",
     title: "Ataques en el Mar Rojo",
     desc: "Análisis sobre las implicaciones jurídicas y económicas de los ataques en el Mar Rojo y su impacto en las rutas marítimas y el comercio internacional.",
     ytId: "lO0GP0INVvQ",
@@ -23,7 +29,12 @@ const tvAppearances = [
   },
   {
     outlet: "laSexta Noticias",
+    logo: "lasexta-cream.webp",
+    logoW: 97,
+    logoH: 120,
+    stillBase: "media-lasexta-panama",
     topic: "Transporte marítimo",
+    date: "Agosto 2023",
     title: "Atasco en el Canal de Panamá",
     desc: "Valoración del impacto jurídico y económico de las restricciones al tráfico marítimo internacional y sus consecuencias sobre las cadenas de suministro.",
     ytId: "w7_pgOKkhyM",
@@ -35,24 +46,40 @@ const pressPublications = [
   {
     year: "2025",
     outlet: "La Razón",
+    logo: "larazon-dark.webp",
+    logoW: 125,
+    logoH: 120,
+    wide: false,
     title: "Admisión a trámite de una querella por presunta estafa a un inversor",
     url: "https://www.larazon.es/economia/justicia-admite-tramite-querella-presunta-estafa-alvaro-pintado_2025072868871fffabb2960d1fb7a262.html",
   },
   {
     year: "2025",
     outlet: "Diario Córdoba",
+    logo: "diariocordoba-dark.webp",
+    logoW: 129,
+    logoH: 120,
+    wide: false,
     title: "Entrevista a Mar Gámez sobre su trayectoria y la evolución de RRYP Global",
     url: "https://www.diariocordoba.com/cordoba-ciudad/2025/08/18/mar-gamez-cofundadora-relacionate-punto-120700068.html",
   },
   {
-    year: "2024",
+    year: "2023",
     outlet: "Law&Trends",
+    logo: "lawandtrends-dark.webp",
+    logoW: 194,
+    logoH: 120,
+    wide: true,
     title: "RRYP Global inaugura su primera oficina en Córdoba y consolida su expansión",
     url: "https://www.lawandtrends.com/noticias/rryp-global/rryp-global-inaugura-su-primera-oficina-en-cordoba-1.html",
   },
   {
     year: "2023",
     outlet: "Deutsche Welle (DW)",
+    logo: "deutschewelle-dark.webp",
+    logoW: 211,
+    logoH: 120,
+    wide: true,
     title: "El cambio climático pone en jaque la ruta del Canal de Panamá",
     url: "https://www.dw.com/es/el-cambio-clim%C3%A1tico-pone-en-jaque-ruta-del-canal-de-panam%C3%A1/a-66603003",
   },
@@ -61,28 +88,57 @@ const pressPublications = [
 const academicEngagements = [
   {
     org: "Universidad Loyola",
+    logo: "loyola-dark.webp",
+    logoW: 360,
+    logoH: 117,
     topic: "Docencia universitaria en Derecho Internacional Privado y Derecho Comparado",
   },
   {
-    org: "AAAE",
-    topic: "Inteligencia Artificial en los negocios: cómo cumplir con la ley sin frenar la innovación",
-  },
-  {
     org: "Cámara de Comercio de Málaga",
+    logo: "camaramalaga-dark.webp",
+    logoW: 74,
+    logoH: 120,
     topic: "IA en los negocios: cómo prevenir riesgos sin frenar la innovación",
   },
   {
-    org: "Universidad Loyola",
-    topic: "Estrategias legales para emprendedores digitales",
-  },
-  {
-    org: "IPRODECO",
+    org: "IPRODECO (Diputación de Córdoba)",
+    logo: "iprodeco-dark.webp",
+    logoW: 360,
+    logoH: 110,
     topic: "Estrategias y aplicaciones de la IA en el comercio internacional",
   },
   {
-    org: "Instituciones colaboradoras",
-    topic: "EOI, EUDE Business School, Cámaras de Comercio de Málaga y Tenerife, Promálaga e IMDEEC",
+    org: "EUDE Business School",
+    logo: "eudebusinessschool-dark.webp",
+    logoW: 360,
+    logoH: 71,
+    topic: "De cero a internacional: cómo crear una born global startup",
   },
+  {
+    org: "EOI — Escuela de Organización Industrial",
+    logo: "eoi-dark.webp",
+    logoW: 360,
+    logoH: 75,
+    topic: "Docencia jurídica en internacionalización y empresa emergente",
+  },
+  {
+    org: "Promálaga",
+    logo: "promalaga-dark.webp",
+    logoW: 157,
+    logoH: 120,
+    topic: "Apuntes prácticos y marco legal para negocio digital e internacional",
+  },
+];
+
+const institutionalWall = [
+  { name: "Universidad Loyola", file: "loyola-dark.webp", w: 360, h: 117 },
+  { name: "Cámara de Comercio de Málaga", file: "camaramalaga-dark.webp", w: 74, h: 120 },
+  { name: "Cámara de Comercio de Tenerife", file: "camaratenerife-dark.webp", w: 360, h: 100 },
+  { name: "EOI", file: "eoi-dark.webp", w: 360, h: 75 },
+  { name: "EUDE Business School", file: "eudebusinessschool-dark.webp", w: 360, h: 71 },
+  { name: "IPRODECO", file: "iprodeco-dark.webp", w: 360, h: 110 },
+  { name: "Promálaga", file: "promalaga-dark.webp", w: 157, h: 120 },
+  { name: "AJE Córdoba", file: "ajecordoba-dark.webp", w: 116, h: 120 },
 ];
 
 const collectionSchema = {
@@ -143,18 +199,18 @@ const collectionSchema = {
         <h1 class="doc-title">{t.mediosTitle}</h1>
         <p class="doc-lead">{t.mediosLead}</p>
         <div class="doc-hero-actions">
-          <a href={localizedPath(lang, "equipo/mar-gamez")} class="btn btn--lime btn--compact">
-            {t.cvProfileBtn}
+          <a href={localizedPath(lang, "historia")} class="btn btn--lime btn--compact">
+            {t.histCtaLink}
           </a>
-          <a href={localizedPath(lang, "rryp-en-5")} class="btn btn--outline-dark btn--compact">
-            {t.r5CtaLabel}
+          <a href={localizedPath(lang, "equipo/mar-gamez")} class="btn btn--outline-dark btn--compact">
+            {t.cvProfileBtn}
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Television nacional (laSexta Noticias) con bloqueo RGPD -->
+  <!-- Television nacional (laSexta Noticias) con capturas reales AVIF y bloqueo RGPD -->
   <section class="section-cream">
     <div class="container">
       <div class="section-header" data-reveal>
@@ -173,8 +229,28 @@ const collectionSchema = {
               data-rgpd-yt={`https://www.youtube-nocookie.com/embed/${item.ytId}?rel=0`}
               data-yt-title={`${item.outlet} - ${item.title}`}
             >
+              <ResponsivePhoto
+                base={item.stillBase}
+                widths={[640, 1280]}
+                sizes="(max-width: 1024px) 92vw, 46vw"
+                alt={`${item.outlet}: ${item.title}`}
+                width={1280}
+                height={720}
+                className="media-video-still"
+              />
               <div class="media-video-stage-gate">
-                <span class="media-video-badge">{item.outlet}</span>
+                <div class="media-stage-logo-row">
+                  <img
+                    src={`/assets/media-logos/${item.logo}`}
+                    alt={item.outlet}
+                    width={item.logoW}
+                    height={item.logoH}
+                    loading="lazy"
+                    decoding="async"
+                    class="media-stage-logo"
+                  />
+                  <span class="media-video-badge">{item.date}</span>
+                </div>
                 <p class="video-gate-desc" style="margin: 0; max-width: 44ch;">{t.ytConsentDesc}</p>
                 <button type="button" class="btn btn--lime btn--compact" data-rgpd-yt-accept>
                   {t.ytConsentBtn}
@@ -197,7 +273,7 @@ const collectionSchema = {
     </div>
   </section>
 
-  <!-- Publicaciones externas -->
+  <!-- Publicaciones externas con logotipos oficiales en tinta oscura sobre crema -->
   <section class="section-cream section-cream--bordered">
     <div class="container">
       <div class="section-header" data-reveal>
@@ -211,9 +287,17 @@ const collectionSchema = {
         {pressPublications.map((pub) => (
           <article class="media-press-card">
             <div>
-              <div class="media-press-meta">
-                <span>{pub.outlet}</span>
-                <span>{pub.year}</span>
+              <div class="media-press-head">
+                <img
+                  src={`/assets/media-logos/${pub.logo}`}
+                  alt={pub.outlet}
+                  width={pub.logoW}
+                  height={pub.logoH}
+                  loading="lazy"
+                  decoding="async"
+                  class={pub.wide ? "media-outlet-logo media-outlet-logo--wide" : "media-outlet-logo"}
+                />
+                <span class="media-press-meta">{pub.year}</span>
               </div>
               <h3 class="media-press-title">{pub.title}</h3>
             </div>
@@ -226,7 +310,7 @@ const collectionSchema = {
     </div>
   </section>
 
-  <!-- Academia e instituciones -->
+  <!-- Academia e instituciones con logotipos oficiales -->
   <section class="section-cream section-cream--bordered">
     <div class="container">
       <div class="section-header" data-reveal>
@@ -240,9 +324,43 @@ const collectionSchema = {
       <div class="media-acad-grid" data-reveal>
         {academicEngagements.map((item) => (
           <article class="media-acad-card">
+            <div class="media-acad-head">
+              <img
+                src={`/assets/media-logos/${item.logo}`}
+                alt={item.org}
+                width={item.logoW}
+                height={item.logoH}
+                loading="lazy"
+                decoding="async"
+                class="media-acad-logo"
+              />
+            </div>
             <p class="media-acad-org">{item.org}</p>
             <h3 class="media-acad-topic">{item.topic}</h3>
           </article>
+        ))}
+      </div>
+
+      <div class="section-header" style="margin-top: 56px;" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{t.mediosInstEyebrow}</p>
+          <h2 class="section-title">{t.mediosInstTitle}</h2>
+        </div>
+      </div>
+
+      <div class="media-logo-wall" data-reveal>
+        {institutionalWall.map((inst) => (
+          <div class="media-logo-tile">
+            <img
+              src={`/assets/media-logos/${inst.file}`}
+              alt={inst.name}
+              width={inst.w}
+              height={inst.h}
+              loading="lazy"
+              decoding="async"
+            />
+            <span>{inst.name}</span>
+          </div>
         ))}
       </div>
     </div>
@@ -270,6 +388,15 @@ const collectionSchema = {
           data-rgpd-yt="https://www.youtube-nocookie.com/embed/ubFo7qdqsTg?rel=0"
           data-yt-title="EPGD Business Law - España y Florida"
         >
+          <ResponsivePhoto
+            base="media-epgd-florida"
+            widths={[640, 1280]}
+            sizes="(max-width: 1024px) 92vw, 48vw"
+            alt="Conversación jurídica internacional España - Florida con EPGD Business Law"
+            width={1280}
+            height={720}
+            className="media-video-still"
+          />
           <div class="media-video-stage-gate">
             <span class="media-video-badge">EPGD Business Law (Florida)</span>
             <p class="video-gate-desc" style="margin: 0; max-width: 44ch;">{t.ytConsentDesc}</p>
@@ -298,6 +425,7 @@ const collectionSchema = {
         iframe.loading = "lazy";
         iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
         iframe.allowFullscreen = true;
+        stage.classList.add("is-playing");
         stage.innerHTML = "";
         stage.appendChild(iframe);
       });
