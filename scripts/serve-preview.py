@@ -147,6 +147,19 @@ class AstroPreviewHandler(SimpleHTTPRequestHandler):
             self.wfile.write(gz)
             return
 
+        # Serve branded 404.html with HTTP 404 for unknown paths (matching Cloudflare/Vercel)
+        if not (candidate.startswith(DIST_DIR) and os.path.isfile(candidate)):
+            not_found = os.path.join(DIST_DIR, "404.html")
+            if os.path.isfile(not_found):
+                with open(not_found, "rb") as f:
+                    raw = f.read()
+                self.send_response(404)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Content-Length", str(len(raw)))
+                self.end_headers()
+                self.wfile.write(raw)
+                return
+
         super().do_GET()
 
     def do_POST(self):

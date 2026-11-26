@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import EntryRoutes from "../../components/EntryRoutes.astro";
 import { FIRM } from "../../data/firm";
 import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
 
@@ -35,6 +36,12 @@ const cases = [
   { pillar: "penal", tag: t.case19Tag, date: t.case19Date, title: t.case19Title, desc: t.case19Desc, url: "https://rrypglobal.com/nulidad-de-una-resolucion-de-entrega-dictada-en-un-procedimiento-europeo-ante-la-audiencia-nacional/" },
   { pillar: "penal", tag: t.case20Tag, date: t.case20Date, title: t.case20Title, desc: t.case20Desc, url: "https://rrypglobal.com/querella-por-estafa-millonaria-en-dos-paises/" },
 ];
+
+const countAll = cases.length;
+const countPc = cases.filter((c) => c.pillar === "private-clients").length;
+const countPw = cases.filter((c) => c.pillar === "private-wealth").length;
+const countBd = cases.filter((c) => c.pillar === "business-disputes").length;
+const countPenal = cases.filter((c) => c.pillar === "penal").length;
 
 const collectionSchema = {
   "@type": "CollectionPage",
@@ -136,11 +143,11 @@ const collectionSchema = {
 
       <div class="blog-controls">
         <div class="blog-filters" role="group" aria-label={t.ariaCaseFilter}>
-          <button type="button" class="filter-pill case-filter" data-case-filter="all" aria-pressed="true">{t.casosFilterAll}</button>
-          <button type="button" class="filter-pill case-filter" data-case-filter="private-clients" aria-pressed="false">{t.casosFilterPc}</button>
-          <button type="button" class="filter-pill case-filter" data-case-filter="private-wealth" aria-pressed="false">{t.casosFilterPw}</button>
-          <button type="button" class="filter-pill case-filter" data-case-filter="business-disputes" aria-pressed="false">{t.casosFilterBd}</button>
-          <button type="button" class="filter-pill case-filter" data-case-filter="penal" aria-pressed="false">{t.casosFilterPenal}</button>
+          <button type="button" class="filter-pill case-filter" data-case-filter="all" aria-pressed="true">{t.casosFilterAll} ({countAll})</button>
+          <button type="button" class="filter-pill case-filter" data-case-filter="private-clients" aria-pressed="false">{t.casosFilterPc} ({countPc})</button>
+          <button type="button" class="filter-pill case-filter" data-case-filter="private-wealth" aria-pressed="false">{t.casosFilterPw} ({countPw})</button>
+          <button type="button" class="filter-pill case-filter" data-case-filter="business-disputes" aria-pressed="false">{t.casosFilterBd} ({countBd})</button>
+          <button type="button" class="filter-pill case-filter" data-case-filter="penal" aria-pressed="false">{t.casosFilterPenal} ({countPenal})</button>
         </div>
       </div>
 
@@ -163,6 +170,8 @@ const collectionSchema = {
       </div>
     </div>
   </section>
+
+  <EntryRoutes lang={lang} heading={t.casosEntryTitle} intro={t.entrySharedIntro} />
 </BaseLayout>
 
 <script is:inline>

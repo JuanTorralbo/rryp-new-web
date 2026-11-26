@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import EntryRoutes from "../../components/EntryRoutes.astro";
 import { FIRM } from "../../data/firm";
 import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
 
@@ -95,6 +96,8 @@ const aboutSchema = {
             class="slot-photo"
             src={FIRM.photos.editorial}
             alt={t.altFounders}
+            width="2000"
+            height="1500"
           />
         </div>
         <div class="editorial-copy">
@@ -128,6 +131,8 @@ const aboutSchema = {
                 class="slot-photo"
                 src={member.photo}
                 alt={`${member.name}, ${t[member.roleKey]}`}
+                width={member.width}
+                height={member.height}
               />
             </div>
             <div class="team-meta">
@@ -140,4 +145,6 @@ const aboutSchema = {
       </div>
     </div>
   </section>
+
+  <EntryRoutes lang={lang} heading={t.firmEntryTitle} intro={t.entrySharedIntro} />
 </BaseLayout>

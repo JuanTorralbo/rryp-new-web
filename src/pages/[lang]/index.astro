@@ -30,6 +30,25 @@ const faqSchema = {
   })),
 };
 
+const videoSchema = {
+  "@type": "VideoObject",
+  name: t.ytTitle,
+  description: t.ytDesc,
+  thumbnailUrl: [`${FIRM.siteUrl}/assets/photos/youtube-cover.webp`],
+  uploadDate: "2025-01-01",
+  embedUrl: "https://www.youtube-nocookie.com/embed/u71QLOTkk5M",
+  contentUrl: "https://www.youtube.com/watch?v=u71QLOTkk5M",
+  publisher: { "@id": `${FIRM.siteUrl}/#organization` },
+};
+
+const reviewSchema = {
+  "@type": "Review",
+  itemReviewed: { "@id": `${FIRM.siteUrl}/#organization` },
+  author: { "@type": "Person", name: "Mohamed L." },
+  reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+  reviewBody: `${t.fbQuote1} ${t.fbQuote2}`,
+};
+
 const homeIntelCards = [
   {
     pillar: "Business Disputes",
@@ -67,7 +86,7 @@ const homeIntelCards = [
   preloadImage={FIRM.photos.hero}
   activeNav="home"
   fullFooter={true}
-  jsonLdExtra={[faqSchema]}
+  jsonLdExtra={[faqSchema, videoSchema, reviewSchema]}
 >
   <!-- Seccion 1: Apertura cinematografica oscura (#0E1211) -->
   <section class="hero">
@@ -88,6 +107,8 @@ const homeIntelCards = [
             class="slot-photo"
             src={FIRM.photos.hero}
             alt={t.altHeroOffice}
+            width="2240"
+            height="1260"
             fetchpriority="high"
             decoding="async"
           />
@@ -216,6 +237,8 @@ const homeIntelCards = [
             class="slot-photo"
             src={FIRM.photos.editorial}
             alt={t.altFounders}
+            width="2000"
+            height="1500"
           />
         </div>
 
@@ -360,6 +383,8 @@ const homeIntelCards = [
                 class="slot-photo"
                 src={member.photo}
                 alt={`${member.name}, ${t[member.roleKey]}`}
+                width={member.width}
+                height={member.height}
               />
             </div>
             <div class="team-meta">
@@ -525,6 +550,8 @@ const homeIntelCards = [
           <img
             src="/assets/photos/youtube-cover.webp"
             alt={t.ytTitle}
+            width="1280"
+            height="720"
             loading="lazy"
             decoding="async"
             class="video-cover"
@@ -673,6 +700,9 @@ const homeIntelCards = [
               <div>
                 <p class="office-address">{office.fullAddress}</p>
                 {office.hasServiceAreaNote && <p class="office-note">{t.malagaNote}</p>}
+                <a href={office.mapsUrl} target="_blank" rel="noopener noreferrer" class="office-maps-link">
+                  {t.officeMapsLink}
+                </a>
               </div>
             </div>
           ))}
@@ -700,6 +730,13 @@ const homeIntelCards = [
           <div class="contact-block">
             <p class="contact-label">{t.contactHoursLabel}</p>
             <p class="contact-sub">{t.contactHoursValue}</p>
+            <p
+              class="office-live-status office-live-status--on-cream"
+              data-office-status
+              data-open={t.statusOpenNow}
+              data-closed={t.statusClosedNow}
+              aria-live="polite"
+            ></p>
           </div>
         </aside>
       </div>

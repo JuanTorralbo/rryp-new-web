@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import EntryRoutes from "../../components/EntryRoutes.astro";
 import { FIRM } from "../../data/firm";
 import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
 
@@ -61,7 +62,15 @@ const localSchema = {
           </div>
         </div>
         <div class="photo-slot photo-slot--16x9 has-photo hero-anim hero-anim--d4">
-          <img fetchpriority="high" decoding="async" class="slot-photo" src={office.photo} alt={t.altMalagaOffice} />
+          <img
+            fetchpriority="high"
+            decoding="async"
+            class="slot-photo"
+            src={office.photo}
+            alt={t.altMalagaOffice}
+            width={office.photoWidth}
+            height={office.photoHeight}
+          />
         </div>
       </div>
     </div>
@@ -76,11 +85,23 @@ const localSchema = {
             <div>
               <p class="office-address">{office.fullAddress}</p>
               <p class="office-note">{t.malagaServiceNote}</p>
+              <a href={office.mapsUrl} target="_blank" rel="noopener noreferrer" class="office-maps-link">
+                {t.officeMapsLink}
+              </a>
             </div>
           </div>
           <div class="office-row">
             <h2 class="office-city">{t.officeHoursLabel}</h2>
-            <p class="office-address">{t.officeHoursDetail}</p>
+            <div>
+              <p class="office-address">{t.officeHoursDetail}</p>
+              <p
+                class="office-live-status office-live-status--on-cream"
+                data-office-status
+                data-open={t.statusOpenNow}
+                data-closed={t.statusClosedNow}
+                aria-live="polite"
+              ></p>
+            </div>
           </div>
           <div class="office-row">
             <h2 class="office-city">{t.officePracticeLabel}</h2>
@@ -107,4 +128,6 @@ const localSchema = {
       </div>
     </div>
   </section>
+
+  <EntryRoutes lang={lang} heading={t.officeEntryTitle} intro={t.entrySharedIntro} />
 </BaseLayout>

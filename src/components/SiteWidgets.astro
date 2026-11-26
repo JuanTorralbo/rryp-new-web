@@ -126,7 +126,10 @@ const searchConfig = JSON.stringify({
         autocomplete="off"
       />
     </div>
-    <p class="search-modal-hint">{t.searchHint}</p>
+    <p class="search-modal-hint">
+      <span>{t.searchHint}</span>
+      <span class="search-shortcut-hint">{t.searchShortcutHint}</span>
+    </p>
 
     <div class="search-results" id="rryp-search-results" aria-live="polite"></div>
   </div>
@@ -217,7 +220,10 @@ const searchConfig = JSON.stringify({
       resultsEl.innerHTML = html;
     }
 
-    function openSearch() {
+    var lastTrigger = null;
+
+    function openSearch(triggerEl) {
+      lastTrigger = triggerEl || document.activeElement;
       overlay.hidden = false;
       document.body.style.overflow = "hidden";
       ensureArticles();
@@ -225,18 +231,41 @@ const searchConfig = JSON.stringify({
       window.setTimeout(function () { input.focus(); }, 30);
     }
 
-    function closeSearch() {
+    function closeSearch(restoreFocus) {
       overlay.hidden = true;
       document.body.style.overflow = "";
+      if (restoreFocus && lastTrigger && typeof lastTrigger.focus === "function") {
+        lastTrigger.focus();
+      }
     }
 
-    if (openBtn) openBtn.addEventListener("click", openSearch);
-    if (closeBtn) closeBtn.addEventListener("click", closeSearch);
+    window.RRYP_OPEN_SEARCH = function () {
+      openSearch(openBtn);
+    };
+
+    if (openBtn) {
+      openBtn.addEventListener("click", function () {
+        openSearch(openBtn);
+      });
+    }
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function () {
+        closeSearch(true);
+      });
+    }
     overlay.addEventListener("click", function (e) {
-      if (e.target === overlay) closeSearch();
+      if (e.target === overlay) closeSearch(true);
     });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && !overlay.hidden) closeSearch();
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        if (overlay.hidden) openSearch(openBtn);
+        else closeSearch(true);
+        return;
+      }
+      if (e.key === "Escape" && !overlay.hidden) {
+        closeSearch(true);
+      }
     });
     input.addEventListener("input", function () {
       render(input.value);

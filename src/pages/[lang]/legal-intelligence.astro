@@ -171,16 +171,19 @@ const blogUiConfig = JSON.stringify({
       return cfg.seoLabel || "SEO";
     }
 
+    function norm(s) {
+      return String(s || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    }
+
     function render() {
-      var q = searchTerm.trim().toLowerCase();
+      var q = norm(searchTerm.trim());
       var filtered = allPosts.filter(function (p) {
         if (activeFilter !== "all" && p.pillar !== activeFilter) return false;
         if (!q) return true;
-        return (
-          String(p.title || "").toLowerCase().includes(q) ||
-          String(p.excerpt || "").toLowerCase().includes(q) ||
-          String(p.category || "").toLowerCase().includes(q)
-        );
+        return norm((p.title || "") + " " + (p.excerpt || "") + " " + (p.category || "")).includes(q);
       });
 
       var slice = filtered.slice(0, visibleCount);
@@ -245,6 +248,12 @@ const blogUiConfig = JSON.stringify({
         activeFilter = btn.getAttribute("data-filter") || "all";
         visibleCount = 18;
         syncFilterButtons();
+        if (window.history && window.history.replaceState) {
+          var nextUrl = new URL(window.location.href);
+          if (activeFilter === "all") nextUrl.searchParams.delete("pilar");
+          else nextUrl.searchParams.set("pilar", activeFilter);
+          window.history.replaceState(null, "", nextUrl.toString());
+        }
         render();
       });
     });

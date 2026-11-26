@@ -3467,6 +3467,7 @@ html.is-scrolled .site-header {
 .cookie-prefs[hidden],
 .cookie-actions .btn[hidden],
 .consult-popover[hidden],
+.footer-form-direct[hidden],
 .search-overlay[hidden] {
   display: none !important;
 }
@@ -3735,9 +3736,20 @@ html.is-scrolled .site-header {
 }
 
 .search-modal-hint {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
   font-size: 12px;
   color: var(--text-muted-on-dark);
   margin: 10px 0 22px;
+}
+
+.search-shortcut-hint {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: var(--rryp-gold);
 }
 
 .search-results {
@@ -3959,9 +3971,132 @@ html.is-scrolled .site-header {
   text-transform: uppercase;
 }
 
+/* Estado en vivo de horario de oficinas (hora de Madrid) */
+.office-live-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 0;
+  font-family: var(--font-brand);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rryp-gold);
+}
+
+.office-live-status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background-color: var(--rryp-gold);
+}
+
+.office-live-status.is-open {
+  color: var(--rryp-lime);
+}
+
+.office-live-status.is-open::before {
+  background-color: var(--rryp-lime);
+}
+
+.office-live-status--on-cream {
+  margin-top: 12px;
+  padding: 6px 10px;
+  border-radius: var(--radius-arch);
+  background-color: var(--rryp-black);
+  color: var(--rryp-gold);
+}
+
+.office-live-status--on-cream.is-open {
+  color: var(--rryp-lime);
+}
+
+.office-maps-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rryp-burgundy);
+  border-bottom: 1px solid rgba(71, 32, 45, 0.35);
+  padding-bottom: 2px;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.office-maps-link:hover {
+  color: var(--rryp-black);
+  border-bottom-color: var(--rryp-black);
+}
+
+/* Validacion visual y envio directo en formulario de pie de pagina */
+.footer-field [aria-invalid="true"] {
+  border-color: var(--rryp-lime);
+  background-color: rgba(225, 237, 99, 0.06);
+}
+
+.footer-form-direct {
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--rryp-gold);
+  border-radius: var(--radius-arch);
+  background-color: rgba(247, 244, 237, 0.04);
+}
+
+.footer-form-direct-note {
+  margin: 0 0 12px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--text-muted-on-dark);
+}
+
+.footer-form-direct-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Acceso directo a consultas dentro del cajon movil */
+.mobile-nav-consult {
+  display: none;
+}
+
 /* Margen inferior extra en el footer para que las pastillas flotantes no tapen el boton subir */
 .site-footer {
   padding-bottom: 84px;
+}
+
+@media (max-width: 1160px) {
+  .main-nav.is-open {
+    max-height: calc(100vh - 76px);
+    overflow-y: auto;
+    box-shadow: var(--shadow-dark-elevated);
+  }
+
+  .mobile-nav-consult {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line-on-dark-subtle);
+  }
+
+  .mobile-nav-consult-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .mobile-nav-consult-grid .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -3975,19 +4110,62 @@ html.is-scrolled .site-header {
 }
 
 @media (max-width: 680px) {
+  .header-inner {
+    gap: 8px;
+  }
+  .brand-logo {
+    height: 30px;
+  }
+  .header-actions {
+    gap: 6px;
+  }
+  .lang-switcher {
+    padding: 2px;
+    gap: 1px;
+  }
+  .lang-btn {
+    padding: 4px 5px;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+  }
+  .header-search-btn {
+    width: 30px;
+    height: 30px;
+  }
+  .menu-toggle {
+    padding: 6px 9px;
+    font-size: 10px;
+  }
   .consult-menu {
     display: none;
   }
   .rryp-whatsapp-fixed {
-    left: 12px;
-    bottom: 12px;
-    padding: 9px 12px;
+    left: 10px;
+    bottom: 10px;
+    padding: 8px 11px;
+    font-size: 11px;
+    letter-spacing: 0.05em;
   }
   .cookie-manage-pill {
-    right: 12px;
-    bottom: 12px;
-    padding: 9px 12px;
-    font-size: 10px;
+    right: 10px;
+    bottom: 10px;
+    padding: 8px 10px;
+    font-size: 9.5px;
+    letter-spacing: 0.06em;
+    max-width: calc(100vw - 150px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .cookie-dialog {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    width: auto;
+    padding: 18px;
+  }
+  .search-shortcut-hint {
+    display: none;
   }
 }
 

@@ -22,6 +22,7 @@ export interface Props {
   activeNav?: "clients" | "wealth" | "disputes" | "cases" | "firm" | "intel" | "home";
   urgentHeaderCta?: boolean;
   fullFooter?: boolean;
+  noindex?: boolean;
   breadcrumbLabel?: string;
   jsonLdExtra?: Record<string, unknown>[];
 }
@@ -36,6 +37,7 @@ const {
   activeNav = "home",
   urgentHeaderCta = false,
   fullFooter = false,
+  noindex = false,
   breadcrumbLabel,
   jsonLdExtra = [],
 } = Astro.props;
@@ -172,10 +174,18 @@ const jsonLd = JSON.stringify({
   "@graph": graphNodes,
 });
 
-const entryHref =
-  activeNav === "home" || activeNav === "clients" || activeNav === "wealth" || activeNav === "disputes"
-    ? "#vias-de-entrada"
-    : `${localizedPath(lang)}#vias-de-entrada`;
+const hasLocalEntryRoutes =
+  activeNav === "home" ||
+  activeNav === "clients" ||
+  activeNav === "wealth" ||
+  activeNav === "disputes" ||
+  activeNav === "cases" ||
+  activeNav === "firm" ||
+  cleanSlug === "madrid" ||
+  cleanSlug === "malaga" ||
+  cleanSlug === "cordoba";
+
+const entryHref = hasLocalEntryRoutes ? "#vias-de-entrada" : `${localizedPath(lang)}#vias-de-entrada`;
 ---
 
 <!DOCTYPE html>
@@ -185,7 +195,10 @@ const entryHref =
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta
+      name="robots"
+      content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
+    />
     <meta name="theme-color" content="#0E1211" />
 
     <link rel="icon" type="image/png" href="/assets/logos/favicon.png" />
@@ -198,6 +211,9 @@ const entryHref =
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={FIRM.brand} />
     <meta property="og:locale" content={LOCALE_LABELS[lang].og} />
+    {LOCALES.filter((loc) => loc !== lang).map((loc) => (
+      <meta property="og:locale:alternate" content={LOCALE_LABELS[loc].og} />
+    ))}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
@@ -232,24 +248,63 @@ const entryHref =
         </a>
 
         <nav class="main-nav" id="main-nav" aria-label={t.ariaMainNav}>
-          <a href={localizedPath(lang, "private-clients")} class={activeNav === "clients" ? "is-active" : undefined}>
+          <a
+            href={localizedPath(lang, "private-clients")}
+            class={activeNav === "clients" ? "is-active" : undefined}
+            aria-current={activeNav === "clients" ? "page" : undefined}
+          >
             {t.navClients}
           </a>
-          <a href={localizedPath(lang, "private-wealth")} class={activeNav === "wealth" ? "is-active" : undefined}>
+          <a
+            href={localizedPath(lang, "private-wealth")}
+            class={activeNav === "wealth" ? "is-active" : undefined}
+            aria-current={activeNav === "wealth" ? "page" : undefined}
+          >
             {t.navWealth}
           </a>
-          <a href={localizedPath(lang, "business-disputes")} class={activeNav === "disputes" ? "is-active" : undefined}>
+          <a
+            href={localizedPath(lang, "business-disputes")}
+            class={activeNav === "disputes" ? "is-active" : undefined}
+            aria-current={activeNav === "disputes" ? "page" : undefined}
+          >
             {t.navDisputes}
           </a>
-          <a href={localizedPath(lang, "casos")} class={activeNav === "cases" ? "is-active" : undefined}>
+          <a
+            href={localizedPath(lang, "casos")}
+            class={activeNav === "cases" ? "is-active" : undefined}
+            aria-current={activeNav === "cases" ? "page" : undefined}
+          >
             {t.navCases}
           </a>
-          <a href={localizedPath(lang, "la-firma")} class={activeNav === "firm" ? "is-active" : undefined}>
+          <a
+            href={localizedPath(lang, "la-firma")}
+            class={activeNav === "firm" ? "is-active" : undefined}
+            aria-current={activeNav === "firm" ? "page" : undefined}
+          >
             {t.navFirmShort}
           </a>
-          <a href={localizedPath(lang, "legal-intelligence")} class={activeNav === "intel" ? "is-active" : undefined}>
+          <a
+            href={localizedPath(lang, "legal-intelligence")}
+            class={activeNav === "intel" ? "is-active" : undefined}
+            aria-current={activeNav === "intel" ? "page" : undefined}
+          >
             {t.navIntel}
           </a>
+
+          <div class="mobile-nav-consult">
+            <p class="consult-eyebrow">{t.mobileConsultLabel}</p>
+            <div class="mobile-nav-consult-grid">
+              <a href={FIRM.calendly.legal} target="_blank" rel="noopener noreferrer" class="btn btn--lime btn--compact">
+                {t.e2Title} ({t.e2Fee})
+              </a>
+              <a href={FIRM.calendly.initial} target="_blank" rel="noopener noreferrer" class="btn btn--outline-dark btn--compact">
+                {t.e1Title} ({t.e1Fee})
+              </a>
+              <a href={FIRM.calendly.urgent} target="_blank" rel="noopener noreferrer" class="btn btn--outline-dark btn--compact">
+                {t.e3Title} ({t.e3Fee})
+              </a>
+            </div>
+          </div>
         </nav>
 
         <div class="header-actions">
@@ -319,6 +374,13 @@ const entryHref =
                   </a>
                 </div>
                 <p class="consult-footer-note">{t.consultFooterNote}</p>
+                <p
+                  class="office-live-status"
+                  data-office-status
+                  data-open={t.statusOpenNow}
+                  data-closed={t.statusClosedNow}
+                  aria-live="polite"
+                ></p>
               </div>
             </div>
           )}
@@ -374,7 +436,11 @@ const entryHref =
               class="footer-form"
               id="footer-intake-form"
               data-msg-error={t.formError}
+              data-msg-email={t.formEmailInvalid}
               data-msg-success={t.formSuccess}
+              data-msg-direct={t.formDirectSendNote}
+              data-btn-email={t.formSendEmailBtn}
+              data-btn-wa={t.formSendWaBtn}
               novalidate
             >
               <div class="footer-field">
@@ -406,6 +472,7 @@ const entryHref =
                   {t.formSubmit}
                 </button>
                 <p class="footer-form-feedback" id="footer-form-feedback" role="status" aria-live="polite"></p>
+                <div class="footer-form-direct" id="footer-form-direct" hidden></div>
               </div>
             </form>
           </div>
@@ -548,15 +615,71 @@ const entryHref =
           });
         });
 
-        // Mobile menu toggle
+        // Mobile menu toggle + close on Escape, link click, or outside tap
         var toggle = document.getElementById("menu-toggle");
         var nav = document.getElementById("main-nav");
         if (toggle && nav) {
-          toggle.addEventListener("click", function () {
+          function closeMobileNav(restoreFocus) {
+            toggle.setAttribute("aria-expanded", "false");
+            nav.classList.remove("is-open");
+            if (restoreFocus) toggle.focus();
+          }
+          toggle.addEventListener("click", function (e) {
+            e.stopPropagation();
             var expanded = toggle.getAttribute("aria-expanded") === "true";
             toggle.setAttribute("aria-expanded", String(!expanded));
             nav.classList.toggle("is-open", !expanded);
           });
+          nav.querySelectorAll("a").forEach(function (a) {
+            a.addEventListener("click", function () {
+              if (nav.classList.contains("is-open")) closeMobileNav(false);
+            });
+          });
+          document.addEventListener("click", function (e) {
+            if (nav.classList.contains("is-open") && !nav.contains(e.target) && e.target !== toggle) {
+              closeMobileNav(false);
+            }
+          });
+          document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && nav.classList.contains("is-open")) {
+              closeMobileNav(true);
+            }
+          });
+        }
+
+        // Live office availability in Europe/Madrid timezone (real official schedule)
+        var statusEls = document.querySelectorAll("[data-office-status]");
+        if (statusEls.length) {
+          function updateOfficeStatus() {
+            var isOpen = false;
+            try {
+              var parts = new Intl.DateTimeFormat("en-GB", {
+                timeZone: "Europe/Madrid",
+                weekday: "short",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false,
+              }).formatToParts(new Date());
+              var map = {};
+              parts.forEach(function (p) { map[p.type] = p.value; });
+              var day = map.weekday;
+              var mins = parseInt(map.hour, 10) * 60 + parseInt(map.minute, 10);
+              if (day === "Mon" || day === "Tue" || day === "Wed" || day === "Thu") {
+                isOpen = (mins >= 540 && mins < 840) || (mins >= 960 && mins < 1155);
+              } else if (day === "Fri") {
+                isOpen = mins >= 480 && mins < 900;
+              }
+            } catch (_) {}
+            statusEls.forEach(function (el) {
+              el.classList.toggle("is-open", isOpen);
+              el.classList.toggle("is-closed", !isOpen);
+              el.textContent = isOpen
+                ? el.getAttribute("data-open") || ""
+                : el.getAttribute("data-closed") || "";
+            });
+          }
+          updateOfficeStatus();
+          window.setInterval(updateOfficeStatus, 60000);
         }
 
         // Scroll-aware header border & GPU reading progress hairline (0 layout thrashing)
@@ -616,21 +739,81 @@ const entryHref =
           }
         }
 
-        // Consultation intake form feedback
+        // Consultation intake form validation + 1-click direct channel dispatch (email / WhatsApp)
         var form = document.getElementById("footer-intake-form");
         var fb = document.getElementById("footer-form-feedback");
+        var directBox = document.getElementById("footer-form-direct");
         if (form && fb) {
+          var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           form.addEventListener("submit", function (e) {
             e.preventDefault();
             var name = document.getElementById("f-name");
             var email = document.getElementById("f-email");
+            var phone = document.getElementById("f-phone");
+            var country = document.getElementById("f-country");
             var msg = document.getElementById("f-message");
             var consent = document.getElementById("f-consent");
+            var requiredEls = [name, email, msg, consent];
+            requiredEls.forEach(function (el) { if (el) el.removeAttribute("aria-invalid"); });
+            if (directBox) directBox.hidden = true;
+
             if (!name.value.trim() || !email.value.trim() || !msg.value.trim() || !consent.checked) {
+              var firstBad = null;
+              if (!name.value.trim()) { name.setAttribute("aria-invalid", "true"); firstBad = firstBad || name; }
+              if (!email.value.trim()) { email.setAttribute("aria-invalid", "true"); firstBad = firstBad || email; }
+              if (!msg.value.trim()) { msg.setAttribute("aria-invalid", "true"); firstBad = firstBad || msg; }
+              if (!consent.checked) { consent.setAttribute("aria-invalid", "true"); firstBad = firstBad || consent; }
               fb.textContent = form.getAttribute("data-msg-error") || "";
+              if (firstBad) firstBad.focus();
               return;
             }
+            if (!emailRe.test(email.value.trim())) {
+              email.setAttribute("aria-invalid", "true");
+              fb.textContent = form.getAttribute("data-msg-email") || form.getAttribute("data-msg-error") || "";
+              email.focus();
+              return;
+            }
+
+            var summary = [
+              "RRYP Global Inquiry",
+              "Name: " + name.value.trim(),
+              "Email: " + email.value.trim(),
+              phone && phone.value.trim() ? "Phone: " + phone.value.trim() : "",
+              country && country.value.trim() ? "Country: " + country.value.trim() : "",
+              "",
+              msg.value.trim(),
+            ].filter(Boolean).join("\n");
+
             fb.textContent = form.getAttribute("data-msg-success") || "";
+            if (directBox) {
+              var mailHref =
+                "mailto:info@rrypglobal.com?subject=" +
+                encodeURIComponent("Consulta jurídica RRYP Global - " + name.value.trim()) +
+                "&body=" +
+                encodeURIComponent(summary);
+              var waHref = "https://wa.me/34957858952?text=" + encodeURIComponent(summary);
+              directBox.innerHTML = "";
+              var note = document.createElement("p");
+              note.className = "footer-form-direct-note";
+              note.textContent = form.getAttribute("data-msg-direct") || "";
+              var links = document.createElement("div");
+              links.className = "footer-form-direct-links";
+              var aMail = document.createElement("a");
+              aMail.href = mailHref;
+              aMail.className = "btn btn--outline-dark btn--compact";
+              aMail.textContent = form.getAttribute("data-btn-email") || "Email";
+              var aWa = document.createElement("a");
+              aWa.href = waHref;
+              aWa.target = "_blank";
+              aWa.rel = "noopener noreferrer";
+              aWa.className = "btn btn--outline-dark btn--compact";
+              aWa.textContent = form.getAttribute("data-btn-wa") || "WhatsApp";
+              links.appendChild(aMail);
+              links.appendChild(aWa);
+              directBox.appendChild(note);
+              directBox.appendChild(links);
+              directBox.hidden = false;
+            }
             form.reset();
           });
         }
