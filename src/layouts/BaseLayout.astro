@@ -552,6 +552,15 @@ const entryHref =
               data-btn-wa={t.formSendWaBtn}
               novalidate
             >
+              <input
+                type="text"
+                name="website"
+                id="f-website"
+                class="footer-honeypot"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+              />
               <div class="footer-field">
                 <label for="f-name">{t.formName}</label>
                 <input id="f-name" name="name" type="text" required autocomplete="name" />
@@ -608,7 +617,7 @@ const entryHref =
           </div>
 
           <div>
-            <h4 class="footer-heading">{t.footerAreasHead}</h4>
+            <p class="footer-heading">{t.footerAreasHead}</p>
             <ul class="footer-links">
               <li><a href={localizedPath(lang, "private-clients")}>Private Clients ↗</a></li>
               <li><a href={localizedPath(lang, "private-wealth")}>Private Wealth ↗</a></li>
@@ -632,7 +641,7 @@ const entryHref =
           </div>
 
           <div>
-            <h4 class="footer-heading">{t.footerOfficesHead}</h4>
+            <p class="footer-heading">{t.footerOfficesHead}</p>
             <ul class="footer-offices">
               {FIRM.offices.map((office) => (
                 <li>
@@ -649,7 +658,7 @@ const entryHref =
           </div>
 
           <div>
-            <h4 class="footer-heading">{t.footerLangsHead}</h4>
+            <p class="footer-heading">{t.footerLangsHead}</p>
             <ul class="footer-links">
               {LOCALES.map((loc) => (
                 <li>

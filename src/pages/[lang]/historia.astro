@@ -15,6 +15,15 @@ const { lang } = Astro.params as { lang: Locale };
 const t = getDictionary(lang);
 const content = getPageContent(lang).historia;
 
+const HIST_LOGO_DIMS: Record<string, [number, number]> = {
+  "lawandtrends-dark.webp": [194, 120],
+  "deutschewelle-dark.webp": [211, 120],
+  "eudebusinessschool-dark.webp": [360, 71],
+  "lasexta-dark.webp": [97, 120],
+  "larazon-dark.webp": [125, 120],
+  "loyola-dark.webp": [360, 117],
+};
+
 interface TimelineLink {
   label: string;
   href: string;
@@ -176,6 +185,8 @@ const historySchema = {
                     <img
                       src={`/assets/media-logos/${ev.logo}`}
                       alt={ev.logoAlt || ev.tag}
+                      width={HIST_LOGO_DIMS[ev.logo]?.[0] ?? 180}
+                      height={HIST_LOGO_DIMS[ev.logo]?.[1] ?? 120}
                       loading="lazy"
                       decoding="async"
                       class="hist-card-logo"

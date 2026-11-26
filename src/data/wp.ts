@@ -72,10 +72,33 @@ export interface WpDictionaryTerm {
   readingMin: number;
 }
 
-export const WP_LEGAL_PAGES = legalRaw as WpLegalPage[];
-export const WP_CASES = casesRaw as WpCaseStudy[];
-export const WP_SPECIALTIES = specialtiesRaw as WpSpecialty[];
-export const WP_ARTICLES = articlesRaw as WpArticle[];
+function normalizeHeadingLevels(html: string): string {
+  let prev = 1;
+  return html.replace(/<h([1-6])(\b[^>]*)>([\s\S]*?)<\/h\1>/gi, (_m, lvlStr, attrs, inner) => {
+    const raw = parseInt(lvlStr, 10);
+    // Body headings live under the page <h1>, so clamp between h2 and prev+1 (no skipped levels)
+    const next = Math.max(2, Math.min(raw, prev + 1));
+    prev = next;
+    return `<h${next}${attrs}>${inner}</h${next}>`;
+  });
+}
+
+export const WP_LEGAL_PAGES = (legalRaw as WpLegalPage[]).map((p) => ({
+  ...p,
+  html: normalizeHeadingLevels(p.html),
+}));
+export const WP_CASES = (casesRaw as WpCaseStudy[]).map((c) => ({
+  ...c,
+  html: normalizeHeadingLevels(c.html),
+}));
+export const WP_SPECIALTIES = (specialtiesRaw as WpSpecialty[]).map((s) => ({
+  ...s,
+  html: normalizeHeadingLevels(s.html),
+}));
+export const WP_ARTICLES = (articlesRaw as WpArticle[]).map((a) => ({
+  ...a,
+  html: normalizeHeadingLevels(a.html),
+}));
 export const WP_DICTIONARY = dictionaryRaw as WpDictionaryTerm[];
 
 export function getLegalPageBySlug(slug: string): WpLegalPage | undefined {

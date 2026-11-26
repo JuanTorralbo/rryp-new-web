@@ -103,11 +103,11 @@ const glossarySchema = {
         </div>
 
         <div class="dict-alpha-bar" role="tablist" aria-label="A-Z">
-          <button type="button" class="dict-alpha-btn is-active" data-dict-letter="ALL">
+          <button type="button" role="tab" aria-selected="true" class="dict-alpha-btn is-active" data-dict-letter="ALL">
             {t.dictAllLetters}
           </button>
           {letters.map((letter) => (
-            <button type="button" class="dict-alpha-btn" data-dict-letter={letter}>
+            <button type="button" role="tab" aria-selected="false" class="dict-alpha-btn" data-dict-letter={letter}>
               {letter}
             </button>
           ))}
@@ -196,7 +196,11 @@ const glossarySchema = {
     buttons.forEach((btn) => {
       btn.addEventListener("click", () => {
         activeLetter = btn.getAttribute("data-dict-letter") || "ALL";
-        buttons.forEach((b) => b.classList.toggle("is-active", b === btn));
+        buttons.forEach((b) => {
+          const active = b === btn;
+          b.classList.toggle("is-active", active);
+          b.setAttribute("aria-selected", String(active));
+        });
         applyFilter();
       });
     });

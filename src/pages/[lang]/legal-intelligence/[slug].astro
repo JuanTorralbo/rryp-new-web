@@ -64,7 +64,9 @@ const articleSchema = {
   "@type": "Article",
   headline: post.title,
   description: post.excerpt,
+  image: `${FIRM.siteUrl}/assets/og-rryp-global.png`,
   datePublished: post.date,
+  dateModified: post.date,
   inLanguage: lang,
   author: isMarAuthor
     ? {

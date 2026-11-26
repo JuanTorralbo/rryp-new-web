@@ -8,6 +8,7 @@
     "check:i18n": "node scripts/verify-i18n.mjs",
     "check": "npm run check:i18n && astro check",
     "build": "npm run check:i18n && astro build",
+    "audit": "node scripts/audit-dist.mjs",
     "preview": "astro preview --host 127.0.0.1 --port 4321"
   },
   "dependencies": {

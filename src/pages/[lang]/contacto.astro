@@ -114,9 +114,9 @@ const contactSchema = {
         <div class="triage-steps">
           <div class="triage-group">
             <p class="triage-step-label">{c.step1Label}</p>
-            <div class="triage-options" data-triage-group="matter">
+            <div class="triage-options" data-triage-group="matter" role="group" aria-label={c.step1Label}>
               {c.matters.map((m) => (
-                <button type="button" class="triage-opt" data-triage-val={m.id} data-triage-label={m.label}>
+                <button type="button" class="triage-opt" aria-pressed="false" data-triage-val={m.id} data-triage-label={m.label}>
                   {m.label}
                 </button>
               ))}
@@ -125,9 +125,9 @@ const contactSchema = {
 
           <div class="triage-group">
             <p class="triage-step-label">{c.step2Label}</p>
-            <div class="triage-options" data-triage-group="scope">
+            <div class="triage-options" data-triage-group="scope" role="group" aria-label={c.step2Label}>
               {c.scopes.map((s) => (
-                <button type="button" class="triage-opt" data-triage-val={s.id} data-triage-label={s.label}>
+                <button type="button" class="triage-opt" aria-pressed="false" data-triage-val={s.id} data-triage-label={s.label}>
                   {s.label}
                 </button>
               ))}
@@ -136,9 +136,9 @@ const contactSchema = {
 
           <div class="triage-group">
             <p class="triage-step-label">{c.step3Label}</p>
-            <div class="triage-options" data-triage-group="urgency">
+            <div class="triage-options" data-triage-group="urgency" role="group" aria-label={c.step3Label}>
               {c.urgencies.map((u) => (
-                <button type="button" class="triage-opt" data-triage-val={u.id} data-triage-label={u.label}>
+                <button type="button" class="triage-opt" aria-pressed="false" data-triage-val={u.id} data-triage-label={u.label}>
                   {u.label}
                 </button>
               ))}
@@ -146,7 +146,7 @@ const contactSchema = {
           </div>
         </div>
 
-        <div class="triage-result" id="triage-result" hidden>
+        <div class="triage-result" id="triage-result" aria-live="polite" hidden>
           <p class="eyebrow" style="margin: 0 0 8px;">{c.recEyebrow}</p>
           <p class="triage-res-badge" id="triage-res-badge"></p>
           <h3 class="triage-res-title" id="triage-res-title"></h3>
@@ -275,10 +275,16 @@ const contactSchema = {
           emailBtn.href = `mailto:${cfg.email}?subject=${encodeURIComponent("RRYP Global - Consulta")}&body=${encodeURIComponent(summary)}`;
         }
         if (casesList) {
-          const items = cfg.casesByPillar[state.matter] || [];
-          casesList.innerHTML = items
-            .map((it: { title: string; url: string }) => `<li><a href="${it.url}">${it.title} →</a></li>`)
-            .join("");
+          const items = (cfg.casesByPillar[state.matter] || []) as { title: string; url: string }[];
+          casesList.textContent = "";
+          items.forEach((it) => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.href = it.url;
+            a.textContent = `${it.title} →`;
+            li.appendChild(a);
+            casesList.appendChild(li);
+          });
         }
         resultEl.hidden = false;
       };
@@ -288,7 +294,11 @@ const contactSchema = {
         const btns = Array.from(groupEl.querySelectorAll<HTMLButtonElement>("[data-triage-val]"));
         btns.forEach((btn) => {
           btn.addEventListener("click", () => {
-            btns.forEach((b) => b.classList.toggle("is-selected", b === btn));
+            btns.forEach((b) => {
+              const selected = b === btn;
+              b.classList.toggle("is-selected", selected);
+              b.setAttribute("aria-pressed", String(selected));
+            });
             const val = btn.getAttribute("data-triage-val") || "";
             const lbl = btn.getAttribute("data-triage-label") || "";
             if (key === "matter") {
@@ -310,7 +320,10 @@ const contactSchema = {
         state.matter = "";
         state.scope = "";
         state.urgency = "";
-        document.querySelectorAll(".triage-opt.is-selected").forEach((el) => el.classList.remove("is-selected"));
+        document.querySelectorAll(".triage-opt.is-selected").forEach((el) => {
+          el.classList.remove("is-selected");
+          el.setAttribute("aria-pressed", "false");
+        });
         resultEl.hidden = true;
       });
     }

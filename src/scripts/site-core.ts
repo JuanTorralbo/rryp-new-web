@@ -309,12 +309,15 @@ function initIntakeForm() {
   if (!form || !fb) return;
 
   const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  form.addEventListener("submit", (e) => {
+  const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const name = document.getElementById("f-name") as HTMLInputElement | null;
     const email = document.getElementById("f-email") as HTMLInputElement | null;
     const phone = document.getElementById("f-phone") as HTMLInputElement | null;
     const country = document.getElementById("f-country") as HTMLInputElement | null;
+    const website = document.getElementById("f-website") as HTMLInputElement | null;
     const msg = document.getElementById("f-message") as HTMLTextAreaElement | null;
     const consent = document.getElementById("f-consent") as HTMLInputElement | null;
     if (!name || !email || !msg || !consent) return;
@@ -352,22 +355,49 @@ function initIntakeForm() {
       return;
     }
 
+    const payload = {
+      name: name.value.trim(),
+      email: email.value.trim(),
+      phone: phone ? phone.value.trim() : "",
+      country: country ? country.value.trim() : "",
+      message: msg.value.trim(),
+      website: website ? website.value.trim() : "",
+    };
+
     const summary = [
       "RRYP Global Inquiry",
-      `Name: ${name.value.trim()}`,
-      `Email: ${email.value.trim()}`,
-      phone && phone.value.trim() ? `Phone: ${phone.value.trim()}` : "",
-      country && country.value.trim() ? `Country: ${country.value.trim()}` : "",
+      `Name: ${payload.name}`,
+      `Email: ${payload.email}`,
+      payload.phone ? `Phone: ${payload.phone}` : "",
+      payload.country ? `Country: ${payload.country}` : "",
       "",
-      msg.value.trim(),
+      payload.message,
     ]
       .filter(Boolean)
       .join("\n");
 
+    let sentViaEdge = false;
+    if (submitBtn) submitBtn.disabled = true;
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) {
+        const data = (await res.json().catch(() => ({}))) as { ok?: boolean };
+        sentViaEdge = Boolean(data.ok);
+      }
+    } catch {
+      sentViaEdge = false;
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
+
     fb.textContent = form.getAttribute("data-msg-success") || "";
-    if (directBox) {
+    if (directBox && !sentViaEdge) {
       const mailHref =
-        `mailto:info@rrypglobal.com?subject=${encodeURIComponent(`Consulta jurídica RRYP Global - ${name.value.trim()}`)}` +
+        `mailto:info@rrypglobal.com?subject=${encodeURIComponent(`Consulta jurídica RRYP Global - ${payload.name}`)}` +
         `&body=${encodeURIComponent(summary)}`;
       const waHref = `https://wa.me/34957858952?text=${encodeURIComponent(summary)}`;
 

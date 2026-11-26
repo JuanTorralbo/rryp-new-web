@@ -17,8 +17,8 @@ interface SearchArticleItem {
 }
 
 interface SearchConfig {
+  pagesUrl: string;
   feedUrl: string;
-  pages: SearchPageItem[];
   pagesLabel: string;
   articlesLabel: string;
   emptyLabel: string;
@@ -42,6 +42,7 @@ function initSiteSearch() {
   if (!overlay || !input || !resultsEl || !cfgEl) return;
 
   const cfg = JSON.parse(cfgEl.textContent || "{}") as SearchConfig;
+  let pages: SearchPageItem[] = [];
   let articles: SearchArticleItem[] = [];
   let loaded = false;
   let lastTrigger: HTMLElement | null = null;
@@ -61,7 +62,7 @@ function initSiteSearch() {
 
   const render = (query: string) => {
     const q = norm(query.trim());
-    const matchedPages = (cfg.pages || [])
+    const matchedPages = pages
       .filter((p) => !q || norm(`${p.title} ${p.desc}`).includes(q))
       .slice(0, q ? 6 : 5);
 
@@ -95,25 +96,33 @@ function initSiteSearch() {
     resultsEl.innerHTML = html;
   };
 
-  const ensureArticles = () => {
+  const ensureIndex = () => {
     if (loaded) return;
     loaded = true;
-    fetch(cfg.feedUrl)
-      .then((r) => (r.ok ? r.json() : []))
-      .then((data) => {
-        if (Array.isArray(data)) {
-          articles = data as SearchArticleItem[];
-          render(input.value);
-        }
-      })
-      .catch(() => {});
+    const fetchJson = (url: string) =>
+      fetch(url)
+        .then((r) => (r.ok ? r.json() : []))
+        .catch(() => []);
+
+    Promise.all([fetchJson(cfg.pagesUrl), fetchJson(cfg.feedUrl)]).then(([pagesData, articlesData]) => {
+      if (Array.isArray(pagesData)) pages = pagesData as SearchPageItem[];
+      if (Array.isArray(articlesData)) articles = articlesData as SearchArticleItem[];
+      render(input.value);
+    });
   };
+
+  const getFocusable = () =>
+    Array.from(
+      overlay.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    ).filter((el) => !el.hidden && el.offsetParent !== null);
 
   const openSearch = (triggerEl?: HTMLElement | null) => {
     lastTrigger = triggerEl || (document.activeElement as HTMLElement | null);
     overlay.hidden = false;
     document.body.style.overflow = "hidden";
-    ensureArticles();
+    ensureIndex();
     render(input.value);
     window.setTimeout(() => input.focus(), 30);
   };
@@ -139,8 +148,23 @@ function initSiteSearch() {
       else closeSearch(true);
       return;
     }
-    if (e.key === "Escape" && !overlay.hidden) {
+    if (overlay.hidden) return;
+    if (e.key === "Escape") {
       closeSearch(true);
+      return;
+    }
+    if (e.key === "Tab") {
+      const focusables = getFocusable();
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     }
   });
   input.addEventListener("input", () => render(input.value));
