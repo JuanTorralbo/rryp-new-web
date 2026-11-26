@@ -1293,12 +1293,23 @@
 }
 
 .cv-portrait-frame {
-  max-width: 300px;
+  max-width: 320px;
   width: 100%;
+  aspect-ratio: 4 / 5;
   justify-self: end;
   border: 1px solid var(--rryp-gold);
   border-radius: var(--radius-arch);
   overflow: hidden;
+  background-color: var(--rryp-black);
+}
+
+.cv-portrait-frame picture,
+.cv-portrait-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 16%;
 }
 
 .cv-badges {
