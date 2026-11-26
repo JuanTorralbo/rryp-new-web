@@ -339,7 +339,12 @@ const aiConfig = JSON.stringify({
           });
           if (res.ok) {
             var data = await res.json();
-            if (data && data.reply) return String(data.reply).replace(/\u00b7/g, ",").trim();
+            if (data && data.reply) {
+              return {
+                reply: String(data.reply).replace(/\u00b7/g, ",").trim(),
+                sources: Array.isArray(data.sources) ? data.sources : [],
+              };
+            }
           }
         } catch (_) {}
       }
@@ -364,12 +369,12 @@ const aiConfig = JSON.stringify({
           if (gRes.ok) {
             var gData = await gRes.json();
             var txt = gData && gData.choices && gData.choices[0] && gData.choices[0].message && gData.choices[0].message.content;
-            if (txt) return String(txt).replace(/\u00b7/g, ",").trim();
+            if (txt) return { reply: String(txt).replace(/\u00b7/g, ",").trim(), sources: [] };
           }
         } catch (_) {}
       }
 
-      return S.fallbackIntro + "\n\n" + S.fallbackFollowup;
+      return { reply: S.fallbackIntro + "\n\n" + S.fallbackFollowup, sources: [] };
     }
 
     async function handlePrompt(text) {
@@ -391,12 +396,14 @@ const aiConfig = JSON.stringify({
       var showBooking = shouldShowBooking(clean, turns, route);
       if (route.id === "urgent") escalateHeaderToUrgent();
 
-      var reply = await callAi(clean, refs, turns);
+      var aiResult = await callAi(clean, refs, turns);
+      var reply = aiResult.reply;
+      var mergedRefs = (aiResult.sources && aiResult.sources.length) ? aiResult.sources : refs;
       thinking.remove();
 
       history.push({ role: "user", text: clean });
       history.push({ role: "assistant", text: reply });
-      renderMessage("assistant", reply, refs, showBooking ? route : null);
+      renderMessage("assistant", reply, mergedRefs, showBooking ? route : null);
       if (submitBtn) submitBtn.disabled = false;
       inputEl.focus();
     }

@@ -5,6 +5,7 @@ import EntryRoutes from "../../../components/EntryRoutes.astro";
 import ResponsivePhoto from "../../../components/ResponsivePhoto.astro";
 import { FIRM } from "../../../data/firm";
 import { getLocalizedPosts } from "../../../data/blog";
+import { getPageContent } from "../../../data/pages-i18n";
 import { getArticlesByAuthor } from "../../../data/wp";
 import { getDictionary, LOCALES, localizedPath, type Locale } from "../../../i18n";
 
@@ -14,6 +15,7 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Locale };
 const t = getDictionary(lang);
+const content = getPageContent(lang).marGamez;
 const marMember = FIRM.team[0];
 const marArticles = getArticlesByAuthor("Mar Gámez", 12);
 const availableInLang = new Set(getLocalizedPosts(lang).map((p) => p.slug));
@@ -115,60 +117,23 @@ const personSchema = {
   <section class="section-cream">
     <div class="container">
       <div class="cv-sections-grid" data-reveal>
-        <article class="cv-block">
-          <h2>Formación académica</h2>
-          <p>
-            Cursó el doble grado en Derecho y Relaciones Internacionales en la Universidad jesuita Loyola, donde fue
-            seleccionada como miembro de Alpha Sigma Nu, la sociedad de honor que reconoce la excelencia académica y el
-            mérito personal.
-          </p>
-          <p>
-            Completó posteriormente el Posgrado de Acceso al Ejercicio de la Abogacía con especialización en Derecho de
-            Empresa y negocios internacionales en ISDE y la Universidad Carlos III de Madrid, así como un LL.M. en
-            International Business Law, Contracting and International Relations en ISDE.
-          </p>
-        </article>
-
-        <article class="cv-block">
-          <h2>Experiencia profesional y colegiación</h2>
-          <p>
-            Socia cofundadora y abogada titular de RRYP Global, dirige asuntos de alta complejidad con dimensión
-            internacional en familia, patrimonio, sucesiones, litigación empresarial y derecho penal económico.
-          </p>
-          <p>
-            Tras obtener una calificación sobresaliente en el examen de acceso a la abogacía, se incorporó como abogada
-            ejerciente al Ilustre Colegio de la Abogacía de Madrid (ICAM n.º 137007). Su recorrido previo incluye
-            práctica mercantil internacional y dirección jurídica en proyectos empresariales propios.
-          </p>
-        </article>
-
-        <article class="cv-block">
-          <h2>Actividad académica y publicaciones</h2>
-          <p>
-            Profesora asociada de la Universidad Loyola, donde imparte semanalmente Derecho Internacional Privado y
-            Derecho Comparado. Ha ejercido también como docente en la EOI, el IMDEEC e IPRODECO.
-          </p>
-          <p>
-            Participó como autora en el curso de Derecho del Comercio Internacional de Aranzadi Thomson Reuters en
-            contratación internacional, garantías contractuales, financiación exterior y resolución de controversias.
-            Trabaja habitualmente en español e inglés.
-          </p>
-        </article>
-
-        <article class="cv-block">
-          <h2>Investigación, ponencias y medios</h2>
-          <p>
-            Sus trabajos de investigación abarcan mecanismos de resolución de conflictos entre China y la Unión Europea,
-            joint ventures internacionales e internacionalización empresarial. Ha sido ponente en las Cámaras de Comercio
-            de Málaga, Tenerife y Colombia, EOI, Universidad Loyola, EUDE Business School y Promálaga.
-          </p>
-          <p>
-            Interviene como analista jurídica internacional en laSexta Noticias, Deutsche Welle y La Razón.{" "}
-            <a href={localizedPath(lang, "medios")} style="text-decoration: underline;">
-              {t.mediosStripLink}
-            </a>
-          </p>
-        </article>
+        {content.sections.map((sec, idx) => (
+          <article class="cv-block">
+            <h2>{sec.title}</h2>
+            <p>{sec.p1}</p>
+            <p>
+              {sec.p2}
+              {idx === content.sections.length - 1 && (
+                <>
+                  {" "}
+                  <a href={localizedPath(lang, "medios")} style="text-decoration: underline;">
+                    {t.mediosStripLink}
+                  </a>
+                </>
+              )}
+            </p>
+          </article>
+        ))}
       </div>
 
       {marArticles.length > 0 && (

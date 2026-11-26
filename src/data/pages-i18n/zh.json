@@ -1,0 +1,609 @@
+{
+  "medios": {
+    "regionTag": "西班牙 / 国际",
+    "epgdLocation": "EPGD Business Law（美国佛罗里达州）",
+    "epgdAlt": "西班牙与美国佛罗里达州跨境法律实务对话",
+    "tv": [
+      {
+        "outlet": "laSexta Noticias",
+        "logo": "lasexta-cream.webp",
+        "logoW": 97,
+        "logoH": 120,
+        "stillBase": "media-lasexta-mar-rojo",
+        "topic": "国际贸易",
+        "date": "2024年12月",
+        "title": "红海航运袭击事件分析",
+        "desc": "解析红海危机对国际海运航线、合同履约与跨境贸易造成的法律与经济影响。",
+        "ytId": "lO0GP0INVvQ",
+        "ytUrl": "https://youtu.be/lO0GP0INVvQ"
+      },
+      {
+        "outlet": "laSexta Noticias",
+        "logo": "lasexta-cream.webp",
+        "logoW": 97,
+        "logoH": 120,
+        "stillBase": "media-lasexta-panama",
+        "topic": "海运物流",
+        "date": "2023年8月",
+        "title": "巴拿马运河拥堵影响",
+        "desc": "评估国际航运受限对全球供应链与国际贸易合同造成的法律后果。",
+        "ytId": "w7_pgOKkhyM",
+        "ytUrl": "https://youtu.be/w7_pgOKkhyM"
+      }
+    ],
+    "press": [
+      {
+        "year": "2025",
+        "outlet": "La Razón",
+        "logo": "larazon-dark.webp",
+        "logoW": 125,
+        "logoH": 120,
+        "wide": false,
+        "title": "西班牙法院正式受理针对投资者的跨境涉嫌诈骗刑事控告",
+        "url": "https://www.larazon.es/economia/justicia-admite-tramite-querella-presunta-estafa-alvaro-pintado_2025072868871fffabb2960d1fb7a262.html"
+      },
+      {
+        "year": "2025",
+        "outlet": "Diario Córdoba",
+        "logo": "diariocordoba-dark.webp",
+        "logoW": 129,
+        "logoH": 120,
+        "wide": false,
+        "title": "专访 Mar Gámez：从科尔多瓦走向国际的 RRYP Global 成长之路",
+        "url": "https://www.diariocordoba.com/cordoba-ciudad/2025/08/18/mar-gamez-cofundadora-relacionate-punto-120700068.html"
+      },
+      {
+        "year": "2023",
+        "outlet": "Law&Trends",
+        "logo": "lawandtrends-dark.webp",
+        "logoW": 194,
+        "logoH": 120,
+        "wide": true,
+        "title": "RRYP Global 在科尔多瓦启用首家实体办公室",
+        "url": "https://www.lawandtrends.com/noticias/rryp-global/rryp-global-inaugura-su-primera-oficina-en-cordoba-1.html"
+      },
+      {
+        "year": "2023",
+        "outlet": "德国之声 (DW)",
+        "logo": "deutschewelle-dark.webp",
+        "logoW": 211,
+        "logoH": 120,
+        "wide": true,
+        "title": "气候变化使巴拿马运河航线面临严峻考验",
+        "url": "https://www.dw.com/es/el-cambio-clim%C3%A1tico-pone-en-jaque-ruta-del-canal-de-panam%C3%A1/a-66603003"
+      }
+    ],
+    "academia": [
+      {
+        "org": "洛约拉大学 (Universidad Loyola)",
+        "logo": "loyola-dark.webp",
+        "logoW": 360,
+        "logoH": 117,
+        "topic": "国际私法与比较法大学课程讲授"
+      },
+      {
+        "org": "马拉加商会",
+        "logo": "camaramalaga-dark.webp",
+        "logoW": 74,
+        "logoH": 120,
+        "topic": "企业人工智能合规：在不阻碍创新的前提下防范法律风险"
+      },
+      {
+        "org": "IPRODECO（科尔多瓦省发展署）",
+        "logo": "iprodeco-dark.webp",
+        "logoW": 360,
+        "logoH": 110,
+        "topic": "人工智能在国际贸易中的战略与应用"
+      },
+      {
+        "org": "EUDE 商学院",
+        "logo": "eudebusinessschool-dark.webp",
+        "logoW": 360,
+        "logoH": 71,
+        "topic": "从零走向全球：如何打造天生国际化初创企业"
+      },
+      {
+        "org": "EOI 工业组织学院",
+        "logo": "eoi-dark.webp",
+        "logoW": 360,
+        "logoH": 75,
+        "topic": "企业国际化与新兴公司法律实务教学"
+      },
+      {
+        "org": "Promálaga",
+        "logo": "promalaga-dark.webp",
+        "logoW": 157,
+        "logoH": 120,
+        "topic": "数字与跨境业务的实用法律框架"
+      }
+    ]
+  },
+  "historia": {
+    "stages": [
+      {
+        "num": "01",
+        "period": "2020 - 2021",
+        "name": "Relaciónate y Punto",
+        "desc": "诞生于科尔多瓦的国际关系与外贸专栏项目，并于2021年1月由 Mar Gámez Ramírez 与 Mar Ramírez 正式注册成立 RELACIONATEYPUNTO, S.L.。"
+      },
+      {
+        "num": "02",
+        "period": "2022 - 2024",
+        "name": "RRYP Abogados 与全国拓展",
+        "desc": "2023年3月启用科尔多瓦首家实体办公室，荣获 Andalucía Emprende Top 50 创新企业奖，亮相 laSexta 电视台并加入马德里 La Nave 创新生态。"
+      },
+      {
+        "num": "03",
+        "period": "2025 - 2026",
+        "name": "RRYP Global — 国际精品律师事务所",
+        "desc": "稳固马德里、马拉加与科尔多瓦三大实体办公室，任教洛约拉大学，服务26+国家客户、累计200+案件并推出 RRYP Legal Intelligence。"
+      }
+    ],
+    "timeline": [
+      {
+        "year": "2020",
+        "month": "品牌萌芽",
+        "tag": "Relaciónate y Punto",
+        "title": "源于国际关系专栏的跨境法律使命",
+        "desc": "Mar Gámez Ramírez（洛约拉大学法学与国际关系双学位、ISDE 硕士）与 Mar Ramírez 共同创立 Relaciónate y Punto，聚焦国际贸易与实用国际法。",
+        "linkType": "cv"
+      },
+      {
+        "year": "2021",
+        "month": "1月",
+        "tag": "正式成立",
+        "title": "在科尔多瓦正式设立 RELACIONATEYPUNTO, S.L.",
+        "desc": "在科尔多瓦商业登记处注册成立（税号 B42713768），获得 CADE Córdoba 与 Andalucía Emprende 创业体系支持。",
+        "linkType": "firm"
+      },
+      {
+        "year": "2023",
+        "month": "3月2日",
+        "tag": "首家办公室",
+        "logo": "lawandtrends-dark.webp",
+        "logoAlt": "Law&Trends",
+        "title": "RRYP Global 在科尔多瓦启用首家实体办公室",
+        "desc": "西班牙法律媒体 Law&Trends 报道科尔多瓦办公室开业，标志着 RRYP Global 国际精品律所品牌正式确立。",
+        "linkType": "cordoba_press"
+      },
+      {
+        "year": "2023",
+        "month": "6月28日",
+        "tag": "荣誉奖项",
+        "title": "荣获 Andalucía Emprende Top 50 创新企业奖",
+        "desc": "安达卢西亚公共创业基金会表彰 RRYP 在创新性、科技属性与创业生态影响力方面的突出表现。",
+        "linkType": "top50"
+      },
+      {
+        "year": "2023",
+        "month": "8月 - 11月",
+        "tag": "全国电视与国际媒体",
+        "logo": "deutschewelle-dark.webp",
+        "logoAlt": "Deutsche Welle",
+        "title": "首次亮相 laSexta Noticias 并获德国之声 (DW) 引用",
+        "desc": "2023年8月27日 Mar Gámez 就巴拿马运河航运危机接受 laSexta 电视专访并获德国之声报道，随后参与 Al-Ándalus Innovation Venture 与 Andalucía TRADE Global。",
+        "linkType": "medios_2023"
+      },
+      {
+        "year": "2024",
+        "month": "2月 - 5月",
+        "tag": "马德里与马拉加布局",
+        "logo": "eudebusinessschool-dark.webp",
+        "logoAlt": "EUDE Business School",
+        "title": "加入马德里 La Nave、获 IMDEEC 支持并拓展马拉加",
+        "desc": "加入马德里市政府 La Nave 创新生态，接受 IMDEEC 机构访问，与 AJE Córdoba 签约，并在 EUDE 商学院及 Promálaga 开展专题授课。",
+        "linkType": "madrid_malaga"
+      },
+      {
+        "year": "2024",
+        "month": "12月9日",
+        "tag": "全国电视媒体",
+        "logo": "lasexta-dark.webp",
+        "logoAlt": "laSexta Noticias",
+        "title": "再度做客 laSexta Noticias 解析红海危机",
+        "desc": "围绕红海航运受阻对国际海运贸易合同与供应链的法律影响发表专业评论。",
+        "linkType": "medios"
+      },
+      {
+        "year": "2025",
+        "month": "3月 - 7月",
+        "tag": "专业社群与诉讼",
+        "logo": "larazon-dark.webp",
+        "logoAlt": "La Razón",
+        "title": "推出播客《Pienso, Luego Éxito》、首届法律沙龙并获 La Razón 报道",
+        "desc": "在 IPRODECO 授课及赞助 AJE 奖项后，推出自有播客与线下法律沙龙；7月28日 La Razón 报道律所主导的跨境诈骗控告获法院受理。",
+        "linkType": "larazon"
+      },
+      {
+        "year": "2025",
+        "month": "8月 - 9月",
+        "tag": "高校任教与稳固发展",
+        "logo": "loyola-dark.webp",
+        "logoAlt": "Universidad Loyola",
+        "title": "Diario Córdoba 专访、洛约拉大学任教与马拉加商会演讲",
+        "desc": "Diario Córdoba 深入报道律所服务近30个国家的国际化路径；9月起 Mar Gámez 受聘为洛约拉大学国际私法与比较法客座教授。",
+        "linkType": "loyola"
+      },
+      {
+        "year": "2026",
+        "month": "如今",
+        "tag": "国际精品律师事务所",
+        "title": "三大实体办公室、200+ 跨境案件与 RRYP Legal Intelligence",
+        "desc": "立足马德里（Pº de la Castellana 40）、马拉加（C/ Martínez Campos 16，覆盖马贝拉与太阳海岸）与科尔多瓦，深耕四大核心领域，拥有429篇专业文章、28个代表案例与6语种法律智能平台。",
+        "linkType": "present"
+      }
+    ],
+    "metrics": [
+      {
+        "num": "2021",
+        "head": "科尔多瓦创立",
+        "text": "RELACIONATEYPUNTO, S.L.，RRYP Global 的法律与运营起点。"
+      },
+      {
+        "num": "3",
+        "head": "三大实体办公室",
+        "text": "马德里、马拉加（覆盖马贝拉与太阳海岸）及科尔多瓦。"
+      },
+      {
+        "num": "26+",
+        "head": "服务国家/国籍",
+        "text": "横跨西班牙、欧洲、美洲及其他司法管辖区的跨境案件。"
+      },
+      {
+        "num": "429",
+        "head": "专业法律文章",
+        "text": "覆盖6种语言的原创国际法实务知识库。"
+      }
+    ],
+    "officeCordoba": "科尔多瓦办公室 →",
+    "officeMadrid": "马德里办公室 →",
+    "officeMalaga": "马拉加办公室 →"
+  },
+  "primeraReunion": {
+    "factLabels": [
+      "费用",
+      "服务性质",
+      "形式",
+      "主持"
+    ],
+    "areasIntro": "首次法律评估专为涉及多国法律、重大资产或复杂诉讼的事务设计。",
+    "directionNote": "法律总监主持：",
+    "areas": [
+      {
+        "title": "国际婚姻与家庭法",
+        "desc": "跨境离婚、家庭财产分割、子女抚养权与海牙国际返还。",
+        "slug": "private-clients"
+      },
+      {
+        "title": "国际财富与继承",
+        "desc": "跨境继承、遗嘱、不动产、投资与多国资产结构。",
+        "slug": "private-wealth"
+      },
+      {
+        "title": "国际商业与公司法",
+        "desc": "公司架构、股东争议、国际合同、投资与跨境资产控制。",
+        "slug": "business-disputes"
+      },
+      {
+        "title": "跨境商事诉讼",
+        "desc": "西班牙诉讼程序、外国法查明、财产保全与外国判决承认执行。",
+        "slug": "especialidades/litigios-internacionales"
+      },
+      {
+        "title": "经济犯罪与引渡辩护",
+        "desc": "跨境诈骗、欧洲逮捕令 (OEDE) 与西班牙国家法院刑事辩护。",
+        "slug": "penal-economico-extradicion"
+      }
+    ],
+    "strategy": [
+      {
+        "num": "01",
+        "title": "全局研判",
+        "desc": "同步评估案件在家庭、资产、商业与诉讼层面的连锁影响。"
+      },
+      {
+        "num": "02",
+        "title": "单一指挥",
+        "desc": "即使涉及多国律师与专家，仍由统一战略统筹推进。"
+      },
+      {
+        "num": "03",
+        "title": "精准施策",
+        "desc": "每一项法律行动都服务于客户的明确核心目标。"
+      },
+      {
+        "num": "04",
+        "title": "诉讼就绪",
+        "desc": "既能强势谈判，也具备随时进入庭审程序的充分准备。"
+      }
+    ],
+    "acceptance": [
+      {
+        "num": "01",
+        "title": "专业契合",
+        "desc": "确认事务与本所核心执业领域及经验高度匹配。"
+      },
+      {
+        "num": "02",
+        "title": "利益冲突审查",
+        "desc": "提前核查不存在任何影响独立性的利益冲突。"
+      },
+      {
+        "num": "03",
+        "title": "团队承接能力",
+        "desc": "确保具备充足精力提供高标准代理服务。"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "RRYP Global 是否受理我这类案件？",
+        "a": "本所专注国际家庭法、跨境财富与继承、国际企业事务、跨境诉讼及经济犯罪，首次会谈可明确案件契合度。"
+      },
+      {
+        "q": "正式委托后由谁亲自负责？",
+        "a": "报价方案将明确主责律师及由法律总监 Mar Gámez Ramírez 把控的核心战略决策。"
+      },
+      {
+        "q": "能否协同其他国家的律师？",
+        "a": "可以。我们主导西班牙程序并统一协调海外律师、税务顾问与公证人。"
+      },
+      {
+        "q": "会谈前需要准备哪些资料？",
+        "a": "简要时间线、涉及国家、紧迫期限及核心文件即可，无需提前发送全部卷宗。"
+      },
+      {
+        "q": "会谈结束后如何推进？",
+        "a": "我们将明确是否适合继续代理，并发送载明工作范围与费用的定制方案。"
+      },
+      {
+        "q": "如发现利益冲突怎么办？",
+        "a": "如在会谈前发现利益冲突，预约将被取消并全额退还已付费用。"
+      }
+    ]
+  },
+  "rryp5": {
+    "method": [
+      {
+        "num": "01",
+        "title": "理解",
+        "desc": "厘清事实经过、核心利害与客户最终目标。"
+      },
+      {
+        "num": "02",
+        "title": "调查",
+        "desc": "核查文件、证据、资产、商业背景与程序现状。"
+      },
+      {
+        "num": "03",
+        "title": "联通",
+        "desc": "串联当事人、公司、司法管辖区与不同法律领域。"
+      },
+      {
+        "num": "04",
+        "title": "构建",
+        "desc": "制定站得住脚且可落地的跨境法律战略。"
+      },
+      {
+        "num": "05",
+        "title": "执行",
+        "desc": "严控节点、期限、跨国团队协作与关键决策。"
+      }
+    ],
+    "situations": [
+      {
+        "num": "01",
+        "title": "涉及未成年人及多个国家。",
+        "desc": "抚养权、惯常居所、跨境迁徙、国际返还或紧急保全。",
+        "slug": "especialidades/sustraccion-menores"
+      },
+      {
+        "num": "02",
+        "title": "知道存在资产，但分布不明。",
+        "desc": "多国公司、房产、账户、股权投资或数字资产。",
+        "slug": "private-wealth"
+      },
+      {
+        "num": "03",
+        "title": "公司纠纷波及个人财产与责任。",
+        "desc": "股东冲突、合同、软件、不正当竞争、破产或高管责任。",
+        "slug": "business-disputes"
+      },
+      {
+        "num": "04",
+        "title": "需要让外国判决在西班牙生效。",
+        "desc": "外国判决承认执行 (Exequátur)、离婚协议、债务或抚养裁定。",
+        "slug": "especialidades/litigios-internacionales"
+      },
+      {
+        "num": "05",
+        "title": "面临刑事程序或国际逮捕令。",
+        "desc": "欧洲逮捕令 (OEDE)、引渡与西班牙紧急刑事辩护。",
+        "slug": "penal-economico-extradicion"
+      },
+      {
+        "num": "06",
+        "title": "涉及多国却缺乏统一统筹。",
+        "desc": "西班牙与海外律师各自为战，缺少整体战略。",
+        "slug": "la-firma"
+      },
+      {
+        "num": "07",
+        "title": "已咨询其他律师，但方案并不契合。",
+        "desc": "破局关键往往在于事实梳理、证据组织与管辖权策略。",
+        "slug": "casos"
+      },
+      {
+        "num": "08",
+        "title": "不知从何入手。",
+        "desc": "只需向我们陈述事实，法律定性与路径规划由我们完成。",
+        "slug": "primera-reunion-juridica"
+      }
+    ],
+    "metrics": [
+      {
+        "num": "200+",
+        "head": "经办跨境案件",
+        "text": "覆盖家庭、财富与商业争议的扎实实战记录。"
+      },
+      {
+        "num": "26+",
+        "head": "客户国籍",
+        "text": "服务与西班牙存在法律联系的个人、高管与企业。"
+      },
+      {
+        "num": "12+",
+        "head": "西班牙司法辖区",
+        "text": "在一审法院、省高级法院及国家法院直接出庭代理。"
+      },
+      {
+        "num": "3",
+        "head": "西班牙实体办公室",
+        "text": "马德里、马拉加（覆盖马贝拉与太阳海岸）及科尔多瓦。"
+      }
+    ],
+    "courts": [
+      {
+        "num": "01",
+        "title": "民事与家庭一审法院",
+        "desc": "婚姻家庭、财产分割、继承、合同纠纷与紧急保全措施。"
+      },
+      {
+        "num": "02",
+        "title": "刑事侦查与审判法院",
+        "desc": "涉外经济犯罪的刑事辩护与刑事控告。"
+      },
+      {
+        "num": "03",
+        "title": "省高级法院（二审）",
+        "desc": "针对一审裁判提起上诉与复审代理。"
+      },
+      {
+        "num": "04",
+        "title": "西班牙国家法院 (Audiencia Nacional)",
+        "desc": "欧洲刑事司法协作、欧洲逮捕令 (OEDE) 与引渡程序。"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "RRYP Global 受理哪类案件？",
+        "a": "专注与西班牙相关的复杂跨境案件，涵盖多国资产、企业纠纷、国际家庭法与重大诉讼。"
+      },
+      {
+        "q": "谁来主导我的案件？",
+        "a": "由法律总监 Mar Gámez 统筹，结合内部团队与必要的海外合作律师共同推进。"
+      },
+      {
+        "q": "是否与海外律师协作？",
+        "a": "是的，我们负责统一战略协调，避免多国程序相互冲突。"
+      },
+      {
+        "q": "能否接手其他律所已开始的案件？",
+        "a": "可以，我们会全面复盘既有材料并重构后续策略。"
+      },
+      {
+        "q": "首次法律会谈包含什么？",
+        "a": "与 Mar Gámez 进行深度工作评估，梳理事案、文件、国家与可行路径。费用：350 €。"
+      },
+      {
+        "q": "后续代理费用如何确定？",
+        "a": "在正式接受委托前，根据案件复杂度与工作范围出具透明报价。"
+      },
+      {
+        "q": "联系前必须先明确法律定性吗？",
+        "a": "不需要，您只需如实告知发生了什么。"
+      }
+    ]
+  },
+  "marGamez": {
+    "sections": [
+      {
+        "title": "学术背景",
+        "p1": "毕业于洛约拉大学法学与国际关系双学位，并入选表彰卓越学术成就的 Alpha Sigma Nu 荣誉学会。",
+        "p2": "随后在 ISDE 与马德里卡洛斯三世大学完成企业法与国际商事律师执业研究生课程，并取得 ISDE 国际商法硕士学位 (LL.M.)。"
+      },
+      {
+        "title": "执业经验与律师资格",
+        "p1": "RRYP Global 联合创始人兼法律总监，主导高复杂度国际家庭法、私人财富、继承、商事诉讼及经济犯罪事务。",
+        "p2": "以优异成绩通过西班牙律师执业考试，系马德里律师公会执业律师（ICAM 编号 137007），兼具国际商事律所与企业法务统筹经验。"
+      },
+      {
+        "title": "高校教学与专业著作",
+        "p1": "洛约拉大学客座教授，每周讲授国际私法与比较法课程，并曾任教于 EOI、IMDEEC 与 IPRODECO。",
+        "p2": "作为作者参与汤森路透 Aranzadi 国际贸易法课程编写，熟练使用西班牙语与英语执业。"
+      },
+      {
+        "title": "研究、演讲与媒体发声",
+        "p1": "长期研究中国—欧盟争议解决机制与国际合资企业，多次受邀在马拉加、特内里费及哥伦比亚商会、EOI 与 EUDE 发表演讲。",
+        "p2": "常年作为国际法律评论员亮相 laSexta Noticias、德国之声 (DW) 与 La Razón。"
+      }
+    ]
+  },
+  "contacto": {
+    "metaTitle": "联系我们与3步案件分诊 | RRYP Global",
+    "metaDesc": "联系 RRYP Global 马德里、马拉加与科尔多瓦办公室，或通过3步在线分诊快速确定适合的咨询入口。",
+    "eyebrow": "直接联系与办公室",
+    "title": "向 RRYP Global 提交您的事务",
+    "lead": "通过马德里、马拉加（覆盖马贝拉与太阳海岸）及科尔多瓦三大实体办公室提供6种语言服务。",
+    "triageEyebrow": "3步智能分诊",
+    "triageTitle": "哪种咨询入口最适合您的案件？",
+    "triageLead": "选择领域、涉及地区与紧迫程度，20秒获取精准建议及可直接发送的案情摘要。",
+    "step1Label": "1. 主要法律领域",
+    "step2Label": "2. 涉及地域",
+    "step3Label": "3. 紧迫程度",
+    "matters": [
+      {
+        "id": "private-clients",
+        "label": "国际家庭法、抚养权或未成年人"
+      },
+      {
+        "id": "private-wealth",
+        "label": "私人财富、继承或跨境破产"
+      },
+      {
+        "id": "business-disputes",
+        "label": "国际企业、合同或商事诉讼"
+      },
+      {
+        "id": "penal",
+        "label": "经济犯罪、欧洲逮捕令或引渡"
+      }
+    ],
+    "scopes": [
+      {
+        "id": "es",
+        "label": "仅限西班牙"
+      },
+      {
+        "id": "eu",
+        "label": "西班牙 + 欧盟国家"
+      },
+      {
+        "id": "global",
+        "label": "西班牙 + 美国、英国、拉美或其他国家"
+      }
+    ],
+    "urgencies": [
+      {
+        "id": "initial",
+        "label": "初步了解（无紧迫法定期限）"
+      },
+      {
+        "id": "strategic",
+        "label": "需要专业法律评估与战略方案"
+      },
+      {
+        "id": "urgent",
+        "label": "高度紧急（法院期限、未成年人或拘留）"
+      }
+    ],
+    "recEyebrow": "推荐咨询入口",
+    "recCasesTitle": "RRYP Global 经办的相似真实案例",
+    "recBtnBook": "前往 Calendly 预约 →",
+    "recBtnWa": "通过 WhatsApp 发送摘要 →",
+    "recBtnEmail": "通过邮件发送摘要 →",
+    "recReset": "重新选择",
+    "officesEyebrow": "三大实体办公室",
+    "officesTitle": "马德里、马拉加与科尔多瓦",
+    "officesLead": "支持预约线下会面，并为全球26+国家客户提供全程线上法律统筹。"
+  }
+}

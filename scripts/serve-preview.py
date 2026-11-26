@@ -12,6 +12,7 @@ import json
 import os
 import re
 import sys
+import unicodedata
 import urllib.error
 import urllib.request
 from http.cookies import SimpleCookie
@@ -20,6 +21,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 ASTRO_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DIST_DIR = os.path.join(ASTRO_DIR, "dist")
 PARENT_DIR = os.path.dirname(ASTRO_DIR)
+WP_DATA_DIR = os.path.join(ASTRO_DIR, "src", "data", "wp")
 
 SUPPORTED_LOCALES = ("es", "en", "de", "pt", "ru", "zh")
 DEFAULT_LOCALE = "en"
@@ -29,6 +31,163 @@ BOT_RE = re.compile(
 )
 COMPRESSIBLE_EXTS = (".html", ".css", ".js", ".json", ".xml", ".txt", ".svg", ".webmanifest", ".otf", ".ttf")
 IMMUTABLE_EXTS = (".avif", ".webp", ".png", ".ttf", ".otf", ".woff2")
+
+# Sinonimos multilingues hacia terminos clave del corpus juridico de RRYP Global
+RAG_SYNONYMS = {
+    "divorce": ["divorcio", "conyugales", "gananciales"],
+    "scheidung": ["divorcio", "conyugales"],
+    "custody": ["custodia", "menores", "paternofiliales"],
+    "sorgerecht": ["custodia", "menores"],
+    "abduction": ["sustraccion", "menores", "restitucion"],
+    "child": ["menor", "menores", "custodia"],
+    "inheritance": ["herencia", "sucesiones", "testamento"],
+    "will": ["testamento", "sucesiones", "herencia"],
+    "erbrecht": ["herencia", "sucesiones", "testamento"],
+    "estate": ["herencia", "sucesiones", "patrimonio"],
+    "crypto": ["criptoactivos", "patrimonio", "digital"],
+    "bitcoin": ["criptoactivos", "patrimonio"],
+    "extradition": ["extradicion", "oede", "entrega"],
+    "eaw": ["oede", "entrega", "audiencia", "extradicion"],
+    "arrest": ["oede", "detencion", "entrega", "extradicion"],
+    "fraud": ["estafa", "querella", "penal"],
+    "bankruptcy": ["concurso", "insolvencia", "exoneracion", "deuda"],
+    "insolvency": ["insolvencia", "concurso", "exoneracion"],
+    "contract": ["contrato", "contratos", "software", "licencia"],
+    "software": ["software", "tecnologicos", "saas", "licencia"],
+    "saas": ["saas", "software", "tecnologicos"],
+    "competition": ["competencia", "desleal"],
+    "patent": ["patente", "propiedad"],
+    "judgment": ["exequatur", "sentencia", "reconocimiento"],
+    "exequatur": ["exequatur", "reconocimiento", "sentencia"],
+    "alimony": ["alimentos", "pension", "compensatoria"],
+    "switzerland": ["suiza"],
+    "usa": ["estados", "unidos", "eeuu"],
+    "france": ["francia"],
+    "portugal": ["portugal", "portugueses"],
+    "marbella": ["marbella", "malaga"],
+}
+
+STOPWORDS = {
+    "para", "como", "sobre", "entre", "desde", "hasta", "donde", "cuando", "porque",
+    "este", "esta", "estos", "estas", "unos", "unas", "pero", "tiene", "tengo", "puede",
+    "puedo", "quiero", "necesito", "espana", "spain", "with", "from", "that", "this",
+    "have", "what", "when", "where", "about", "your", "their", "into", "more", "than",
+}
+
+
+def _norm_text(text):
+    s = unicodedata.normalize("NFD", str(text or "").lower())
+    s = "".join(ch for ch in s if unicodedata.category(ch) != "Mn")
+    return s
+
+
+def _tokenize(text):
+    raw = re.findall(r"[a-z0-9]{3,}", _norm_text(text))
+    tokens = []
+    for tok in raw:
+        if tok in STOPWORDS:
+            continue
+        tokens.append(tok)
+        if tok in RAG_SYNONYMS:
+            tokens.extend(RAG_SYNONYMS[tok])
+    return tokens
+
+
+def _load_rag_corpus():
+    docs = []
+    # 1. 28 casos reales
+    cases_path = os.path.join(WP_DATA_DIR, "cases.json")
+    if os.path.isfile(cases_path):
+        for c in json.load(open(cases_path, encoding="utf-8")):
+            title = c.get("title", "")
+            lead = c.get("lead", "")
+            docs.append({
+                "kind": "case",
+                "slug": c.get("slug", ""),
+                "title": title,
+                "excerpt": lead[:260],
+                "title_norm": _norm_text(title),
+                "body_norm": _norm_text(f"{title} {c.get('pillarLabel', '')} {lead}"),
+                "boost": 1.6,
+            })
+    # 2. 17 especialidades
+    specs_path = os.path.join(WP_DATA_DIR, "specialties.json")
+    if os.path.isfile(specs_path):
+        for s in json.load(open(specs_path, encoding="utf-8")):
+            title = s.get("title", "")
+            lead = s.get("lead", "")
+            docs.append({
+                "kind": "specialty",
+                "slug": s.get("slug", ""),
+                "title": title,
+                "excerpt": lead[:260],
+                "title_norm": _norm_text(title),
+                "body_norm": _norm_text(f"{title} {s.get('pillarLabel', '')} {lead}"),
+                "boost": 1.45,
+            })
+    # 3. 429 articulos de Legal Intelligence
+    arts_path = os.path.join(WP_DATA_DIR, "articles.json")
+    if os.path.isfile(arts_path):
+        for a in json.load(open(arts_path, encoding="utf-8")):
+            title = a.get("title", "")
+            excerpt = a.get("excerpt", "")
+            docs.append({
+                "kind": "article",
+                "slug": a.get("slug", ""),
+                "title": title,
+                "excerpt": excerpt[:240],
+                "title_norm": _norm_text(title),
+                "body_norm": _norm_text(f"{title} {a.get('category', '')} {excerpt}"),
+                "boost": 1.0,
+            })
+    return docs
+
+
+RAG_CORPUS = _load_rag_corpus()
+
+
+def retrieve_rag_docs(query, lang_code="es", limit=4):
+    tokens = list(dict.fromkeys(_tokenize(query)))
+    if not tokens or not RAG_CORPUS:
+        return []
+    safe_lang = lang_code if lang_code in SUPPORTED_LOCALES else "es"
+    scored = []
+    for doc in RAG_CORPUS:
+        score = 0.0
+        for tok in tokens:
+            if tok in doc["title_norm"]:
+                score += 4.0
+            elif tok in doc["body_norm"]:
+                score += 1.5
+        if score > 0:
+            scored.append((score * doc["boost"], doc))
+    scored.sort(key=lambda x: x[0], reverse=True)
+    # Diversify: max 2 cases, max 1 specialty, max 2 articles
+    out = []
+    counts = {"case": 0, "specialty": 0, "article": 0}
+    caps = {"case": 2, "specialty": 1, "article": 2}
+    for _, doc in scored:
+        k = doc["kind"]
+        if counts[k] >= caps[k]:
+            continue
+        counts[k] += 1
+        if k == "case":
+            url = f"/{safe_lang}/casos/{doc['slug']}/"
+        elif k == "specialty":
+            url = f"/{safe_lang}/especialidades/{doc['slug']}/"
+        else:
+            # 393 articles are ES-only; check if localized version exists in dist/
+            loc_cand = os.path.join(DIST_DIR, safe_lang, "legal-intelligence", doc["slug"], "index.html")
+            url = f"/{safe_lang}/legal-intelligence/{doc['slug']}/" if os.path.isfile(loc_cand) else f"/es/legal-intelligence/{doc['slug']}/"
+        out.append({
+            "kind": k,
+            "title": doc["title"],
+            "excerpt": doc["excerpt"],
+            "url": url,
+        })
+        if len(out) >= limit:
+            break
+    return out
 
 
 def load_env(path):
@@ -196,11 +355,17 @@ class AstroPreviewHandler(SimpleHTTPRequestHandler):
         articles = body.get("relevantArticles") or []
         history = body.get("history") or []
         turn_num = int(body.get("userTurnCount") or 1)
+        rag_docs = retrieve_rag_docs(user_msg, lang_code, limit=4)
 
         ctx = [
             f"IDIOMA OBLIGATORIO DE RESPUESTA: responde INTEGRAMENTE en {target_lang} (o en el idioma exacto del usuario). No mezcles frases en español."
         ]
-        if articles:
+        if rag_docs:
+            ctx.append("Base documental interna real de RRYP Global relevante para esta consulta (citala de forma natural cuando ayude al usuario):")
+            for i, d in enumerate(rag_docs, 1):
+                kind_lbl = {"case": "Caso real resuelto", "specialty": "Guia de especialidad", "article": "Articulo Legal Intelligence"}.get(d["kind"], "Documento")
+                ctx.append(f"{i}. [{kind_lbl}] {d['title']} -> {d['excerpt']} (URL: {d['url']})")
+        elif articles:
             ctx.append("Articulos relevantes de RRYP Global:")
             for i, a in enumerate(articles[:3], 1):
                 ctx.append(f"{i}. {a.get('title', '')} ({a.get('url', '')})")
@@ -235,7 +400,8 @@ class AstroPreviewHandler(SimpleHTTPRequestHandler):
             with urllib.request.urlopen(req, timeout=30) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
                 reply = (data.get("choices", [{}])[0].get("message", {}).get("content") or "").replace("\u00b7", ",").strip()
-                self._send_json(200, {"reply": reply, "provider": "Groq GPT-OSS 120B"})
+                sources = [{"title": d["title"], "url": d["url"], "kind": d["kind"]} for d in rag_docs]
+                self._send_json(200, {"reply": reply, "provider": "Groq GPT-OSS 120B", "sources": sources})
         except urllib.error.HTTPError as e:
             self._send_json(502, {"error": f"Groq HTTP {e.code}"})
         except Exception as e:

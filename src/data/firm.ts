@@ -30,8 +30,8 @@ export const FIRM = {
     privacy: "https://rrypglobal.com/politica-de-privacidad-y-proteccion-de-datos/",
   },
   guides: {
-    divorcePdf: "https://rrypglobal.com/wp-content/uploads/2026/05/guia_divorcio_internacional_rryp_global.pdf",
-    abductionPdf: "https://rrypglobal.com/wp-content/uploads/edd/2026/05/guia_sustraccion_internacional_menores_rryp_global.pdf",
+    divorcePdf: "/assets/guides/guia-divorcio-internacional-rryp-global.pdf",
+    abductionPdf: "/assets/guides/guia-sustraccion-internacional-menores-rryp-global.pdf",
   },
   offices: [
     {

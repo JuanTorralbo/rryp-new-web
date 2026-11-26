@@ -119,3 +119,48 @@ export function extractSlugFromUrl(url: string): string {
   const m = String(url || "").match(/\/([^/?#]+)\/?(?:[?#].*)?$/);
   return m ? m[1] : "";
 }
+
+function normTokens(text: string): string[] {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .split(/[^a-z0-9]+/)
+    .filter((w) => w.length >= 4 && !["para", "como", "sobre", "entre", "desde", "espana", "internacional", "abogados", "derecho"].includes(w));
+}
+
+export function getBestMatchingCase(article: WpArticle): WpCaseStudy {
+  const tokens = new Set(normTokens(`${article.title} ${article.category} ${article.excerpt}`));
+  let best = WP_CASES[0];
+  let bestScore = -1;
+  for (const c of WP_CASES) {
+    let score = c.pillar === article.pillar ? 2 : 0;
+    const hay = `${c.title} ${c.lead}`.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    for (const tok of tokens) {
+      if (hay.includes(tok)) score += 3;
+    }
+    if (score > bestScore) {
+      bestScore = score;
+      best = c;
+    }
+  }
+  return best;
+}
+
+export function getBestMatchingSpecialty(article: WpArticle): WpSpecialty {
+  const tokens = new Set(normTokens(`${article.title} ${article.category} ${article.excerpt}`));
+  let best = WP_SPECIALTIES[0];
+  let bestScore = -1;
+  for (const sp of WP_SPECIALTIES) {
+    let score = sp.pillar === article.pillar ? 2 : 0;
+    const hay = `${sp.title} ${sp.lead}`.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    for (const tok of tokens) {
+      if (hay.includes(tok)) score += 3;
+    }
+    if (score > bestScore) {
+      bestScore = score;
+      best = sp;
+    }
+  }
+  return best;
+}

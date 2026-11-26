@@ -1,0 +1,609 @@
+{
+  "medios": {
+    "regionTag": "España / Internacional",
+    "epgdLocation": "EPGD Business Law (Florida, Estados Unidos)",
+    "epgdAlt": "Conversación jurídica internacional España - Florida con EPGD Business Law",
+    "tv": [
+      {
+        "outlet": "laSexta Noticias",
+        "logo": "lasexta-cream.webp",
+        "logoW": 97,
+        "logoH": 120,
+        "stillBase": "media-lasexta-mar-rojo",
+        "topic": "Comercio internacional",
+        "date": "Diciembre 2024",
+        "title": "Ataques en el Mar Rojo",
+        "desc": "Análisis sobre las implicaciones jurídicas y económicas de los ataques en el Mar Rojo y su impacto en las rutas marítimas y el comercio internacional.",
+        "ytId": "lO0GP0INVvQ",
+        "ytUrl": "https://youtu.be/lO0GP0INVvQ"
+      },
+      {
+        "outlet": "laSexta Noticias",
+        "logo": "lasexta-cream.webp",
+        "logoW": 97,
+        "logoH": 120,
+        "stillBase": "media-lasexta-panama",
+        "topic": "Transporte marítimo",
+        "date": "Agosto 2023",
+        "title": "Atasco en el Canal de Panamá",
+        "desc": "Valoración del impacto jurídico y económico de las restricciones al tráfico marítimo internacional y sus consecuencias sobre las cadenas de suministro.",
+        "ytId": "w7_pgOKkhyM",
+        "ytUrl": "https://youtu.be/w7_pgOKkhyM"
+      }
+    ],
+    "press": [
+      {
+        "year": "2025",
+        "outlet": "La Razón",
+        "logo": "larazon-dark.webp",
+        "logoW": 125,
+        "logoH": 120,
+        "wide": false,
+        "title": "Admisión a trámite de una querella por presunta estafa a un inversor",
+        "url": "https://www.larazon.es/economia/justicia-admite-tramite-querella-presunta-estafa-alvaro-pintado_2025072868871fffabb2960d1fb7a262.html"
+      },
+      {
+        "year": "2025",
+        "outlet": "Diario Córdoba",
+        "logo": "diariocordoba-dark.webp",
+        "logoW": 129,
+        "logoH": 120,
+        "wide": false,
+        "title": "Entrevista a Mar Gámez sobre su trayectoria y la evolución de RRYP Global",
+        "url": "https://www.diariocordoba.com/cordoba-ciudad/2025/08/18/mar-gamez-cofundadora-relacionate-punto-120700068.html"
+      },
+      {
+        "year": "2023",
+        "outlet": "Law&Trends",
+        "logo": "lawandtrends-dark.webp",
+        "logoW": 194,
+        "logoH": 120,
+        "wide": true,
+        "title": "RRYP Global inaugura su primera oficina en Córdoba y consolida su expansión",
+        "url": "https://www.lawandtrends.com/noticias/rryp-global/rryp-global-inaugura-su-primera-oficina-en-cordoba-1.html"
+      },
+      {
+        "year": "2023",
+        "outlet": "Deutsche Welle (DW)",
+        "logo": "deutschewelle-dark.webp",
+        "logoW": 211,
+        "logoH": 120,
+        "wide": true,
+        "title": "El cambio climático pone en jaque la ruta del Canal de Panamá",
+        "url": "https://www.dw.com/es/el-cambio-clim%C3%A1tico-pone-en-jaque-ruta-del-canal-de-panam%C3%A1/a-66603003"
+      }
+    ],
+    "academia": [
+      {
+        "org": "Universidad Loyola",
+        "logo": "loyola-dark.webp",
+        "logoW": 360,
+        "logoH": 117,
+        "topic": "Docencia universitaria en Derecho Internacional Privado y Derecho Comparado"
+      },
+      {
+        "org": "Cámara de Comercio de Málaga",
+        "logo": "camaramalaga-dark.webp",
+        "logoW": 74,
+        "logoH": 120,
+        "topic": "IA en los negocios: cómo prevenir riesgos sin frenar la innovación"
+      },
+      {
+        "org": "IPRODECO (Diputación de Córdoba)",
+        "logo": "iprodeco-dark.webp",
+        "logoW": 360,
+        "logoH": 110,
+        "topic": "Estrategias y aplicaciones de la IA en el comercio internacional"
+      },
+      {
+        "org": "EUDE Business School",
+        "logo": "eudebusinessschool-dark.webp",
+        "logoW": 360,
+        "logoH": 71,
+        "topic": "De cero a internacional: cómo crear una born global startup"
+      },
+      {
+        "org": "EOI — Escuela de Organización Industrial",
+        "logo": "eoi-dark.webp",
+        "logoW": 360,
+        "logoH": 75,
+        "topic": "Docencia jurídica en internacionalización y empresa emergente"
+      },
+      {
+        "org": "Promálaga",
+        "logo": "promalaga-dark.webp",
+        "logoW": 157,
+        "logoH": 120,
+        "topic": "Apuntes prácticos y marco legal para negocio digital e internacional"
+      }
+    ]
+  },
+  "historia": {
+    "stages": [
+      {
+        "num": "01",
+        "period": "2020 - 2021",
+        "name": "Relaciónate y Punto",
+        "desc": "Nace en Córdoba como proyecto editorial sobre relaciones internacionales y comercio exterior, y se constituye formalmente como RELACIONATEYPUNTO, S.L. en enero de 2021 por Mar Gámez Ramírez y Mar Ramírez."
+      },
+      {
+        "num": "02",
+        "period": "2022 - 2024",
+        "name": "RRYP Abogados y expansión",
+        "desc": "Primera oficina física en Córdoba (marzo 2023), galardón Empresa Top 50 de Andalucía Emprende, salto a televisión nacional en laSexta Noticias, entrada en La Nave Madrid y actividad en Promálaga y EUDE."
+      },
+      {
+        "num": "03",
+        "period": "2025 - 2026",
+        "name": "RRYP Global — Boutique Legal Internacional",
+        "desc": "Consolidación en 3 sedes reales (Madrid, Málaga y Córdoba), docencia en la Universidad Loyola, cobertura en La Razón y Diario Córdoba, 200+ asuntos, 26+ nacionalidades y lanzamiento de RRYP Legal Intelligence."
+      }
+    ],
+    "timeline": [
+      {
+        "year": "2020",
+        "month": "Origen editorial",
+        "tag": "Relaciónate y Punto",
+        "title": "Un blog sobre asuntos internacionales que despierta una vocación de firma",
+        "desc": "Mar Gámez Ramírez (doble grado en Derecho y Relaciones Internacionales por la Universidad Loyola y LL.M. en ISDE) impulsa junto a Mar Ramírez el proyecto editorial Relaciónate y Punto, centrado en comercio exterior, geopolítica y derecho internacional práctico.",
+        "linkType": "cv"
+      },
+      {
+        "year": "2021",
+        "month": "Enero",
+        "tag": "Fundación",
+        "title": "Constitución de RELACIONATEYPUNTO, S.L. en Córdoba",
+        "desc": "Se constituye formalmente la sociedad mercantil RELACIONATEYPUNTO, S.L. (NIF B42713768, Registro Mercantil de Córdoba) con el respaldo inicial de CADE Córdoba y Andalucía Emprende, enfocada en consultoría de internacionalización y asesoramiento legal.",
+        "linkType": "firm"
+      },
+      {
+        "year": "2023",
+        "month": "2 de marzo",
+        "tag": "Primera oficina",
+        "logo": "lawandtrends-dark.webp",
+        "logoAlt": "Law&Trends",
+        "title": "RRYP Global inaugura su primera oficina en Córdoba",
+        "desc": "El portal jurídico Law&Trends recoge la apertura de la primera sede física en Córdoba (Avda. Sta. Mª de Trassierra 98), marcando la consolidación comercial de RRYP Global como boutique enfocada en asuntos jurídicos transfronterizos.",
+        "linkType": "cordoba_press"
+      },
+      {
+        "year": "2023",
+        "month": "28 de junio",
+        "tag": "Reconocimiento",
+        "title": "Galardón Empresa Top 50 de Andalucía Emprende",
+        "desc": "Andalucía Emprende (Fundación Pública Andaluza adscrita a la Consejería de Universidad, Investigación e Innovación) distingue a RRYP con la mención Top 50 por su carácter innovador, su componente tecnológico y su impacto emprendedor.",
+        "linkType": "top50"
+      },
+      {
+        "year": "2023",
+        "month": "Agosto - Noviembre",
+        "tag": "Televisión y prensa internacional",
+        "logo": "deutschewelle-dark.webp",
+        "logoAlt": "Deutsche Welle",
+        "title": "Primera intervención en laSexta Noticias y análisis en Deutsche Welle",
+        "desc": "El 27 de agosto de 2023 Mar Gámez interviene en los informativos de laSexta y es citada por Deutsche Welle sobre las consecuencias jurídicas y comerciales de las restricciones del Canal de Panamá. Ese otoño la firma participa en Al-Ándalus Innovation Venture, Córdoba Biotech y Andalucía TRADE Global.",
+        "linkType": "medios_2023"
+      },
+      {
+        "year": "2024",
+        "month": "Febrero - Mayo",
+        "tag": "Expansión Madrid y Málaga",
+        "logo": "eudebusinessschool-dark.webp",
+        "logoAlt": "EUDE Business School",
+        "title": "Entrada en La Nave Madrid, respaldo de IMDEEC y despliegue en Málaga",
+        "desc": "En febrero de 2024 RRYP se incorpora al #EcosistemaLN de La Nave Madrid (Ayuntamiento de Madrid) y recibe la visita institucional de IMDEEC en Córdoba. Entre marzo y mayo firma convenio con AJE Córdoba, imparte seminarios en EUDE Business School (Madrid) y talleres en Promálaga Economistas (Málaga).",
+        "linkType": "madrid_malaga"
+      },
+      {
+        "year": "2024",
+        "month": "9 de diciembre",
+        "tag": "Televisión nacional",
+        "logo": "lasexta-dark.webp",
+        "logoAlt": "laSexta Noticias",
+        "title": "Segunda cobertura en laSexta Noticias sobre la crisis del Mar Rojo",
+        "desc": "Mar Gámez vuelve a los informativos nacionales de laSexta para valorar el impacto jurídico, contractual y logístico de los ataques en el Mar Rojo sobre el transporte marítimo y las cadenas internacionales de suministro.",
+        "linkType": "medios"
+      },
+      {
+        "year": "2025",
+        "month": "Marzo - Julio",
+        "tag": "Comunidad y litigación",
+        "logo": "larazon-dark.webp",
+        "logoAlt": "La Razón",
+        "title": "Podcast «Pienso, Luego Éxito», 1.er Café Legal y repercusión en La Razón",
+        "desc": "Tras impartir formación en IA y comercio internacional para IPRODECO y patrocinar los Premios AJE Córdoba y AJE Málaga, RRYP lanza su canal audiovisual «Pienso, Luego Éxito» y el formato presencial Cafés Legales. El 28 de julio La Razón recoge la admisión a trámite de una querella por presunta estafa dirigida por la firma.",
+        "linkType": "larazon"
+      },
+      {
+        "year": "2025",
+        "month": "Agosto - Septiembre",
+        "tag": "Academia y consolidación",
+        "logo": "loyola-dark.webp",
+        "logoAlt": "Universidad Loyola",
+        "title": "Entrevista en Diario Córdoba, docencia en Universidad Loyola y Cámara de Málaga",
+        "desc": "El 18 de agosto Diario Córdoba publica una entrevista sobre el crecimiento de la firma desde Córdoba hacia casi 30 países. En septiembre Mar Gámez se incorpora como profesora asociada de Derecho Internacional Privado y Derecho Comparado en la Universidad Loyola e imparte ponencias sobre IA legal en la Cámara de Comercio de Málaga.",
+        "linkType": "loyola"
+      },
+      {
+        "year": "2026",
+        "month": "Presente",
+        "tag": "Boutique Legal Internacional",
+        "title": "Tres sedes reales, 200+ asuntos internacionales y RRYP Legal Intelligence",
+        "desc": "Consolidada en Madrid (Pº de la Castellana 40), Málaga (C/ Martínez Campos 16, atendiendo también Marbella y Costa del Sol) y Córdoba (Avda. Sta. Mª de Trassierra 98), la firma opera en Private Clients, Private Wealth, Business Disputes y Penal Económico / OEDE, respaldada por 429 análisis, 28 casos y RRYP Legal Intelligence en 6 idiomas.",
+        "linkType": "present"
+      }
+    ],
+    "metrics": [
+      {
+        "num": "2021",
+        "head": "Constitución en Córdoba",
+        "text": "RELACIONATEYPUNTO, S.L., origen jurídico y operativo de RRYP Global."
+      },
+      {
+        "num": "3",
+        "head": "Sedes operativas",
+        "text": "Madrid, Málaga (con servicio a Marbella y Costa del Sol) y Córdoba."
+      },
+      {
+        "num": "26+",
+        "head": "Nacionalidades",
+        "text": "Asuntos reales dirigidos entre España, Europa, América y otras jurisdicciones."
+      },
+      {
+        "num": "429",
+        "head": "Análisis jurídicos",
+        "text": "Base doctrinal propia en Derecho internacional accesible en 6 idiomas."
+      }
+    ],
+    "officeCordoba": "Sede de Córdoba →",
+    "officeMadrid": "Sede de Madrid →",
+    "officeMalaga": "Sede de Málaga →"
+  },
+  "primeraReunion": {
+    "factLabels": [
+      "Honorarios",
+      "Naturaleza",
+      "Modalidad",
+      "Dirección"
+    ],
+    "areasIntro": "La primera valoración está destinada a asuntos con dimensión internacional, patrimonio relevante o alta exigencia procesal.",
+    "directionNote": "Dirección jurídica a cargo de",
+    "areas": [
+      {
+        "title": "Familia internacional",
+        "desc": "Divorcio, patrimonio familiar, responsabilidad parental, traslados y restitución internacional de menores.",
+        "slug": "private-clients"
+      },
+      {
+        "title": "Patrimonio y sucesiones internacionales",
+        "desc": "Herencias, testamentos, inmuebles, inversiones y estructuras patrimoniales con elementos internacionales.",
+        "slug": "private-wealth"
+      },
+      {
+        "title": "Empresa internacional",
+        "desc": "Sociedades, socios, contratos, inversiones, responsabilidades y control de activos en varias jurisdicciones.",
+        "slug": "business-disputes"
+      },
+      {
+        "title": "Litigios internacionales",
+        "desc": "Procedimientos en España, Derecho extranjero, medidas cautelares, prueba internacional y reconocimiento de resoluciones.",
+        "slug": "especialidades/litigios-internacionales"
+      },
+      {
+        "title": "Penal económico y delitos internacionales",
+        "desc": "Estafas, apropiaciones, administración desleal, OEDE, extradición y actuaciones desarrolladas en varios países.",
+        "slug": "penal-economico-extradicion"
+      }
+    ],
+    "strategy": [
+      {
+        "num": "01",
+        "title": "Comprensión completa",
+        "desc": "La posición jurídica se analiza junto con sus implicaciones familiares, patrimoniales, empresariales y procesales."
+      },
+      {
+        "num": "02",
+        "title": "Dirección única",
+        "desc": "La estrategia permanece bajo una sola dirección, aunque intervengan profesionales de distintas materias o jurisdicciones."
+      },
+      {
+        "num": "03",
+        "title": "Decisiones proporcionadas",
+        "desc": "Cada actuación responde a una necesidad concreta y a un objetivo definido para el cliente."
+      },
+      {
+        "num": "04",
+        "title": "Preparación procesal",
+        "desc": "La estrategia se formula para negociar cuando resulte conveniente y para sostener el procedimiento cuando sea necesario."
+      }
+    ],
+    "acceptance": [
+      {
+        "num": "01",
+        "title": "Encaje profesional",
+        "desc": "Correspondencia con la práctica, experiencia y capacidades reales de la firma."
+      },
+      {
+        "num": "02",
+        "title": "Ausencia de conflictos",
+        "desc": "Verificación previa de inexistencia de relaciones o incompatibilidades que condicionen la actuación."
+      },
+      {
+        "num": "03",
+        "title": "Capacidad real",
+        "desc": "Disponibilidad suficiente para asumir el mandato con el nivel de atención exigido."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Lleva RRYP Global asuntos como el mío?",
+        "a": "La firma interviene en familia internacional, patrimonio y sucesiones, empresa internacional, litigios internacionales y penal económico con dimensión transfronteriza. La primera valoración permite confirmar el encaje concreto del asunto."
+      },
+      {
+        "q": "¿Quién dirigirá personalmente el asunto si se acepta el mandato?",
+        "a": "La propuesta identifica al abogado responsable, el equipo que intervendrá y las decisiones reservadas a la Dirección Jurídica. En los asuntos dirigidos por Mar Gámez Ramírez, su intervención comprende la estrategia, las decisiones críticas y la supervisión jurídica."
+      },
+      {
+        "q": "¿Puede coordinarse la intervención de profesionales en otros países?",
+        "a": "Sí. La firma puede dirigir la actuación en España y coordinar a abogados, asesores fiscales, notarios, peritos u otros profesionales en las jurisdicciones relevantes."
+      },
+      {
+        "q": "¿Qué documentación conviene facilitar antes de la reunión?",
+        "a": "Resulta útil remitir una cronología breve, los países implicados, cualquier plazo inmediato y los documentos esenciales. No es necesario enviar inicialmente todo el expediente."
+      },
+      {
+        "q": "¿Qué ocurre después de la reunión?",
+        "a": "Se comunicará si procede una actuación adicional o la aceptación del mandato. En ese caso, se remitirá una propuesta que definirá el alcance, la dirección jurídica, los honorarios y las condiciones del encargo."
+      },
+      {
+        "q": "¿Qué ocurre si la firma no puede aceptar o valorar el asunto?",
+        "a": "Si antes de la reunión se detecta un conflicto de intereses o que el asunto no puede ser valorado adecuadamente, la reserva será cancelada y se reembolsará íntegramente el importe abonado."
+      }
+    ]
+  },
+  "rryp5": {
+    "method": [
+      {
+        "num": "01",
+        "title": "Entender",
+        "desc": "Qué está pasando, qué está en juego y qué quiere conseguir el cliente."
+      },
+      {
+        "num": "02",
+        "title": "Investigar",
+        "desc": "Hechos, documentos, prueba, patrimonio, negocio y contexto."
+      },
+      {
+        "num": "03",
+        "title": "Conectar",
+        "desc": "Personas, empresas, países, procedimientos y disciplinas."
+      },
+      {
+        "num": "04",
+        "title": "Construir",
+        "desc": "Una estrategia jurídicamente defendible y ejecutable."
+      },
+      {
+        "num": "05",
+        "title": "Ejecutar",
+        "desc": "Controlar hitos, plazos, profesionales, prueba y decisiones críticas."
+      }
+    ],
+    "situations": [
+      {
+        "num": "01",
+        "title": "Hay un menor y más de un país.",
+        "desc": "Custodia, residencia habitual, traslado, restitución, medidas urgentes o resoluciones de distintos Estados.",
+        "slug": "especialidades/sustraccion-menores"
+      },
+      {
+        "num": "02",
+        "title": "Sabe que existe patrimonio, pero no dónde está todo.",
+        "desc": "Sociedades, inmuebles, cuentas, inversiones, participaciones, activos digitales o estructuras en distintos países.",
+        "slug": "private-wealth"
+      },
+      {
+        "num": "03",
+        "title": "Lo que empieza en una empresa acaba afectándole personalmente.",
+        "desc": "Socios, contratos, software, competencia desleal, insolvencia, responsabilidad o patrimonio personal.",
+        "slug": "business-disputes"
+      },
+      {
+        "num": "04",
+        "title": "Tiene una resolución extranjera y necesita que produzca efectos en España.",
+        "desc": "Sentencias, acuerdos, medidas sobre menores, deudas, divorcios o decisiones patrimoniales.",
+        "slug": "especialidades/litigios-internacionales"
+      },
+      {
+        "num": "05",
+        "title": "Existe una actuación penal o una orden internacional y el tiempo importa.",
+        "desc": "OEDE, cooperación judicial penal, extradición, medidas sobre libertad personal o actuaciones urgentes en España.",
+        "slug": "penal-economico-extradicion"
+      },
+      {
+        "num": "06",
+        "title": "Hay varios países y nadie está mirando el conjunto.",
+        "desc": "Un abogado ve la parte española, otro la extranjera, pero falta una estrategia común.",
+        "slug": "la-firma"
+      },
+      {
+        "num": "07",
+        "title": "Ya ha hablado con otro abogado, pero la respuesta no encaja con lo que pasa.",
+        "desc": "A veces la clave no está en la norma, sino en cómo se han planteado los hechos, la prueba o la jurisdicción.",
+        "slug": "casos"
+      },
+      {
+        "num": "08",
+        "title": "No sabe por dónde empezar.",
+        "desc": "Cuéntenos qué ha ocurrido. La calificación jurídica y el orden estratégico forman parte de nuestro trabajo.",
+        "slug": "primera-reunion-juridica"
+      }
+    ],
+    "metrics": [
+      {
+        "num": "200+",
+        "head": "Asuntos tramitados",
+        "text": "Experiencia acumulada en controversias transfronterizas de familia, patrimonio y empresa."
+      },
+      {
+        "num": "26+",
+        "head": "Nacionalidades",
+        "text": "Clientes particulares, directivos y sociedades con intereses conectados con España."
+      },
+      {
+        "num": "12+",
+        "head": "Plazas judiciales",
+        "text": "Intervención procesal directa ante juzgados, Audiencias Provinciales y Audiencia Nacional."
+      },
+      {
+        "num": "3",
+        "head": "Sedes en España",
+        "text": "Madrid, Málaga (con atención a Marbella y Costa del Sol) y Córdoba."
+      }
+    ],
+    "courts": [
+      {
+        "num": "01",
+        "title": "Primera instancia civil y familia",
+        "desc": "Procedimientos ante los órganos civiles competentes: familia, patrimonio, sucesiones, contratos, reclamaciones y medidas urgentes o cautelares."
+      },
+      {
+        "num": "02",
+        "title": "Instrucción y jurisdicción penal",
+        "desc": "Defensa y acusación en procedimientos penales, incluidas controversias económicas y actuaciones con dimensión transfronteriza."
+      },
+      {
+        "num": "03",
+        "title": "Audiencias Provinciales (segunda instancia)",
+        "desc": "Recursos frente a resoluciones dictadas en primera instancia cuando el procedimiento abre una segunda revisión judicial."
+      },
+      {
+        "num": "04",
+        "title": "Audiencia Nacional",
+        "desc": "Cooperación judicial penal europea y procedimientos de OEDE y extradición, incluidos debates sobre entrega, situación personal, nulidad y garantías procesales."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Qué tipo de asuntos acepta RRYP Global?",
+        "a": "Trabajamos en asuntos complejos conectados con España, especialmente cuando confluyen varios países, patrimonio relevante, empresa, familia internacional o litigación. No intentamos ser el despacho adecuado para todo."
+      },
+      {
+        "q": "¿Quién dirige mi asunto?",
+        "a": "La dirección jurídica corresponde a Mar Gámez, con intervención del equipo y, cuando el asunto lo exige, coordinación con profesionales de otras jurisdicciones o especialidades."
+      },
+      {
+        "q": "¿Trabajáis con abogados de otros países?",
+        "a": "Sí, cuando el asunto necesita intervención local, Derecho extranjero o actuaciones fuera de España. RRYP coordina la estrategia para que las distintas piezas no funcionen como expedientes aislados."
+      },
+      {
+        "q": "¿Podéis asumir un asunto que ya lleva otro abogado?",
+        "a": "Sí. Revisamos lo ocurrido hasta ese momento y reconstruimos la posición desde la que hay que continuar."
+      },
+      {
+        "q": "¿Qué ocurre en la primera reunión jurídica?",
+        "a": "Es una reunión jurídica de trabajo con Mar Gámez. Analizamos los hechos, la documentación disponible, los países implicados y qué necesita conseguir. Honorarios: 350 €."
+      },
+      {
+        "q": "¿Cómo se fijan los honorarios después?",
+        "a": "En función del trabajo que requiere el asunto, su complejidad, alcance y necesidades de ejecución. El alcance y los honorarios se concretan antes de comenzar el encargo."
+      },
+      {
+        "q": "¿Tengo que saber exactamente qué necesito antes de contactar?",
+        "a": "No. Explíquenos qué está ocurriendo. La calificación jurídica forma parte de nuestro trabajo."
+      }
+    ]
+  },
+  "marGamez": {
+    "sections": [
+      {
+        "title": "Formación académica",
+        "p1": "Cursó el doble grado en Derecho y Relaciones Internacionales en la Universidad jesuita Loyola, donde fue seleccionada como miembro de Alpha Sigma Nu, la sociedad de honor que reconoce la excelencia académica y el mérito personal.",
+        "p2": "Completó posteriormente el Posgrado de Acceso al Ejercicio de la Abogacía con especialización en Derecho de Empresa y negocios internacionales en ISDE y la Universidad Carlos III de Madrid, así como un LL.M. en International Business Law, Contracting and International Relations en ISDE."
+      },
+      {
+        "title": "Experiencia profesional y colegiación",
+        "p1": "Socia cofundadora y abogada titular de RRYP Global, dirige asuntos de alta complejidad con dimensión internacional en familia, patrimonio, sucesiones, litigación empresarial y derecho penal económico.",
+        "p2": "Tras obtener una calificación sobresaliente en el examen de acceso a la abogacía, se incorporó como abogada ejerciente al Ilustre Colegio de la Abogacía de Madrid (ICAM n.º 137007). Su recorrido previo incluye práctica mercantil internacional y dirección jurídica en proyectos empresariales propios."
+      },
+      {
+        "title": "Actividad académica y publicaciones",
+        "p1": "Profesora asociada de la Universidad Loyola, donde imparte semanalmente Derecho Internacional Privado y Derecho Comparado. Ha ejercido también como docente en la EOI, el IMDEEC e IPRODECO.",
+        "p2": "Participó como autora en el curso de Derecho del Comercio Internacional de Aranzadi Thomson Reuters en contratación internacional, garantías contractuales, financiación exterior y resolución de controversias. Trabaja habitualmente en español e inglés."
+      },
+      {
+        "title": "Investigación, ponencias y medios",
+        "p1": "Sus trabajos de investigación abarcan mecanismos de resolución de conflictos entre China y la Unión Europea, joint ventures internacionales e internacionalización empresarial. Ha sido ponente en las Cámaras de Comercio de Málaga, Tenerife y Colombia, EOI, Universidad Loyola, EUDE Business School y Promálaga.",
+        "p2": "Interviene como analista jurídica internacional en laSexta Noticias, Deutsche Welle y La Razón."
+      }
+    ]
+  },
+  "contacto": {
+    "metaTitle": "Contacto y Triaje de Asuntos | RRYP Global",
+    "metaDesc": "Contacta con RRYP Global en Madrid, Málaga y Córdoba o utiliza nuestro triaje interactivo en 3 pasos para identificar la vía de entrada adecuada.",
+    "eyebrow": "Contacto directo y sedes",
+    "title": "Plantea tu asunto a RRYP Global",
+    "lead": "Atención en 6 idiomas desde nuestras 3 sedes reales en Madrid, Málaga (con cobertura en Marbella y Costa del Sol) y Córdoba. Identifica en 20 segundos qué vía de entrada corresponde a tu caso.",
+    "triageEyebrow": "Triaje guiado en 3 pasos",
+    "triageTitle": "¿Qué vía de entrada corresponde a tu asunto?",
+    "triageLead": "Selecciona materia, alcance territorial y nivel de urgencia para obtener una recomendación inmediata y el resumen listo para enviar.",
+    "step1Label": "1. Materia principal",
+    "step2Label": "2. Dimensión territorial",
+    "step3Label": "3. Nivel de urgencia",
+    "matters": [
+      {
+        "id": "private-clients",
+        "label": "Familia internacional, custodia o menores"
+      },
+      {
+        "id": "private-wealth",
+        "label": "Patrimonio, herencias, bienes o insolvencia"
+      },
+      {
+        "id": "business-disputes",
+        "label": "Empresa internacional, contratos o litigios"
+      },
+      {
+        "id": "penal",
+        "label": "Penal económico, OEDE o extradición"
+      }
+    ],
+    "scopes": [
+      {
+        "id": "es",
+        "label": "Solo España"
+      },
+      {
+        "id": "eu",
+        "label": "España + Unión Europea"
+      },
+      {
+        "id": "global",
+        "label": "España + EE. UU., Reino Unido, LatAm u otro país"
+      }
+    ],
+    "urgencies": [
+      {
+        "id": "initial",
+        "label": "Orientación inicial (sin plazo inminente)"
+      },
+      {
+        "id": "strategic",
+        "label": "Necesito valoración jurídica y estrategia"
+      },
+      {
+        "id": "urgent",
+        "label": "Urgencia crítica (plazo judicial, menor o detención)"
+      }
+    ],
+    "recEyebrow": "Vía recomendada",
+    "recCasesTitle": "Casos reales similares resueltos por RRYP Global",
+    "recBtnBook": "Reservar en Calendly →",
+    "recBtnWa": "Enviar resumen por WhatsApp →",
+    "recBtnEmail": "Enviar resumen por correo →",
+    "recReset": "Reiniciar triaje",
+    "officesEyebrow": "Nuestras 3 sedes reales",
+    "officesTitle": "Madrid, Málaga y Córdoba",
+    "officesLead": "Reuniones presenciales con cita previa y dirección jurídica online para clientes en más de 26 países."
+  }
+}

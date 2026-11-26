@@ -1,0 +1,318 @@
+---
+import "../../styles/editorial-doc.css";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { FIRM } from "../../data/firm";
+import { getPageContent } from "../../data/pages-i18n";
+import { WP_CASES } from "../../data/wp";
+import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = getDictionary(lang);
+const c = getPageContent(lang).contacto;
+
+const casesByPillar = {
+  "private-clients": WP_CASES.filter((x) => x.pillar === "private-clients")
+    .slice(0, 2)
+    .map((x) => ({ title: x.title, url: localizedPath(lang, `casos/${x.slug}`) })),
+  "private-wealth": WP_CASES.filter((x) => x.pillar === "private-wealth")
+    .slice(0, 2)
+    .map((x) => ({ title: x.title, url: localizedPath(lang, `casos/${x.slug}`) })),
+  "business-disputes": WP_CASES.filter((x) => x.pillar === "business-disputes")
+    .slice(0, 2)
+    .map((x) => ({ title: x.title, url: localizedPath(lang, `casos/${x.slug}`) })),
+  penal: WP_CASES.filter((x) => x.pillar === "penal")
+    .slice(0, 2)
+    .map((x) => ({ title: x.title, url: localizedPath(lang, `casos/${x.slug}`) })),
+};
+
+const triageConfig = JSON.stringify({
+  whatsappBase: FIRM.whatsappUrl,
+  email: FIRM.email,
+  routes: {
+    initial: {
+      badge: `${t.e1Title} (${t.e1Fee})`,
+      title: `${t.e1Title} — ${t.e1Dur}`,
+      desc: t.e1Desc,
+      calendly: FIRM.calendly.initial,
+    },
+    legal: {
+      badge: `${t.e2Title} (${t.e2Fee})`,
+      title: `${t.e2Title} — ${t.e2Dur}`,
+      desc: t.e2Desc,
+      calendly: FIRM.calendly.legal,
+    },
+    urgent: {
+      badge: `${t.e3Title} (${t.e3Fee})`,
+      title: `${t.e3Title} — ${t.e3Dur}`,
+      desc: t.e3Desc,
+      calendly: FIRM.calendly.urgent,
+    },
+  },
+  casesByPillar,
+});
+
+const contactSchema = {
+  "@type": "ContactPage",
+  name: c.metaTitle,
+  description: c.metaDesc,
+  url: `${FIRM.siteUrl}${localizedPath(lang, "contacto")}`,
+  about: { "@id": `${FIRM.siteUrl}/#organization` },
+};
+---
+
+<BaseLayout
+  lang={lang}
+  slug="contacto"
+  title={c.metaTitle}
+  description={c.metaDesc}
+  fullFooter={true}
+  breadcrumbLabel={c.title}
+  jsonLdExtra={[contactSchema]}
+>
+  <section class="doc-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.ariaBreadcrumb}>
+        <a href={localizedPath(lang)}>{t.bcHome}</a>
+        <span>/</span>
+        <span>{c.title}</span>
+      </nav>
+
+      <div class="doc-hero-inner">
+        <div class="doc-meta-row">
+          <span class="doc-meta-pill">{c.eyebrow}</span>
+          <span class="doc-meta-muted">{FIRM.phone} / {FIRM.email}</span>
+        </div>
+        <h1 class="doc-title">{c.title}</h1>
+        <p class="doc-lead">{c.lead}</p>
+        <div class="doc-hero-actions">
+          <a href="#triaje-rryp" class="btn btn--lime btn--compact">{c.triageEyebrow} →</a>
+          <a href="#contacto-pie" class="btn btn--outline-dark btn--compact">{t.formSubmit} →</a>
+          <a href={FIRM.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn--outline-dark btn--compact">
+            WhatsApp {FIRM.phone}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Triaje interactivo en 3 pasos -->
+  <section class="section-dark" id="triaje-rryp">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow">{c.triageEyebrow}</p>
+          <h2 class="section-title">{c.triageTitle}</h2>
+        </div>
+        <p class="section-intro">{c.triageLead}</p>
+      </div>
+
+      <div class="triage-shell" data-reveal>
+        <div class="triage-steps">
+          <div class="triage-group">
+            <p class="triage-step-label">{c.step1Label}</p>
+            <div class="triage-options" data-triage-group="matter">
+              {c.matters.map((m) => (
+                <button type="button" class="triage-opt" data-triage-val={m.id} data-triage-label={m.label}>
+                  {m.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div class="triage-group">
+            <p class="triage-step-label">{c.step2Label}</p>
+            <div class="triage-options" data-triage-group="scope">
+              {c.scopes.map((s) => (
+                <button type="button" class="triage-opt" data-triage-val={s.id} data-triage-label={s.label}>
+                  {s.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div class="triage-group">
+            <p class="triage-step-label">{c.step3Label}</p>
+            <div class="triage-options" data-triage-group="urgency">
+              {c.urgencies.map((u) => (
+                <button type="button" class="triage-opt" data-triage-val={u.id} data-triage-label={u.label}>
+                  {u.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="triage-result" id="triage-result" hidden>
+          <p class="eyebrow" style="margin: 0 0 8px;">{c.recEyebrow}</p>
+          <p class="triage-res-badge" id="triage-res-badge"></p>
+          <h3 class="triage-res-title" id="triage-res-title"></h3>
+          <p class="triage-res-desc" id="triage-res-desc"></p>
+
+          <div class="triage-res-actions">
+            <a href={FIRM.calendly.legal} target="_blank" rel="noopener noreferrer" class="btn btn--lime btn--compact" id="triage-btn-book">
+              {c.recBtnBook}
+            </a>
+            <a href={FIRM.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn--outline-dark btn--compact" id="triage-btn-wa">
+              {c.recBtnWa}
+            </a>
+            <a href={FIRM.emailHref} class="btn btn--outline-dark btn--compact" id="triage-btn-email">
+              {c.recBtnEmail}
+            </a>
+            <button type="button" class="triage-reset-btn" id="triage-reset-btn">
+              {c.recReset}
+            </button>
+          </div>
+
+          <div class="triage-cases">
+            <p class="triage-step-label">{c.recCasesTitle}</p>
+            <ul class="triage-cases-list" id="triage-cases-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Las 3 sedes reales con horario en vivo y mapas -->
+  <section class="section-cream">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--on-cream">{c.officesEyebrow}</p>
+          <h2 class="section-title">{c.officesTitle}</h2>
+        </div>
+        <p class="section-intro">{c.officesLead}</p>
+      </div>
+
+      <div class="pillars-grid" data-reveal>
+        {FIRM.offices.map((office) => (
+          <article class="pillar-card">
+            <div>
+              <span class="pillar-index">{office.city}</span>
+              <h3 class="pillar-name">{office.city}</h3>
+              <p class="pillar-desc">{office.fullAddress}</p>
+              {office.hasServiceAreaNote && (
+                <p class="pillar-desc" style="margin-top: 8px; font-style: italic;">{t.malagaServiceNote}</p>
+              )}
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 16px;">
+              <a href={localizedPath(lang, office.slug)} class="intel-link">{office.city} →</a>
+              <a href={office.mapsUrl} target="_blank" rel="noopener noreferrer" class="office-maps-link">
+                {t.officeMapsLink}
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="meet-refund-note" style="margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;" data-reveal>
+        <div>
+          <strong>{t.officeHoursLabel}:</strong> {t.officeHoursDetail}
+        </div>
+        <p
+          class="office-live-status office-live-status--on-cream"
+          style="margin: 0;"
+          data-office-status
+          data-open={t.statusOpenNow}
+          data-closed={t.statusClosedNow}
+          aria-live="polite"
+        ></p>
+      </div>
+    </div>
+  </section>
+
+  <script id="rryp-triage-config" type="application/json" set:html={triageConfig} />
+  <script>
+    const cfgEl = document.getElementById("rryp-triage-config");
+    const resultEl = document.getElementById("triage-result");
+    if (cfgEl && resultEl) {
+      const cfg = JSON.parse(cfgEl.textContent || "{}");
+      const state: { matter: string; matterLabel: string; scope: string; scopeLabel: string; urgency: string; urgencyLabel: string } = {
+        matter: "",
+        matterLabel: "",
+        scope: "",
+        scopeLabel: "",
+        urgency: "",
+        urgencyLabel: "",
+      };
+
+      const badgeEl = document.getElementById("triage-res-badge");
+      const titleEl = document.getElementById("triage-res-title");
+      const descEl = document.getElementById("triage-res-desc");
+      const bookBtn = document.getElementById("triage-btn-book") as HTMLAnchorElement | null;
+      const waBtn = document.getElementById("triage-btn-wa") as HTMLAnchorElement | null;
+      const emailBtn = document.getElementById("triage-btn-email") as HTMLAnchorElement | null;
+      const casesList = document.getElementById("triage-cases-list");
+      const resetBtn = document.getElementById("triage-reset-btn");
+
+      const updateResult = () => {
+        if (!state.matter || !state.scope || !state.urgency) {
+          resultEl.hidden = true;
+          return;
+        }
+        const routeKey =
+          state.urgency === "urgent" || (state.matter === "penal" && state.urgency !== "initial")
+            ? "urgent"
+            : state.urgency === "strategic" || state.scope !== "es"
+              ? "legal"
+              : "initial";
+        const route = cfg.routes[routeKey];
+        if (!route) return;
+
+        if (badgeEl) badgeEl.textContent = route.badge;
+        if (titleEl) titleEl.textContent = route.title;
+        if (descEl) descEl.textContent = route.desc;
+        if (bookBtn) bookBtn.href = route.calendly;
+
+        const summary = `RRYP Global - ${state.matterLabel} | ${state.scopeLabel} | ${state.urgencyLabel}`;
+        if (waBtn) {
+          waBtn.href = `https://wa.me/34957858952?text=${encodeURIComponent(summary)}`;
+        }
+        if (emailBtn) {
+          emailBtn.href = `mailto:${cfg.email}?subject=${encodeURIComponent("RRYP Global - Consulta")}&body=${encodeURIComponent(summary)}`;
+        }
+        if (casesList) {
+          const items = cfg.casesByPillar[state.matter] || [];
+          casesList.innerHTML = items
+            .map((it: { title: string; url: string }) => `<li><a href="${it.url}">${it.title} →</a></li>`)
+            .join("");
+        }
+        resultEl.hidden = false;
+      };
+
+      document.querySelectorAll<HTMLElement>("[data-triage-group]").forEach((groupEl) => {
+        const key = groupEl.getAttribute("data-triage-group") as "matter" | "scope" | "urgency";
+        const btns = Array.from(groupEl.querySelectorAll<HTMLButtonElement>("[data-triage-val]"));
+        btns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            btns.forEach((b) => b.classList.toggle("is-selected", b === btn));
+            const val = btn.getAttribute("data-triage-val") || "";
+            const lbl = btn.getAttribute("data-triage-label") || "";
+            if (key === "matter") {
+              state.matter = val;
+              state.matterLabel = lbl;
+            } else if (key === "scope") {
+              state.scope = val;
+              state.scopeLabel = lbl;
+            } else {
+              state.urgency = val;
+              state.urgencyLabel = lbl;
+            }
+            updateResult();
+          });
+        });
+      });
+
+      resetBtn?.addEventListener("click", () => {
+        state.matter = "";
+        state.scope = "";
+        state.urgency = "";
+        document.querySelectorAll(".triage-opt.is-selected").forEach((el) => el.classList.remove("is-selected"));
+        resultEl.hidden = true;
+      });
+    }
+  </script>
+</BaseLayout>

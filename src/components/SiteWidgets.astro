@@ -1,6 +1,7 @@
 ---
 import { FIRM } from "../data/firm";
-import { WP_SPECIALTIES } from "../data/wp";
+import { WP_CASES, WP_SPECIALTIES } from "../data/wp";
+import { getPageContent } from "../data/pages-i18n";
 import { getDictionary, localizedPath, type Locale } from "../i18n";
 
 export interface Props {
@@ -9,6 +10,7 @@ export interface Props {
 
 const { lang } = Astro.props;
 const t = getDictionary(lang);
+const contactContent = getPageContent(lang).contacto;
 
 const searchPages = [
   { title: t.navClients, desc: t.p1Desc, url: localizedPath(lang, "private-clients") },
@@ -23,6 +25,7 @@ const searchPages = [
   { title: t.meetTitle, desc: t.meetLead, url: localizedPath(lang, "primera-reunion-juridica") },
   { title: t.r5Eyebrow, desc: t.r5Lead, url: localizedPath(lang, "rryp-en-5") },
   { title: `${t.cvTitle} (${t.cvIcamLabel})`, desc: t.cvLead, url: localizedPath(lang, "equipo/mar-gamez") },
+  { title: contactContent.title, desc: contactContent.lead, url: localizedPath(lang, "contacto") },
   { title: "RRYP Legal Intelligence AI", desc: t.liHeroLead, url: localizedPath(lang, "legal-intelligence") },
   { title: "Madrid", desc: t.madridLead, url: localizedPath(lang, "madrid") },
   { title: "Málaga", desc: t.malagaLead, url: localizedPath(lang, "malaga") },
@@ -32,6 +35,11 @@ const searchPages = [
     title: sp.title,
     desc: sp.pillarLabel,
     url: localizedPath(lang, `especialidades/${sp.slug}`),
+  })),
+  ...WP_CASES.map((cs) => ({
+    title: cs.title,
+    desc: `${t.bcCases} — ${cs.pillarLabel}`,
+    url: localizedPath(lang, `casos/${cs.slug}`),
   })),
   { title: t.legalNotice, desc: FIRM.legalName, url: localizedPath(lang, "legal/aviso-legal") },
   { title: t.legalPrivacy, desc: FIRM.legalName, url: localizedPath(lang, "legal/privacidad") },

@@ -1,0 +1,609 @@
+{
+  "medios": {
+    "regionTag": "Spanien / International",
+    "epgdLocation": "EPGD Business Law (Florida, USA)",
+    "epgdAlt": "Internationales Fachgespräch Spanien - Florida mit EPGD Business Law",
+    "tv": [
+      {
+        "outlet": "laSexta Noticias",
+        "logo": "lasexta-cream.webp",
+        "logoW": 97,
+        "logoH": 120,
+        "stillBase": "media-lasexta-mar-rojo",
+        "topic": "Internationaler Handel",
+        "date": "Dezember 2024",
+        "title": "Angriffe im Roten Meer",
+        "desc": "Rechtliche und wirtschaftliche Einordnung der Angriffe im Roten Meer und ihrer Folgen für Seehandelsrouten und Lieferketten.",
+        "ytId": "lO0GP0INVvQ",
+        "ytUrl": "https://youtu.be/lO0GP0INVvQ"
+      },
+      {
+        "outlet": "laSexta Noticias",
+        "logo": "lasexta-cream.webp",
+        "logoW": 97,
+        "logoH": 120,
+        "stillBase": "media-lasexta-panama",
+        "topic": "Seetransport",
+        "date": "August 2023",
+        "title": "Engpass im Panamakanal",
+        "desc": "Analyse der rechtlichen und wirtschaftlichen Folgen von Beschränkungen im internationalen Seeverkehr.",
+        "ytId": "w7_pgOKkhyM",
+        "ytUrl": "https://youtu.be/w7_pgOKkhyM"
+      }
+    ],
+    "press": [
+      {
+        "year": "2025",
+        "outlet": "La Razón",
+        "logo": "larazon-dark.webp",
+        "logoW": 125,
+        "logoH": 120,
+        "wide": false,
+        "title": "Gericht lässt Strafanzeige wegen mutmaßlichen Anlagebetrugs zu",
+        "url": "https://www.larazon.es/economia/justicia-admite-tramite-querella-presunta-estafa-alvaro-pintado_2025072868871fffabb2960d1fb7a262.html"
+      },
+      {
+        "year": "2025",
+        "outlet": "Diario Córdoba",
+        "logo": "diariocordoba-dark.webp",
+        "logoW": 129,
+        "logoH": 120,
+        "wide": false,
+        "title": "Interview mit Mar Gámez über ihren Werdegang und das Wachstum von RRYP Global",
+        "url": "https://www.diariocordoba.com/cordoba-ciudad/2025/08/18/mar-gamez-cofundadora-relacionate-punto-120700068.html"
+      },
+      {
+        "year": "2023",
+        "outlet": "Law&Trends",
+        "logo": "lawandtrends-dark.webp",
+        "logoW": 194,
+        "logoH": 120,
+        "wide": true,
+        "title": "RRYP Global eröffnet ersten Standort in Córdoba und festigt die Expansion",
+        "url": "https://www.lawandtrends.com/noticias/rryp-global/rryp-global-inaugura-su-primera-oficina-en-cordoba-1.html"
+      },
+      {
+        "year": "2023",
+        "outlet": "Deutsche Welle (DW)",
+        "logo": "deutschewelle-dark.webp",
+        "logoW": 211,
+        "logoH": 120,
+        "wide": true,
+        "title": "Klimawandel setzt die Schifffahrtsroute durch den Panamakanal unter Druck",
+        "url": "https://www.dw.com/es/el-cambio-clim%C3%A1tico-pone-en-jaque-ruta-del-canal-de-panam%C3%A1/a-66603003"
+      }
+    ],
+    "academia": [
+      {
+        "org": "Universität Loyola",
+        "logo": "loyola-dark.webp",
+        "logoW": 360,
+        "logoH": 117,
+        "topic": "Lehrauftrag für Internationales Privatrecht und Rechtsvergleichung"
+      },
+      {
+        "org": "Handelskammer Málaga",
+        "logo": "camaramalaga-dark.webp",
+        "logoW": 74,
+        "logoH": 120,
+        "topic": "KI im Unternehmen: Risiken vermeiden, ohne Innovation zu bremsen"
+      },
+      {
+        "org": "IPRODECO (Provinzrat Córdoba)",
+        "logo": "iprodeco-dark.webp",
+        "logoW": 360,
+        "logoH": 110,
+        "topic": "Strategien und Anwendungen von KI im internationalen Handel"
+      },
+      {
+        "org": "EUDE Business School",
+        "logo": "eudebusinessschool-dark.webp",
+        "logoW": 360,
+        "logoH": 71,
+        "topic": "Von null auf international: Aufbau eines Born-Global-Startups"
+      },
+      {
+        "org": "EOI — Hochschule für Industrieorganisation",
+        "logo": "eoi-dark.webp",
+        "logoW": 360,
+        "logoH": 75,
+        "topic": "Rechtslehre für Internationalisierung und junge Unternehmen"
+      },
+      {
+        "org": "Promálaga",
+        "logo": "promalaga-dark.webp",
+        "logoW": 157,
+        "logoH": 120,
+        "topic": "Rechtlicher Rahmen für digitale und internationale Geschäftsmodelle"
+      }
+    ]
+  },
+  "historia": {
+    "stages": [
+      {
+        "num": "01",
+        "period": "2020 - 2021",
+        "name": "Relaciónate y Punto",
+        "desc": "Entsteht in Córdoba als Fachprojekt für internationale Beziehungen und Außenhandel; formelle Gründung der RELACIONATEYPUNTO, S.L. im Januar 2021 durch Mar Gámez Ramírez und Mar Ramírez."
+      },
+      {
+        "num": "02",
+        "period": "2022 - 2024",
+        "name": "RRYP Abogados & Expansion",
+        "desc": "Erster Standort in Córdoba (März 2023), Top-50-Auszeichnung von Andalucía Emprende, TV-Auftritte bei laSexta Noticias, Beitritt zu La Nave Madrid sowie Seminare bei Promálaga und EUDE."
+      },
+      {
+        "num": "03",
+        "period": "2025 - 2026",
+        "name": "RRYP Global — Internationale Rechtsboutique",
+        "desc": "Konsolidierung an 3 realen Standorten (Madrid, Málaga und Córdoba), Lehrtätigkeit an der Universität Loyola, über 200 Mandate, 26+ Nationalitäten und RRYP Legal Intelligence."
+      }
+    ],
+    "timeline": [
+      {
+        "year": "2020",
+        "month": "Redaktioneller Ursprung",
+        "tag": "Relaciónate y Punto",
+        "title": "Ein Fachblog für internationale Fragen legt das Fundament der Kanzlei",
+        "desc": "Mar Gámez Ramírez (Doppelstudium Recht und Internationale Beziehungen, Universität Loyola; LL.M. ISDE) und Mar Ramírez starten Relaciónate y Punto mit Fokus auf Außenhandel und internationales Recht.",
+        "linkType": "cv"
+      },
+      {
+        "year": "2021",
+        "month": "Januar",
+        "tag": "Gründung",
+        "title": "Gründung der RELACIONATEYPUNTO, S.L. in Córdoba",
+        "desc": "Eintragung im Handelsregister Córdoba (NIF B42713768) mit Unterstützung von CADE Córdoba und Andalucía Emprende für internationale Rechts- und Strategieberatung.",
+        "linkType": "firm"
+      },
+      {
+        "year": "2023",
+        "month": "2. März",
+        "tag": "Erster Standort",
+        "logo": "lawandtrends-dark.webp",
+        "logoAlt": "Law&Trends",
+        "title": "RRYP Global eröffnet erste Kanzlei in Córdoba",
+        "desc": "Law&Trends berichtet über die Eröffnung des Standorts in Córdoba (Avda. Sta. Mª de Trassierra 98) und die Etablierung der Marke RRYP Global.",
+        "linkType": "cordoba_press"
+      },
+      {
+        "year": "2023",
+        "month": "28. Juni",
+        "tag": "Auszeichnung",
+        "title": "Top-50-Unternehmensauszeichnung von Andalucía Emprende",
+        "desc": "Auszeichnung durch die öffentliche Stiftung Andalucía Emprende für Innovationskraft, technologische Ausrichtung und Wirkung im regionalen Ökosystem.",
+        "linkType": "top50"
+      },
+      {
+        "year": "2023",
+        "month": "August - November",
+        "tag": "TV & internationale Presse",
+        "logo": "deutschewelle-dark.webp",
+        "logoAlt": "Deutsche Welle",
+        "title": "Erster Auftritt bei laSexta Noticias und Zitat in der Deutschen Welle",
+        "desc": "Am 27. August 2023 analysiert Mar Gámez bei laSexta und gegenüber der Deutschen Welle die Folgen des Panamakanal-Staus; Teilnahme an Al-Ándalus Innovation Venture und Andalucía TRADE Global.",
+        "linkType": "medios_2023"
+      },
+      {
+        "year": "2024",
+        "month": "Februar - Mai",
+        "tag": "Expansion Madrid & Málaga",
+        "logo": "eudebusinessschool-dark.webp",
+        "logoAlt": "EUDE Business School",
+        "title": "Beitritt zu La Nave Madrid, Unterstützung durch IMDEEC und Präsenz in Málaga",
+        "desc": "Aufnahme in das #EcosistemaLN von La Nave Madrid, institutioneller Besuch von IMDEEC in Córdoba, Kooperation mit AJE Córdoba, Seminare an der EUDE Madrid und Workshops bei Promálaga.",
+        "linkType": "madrid_malaga"
+      },
+      {
+        "year": "2024",
+        "month": "9. Dezember",
+        "tag": "Nationales Fernsehen",
+        "logo": "lasexta-dark.webp",
+        "logoAlt": "laSexta Noticias",
+        "title": "Zweiter TV-Beitrag bei laSexta zur Krise im Roten Meer",
+        "desc": "Rechtliche und vertragliche Bewertung der Auswirkungen auf internationale Seefracht und Lieferketten.",
+        "linkType": "medios"
+      },
+      {
+        "year": "2025",
+        "month": "März - Juli",
+        "tag": "Community & Prozessführung",
+        "logo": "larazon-dark.webp",
+        "logoAlt": "La Razón",
+        "title": "Podcast «Pienso, Luego Éxito», 1. Café Legal und Bericht in La Razón",
+        "desc": "Start eigener Wissensformate nach KI-Schulungen für IPRODECO; am 28. Juli berichtet La Razón über die Zulassung einer von RRYP geführten Betrugsanzeige.",
+        "linkType": "larazon"
+      },
+      {
+        "year": "2025",
+        "month": "August - September",
+        "tag": "Akademie & Konsolidierung",
+        "logo": "loyola-dark.webp",
+        "logoAlt": "Universität Loyola",
+        "title": "Diario Córdoba, Lehrauftrag an der Universität Loyola und Handelskammer Málaga",
+        "desc": "Interview im Diario Córdoba über die Entwicklung zu nahezu 30 betreuten Ländern; ab September lehrt Mar Gámez Internationales Privatrecht an der Universität Loyola.",
+        "linkType": "loyola"
+      },
+      {
+        "year": "2026",
+        "month": "Heute",
+        "tag": "Internationale Rechtsboutique",
+        "title": "Drei reale Standorte, 200+ Mandate und RRYP Legal Intelligence",
+        "desc": "Präsenz in Madrid (Pº de la Castellana 40), Málaga (C/ Martínez Campos 16, inkl. Marbella & Costa del Sol) und Córdoba (Avda. Sta. Mª de Trassierra 98) mit 429 Fachbeiträgen, 28 Referenzfällen und mehrsprachiger Rechts-KI.",
+        "linkType": "present"
+      }
+    ],
+    "metrics": [
+      {
+        "num": "2021",
+        "head": "Gründung in Córdoba",
+        "text": "RELACIONATEYPUNTO, S.L., gesellschaftsrechtlicher Ursprung von RRYP Global."
+      },
+      {
+        "num": "3",
+        "head": "Reale Standorte",
+        "text": "Madrid, Málaga (inkl. Marbella und Costa del Sol) sowie Córdoba."
+      },
+      {
+        "num": "26+",
+        "head": "Nationalitäten",
+        "text": "Mandate zwischen Spanien, Europa, Amerika und weiteren Rechtsordnungen."
+      },
+      {
+        "num": "429",
+        "head": "Fachanalysen",
+        "text": "Eigene Wissensdatenbank zum internationalen Recht in 6 Sprachen."
+      }
+    ],
+    "officeCordoba": "Standort Córdoba →",
+    "officeMadrid": "Standort Madrid →",
+    "officeMalaga": "Standort Málaga →"
+  },
+  "primeraReunion": {
+    "factLabels": [
+      "Honorar",
+      "Leistung",
+      "Format",
+      "Leitung"
+    ],
+    "areasIntro": "Die Erstbewertung richtet sich an Mandate mit internationalem Bezug, bedeutendem Vermögen oder hoher Prozesskomplexität.",
+    "directionNote": "Juristische Leitung durch",
+    "areas": [
+      {
+        "title": "Internationales Familienrecht",
+        "desc": "Scheidung, Familienvermögen, Sorgerecht, Umzug und internationale Kindesrückführung.",
+        "slug": "private-clients"
+      },
+      {
+        "title": "Internationales Vermögen & Erbrecht",
+        "desc": "Erbschaften, Testamente, Immobilien, Beteiligungen und grenzüberschreitende Vermögensstrukturen.",
+        "slug": "private-wealth"
+      },
+      {
+        "title": "Internationales Unternehmensrecht",
+        "desc": "Gesellschaften, Gesellschafter, Verträge, Investitionen und Haftung über mehrere Länder.",
+        "slug": "business-disputes"
+      },
+      {
+        "title": "Internationale Prozessführung",
+        "desc": "Verfahren in Spanien, ausländisches Recht, einstweilige Maßnahmen und Vollstreckung ausländischer Urteile.",
+        "slug": "especialidades/litigios-internacionales"
+      },
+      {
+        "title": "Wirtschaftsstrafrecht & Auslieferung",
+        "desc": "Betrug, Untreue, Europäischer Haftbefehl (EuHb) vor der Audiencia Nacional und internationale Strafverteidigung.",
+        "slug": "penal-economico-extradicion"
+      }
+    ],
+    "strategy": [
+      {
+        "num": "01",
+        "title": "Ganzheitliche Analyse",
+        "desc": "Rechtliche Bewertung unter Berücksichtigung familiärer, vermögensrechtlicher und prozessualer Folgen."
+      },
+      {
+        "num": "02",
+        "title": "Einheitliche Leitung",
+        "desc": "Eine zentrale Strategie, auch bei Einbindung ausländischer Anwälte oder Sachverständiger."
+      },
+      {
+        "num": "03",
+        "title": "Verhältnismäßige Schritte",
+        "desc": "Jede Maßnahme dient einem klar definierten Mandantenziel."
+      },
+      {
+        "num": "04",
+        "title": "Prozessreife",
+        "desc": "Verhandlungsstark, wo sinnvoll, und gerichtsfest, wo erforderlich."
+      }
+    ],
+    "acceptance": [
+      {
+        "num": "01",
+        "title": "Fachliche Passung",
+        "desc": "Übereinstimmung mit der Kernpraxis und Erfahrung der Kanzlei."
+      },
+      {
+        "num": "02",
+        "title": "Konfliktfreiheit",
+        "desc": "Vorherige Prüfung möglicher Interessenkonflikte."
+      },
+      {
+        "num": "03",
+        "title": "Verfügbarkeit",
+        "desc": "Gesicherte Kapazität für eine sorgfältige Mandatsführung."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Bearbeitet RRYP Global Fälle wie meinen?",
+        "a": "Die Kanzlei ist auf internationales Familienrecht, Vermögen und Erbrecht, internationales Wirtschaftsrecht, Prozessführung und Wirtschaftsstrafrecht spezialisiert. Die Erstbewertung klärt die genaue Passung."
+      },
+      {
+        "q": "Wer leitet mein Mandat persönlich?",
+        "a": "Das Honorarangebot benennt die verantwortliche Anwältin, das Team und die der Rechtsleitung (Mar Gámez Ramírez) vorbehaltenen strategischen Entscheidungen."
+      },
+      {
+        "q": "Koordinieren Sie Anwälte in anderen Ländern?",
+        "a": "Ja. Wir steuern Verfahren in Spanien und koordinieren Partnerkanzleien, Steuerberater, Notare und Gutachter im Ausland."
+      },
+      {
+        "q": "Welche Unterlagen sind vorab hilfreich?",
+        "a": "Eine kurze Chronologie, beteiligte Länder, laufende Fristen und zentrale Dokumente genügen für den Einstieg."
+      },
+      {
+        "q": "Was geschieht nach dem Gespräch?",
+        "a": "Wir teilen mit, ob eine weiterführende Vertretung sinnvoll ist, und übermitteln ggf. ein transparentes Angebot mit Leistungsumfang und Honorar."
+      },
+      {
+        "q": "Was passiert bei Interessenkonflikt?",
+        "a": "Wird vorab ein Interessenkonflikt festgestellt, wird der Termin storniert und der gezahlte Betrag vollständig erstattet."
+      }
+    ]
+  },
+  "rryp5": {
+    "method": [
+      {
+        "num": "01",
+        "title": "Verstehen",
+        "desc": "Was geschieht, was auf dem Spiel steht und welches Ziel erreicht werden soll."
+      },
+      {
+        "num": "02",
+        "title": "Prüfen",
+        "desc": "Sachverhalt, Dokumente, Beweise, Vermögen, Geschäft und Kontext."
+      },
+      {
+        "num": "03",
+        "title": "Verbinden",
+        "desc": "Personen, Gesellschaften, Länder, Verfahren und Rechtsgebiete."
+      },
+      {
+        "num": "04",
+        "title": "Konstruieren",
+        "desc": "Eine rechtlich belastbare und umsetzbare Strategie."
+      },
+      {
+        "num": "05",
+        "title": "Umsetzen",
+        "desc": "Steuerung von Fristen, Meilensteinen, Partnern, Beweisen und Entscheidungen."
+      }
+    ],
+    "situations": [
+      {
+        "num": "01",
+        "title": "Ein Kind und mehr als ein Land sind betroffen.",
+        "desc": "Sorgerecht, gewöhnlicher Aufenthalt, Umzug, Rückführung oder Eilmaßnahmen.",
+        "slug": "especialidades/sustraccion-menores"
+      },
+      {
+        "num": "02",
+        "title": "Vermögen existiert, aber die Struktur ist unklar.",
+        "desc": "Gesellschaften, Immobilien, Konten, Beteiligungen oder digitale Vermögenswerte im Ausland.",
+        "slug": "private-wealth"
+      },
+      {
+        "num": "03",
+        "title": "Ein Unternehmenskonflikt betrifft Sie persönlich.",
+        "desc": "Gesellschafter, Verträge, Software, unlauterer Wettbewerb, Insolvenz oder persönliche Haftung.",
+        "slug": "business-disputes"
+      },
+      {
+        "num": "04",
+        "title": "Ein ausländisches Urteil soll in Spanien wirken.",
+        "desc": "Exequatur, Vollstreckung, Unterhalt, Scheidungen oder vermögensrechtliche Beschlüsse.",
+        "slug": "especialidades/litigios-internacionales"
+      },
+      {
+        "num": "05",
+        "title": "Ein Strafverfahren oder Haftbefehl macht Zeit entscheidend.",
+        "desc": "EuHb, Auslieferung, strafrechtliche Zusammenarbeit und Eilverteidigung in Spanien.",
+        "slug": "penal-economico-extradicion"
+      },
+      {
+        "num": "06",
+        "title": "Mehrere Länder, aber niemand steuert das Gesamtbild.",
+        "desc": "Ein Anwalt sieht Spanien, ein anderer das Ausland — ohne gemeinsame Strategie.",
+        "slug": "la-firma"
+      },
+      {
+        "num": "07",
+        "title": "Sie haben bereits anwaltlichen Rat, aber er passt nicht zur Lage.",
+        "desc": "Oft liegt der Schlüssel in der Aufbereitung von Sachverhalt, Beweis oder Zuständigkeit.",
+        "slug": "casos"
+      },
+      {
+        "num": "08",
+        "title": "Sie wissen nicht, wo Sie beginnen sollen.",
+        "desc": "Schildern Sie uns die Fakten. Die juristische Einordnung übernehmen wir.",
+        "slug": "primera-reunion-juridica"
+      }
+    ],
+    "metrics": [
+      {
+        "num": "200+",
+        "head": "Bearbeitete Mandate",
+        "text": "Erfahrung in grenzüberschreitenden Familien-, Vermögens- und Wirtschaftsstreitigkeiten."
+      },
+      {
+        "num": "26+",
+        "head": "Nationalitäten",
+        "text": "Privatpersonen, Führungskräfte und Unternehmen mit Bezug zu Spanien."
+      },
+      {
+        "num": "12+",
+        "head": "Gerichtsstandorte",
+        "text": "Direkte Prozessführung vor erstinstanzlichen Gerichten, Obergerichten und Audiencia Nacional."
+      },
+      {
+        "num": "3",
+        "head": "Standorte in Spanien",
+        "text": "Madrid, Málaga (inkl. Marbella und Costa del Sol) sowie Córdoba."
+      }
+    ],
+    "courts": [
+      {
+        "num": "01",
+        "title": "Zivil- und Familiengerichte (1. Instanz)",
+        "desc": "Familie, Vermögen, Erbrecht, Verträge, Forderungen und einstweilige Verfügungen."
+      },
+      {
+        "num": "02",
+        "title": "Ermittlungs- und Strafgerichte",
+        "desc": "Verteidigung und Nebenklage bei Wirtschaftsstraftaten mit Auslandsbezug."
+      },
+      {
+        "num": "03",
+        "title": "Audiencias Provinciales (2. Instanz)",
+        "desc": "Berufungen gegen erstinstanzliche Entscheidungen."
+      },
+      {
+        "num": "04",
+        "title": "Audiencia Nacional",
+        "desc": "Europäische Strafzusammenarbeit, EuHb und Auslieferungsverfahren."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Welche Mandate übernimmt RRYP Global?",
+        "a": "Komplexe Mandate mit Spanien-Bezug, mehreren Ländern, bedeutendem Vermögen, Unternehmen oder internationalem Familienrecht."
+      },
+      {
+        "q": "Wer führt mein Mandat?",
+        "a": "Die Rechtsleitung liegt bei Mar Gámez, unterstützt durch das Team und bei Bedarf ausländische Partnerkanzleien."
+      },
+      {
+        "q": "Arbeiten Sie mit ausländischen Kanzleien zusammen?",
+        "a": "Ja. RRYP koordiniert die gemeinsame Strategie über alle betroffenen Rechtsordnungen hinweg."
+      },
+      {
+        "q": "Übernehmen Sie laufende Mandate?",
+        "a": "Ja. Wir prüfen den bisherigen Verlauf und richten die Strategie neu aus."
+      },
+      {
+        "q": "Was geschieht im ersten Rechtsgespräch?",
+        "a": "Ein strukturiertes Arbeitsgespräch mit Mar Gámez zu Fakten, Unterlagen, Ländern und Zielsetzung. Honorar: 350 €."
+      },
+      {
+        "q": "Wie werden spätere Honorare festgelegt?",
+        "a": "Transparent nach Komplexität, Umfang und Aufwand vor Beginn jedes weiteren Mandats."
+      },
+      {
+        "q": "Muss ich mein Anliegen vorab juristisch einordnen?",
+        "a": "Nein. Schildern Sie einfach den Sachverhalt."
+      }
+    ]
+  },
+  "marGamez": {
+    "sections": [
+      {
+        "title": "Akademische Ausbildung",
+        "p1": "Doppelstudium Rechtswissenschaften und Internationale Beziehungen an der Universität Loyola, ausgezeichnet mit der Aufnahme in die Ehrengesellschaft Alpha Sigma Nu.",
+        "p2": "Postgraduiertenstudium zur Anwaltszulassung mit Schwerpunkt Wirtschafts- und internationales Unternehmensrecht (ISDE / Universität Carlos III de Madrid) sowie LL.M. in International Business Law am ISDE."
+      },
+      {
+        "title": "Berufspraxis & Zulassung",
+        "p1": "Mitgründerin und juristische Leiterin von RRYP Global für komplexe grenzüberschreitende Mandate in Familien-, Vermögens-, Erb-, Wirtschafts- und Wirtschaftsstrafrecht.",
+        "p2": "Zugelassene Rechtsanwältin der Rechtsanwaltskammer Madrid (ICAM Nr. 137007) nach herausragendem Staatsexamen, mit vorheriger Praxis im internationalen Gesellschaftsrecht."
+      },
+      {
+        "title": "Lehre & Publikationen",
+        "p1": "Dozentin an der Universität Loyola für Internationales Privatrecht und Rechtsvergleichung sowie Lehrtätigkeit bei EOI, IMDEEC und IPRODECO.",
+        "p2": "Mitautorin des Fachkurses für Internationales Handelsrecht bei Aranzadi Thomson Reuters. Arbeitssprachen: Spanisch und Englisch."
+      },
+      {
+        "title": "Forschung, Vorträge & Medien",
+        "p1": "Forschung zu China–EU-Streitbeilegung und internationalen Joint Ventures; Referentin bei Handelskammern in Málaga, Teneriffa und Kolumbien, EOI, EUDE und Promálaga.",
+        "p2": "Regelmäßige juristische Analysen bei laSexta Noticias, Deutsche Welle und La Razón."
+      }
+    ]
+  },
+  "contacto": {
+    "metaTitle": "Kontakt & 3-Schritte-Triage | RRYP Global",
+    "metaDesc": "Kontaktieren Sie RRYP Global in Madrid, Málaga und Córdoba oder ermitteln Sie in 3 Schritten den passenden Einstieg.",
+    "eyebrow": "Direkter Kontakt & Standorte",
+    "title": "Schildern Sie RRYP Global Ihr Anliegen",
+    "lead": "Betreuung in 6 Sprachen von unseren 3 realen Standorten in Madrid, Málaga (inkl. Marbella & Costa del Sol) und Córdoba.",
+    "triageEyebrow": "3-Schritte-Triage",
+    "triageTitle": "Welcher Einstiegsweg passt zu Ihrem Fall?",
+    "triageLead": "Wählen Sie Rechtsgebiet, Länderbezug und Dringlichkeit für eine sofortige Empfehlung und versandfertige Zusammenfassung.",
+    "step1Label": "1. Rechtsgebiet",
+    "step2Label": "2. Länderbezug",
+    "step3Label": "3. Dringlichkeit",
+    "matters": [
+      {
+        "id": "private-clients",
+        "label": "Internationales Familienrecht, Sorgerecht oder Kinder"
+      },
+      {
+        "id": "private-wealth",
+        "label": "Vermögen, Erbschaften oder Insolvenz"
+      },
+      {
+        "id": "business-disputes",
+        "label": "Unternehmen, Verträge oder internationale Streitigkeiten"
+      },
+      {
+        "id": "penal",
+        "label": "Wirtschaftsstrafrecht, EuHb oder Auslieferung"
+      }
+    ],
+    "scopes": [
+      {
+        "id": "es",
+        "label": "Nur Spanien"
+      },
+      {
+        "id": "eu",
+        "label": "Spanien + Europäische Union"
+      },
+      {
+        "id": "global",
+        "label": "Spanien + USA, UK, Lateinamerika oder Drittstaat"
+      }
+    ],
+    "urgencies": [
+      {
+        "id": "initial",
+        "label": "Erste Orientierung (keine akute Frist)"
+      },
+      {
+        "id": "strategic",
+        "label": "Strategische Rechtsbewertung benötigt"
+      },
+      {
+        "id": "urgent",
+        "label": "Akute Dringlichkeit (Gerichtsfrist, Kind oder Haft)"
+      }
+    ],
+    "recEyebrow": "Empfohlener Weg",
+    "recCasesTitle": "Ähnliche Referenzfälle von RRYP Global",
+    "recBtnBook": "Über Calendly buchen →",
+    "recBtnWa": "Zusammenfassung per WhatsApp senden →",
+    "recBtnEmail": "Zusammenfassung per E-Mail senden →",
+    "recReset": "Neu starten",
+    "officesEyebrow": "Unsere 3 realen Standorte",
+    "officesTitle": "Madrid, Málaga und Córdoba",
+    "officesLead": "Persönliche Termine nach Vereinbarung sowie Online-Mandatsleitung für Mandanten aus über 26 Ländern."
+  }
+}

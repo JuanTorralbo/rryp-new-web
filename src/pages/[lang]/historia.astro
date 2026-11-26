@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import MediaStrip from "../../components/MediaStrip.astro";
 import EntryRoutes from "../../components/EntryRoutes.astro";
 import { FIRM } from "../../data/firm";
+import { getPageContent } from "../../data/pages-i18n";
 import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
 
 export function getStaticPaths() {
@@ -12,27 +13,7 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Locale };
 const t = getDictionary(lang);
-
-const stages = [
-  {
-    num: "01",
-    period: "2020 - 2021",
-    name: "Relaciónate y Punto",
-    desc: "Nace en Córdoba como proyecto editorial sobre relaciones internacionales y comercio exterior, y se constituye formalmente como RELACIONATEYPUNTO, S.L. en enero de 2021 por Mar Gámez Ramírez y Mar Ramírez.",
-  },
-  {
-    num: "02",
-    period: "2022 - 2024",
-    name: "RRYP Abogados y expansión",
-    desc: "Primera oficina física en Córdoba (marzo 2023), galardón Empresa Top 50 de Andalucía Emprende, salto a televisión nacional en laSexta Noticias, entrada en La Nave Madrid y actividad en Promálaga y EUDE.",
-  },
-  {
-    num: "03",
-    period: "2025 - 2026",
-    name: "RRYP Global — Boutique Legal Internacional",
-    desc: "Consolidación en 3 sedes reales (Madrid, Málaga y Córdoba), docencia en la Universidad Loyola, cobertura en La Razón y Diario Córdoba, 200+ asuntos, 26+ nacionalidades y lanzamiento de RRYP Legal Intelligence.",
-  },
-];
+const content = getPageContent(lang).historia;
 
 interface TimelineLink {
   label: string;
@@ -40,129 +21,50 @@ interface TimelineLink {
   external?: boolean;
 }
 
-interface TimelineItem {
-  year: string;
-  month: string;
-  tag: string;
-  logo?: string;
-  logoAlt?: string;
-  title: string;
-  desc: string;
-  links?: TimelineLink[];
+function resolveLinks(linkType: string): TimelineLink[] {
+  switch (linkType) {
+    case "cv":
+      return [{ label: t.cvProfileBtn, href: localizedPath(lang, "equipo/mar-gamez") }];
+    case "firm":
+      return [{ label: `${t.bcFirm} →`, href: localizedPath(lang, "la-firma") }];
+    case "cordoba_press":
+      return [
+        { label: content.officeCordoba, href: localizedPath(lang, "cordoba") },
+        { label: t.mediosReadBtn, href: "https://www.lawandtrends.com/noticias/rryp-global/rryp-global-inaugura-su-primera-oficina-en-cordoba-1.html", external: true },
+      ];
+    case "top50":
+      return [{ label: t.histReadSource, href: localizedPath("es", "legal-intelligence/rryp-es-galardonada-como-empresa-top50") }];
+    case "medios_2023":
+      return [
+        { label: t.mediosStripLink, href: localizedPath(lang, "medios") },
+        { label: t.histReadSource, href: localizedPath("es", "legal-intelligence/mar-gamez-es-entrevistada-en-lasexta") },
+      ];
+    case "madrid_malaga":
+      return [
+        { label: content.officeMadrid, href: localizedPath(lang, "madrid") },
+        { label: content.officeMalaga, href: localizedPath(lang, "malaga") },
+      ];
+    case "medios":
+      return [{ label: t.mediosStripLink, href: localizedPath(lang, "medios") }];
+    case "larazon":
+      return [
+        { label: t.histReadSource, href: localizedPath("es", "legal-intelligence/pienso-luego-exito") },
+        { label: t.mediosReadBtn, href: "https://www.larazon.es/economia/justicia-admite-tramite-querella-presunta-estafa-alvaro-pintado_2025072868871fffabb2960d1fb7a262.html", external: true },
+      ];
+    case "loyola":
+      return [
+        { label: t.histReadSource, href: localizedPath("es", "legal-intelligence/entrevista-a-mar-gamez-diario-cordoba") },
+        { label: t.histReadSource, href: localizedPath("es", "legal-intelligence/mar-gamez-docente-en-universidad-loyola") },
+      ];
+    case "present":
+      return [
+        { label: t.r5CtaLabel, href: localizedPath(lang, "rryp-en-5") },
+        { label: "RRYP Legal Intelligence →", href: localizedPath(lang, "legal-intelligence") },
+      ];
+    default:
+      return [];
+  }
 }
-
-const timeline: TimelineItem[] = [
-  {
-    year: "2020",
-    month: "Origen editorial",
-    tag: "Relaciónate y Punto",
-    title: "Un blog sobre asuntos internacionales que despierta una vocación de firma",
-    desc: "Mar Gámez Ramírez (doble grado en Derecho y Relaciones Internacionales por la Universidad Loyola y LL.M. en ISDE) impulsa junto a Mar Ramírez el proyecto editorial Relaciónate y Punto, centrado en comercio exterior, geopolítica y derecho internacional práctico.",
-    links: [{ label: t.cvProfileBtn, href: localizedPath(lang, "equipo/mar-gamez") }],
-  },
-  {
-    year: "2021",
-    month: "Enero",
-    tag: "Fundación",
-    title: "Constitución de RELACIONATEYPUNTO, S.L. en Córdoba",
-    desc: "Se constituye formalmente la sociedad mercantil RELACIONATEYPUNTO, S.L. (NIF B42713768, Registro Mercantil de Córdoba) con el respaldo inicial de CADE Córdoba y Andalucía Emprende, enfocada en consultoría de internacionalización y asesoramiento legal para empresas y particulares.",
-    links: [{ label: t.bcFirm, href: localizedPath(lang, "la-firma") }],
-  },
-  {
-    year: "2023",
-    month: "2 de marzo",
-    tag: "Primera oficina",
-    logo: "lawandtrends-dark.webp",
-    logoAlt: "Law&Trends",
-    title: "RRYP Global inaugura su primera oficina en Córdoba",
-    desc: "El portal jurídico Law&Trends recoge la apertura de la primera sede física en Córdoba (Avda. Sta. Mª de Trassierra 98), marcando la consolidación comercial de RRYP Global como boutique enfocada en asuntos jurídicos transfronterizos.",
-    links: [
-      { label: "Sede de Córdoba →", href: localizedPath(lang, "cordoba") },
-      { label: t.mediosReadBtn, href: "https://www.lawandtrends.com/noticias/rryp-global/rryp-global-inaugura-su-primera-oficina-en-cordoba-1.html", external: true },
-    ],
-  },
-  {
-    year: "2023",
-    month: "28 de junio",
-    tag: "Reconocimiento",
-    title: "Galardón Empresa Top 50 de Andalucía Emprende",
-    desc: "Andalucía Emprende (Fundación Pública Andaluza adscrita a la Consejería de Universidad, Investigación e Innovación) distingue a RRYP con la mención Top 50 por su carácter innovador, su componente tecnológico y su impacto en el ecosistema emprendedor.",
-    links: [{ label: t.histReadSource, href: localizedPath("es", "legal-intelligence/rryp-es-galardonada-como-empresa-top50") }],
-  },
-  {
-    year: "2023",
-    month: "Agosto - Noviembre",
-    tag: "Televisión y prensa internacional",
-    logo: "deutschewelle-dark.webp",
-    logoAlt: "Deutsche Welle",
-    title: "Primera intervención en laSexta Noticias y análisis en Deutsche Welle",
-    desc: "El 27 de agosto de 2023 Mar Gámez interviene en los informativos de laSexta y es citada por Deutsche Welle sobre las consecuencias jurídicas y comerciales de las restricciones del Canal de Panamá. Ese otoño la firma participa en Al-Ándalus Innovation Venture, Córdoba Biotech, Andalucía TRADE Global y la Cámara de Comercio de Tenerife.",
-    links: [
-      { label: t.mediosStripLink, href: localizedPath(lang, "medios") },
-      { label: t.histReadSource, href: localizedPath("es", "legal-intelligence/mar-gamez-es-entrevistada-en-lasexta") },
-    ],
-  },
-  {
-    year: "2024",
-    month: "Febrero - Mayo",
-    tag: "Expansión Madrid y Málaga",
-    logo: "eudebusinessschool-dark.webp",
-    logoAlt: "EUDE Business School",
-    title: "Entrada en La Nave Madrid, respaldo de IMDEEC y despliegue en Málaga",
-    desc: "En febrero de 2024 RRYP se incorpora al #EcosistemaLN de La Nave Madrid (Ayuntamiento de Madrid) y recibe la visita institucional de IMDEEC en Córdoba. Entre marzo y mayo firma convenio con AJE Córdoba, es destacada por la Junta de Andalucía en el Día Mundial del Emprendimiento, imparte seminarios en EUDE Business School (Madrid) y talleres en Promálaga Economistas (Málaga).",
-    links: [
-      { label: "Sede de Madrid →", href: localizedPath(lang, "madrid") },
-      { label: "Sede de Málaga →", href: localizedPath(lang, "malaga") },
-    ],
-  },
-  {
-    year: "2024",
-    month: "9 de diciembre",
-    tag: "Televisión nacional",
-    logo: "lasexta-dark.webp",
-    logoAlt: "laSexta Noticias",
-    title: "Segunda cobertura en laSexta Noticias sobre la crisis del Mar Rojo",
-    desc: "Mar Gámez vuelve a los informativos nacionales de laSexta para valorar el impacto jurídico, contractual y logístico de los ataques en el Mar Rojo sobre el transporte marítimo y las cadenas internacionales de suministro.",
-    links: [{ label: t.mediosWatchBtn, href: localizedPath(lang, "medios") }],
-  },
-  {
-    year: "2025",
-    month: "Marzo - Julio",
-    tag: "Comunidad y litigación",
-    logo: "larazon-dark.webp",
-    logoAlt: "La Razón",
-    title: "Podcast «Pienso, Luego Éxito», 1.er Café Legal y repercusión en La Razón",
-    desc: "Tras impartir formación en IA y comercio internacional para IPRODECO y patrocinar los Premios AJE Córdoba y AJE Málaga, RRYP lanza su canal audiovisual «Pienso, Luego Éxito» y el formato presencial Cafés Legales. El 28 de julio La Razón recoge la admisión a trámite de una querella por presunta estafa dirigida por la firma.",
-    links: [
-      { label: t.histReadSource, href: localizedPath("es", "legal-intelligence/pienso-luego-exito") },
-      { label: t.mediosReadBtn, href: "https://www.larazon.es/economia/justicia-admite-tramite-querella-presunta-estafa-alvaro-pintado_2025072868871fffabb2960d1fb7a262.html", external: true },
-    ],
-  },
-  {
-    year: "2025",
-    month: "Agosto - Septiembre",
-    tag: "Academia y consolidación",
-    logo: "loyola-dark.webp",
-    logoAlt: "Universidad Loyola",
-    title: "Entrevista en Diario Córdoba, docencia en Universidad Loyola y Cámara de Málaga",
-    desc: "El 18 de agosto Diario Córdoba publica una entrevista en profundidad sobre el crecimiento de la firma desde Córdoba hacia casi 30 países. En septiembre Mar Gámez se incorpora como profesora asociada de Derecho Internacional Privado y Derecho Comparado en la Universidad Loyola e imparte ponencias sobre IA legal en la Cámara de Comercio de Málaga.",
-    links: [
-      { label: t.histReadSource, href: localizedPath("es", "legal-intelligence/entrevista-a-mar-gamez-diario-cordoba") },
-      { label: t.histReadSource, href: localizedPath("es", "legal-intelligence/mar-gamez-docente-en-universidad-loyola") },
-    ],
-  },
-  {
-    year: "2026",
-    month: "Presente",
-    tag: "Boutique Legal Internacional",
-    title: "Tres sedes reales, 200+ asuntos internacionales y RRYP Legal Intelligence",
-    desc: "Consolidada en Madrid (Pº de la Castellana 40), Málaga (C/ Martínez Campos 16, atendiendo también Marbella y Costa del Sol) y Córdoba (Avda. Sta. Mª de Trassierra 98), la firma opera en tres pilares especializados — Private Clients, Private Wealth y Business Disputes — más defensa urgente en Penal Económico y OEDE ante la Audiencia Nacional, respaldada por 429 análisis publicados, 28 casos representativos y RRYP Legal Intelligence en 6 idiomas.",
-    links: [
-      { label: t.r5CtaLabel, href: localizedPath(lang, "rryp-en-5") },
-      { label: "RRYP Legal Intelligence →", href: localizedPath(lang, "legal-intelligence") },
-    ],
-  },
-];
 
 const historySchema = {
   "@type": "AboutPage",
@@ -225,7 +127,6 @@ const historySchema = {
     </div>
   </section>
 
-  <!-- 3 etapas de evolucion de la marca -->
   <section class="section-cream">
     <div class="container">
       <div class="section-header" data-reveal>
@@ -236,7 +137,7 @@ const historySchema = {
       </div>
 
       <div class="pillars-grid" data-reveal>
-        {stages.map((st) => (
+        {content.stages.map((st) => (
           <article class="pillar-card">
             <div>
               <span class="pillar-index">{st.num} — {st.period}</span>
@@ -249,7 +150,6 @@ const historySchema = {
     </div>
   </section>
 
-  <!-- Cronologia verificada 2020 - 2026 -->
   <section class="section-cream section-cream--bordered">
     <div class="container">
       <div class="section-header" data-reveal>
@@ -261,72 +161,61 @@ const historySchema = {
       </div>
 
       <div class="hist-timeline">
-        {timeline.map((ev) => (
-          <article class="hist-entry" data-reveal>
-            <div class="hist-date-col">
-              <span class="hist-year">{ev.year}</span>
-              <span class="hist-month">{ev.month}</span>
-            </div>
-            <div class="hist-card">
-              <div class="hist-card-top">
-                <span class="hist-card-tag">{ev.tag}</span>
-                {ev.logo && (
-                  <img
-                    src={`/assets/media-logos/${ev.logo}`}
-                    alt={ev.logoAlt || ev.tag}
-                    loading="lazy"
-                    decoding="async"
-                    class="hist-card-logo"
-                  />
+        {content.timeline.map((ev) => {
+          const links = resolveLinks(ev.linkType);
+          return (
+            <article class="hist-entry" data-reveal>
+              <div class="hist-date-col">
+                <span class="hist-year">{ev.year}</span>
+                <span class="hist-month">{ev.month}</span>
+              </div>
+              <div class="hist-card">
+                <div class="hist-card-top">
+                  <span class="hist-card-tag">{ev.tag}</span>
+                  {"logo" in ev && ev.logo && (
+                    <img
+                      src={`/assets/media-logos/${ev.logo}`}
+                      alt={ev.logoAlt || ev.tag}
+                      loading="lazy"
+                      decoding="async"
+                      class="hist-card-logo"
+                    />
+                  )}
+                </div>
+                <h3 class="hist-card-title">{ev.title}</h3>
+                <p class="hist-card-desc">{ev.desc}</p>
+                {links.length > 0 && (
+                  <div class="hist-card-links">
+                    {links.map((lnk) => (
+                      <a
+                        href={lnk.href}
+                        target={lnk.external ? "_blank" : undefined}
+                        rel={lnk.external ? "noopener noreferrer" : undefined}
+                        class="intel-link"
+                      >
+                        {lnk.label}
+                      </a>
+                    ))}
+                  </div>
                 )}
               </div>
-              <h3 class="hist-card-title">{ev.title}</h3>
-              <p class="hist-card-desc">{ev.desc}</p>
-              {ev.links && ev.links.length > 0 && (
-                <div class="hist-card-links">
-                  {ev.links.map((lnk) => (
-                    <a
-                      href={lnk.href}
-                      target={lnk.external ? "_blank" : undefined}
-                      rel={lnk.external ? "noopener noreferrer" : undefined}
-                      class="intel-link"
-                    >
-                      {lnk.label}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
     </div>
   </section>
 
-  <!-- Cifras actuales en burdeos -->
   <section class="section-burgundy">
     <div class="container">
       <div class="authority-grid" data-reveal>
-        <div class="authority-item">
-          <span class="authority-figure">2021</span>
-          <h3 class="authority-heading">Constitución en Córdoba</h3>
-          <p class="authority-text">RELACIONATEYPUNTO, S.L., origen jurídico y operativo de RRYP Global.</p>
-        </div>
-        <div class="authority-item">
-          <span class="authority-figure">3</span>
-          <h3 class="authority-heading">Sedes operativas</h3>
-          <p class="authority-text">Madrid, Málaga (con servicio a Marbella y Costa del Sol) y Córdoba.</p>
-        </div>
-        <div class="authority-item">
-          <span class="authority-figure">26+</span>
-          <h3 class="authority-heading">Nacionalidades</h3>
-          <p class="authority-text">Asuntos reales dirigidos entre España, Europa, América y otras jurisdicciones.</p>
-        </div>
-        <div class="authority-item">
-          <span class="authority-figure">429</span>
-          <h3 class="authority-heading">Análisis jurídicos</h3>
-          <p class="authority-text">Base doctrinal propia en Derecho internacional accesible en 6 idiomas.</p>
-        </div>
+        {content.metrics.map((m) => (
+          <div class="authority-item">
+            <span class="authority-figure">{m.num}</span>
+            <h3 class="authority-heading">{m.head}</h3>
+            <p class="authority-text">{m.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>

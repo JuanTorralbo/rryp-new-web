@@ -638,6 +638,145 @@
   margin-top: 14px;
 }
 
+/* ==========================================================================
+   Triaje interactivo en 3 pasos (Contacto)
+   ========================================================================== */
+.triage-shell {
+  margin-top: 28px;
+  border: 1px solid var(--line-on-dark);
+  border-radius: var(--radius-arch);
+  padding: clamp(22px, 4vw, 38px);
+  background-color: rgba(247, 244, 237, 0.025);
+}
+
+.triage-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.triage-step-label {
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rryp-gold);
+  margin: 0 0 12px;
+}
+
+.triage-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.triage-opt {
+  appearance: none;
+  background-color: rgba(247, 244, 237, 0.03);
+  border: 1px solid var(--line-on-dark);
+  border-radius: var(--radius-arch);
+  padding: 11px 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--rryp-cream);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color var(--transition-ui), background-color var(--transition-ui), color var(--transition-ui);
+}
+
+.triage-opt:hover {
+  border-color: var(--rryp-gold);
+}
+
+.triage-opt.is-selected {
+  background-color: var(--rryp-lime);
+  border-color: var(--rryp-lime);
+  color: var(--rryp-black);
+  font-weight: 600;
+}
+
+.triage-result {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rryp-gold);
+}
+
+.triage-res-badge {
+  display: inline-block;
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rryp-lime);
+  margin: 0 0 8px;
+}
+
+.triage-res-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 400;
+  margin: 0 0 10px;
+  color: var(--rryp-cream);
+}
+
+.triage-res-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted-on-dark);
+  margin: 0 0 20px;
+  max-width: 68ch;
+}
+
+.triage-res-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.triage-reset-btn {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--rryp-gold);
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 8px 6px;
+}
+
+.triage-cases {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-on-dark-subtle);
+}
+
+.triage-cases-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.triage-cases-list a {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--rryp-cream);
+  border-bottom: 1px solid rgba(184, 155, 94, 0.35);
+  padding-bottom: 2px;
+}
+
+.triage-cases-list a:hover {
+  color: var(--rryp-lime);
+}
+
 @media (max-width: 900px) {
   .media-logo-wall {
     grid-template-columns: repeat(2, minmax(0, 1fr));

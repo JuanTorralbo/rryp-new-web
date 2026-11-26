@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import EntryRoutes from "../../components/EntryRoutes.astro";
 import ResponsivePhoto from "../../components/ResponsivePhoto.astro";
 import { FIRM } from "../../data/firm";
+import { getPageContent } from "../../data/pages-i18n";
 import { getDictionary, LOCALES, localizedPath, type Locale } from "../../i18n";
 
 export function getStaticPaths() {
@@ -12,123 +13,7 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Locale };
 const t = getDictionary(lang);
-
-const tvAppearances = [
-  {
-    outlet: "laSexta Noticias",
-    logo: "lasexta-cream.webp",
-    logoW: 97,
-    logoH: 120,
-    stillBase: "media-lasexta-mar-rojo",
-    topic: "Comercio internacional",
-    date: "Diciembre 2024",
-    title: "Ataques en el Mar Rojo",
-    desc: "Análisis sobre las implicaciones jurídicas y económicas de los ataques en el Mar Rojo y su impacto en las rutas marítimas y el comercio internacional.",
-    ytId: "lO0GP0INVvQ",
-    ytUrl: "https://youtu.be/lO0GP0INVvQ",
-  },
-  {
-    outlet: "laSexta Noticias",
-    logo: "lasexta-cream.webp",
-    logoW: 97,
-    logoH: 120,
-    stillBase: "media-lasexta-panama",
-    topic: "Transporte marítimo",
-    date: "Agosto 2023",
-    title: "Atasco en el Canal de Panamá",
-    desc: "Valoración del impacto jurídico y económico de las restricciones al tráfico marítimo internacional y sus consecuencias sobre las cadenas de suministro.",
-    ytId: "w7_pgOKkhyM",
-    ytUrl: "https://youtu.be/w7_pgOKkhyM",
-  },
-];
-
-const pressPublications = [
-  {
-    year: "2025",
-    outlet: "La Razón",
-    logo: "larazon-dark.webp",
-    logoW: 125,
-    logoH: 120,
-    wide: false,
-    title: "Admisión a trámite de una querella por presunta estafa a un inversor",
-    url: "https://www.larazon.es/economia/justicia-admite-tramite-querella-presunta-estafa-alvaro-pintado_2025072868871fffabb2960d1fb7a262.html",
-  },
-  {
-    year: "2025",
-    outlet: "Diario Córdoba",
-    logo: "diariocordoba-dark.webp",
-    logoW: 129,
-    logoH: 120,
-    wide: false,
-    title: "Entrevista a Mar Gámez sobre su trayectoria y la evolución de RRYP Global",
-    url: "https://www.diariocordoba.com/cordoba-ciudad/2025/08/18/mar-gamez-cofundadora-relacionate-punto-120700068.html",
-  },
-  {
-    year: "2023",
-    outlet: "Law&Trends",
-    logo: "lawandtrends-dark.webp",
-    logoW: 194,
-    logoH: 120,
-    wide: true,
-    title: "RRYP Global inaugura su primera oficina en Córdoba y consolida su expansión",
-    url: "https://www.lawandtrends.com/noticias/rryp-global/rryp-global-inaugura-su-primera-oficina-en-cordoba-1.html",
-  },
-  {
-    year: "2023",
-    outlet: "Deutsche Welle (DW)",
-    logo: "deutschewelle-dark.webp",
-    logoW: 211,
-    logoH: 120,
-    wide: true,
-    title: "El cambio climático pone en jaque la ruta del Canal de Panamá",
-    url: "https://www.dw.com/es/el-cambio-clim%C3%A1tico-pone-en-jaque-ruta-del-canal-de-panam%C3%A1/a-66603003",
-  },
-];
-
-const academicEngagements = [
-  {
-    org: "Universidad Loyola",
-    logo: "loyola-dark.webp",
-    logoW: 360,
-    logoH: 117,
-    topic: "Docencia universitaria en Derecho Internacional Privado y Derecho Comparado",
-  },
-  {
-    org: "Cámara de Comercio de Málaga",
-    logo: "camaramalaga-dark.webp",
-    logoW: 74,
-    logoH: 120,
-    topic: "IA en los negocios: cómo prevenir riesgos sin frenar la innovación",
-  },
-  {
-    org: "IPRODECO (Diputación de Córdoba)",
-    logo: "iprodeco-dark.webp",
-    logoW: 360,
-    logoH: 110,
-    topic: "Estrategias y aplicaciones de la IA en el comercio internacional",
-  },
-  {
-    org: "EUDE Business School",
-    logo: "eudebusinessschool-dark.webp",
-    logoW: 360,
-    logoH: 71,
-    topic: "De cero a internacional: cómo crear una born global startup",
-  },
-  {
-    org: "EOI — Escuela de Organización Industrial",
-    logo: "eoi-dark.webp",
-    logoW: 360,
-    logoH: 75,
-    topic: "Docencia jurídica en internacionalización y empresa emergente",
-  },
-  {
-    org: "Promálaga",
-    logo: "promalaga-dark.webp",
-    logoW: 157,
-    logoH: 120,
-    topic: "Apuntes prácticos y marco legal para negocio digital e internacional",
-  },
-];
+const content = getPageContent(lang).medios;
 
 const institutionalWall = [
   { name: "Universidad Loyola", file: "loyola-dark.webp", w: 360, h: 117 },
@@ -148,7 +33,7 @@ const collectionSchema = {
   url: `${FIRM.siteUrl}${localizedPath(lang, "medios")}`,
   about: { "@id": `${FIRM.siteUrl}/#organization` },
   hasPart: [
-    ...tvAppearances.map((v) => ({
+    ...content.tv.map((v) => ({
       "@type": "VideoObject",
       name: `${v.outlet}: ${v.title}`,
       description: v.desc,
@@ -158,7 +43,7 @@ const collectionSchema = {
     })),
     {
       "@type": "VideoObject",
-      name: "Práctica jurídica internacional entre España y Florida (EPGD Business Law)",
+      name: t.mediosIntTitle,
       description: t.mediosIntLead,
       embedUrl: "https://www.youtube-nocookie.com/embed/ubFo7qdqsTg",
       contentUrl: "https://youtu.be/ubFo7qdqsTg",
@@ -194,7 +79,7 @@ const collectionSchema = {
       <div class="doc-hero-inner">
         <div class="doc-meta-row">
           <span class="doc-meta-pill">{t.mediosEyebrow}</span>
-          <span class="doc-meta-muted">España / International</span>
+          <span class="doc-meta-muted">{content.regionTag}</span>
         </div>
         <h1 class="doc-title">{t.mediosTitle}</h1>
         <p class="doc-lead">{t.mediosLead}</p>
@@ -210,7 +95,6 @@ const collectionSchema = {
     </div>
   </section>
 
-  <!-- Television nacional (laSexta Noticias) con capturas reales AVIF y bloqueo RGPD -->
   <section class="section-cream">
     <div class="container">
       <div class="section-header" data-reveal>
@@ -222,7 +106,7 @@ const collectionSchema = {
       </div>
 
       <div class="media-tv-grid">
-        {tvAppearances.map((item) => (
+        {content.tv.map((item) => (
           <article class="media-video-card" data-reveal>
             <div
               class="media-video-stage"
@@ -273,7 +157,6 @@ const collectionSchema = {
     </div>
   </section>
 
-  <!-- Publicaciones externas con logotipos oficiales en tinta oscura sobre crema -->
   <section class="section-cream section-cream--bordered">
     <div class="container">
       <div class="section-header" data-reveal>
@@ -284,7 +167,7 @@ const collectionSchema = {
       </div>
 
       <div class="media-press-grid" data-reveal>
-        {pressPublications.map((pub) => (
+        {content.press.map((pub) => (
           <article class="media-press-card">
             <div>
               <div class="media-press-head">
@@ -310,7 +193,6 @@ const collectionSchema = {
     </div>
   </section>
 
-  <!-- Academia e instituciones con logotipos oficiales -->
   <section class="section-cream section-cream--bordered">
     <div class="container">
       <div class="section-header" data-reveal>
@@ -322,7 +204,7 @@ const collectionSchema = {
       </div>
 
       <div class="media-acad-grid" data-reveal>
-        {academicEngagements.map((item) => (
+        {content.academia.map((item) => (
           <article class="media-acad-card">
             <div class="media-acad-head">
               <img
@@ -366,7 +248,6 @@ const collectionSchema = {
     </div>
   </section>
 
-  <!-- Conversacion internacional Espana - Florida (EPGD Business Law) -->
   <section class="section-dark">
     <div class="container">
       <div class="video-showcase">
@@ -374,7 +255,7 @@ const collectionSchema = {
           <p class="eyebrow">{t.mediosIntEyebrow}</p>
           <h2 class="section-title">{t.mediosIntTitle}</h2>
           <p class="section-intro" style="margin-top: 16px;">{t.mediosIntLead}</p>
-          <p class="doc-meta-muted" style="margin-top: 14px;">EPGD Business Law (Florida, Estados Unidos)</p>
+          <p class="doc-meta-muted" style="margin-top: 14px;">{content.epgdLocation}</p>
           <div style="margin-top: 24px;">
             <a href="https://youtu.be/ubFo7qdqsTg" target="_blank" rel="noopener noreferrer" class="btn btn--outline-dark btn--compact">
               {t.mediosWatchBtn}
@@ -386,13 +267,13 @@ const collectionSchema = {
           class="media-video-stage"
           style="border: 1px solid var(--rryp-gold); border-radius: var(--radius-arch);"
           data-rgpd-yt="https://www.youtube-nocookie.com/embed/ubFo7qdqsTg?rel=0"
-          data-yt-title="EPGD Business Law - España y Florida"
+          data-yt-title={t.mediosIntTitle}
         >
           <ResponsivePhoto
             base="media-epgd-florida"
             widths={[640, 1280]}
             sizes="(max-width: 1024px) 92vw, 48vw"
-            alt="Conversación jurídica internacional España - Florida con EPGD Business Law"
+            alt={content.epgdAlt}
             width={1280}
             height={720}
             className="media-video-still"
