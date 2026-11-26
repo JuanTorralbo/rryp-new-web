@@ -24,6 +24,78 @@ const articleHref = (slug: string) =>
     ? localizedPath(lang, `legal-intelligence/${slug}`)
     : localizedPath("es", `legal-intelligence/${slug}`);
 
+const thesisQuote = {
+  es: "«Comprender cómo se relacionan derecho, empresa, estrategia y relaciones internacionales es lo que permite resolver asuntos complejos.»",
+  en: "“Understanding how law, business, strategy and international relations intersect is what resolves genuinely complex matters.”",
+  de: "„Zu verstehen, wie Recht, Unternehmen, Strategie und internationale Beziehungen ineinandergreifen, entscheidet komplexe Mandate.“",
+  pt: "«Compreender como se ligam direito, empresa, estratégia e relações internacionais é o que permite resolver assuntos complexos.»",
+  ru: "«Понимание взаимосвязи права, бизнеса, стратегии и международных отношений позволяет решать по-настоящему сложные дела.»",
+  zh: "“洞察法律、商业、战略与国际关系的交汇点，正是破解复杂跨境案件的关键。”",
+}[lang];
+
+const practiceCards = [
+  { num: "01", name: t.navClients, href: localizedPath(lang, "private-clients") },
+  { num: "02", name: t.navWealth, href: localizedPath(lang, "private-wealth") },
+  { num: "03", name: t.navDisputes, href: localizedPath(lang, "business-disputes") },
+  { num: "04", name: t.bcPenal, href: localizedPath(lang, "penal-economico-extradicion") },
+];
+
+const educationRows = [
+  {
+    num: "01",
+    org: "ISDE Law & Business School",
+    role: "LL.M. International Business Law, Contracting & International Relations",
+    note: content.sections[0].p2,
+  },
+  {
+    num: "02",
+    org: "ISDE — Universidad Carlos III de Madrid",
+    role: {
+      es: "Posgrado de Acceso a la Abogacía (Derecho de Empresa Internacional)",
+      en: "Postgraduate Bar Admission Degree (International Corporate Law)",
+      de: "Postgraduiertenstudium Anwaltszulassung (Internationales Wirtschaftsrecht)",
+      pt: "Pós-graduação de Acesso à Advocacia (Direito Empresarial Internacional)",
+      ru: "Последипломная программа допуска к адвокатуре (международное право)",
+      zh: "律师执业研究生课程（国际商法方向）",
+    }[lang],
+    note: t.cvIcamLabel,
+  },
+  {
+    num: "03",
+    org: "Universidad Loyola — Alpha Sigma Nu",
+    role: {
+      es: "Doble Grado en Derecho y Relaciones Internacionales",
+      en: "Dual Degree in Law and International Relations",
+      de: "Doppelstudium Rechtswissenschaften & Internationale Beziehungen",
+      pt: "Dupla Licenciatura em Direito e Relações Internacionais",
+      ru: "Двойной диплом: Право и Международные отношения",
+      zh: "法学与国际关系双学位（Alpha Sigma Nu 荣誉会员）",
+    }[lang],
+    note: content.sections[0].p1,
+  },
+];
+
+const careerRows = [
+  {
+    num: "01",
+    org: "RRYP Global — RELACIONATEYPUNTO, S.L.",
+    role: t.roleMarGamez,
+    note: content.sections[1].p1,
+  },
+  {
+    num: "02",
+    org: "Ilustre Colegio de la Abogacía de Madrid",
+    role: t.cvIcamLabel,
+    note: content.sections[1].p2,
+  },
+  {
+    num: "03",
+    org: "China — UE / Joint Ventures / Cámaras de Comercio",
+    role: content.sections[3].title,
+    note: content.sections[3].p1,
+  },
+];
+
 const personSchema = {
   "@type": "Person",
   "@id": `${FIRM.siteUrl}/es/equipo/mar-gamez/#person`,
@@ -84,7 +156,7 @@ const personSchema = {
             <span class="doc-meta-pill">Universidad Loyola</span>
             <span class="doc-meta-pill">LL.M. ISDE</span>
             <span class="doc-meta-pill">Alpha Sigma Nu</span>
-            <span class="doc-meta-pill">Aranzadi Thomson Reuters</span>
+            <span class="doc-meta-pill">ICEX-CECO</span>
           </div>
           <div class="doc-hero-actions">
             <a href={localizedPath(lang, "primera-reunion-juridica")} class="btn btn--lime btn--compact">
@@ -125,36 +197,106 @@ const personSchema = {
     </div>
   </section>
 
+  <!-- Banda burdeos de tesis ejecutiva -->
+  <section class="cv-thesis-band">
+    <div class="container cv-thesis-inner" data-reveal>
+      <blockquote class="cv-thesis-quote">{thesisQuote}</blockquote>
+      <div class="cv-thesis-meta">
+        <span>{t.cvIcamLabel}</span>
+        <p>Madrid / Málaga / Córdoba</p>
+        <p>ES / EN</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dossier asimetrico con jerarquia clara -->
   <section class="section-cream">
     <div class="container">
-      <div style="margin-bottom: 32px;" data-reveal>
+      <div data-reveal>
         <p class="eyebrow eyebrow--on-cream">{content.areasTitle}</p>
-        <div class="r5-cities-bar" style="margin-top: 12px;">
-          <a href={localizedPath(lang, "private-clients")}><span>{t.navClients} →</span></a>
-          <a href={localizedPath(lang, "private-wealth")}><span>{t.navWealth} →</span></a>
-          <a href={localizedPath(lang, "business-disputes")}><span>{t.navDisputes} →</span></a>
-          <a href={localizedPath(lang, "penal-economico-extradicion")}><span>{t.bcPenal} →</span></a>
+        <div class="cv-practice-grid">
+          {practiceCards.map((pc) => (
+            <a href={pc.href} class="cv-practice-card">
+              <span class="cv-practice-num">{pc.num}</span>
+              <span class="cv-practice-name">{pc.name} →</span>
+            </a>
+          ))}
         </div>
       </div>
 
-      <div class="cv-sections-grid" data-reveal>
-        {content.sections.map((sec, idx) => (
-          <article class="cv-block">
-            <h2>{sec.title}</h2>
-            <p>{sec.p1}</p>
-            <p>
-              {sec.p2}
-              {idx === content.sections.length - 1 && (
-                <>
-                  {" "}
-                  <a href={localizedPath(lang, "medios")} style="text-decoration: underline;">
-                    {t.mediosStripLink}
-                  </a>
-                </>
-              )}
-            </p>
-          </article>
-        ))}
+      <div class="cv-dossier-grid">
+        <div class="cv-ledger">
+          <div class="cv-ledger-group" data-reveal>
+            <h2 class="cv-ledger-title">{content.sections[1].title}</h2>
+            <div class="cv-ledger-list">
+              {careerRows.map((row) => (
+                <article class="cv-ledger-row">
+                  <span class="cv-ledger-num">{row.num}</span>
+                  <div>
+                    <p class="cv-ledger-org">{row.org}</p>
+                    <h3 class="cv-ledger-role">{row.role}</h3>
+                    <p class="cv-ledger-note">{row.note}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div class="cv-ledger-group" data-reveal>
+            <h2 class="cv-ledger-title">{content.sections[0].title}</h2>
+            <div class="cv-ledger-list">
+              {educationRows.map((row) => (
+                <article class="cv-ledger-row">
+                  <span class="cv-ledger-num">{row.num}</span>
+                  <div>
+                    <p class="cv-ledger-org">{row.org}</p>
+                    <h3 class="cv-ledger-role">{row.role}</h3>
+                    <p class="cv-ledger-note">{row.note}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <aside class="cv-aside-stack">
+          <div class="cv-dark-card" data-reveal>
+            <p class="eyebrow" style="margin: 0;">{t.mediosAcadEyebrow}</p>
+            <h2>{content.sections[2].title}</h2>
+            <ul class="cv-dark-list">
+              <li>
+                <strong>Universidad Loyola</strong>
+                Derecho Internacional Privado y Derecho Comparado
+              </li>
+              <li>
+                <strong>ICEX-CECO / EOI / IMDEEC / IPRODECO</strong>
+                {content.sections[2].p1}
+              </li>
+              <li>
+                <strong>Aranzadi Thomson Reuters</strong>
+                {content.sections[2].p2}
+              </li>
+            </ul>
+            <a href={localizedPath(lang, "primera-reunion-juridica")} class="btn btn--lime btn--compact" style="width: 100%;">
+              {t.meetTitle} (350 €) →
+            </a>
+          </div>
+
+          <div class="cv-media-card" data-reveal>
+            <p class="eyebrow eyebrow--on-cream" style="margin: 0;">{t.mediosEyebrow}</p>
+            <div class="cv-media-logos">
+              <img src="/assets/media-logos/lasexta-dark.webp" alt="laSexta Noticias" width="97" height="120" loading="lazy" />
+              <img src="/assets/media-logos/deutschewelle-dark.webp" alt="Deutsche Welle" width="211" height="120" loading="lazy" />
+              <img src="/assets/media-logos/larazon-dark.webp" alt="La Razón" width="125" height="120" loading="lazy" />
+              <img src="/assets/media-logos/diariocordoba-dark.webp" alt="Diario Córdoba" width="129" height="120" loading="lazy" />
+              <img src="/assets/media-logos/loyola-dark.webp" alt="Universidad Loyola" width="360" height="117" loading="lazy" />
+            </div>
+            <p class="cv-ledger-note" style="margin-bottom: 14px;">{content.sections[3].p2}</p>
+            <a href={localizedPath(lang, "medios")} class="intel-link">
+              {t.mediosStripLink}
+            </a>
+          </div>
+        </aside>
       </div>
 
       {marArticles.length > 0 && (
