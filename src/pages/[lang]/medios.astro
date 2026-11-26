@@ -2,6 +2,7 @@
 import "../../styles/editorial-doc.css";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EntryRoutes from "../../components/EntryRoutes.astro";
+import SocialEcosystem from "../../components/SocialEcosystem.astro";
 import ResponsivePhoto from "../../components/ResponsivePhoto.astro";
 import { FIRM } from "../../data/firm";
 import { getPageContent } from "../../data/pages-i18n";
@@ -289,6 +290,8 @@ const collectionSchema = {
       </div>
     </div>
   </section>
+
+  <SocialEcosystem lang={lang} surface="dark" />
 
   <EntryRoutes lang={lang} intro={t.entrySharedIntro} />
 

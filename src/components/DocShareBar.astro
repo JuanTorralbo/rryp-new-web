@@ -1,0 +1,103 @@
+---
+import { FIRM } from "../data/firm";
+import type { Locale } from "../i18n";
+
+export interface Props {
+  lang: Locale;
+  title: string;
+  canonicalUrl: string;
+}
+
+const { lang, title, canonicalUrl } = Astro.props;
+
+const COPY: Record<
+  Locale,
+  {
+    heading: string;
+    copy: string;
+    copied: string;
+    print: string;
+    follow: string;
+  }
+> = {
+  es: {
+    heading: "Compartir y guardar",
+    copy: "Copiar enlace",
+    copied: "Enlace copiado ✓",
+    print: "Imprimir / PDF",
+    follow: "Seguir a RRYP Global:",
+  },
+  en: {
+    heading: "Share & save",
+    copy: "Copy link",
+    copied: "Link copied ✓",
+    print: "Print / PDF",
+    follow: "Follow RRYP Global:",
+  },
+  de: {
+    heading: "Teilen & speichern",
+    copy: "Link kopieren",
+    copied: "Link kopiert ✓",
+    print: "Drucken / PDF",
+    follow: "RRYP Global folgen:",
+  },
+  pt: {
+    heading: "Partilhar e guardar",
+    copy: "Copiar ligação",
+    copied: "Ligação copiada ✓",
+    print: "Imprimir / PDF",
+    follow: "Seguir a RRYP Global:",
+  },
+  ru: {
+    heading: "Поделиться и сохранить",
+    copy: "Копировать ссылку",
+    copied: "Скопировано ✓",
+    print: "Печать / PDF",
+    follow: "Подписаться на RRYP Global:",
+  },
+  zh: {
+    heading: "分享与保存",
+    copy: "复制链接",
+    copied: "已复制 ✓",
+    print: "打印 / PDF",
+    follow: "关注 RRYP Global：",
+  },
+};
+
+const c = COPY[lang];
+const linkedinShare = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalUrl)}`;
+const waShare = `https://wa.me/?text=${encodeURIComponent(`${title} — ${canonicalUrl}`)}`;
+---
+
+<div class="doc-toc-card doc-share-card">
+  <p class="doc-toc-heading">{c.heading}</p>
+
+  <div class="doc-util-bar">
+    <a href={linkedinShare} target="_blank" rel="noopener noreferrer" class="doc-util-btn">
+      LinkedIn ↗
+    </a>
+    <a href={waShare} target="_blank" rel="noopener noreferrer" class="doc-util-btn">
+      WhatsApp ↗
+    </a>
+    <button
+      type="button"
+      class="doc-util-btn"
+      data-copy-url
+      data-copied-label={c.copied}
+    >
+      {c.copy}
+    </button>
+    <button type="button" class="doc-util-btn" data-print-doc>
+      {c.print}
+    </button>
+  </div>
+
+  <div class="doc-share-follow">
+    <span>{c.follow}</span>
+    <div class="doc-share-follow-links">
+      <a href={FIRM.socials[0].url} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a href={FIRM.socials[2].url} target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+      <a href={FIRM.socials[3].url} target="_blank" rel="noopener noreferrer">Substack ↗</a>
+    </div>
+  </div>
+</div>

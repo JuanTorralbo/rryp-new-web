@@ -2,6 +2,7 @@
 import "../../../styles/editorial-doc.css";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import EntryRoutes from "../../../components/EntryRoutes.astro";
+import DocShareBar from "../../../components/DocShareBar.astro";
 import { FIRM } from "../../../data/firm";
 import { getLocalizedPosts, getPillarLabel, type BlogPost, type PillarId } from "../../../data/blog";
 import { WP_ARTICLES, getBestMatchingCase, getBestMatchingSpecialty, type WpArticle } from "../../../data/wp";
@@ -52,15 +53,7 @@ const { post, full, availableLocales } = Astro.props as {
 const t = getDictionary(lang);
 
 const pillarLabel = post.pillar === "seo-audit" ? t.blogFilterSeo : getPillarLabel(post.pillar as PillarId, lang);
-
-const docUtilsCopy = {
-  es: { copy: "Copiar enlace", copied: "Enlace copiado ✓", print: "Imprimir / PDF" },
-  en: { copy: "Copy link", copied: "Link copied ✓", print: "Print / PDF" },
-  de: { copy: "Link kopieren", copied: "Link kopiert ✓", print: "Drucken / PDF" },
-  pt: { copy: "Copiar ligação", copied: "Ligação copiada ✓", print: "Imprimir / PDF" },
-  ru: { copy: "Копировать ссылку", copied: "Скопировано ✓", print: "Печать / PDF" },
-  zh: { copy: "复制链接", copied: "已复制 ✓", print: "打印 / PDF" },
-}[lang];
+const canonicalArticleUrl = `${FIRM.siteUrl}${localizedPath(lang, `legal-intelligence/${post.slug}`)}`;
 const related = getLocalizedPosts(lang, post.pillar === "seo-audit" ? undefined : post.pillar)
   .filter((p) => p.slug !== post.slug)
   .slice(0, 3);
@@ -213,19 +206,7 @@ const articleSchema = {
               {t.docReadSpecialty}
             </a>
           </div>
-          <div class="doc-util-bar">
-            <button
-              type="button"
-              class="doc-util-btn"
-              data-copy-url
-              data-copied-label={docUtilsCopy.copied}
-            >
-              {docUtilsCopy.copy}
-            </button>
-            <button type="button" class="doc-util-btn" data-print-doc>
-              {docUtilsCopy.print}
-            </button>
-          </div>
+          <DocShareBar lang={lang} title={post.title} canonicalUrl={canonicalArticleUrl} />
         </aside>
       </div>
 

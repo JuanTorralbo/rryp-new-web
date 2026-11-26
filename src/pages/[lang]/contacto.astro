@@ -1,6 +1,7 @@
 ---
 import "../../styles/editorial-doc.css";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import SocialEcosystem from "../../components/SocialEcosystem.astro";
 import { FIRM } from "../../data/firm";
 import { getPageContent } from "../../data/pages-i18n";
 import { WP_CASES } from "../../data/wp";
@@ -224,6 +225,8 @@ const contactSchema = {
       </div>
     </div>
   </section>
+
+  <SocialEcosystem lang={lang} surface="dark" />
 
   <script id="rryp-triage-config" type="application/json" set:html={triageConfig} />
   <script>

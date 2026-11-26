@@ -2,6 +2,7 @@
 import "../../../styles/editorial-doc.css";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import EntryRoutes from "../../../components/EntryRoutes.astro";
+import DocShareBar from "../../../components/DocShareBar.astro";
 import { FIRM } from "../../../data/firm";
 import { WP_CASES, getRelatedCases, type WpCaseStudy } from "../../../data/wp";
 import { getDictionary, LOCALES, localizedPath, type Locale } from "../../../i18n";
@@ -118,6 +119,12 @@ const articleSchema = {
               WhatsApp {FIRM.phone}
             </a>
           </div>
+
+          <DocShareBar
+            lang={lang}
+            title={item.title}
+            canonicalUrl={`${FIRM.siteUrl}${localizedPath(lang, `casos/${item.slug}`)}`}
+          />
         </aside>
       </div>
 

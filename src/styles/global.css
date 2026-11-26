@@ -4417,6 +4417,211 @@ html.is-scrolled .site-header {
   pointer-events: none;
 }
 
+/* ==========================================================================
+   Public Social & Publishing Ecosystem
+   ========================================================================== */
+
+.eco-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.eco-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 22px;
+  border-radius: var(--radius-arch);
+  border: 1px solid rgba(184, 155, 94, 0.24);
+  background-color: rgba(247, 244, 237, 0.03);
+  color: var(--rryp-cream);
+  transition:
+    border-color var(--transition-ui),
+    background-color var(--transition-ui),
+    transform var(--transition-ui);
+}
+
+.eco-card:hover {
+  border-color: var(--rryp-gold);
+  background-color: rgba(184, 155, 94, 0.08);
+  transform: translateY(-2px);
+}
+
+.eco-card--cream {
+  border-color: var(--line-on-cream);
+  background-color: rgba(14, 18, 17, 0.02);
+  color: var(--rryp-black);
+}
+
+.eco-card--cream:hover {
+  border-color: var(--rryp-burgundy);
+  background-color: rgba(71, 32, 45, 0.05);
+}
+
+.eco-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.eco-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-arch);
+  border: 1px solid rgba(184, 155, 94, 0.34);
+  background-color: rgba(184, 155, 94, 0.1);
+  color: var(--rryp-gold);
+  flex-shrink: 0;
+}
+
+.eco-card--cream .eco-icon {
+  border-color: rgba(71, 32, 45, 0.24);
+  background-color: rgba(71, 32, 45, 0.07);
+  color: var(--rryp-burgundy);
+}
+
+.eco-tag {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rryp-gold);
+  text-align: right;
+}
+
+.eco-card--cream .eco-tag {
+  color: var(--rryp-burgundy);
+}
+
+.eco-card-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0 0 4px;
+}
+
+.eco-card-handle {
+  font-family: var(--font-brand);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: rgba(247, 244, 237, 0.62);
+  margin: 0 0 12px;
+  word-break: break-word;
+}
+
+.eco-card--cream .eco-card-handle {
+  color: var(--text-muted-on-cream);
+}
+
+.eco-card-desc {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(247, 244, 237, 0.8);
+  margin: 0;
+}
+
+.eco-card--cream .eco-card-desc {
+  color: var(--text-muted-on-cream);
+}
+
+.eco-card-cta {
+  font-family: var(--font-brand);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rryp-lime);
+}
+
+.eco-card--cream .eco-card-cta {
+  color: var(--rryp-burgundy);
+}
+
+.eco-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 24px;
+  margin-top: 24px;
+  padding: 16px 22px;
+  border-radius: var(--radius-arch);
+  border: 1px solid rgba(184, 155, 94, 0.22);
+  background-color: rgba(247, 244, 237, 0.025);
+}
+
+.eco-strip--cream {
+  border-color: var(--line-on-cream);
+  background-color: rgba(14, 18, 17, 0.025);
+}
+
+.eco-strip-label {
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rryp-gold);
+}
+
+.eco-strip--cream .eco-strip-label {
+  color: var(--rryp-burgundy);
+}
+
+.eco-strip-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}
+
+.eco-strip-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--rryp-cream);
+  border-bottom: 1px solid rgba(184, 155, 94, 0.36);
+  padding-bottom: 2px;
+  transition:
+    color var(--transition-ui),
+    border-color var(--transition-ui);
+}
+
+.eco-strip-link:hover {
+  color: var(--rryp-lime);
+  border-bottom-color: var(--rryp-lime);
+}
+
+.eco-strip--cream .eco-strip-link {
+  color: var(--rryp-black);
+  border-bottom-color: rgba(71, 32, 45, 0.32);
+}
+
+.eco-strip--cream .eco-strip-link:hover {
+  color: var(--rryp-burgundy);
+  border-bottom-color: var(--rryp-burgundy);
+}
+
+@media (max-width: 1100px) {
+  .eco-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .eco-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media print {
   .site-header,
   .rryp-whatsapp-fixed,

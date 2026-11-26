@@ -314,6 +314,39 @@
   color: var(--rryp-cream);
 }
 
+.doc-share-follow {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-on-cream);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted-on-cream);
+}
+
+.doc-share-follow-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
+.doc-share-follow-links a {
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rryp-burgundy);
+  border-bottom: 1px solid rgba(184, 155, 94, 0.5);
+  padding-bottom: 1px;
+}
+
+.doc-share-follow-links a:hover {
+  color: var(--rryp-black);
+  border-bottom-color: var(--rryp-black);
+}
+
 .doc-cta-card {
   background-color: var(--rryp-black);
   color: var(--rryp-cream);

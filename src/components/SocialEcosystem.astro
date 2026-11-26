@@ -1,0 +1,338 @@
+---
+import { FIRM } from "../data/firm";
+import { localizedPath, type Locale } from "../i18n";
+
+export interface Props {
+  lang: Locale;
+  surface?: "dark" | "cream";
+}
+
+const { lang, surface = "dark" } = Astro.props;
+
+interface ChannelCopy {
+  tag: string;
+  title: string;
+  desc: string;
+  cta: string;
+}
+
+interface EcosystemCopy {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  linkedin: ChannelCopy;
+  youtube: ChannelCopy;
+  substack: ChannelCopy;
+  instagram: ChannelCopy;
+  stripLabel: string;
+  rssLabel: string;
+  mediaLabel: string;
+  waLabel: string;
+}
+
+const COPY: Record<Locale, EcosystemCopy> = {
+  es: {
+    eyebrow: "Ecosistema público",
+    title: "Dónde publicamos, debatimos y analizamos el derecho internacional.",
+    lead: "Cada canal cumple una función concreta dentro del ecosistema de RRYP Global: jurisprudencia en LinkedIn, análisis en vídeo en YouTube, ensayo editorial en Substack y actualidad de firma en Instagram.",
+    linkedin: {
+      tag: "Análisis y jurisprudencia",
+      title: "LinkedIn",
+      desc: "Comentario técnico de resoluciones transfronterizas, derecho de empresa, patrimonio internacional y actividad académica de la firma.",
+      cta: "Seguir en LinkedIn →",
+    },
+    youtube: {
+      tag: "Podcast jurídico y TV",
+      title: "YouTube",
+      desc: "Episodios de análisis práctico, entrevistas a la dirección legal e intervenciones verificadas en televisión nacional e internacional.",
+      cta: "Ver canal en YouTube →",
+    },
+    substack: {
+      tag: "Newsletter editorial",
+      title: "Substack",
+      desc: "Notas de fondo de RRYP Legal Intelligence sobre derecho internacional privado, patrimonio, empresa y geopolítica jurídica.",
+      cta: "Leer en Substack →",
+    },
+    instagram: {
+      tag: "Actualidad de firma",
+      title: "Instagram",
+      desc: "Divulgación jurídica directa, agenda en Madrid, Málaga y Córdoba, conferencias y el día a día del equipo.",
+      cta: "Seguir en Instagram →",
+    },
+    stripLabel: "Sindicación y contacto público",
+    rssLabel: "Feed RSS (Legal Intelligence)",
+    mediaLabel: "Hemeroteca y televisión",
+    waLabel: "Canal directo WhatsApp",
+  },
+  en: {
+    eyebrow: "Public Ecosystem",
+    title: "Where we publish, debate, and analyze international law.",
+    lead: "Each official channel plays a distinct role in RRYP Global's public ecosystem: cross-border case commentary on LinkedIn, legal video and TV appearances on YouTube, long-form briefings on Substack, and firm updates on Instagram.",
+    linkedin: {
+      tag: "Case law & corporate",
+      title: "LinkedIn",
+      desc: "Technical commentary on cross-border rulings, corporate disputes, international wealth, and academic activity.",
+      cta: "Follow on LinkedIn →",
+    },
+    youtube: {
+      tag: "Legal podcast & TV",
+      title: "YouTube",
+      desc: "In-depth legal briefings, partner interviews, and verified national and international television appearances.",
+      cta: "Watch on YouTube →",
+    },
+    substack: {
+      tag: "Editorial newsletter",
+      title: "Substack",
+      desc: "RRYP Legal Intelligence essays on private international law, cross-border assets, corporate strategy, and legal geopolitics.",
+      cta: "Read on Substack →",
+    },
+    instagram: {
+      tag: "Firm & daily insights",
+      title: "Instagram",
+      desc: "Accessible legal insights, speaking engagements, and firm activity across Madrid, Málaga, and Córdoba.",
+      cta: "Follow on Instagram →",
+    },
+    stripLabel: "Syndication & direct access",
+    rssLabel: "RSS Feed (Legal Intelligence)",
+    mediaLabel: "Press & TV archive",
+    waLabel: "Direct WhatsApp desk",
+  },
+  de: {
+    eyebrow: "Öffentliches Ökosystem",
+    title: "Wo wir internationales Recht publizieren und analysieren.",
+    lead: "Jeder offizielle Kanal erfüllt eine eigene Funktion im Ökosystem von RRYP Global: Rechtsprechung auf LinkedIn, Videoanalysen auf YouTube, Tiefenanalysen auf Substack und Kanzlei-Updates auf Instagram.",
+    linkedin: {
+      tag: "Analyse & Rechtsprechung",
+      title: "LinkedIn",
+      desc: "Fachkommentare zu grenzüberschreitenden Urteilen, Unternehmensstreitigkeiten, Vermögensrecht und Lehrtätigkeit.",
+      cta: "Auf LinkedIn folgen →",
+    },
+    youtube: {
+      tag: "Rechtspodcast & TV",
+      title: "YouTube",
+      desc: "Praxisnahe Rechtsanalysen, Interviews der Kanzleileitung sowie verifizierte TV-Auftritte.",
+      cta: "YouTube-Kanal ansehen →",
+    },
+    substack: {
+      tag: "Redaktioneller Newsletter",
+      title: "Substack",
+      desc: "Hintergrundartikel von RRYP Legal Intelligence zu internationalem Privatrecht, Vermögen und Rechtspolitik.",
+      cta: "Auf Substack lesen →",
+    },
+    instagram: {
+      tag: "Kanzlei & Einblicke",
+      title: "Instagram",
+      desc: "Kompakte Rechtstipps, Vorträge und Kanzleialltag in Madrid, Málaga und Córdoba.",
+      cta: "Auf Instagram folgen →",
+    },
+    stripLabel: "Syndizierung & Direktkontakt",
+    rssLabel: "RSS-Feed (Legal Intelligence)",
+    mediaLabel: "Presse- und TV-Archiv",
+    waLabel: "Direktkontakt WhatsApp",
+  },
+  pt: {
+    eyebrow: "Ecossistema público",
+    title: "Onde publicamos, debatemos e analisamos o direito internacional.",
+    lead: "Cada canal oficial cumpre uma função própria no ecossistema da RRYP Global: jurisprudência no LinkedIn, vídeo e TV no YouTube, newsletter editorial no Substack e atualidade da firma no Instagram.",
+    linkedin: {
+      tag: "Análise e jurisprudência",
+      title: "LinkedIn",
+      desc: "Comentário técnico sobre decisões transfronteiriças, direito empresarial, património internacional e docência.",
+      cta: "Seguir no LinkedIn →",
+    },
+    youtube: {
+      tag: "Podcast jurídico e TV",
+      title: "YouTube",
+      desc: "Episódios de análise jurídica prática, entrevistas e intervenções verificadas em televisão.",
+      cta: "Ver canal no YouTube →",
+    },
+    substack: {
+      tag: "Newsletter editorial",
+      title: "Substack",
+      desc: "Ensaios aprofundados da RRYP Legal Intelligence sobre direito internacional privado, património e geopolítica jurídica.",
+      cta: "Ler no Substack →",
+    },
+    instagram: {
+      tag: "Atualidade da firma",
+      title: "Instagram",
+      desc: "Divulgação jurídica direta, agenda em Madrid, Málaga e Córdoba e o dia a dia da equipa.",
+      cta: "Seguir no Instagram →",
+    },
+    stripLabel: "Sindicação e acesso direto",
+    rssLabel: "Feed RSS (Legal Intelligence)",
+    mediaLabel: "Imprensa e televisão",
+    waLabel: "Canal direto WhatsApp",
+  },
+  ru: {
+    eyebrow: "Публичная экосистема",
+    title: "Где мы публикуем и обсуждаем международное право.",
+    lead: "Каждый официальный канал RRYP Global выполняет свою задачу: судебная практика в LinkedIn, видеоразборы и ТВ на YouTube, аналитическая рассылка в Substack и новости фирмы в Instagram.",
+    linkedin: {
+      tag: "Аналитика и практика",
+      title: "LinkedIn",
+      desc: "Комментарии к трансграничным решениям судов, корпоративным спорам, международным активам и академической работе.",
+      cta: "Подписаться в LinkedIn →",
+    },
+    youtube: {
+      tag: "Юридический подкаст и ТВ",
+      title: "YouTube",
+      desc: "Выпуски с правовым разбором, интервью руководства и подтвержденные эфиры на телевидении.",
+      cta: "Смотреть на YouTube →",
+    },
+    substack: {
+      tag: "Аналитическая рассылка",
+      title: "Substack",
+      desc: "Глубокие заметки RRYP Legal Intelligence по международному частному праву, активам и правовой геополитике.",
+      cta: "Читать в Substack →",
+    },
+    instagram: {
+      tag: "Новости фирмы",
+      title: "Instagram",
+      desc: "Правовые обзоры, мероприятия в Мадриде, Малаге и Кордове и повседневная работа команды.",
+      cta: "Подписаться в Instagram →",
+    },
+    stripLabel: "Синдикация и прямая связь",
+    rssLabel: "RSS-лента (Legal Intelligence)",
+    mediaLabel: "Архив прессы и ТВ",
+    waLabel: "Прямой канал WhatsApp",
+  },
+  zh: {
+    eyebrow: "公共内容生态",
+    title: "我们在全球官方渠道发布与探讨国际法实务。",
+    lead: "RRYP Global 的每个官方频道各司其职：LinkedIn 深度判例评论、YouTube 法律播客与电视访谈、Substack 深度专栏通讯，以及 Instagram 律所动态。",
+    linkedin: {
+      tag: "判例与商事分析",
+      title: "LinkedIn",
+      desc: "跨境司法判例解读、国际商事争议、跨境资产架构与学术活动动态。",
+      cta: "关注 LinkedIn →",
+    },
+    youtube: {
+      tag: "法律播客与电视",
+      title: "YouTube",
+      desc: "国际法实务视频解析、管理合伙人专访以及国内外电视媒体节目回顾。",
+      cta: "访问 YouTube 频道 →",
+    },
+    substack: {
+      tag: "深度法律通讯",
+      title: "Substack",
+      desc: "RRYP Legal Intelligence 深度专栏，涵盖国际私法、跨境财富与法律地缘趋势。",
+      cta: "阅读 Substack →",
+    },
+    instagram: {
+      tag: "律所日常与活动",
+      title: "Instagram",
+      desc: "简明法律科普、马德里/马拉加/科尔多瓦三地律所活动与团队日常。",
+      cta: "关注 Instagram →",
+    },
+    stripLabel: "订阅与直连通道",
+    rssLabel: "RSS 订阅 (Legal Intelligence)",
+    mediaLabel: "媒体与电视档案",
+    waLabel: "WhatsApp 直连通道",
+  },
+};
+
+const c = COPY[lang];
+
+const channels = [
+  {
+    id: "linkedin",
+    handle: "company/rryp-abogados",
+    url: FIRM.socials[0].url,
+    ...c.linkedin,
+  },
+  {
+    id: "youtube",
+    handle: "@RRYPGlobal_PodcastAbogados",
+    url: FIRM.socials[2].url,
+    ...c.youtube,
+  },
+  {
+    id: "substack",
+    handle: "relacionateypunto.substack.com",
+    url: FIRM.socials[3].url,
+    ...c.substack,
+  },
+  {
+    id: "instagram",
+    handle: "@rrypglobal_abogados",
+    url: FIRM.socials[1].url,
+    ...c.instagram,
+  },
+] as const;
+
+const isDark = surface === "dark";
+---
+
+<section class={isDark ? "section-dark eco-section" : "section-cream section-cream--bordered eco-section eco-section--cream"}>
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <div>
+        <p class={isDark ? "eyebrow" : "eyebrow eyebrow--on-cream"}>{c.eyebrow}</p>
+        <h2 class="section-title">{c.title}</h2>
+      </div>
+      <p class="section-intro">{c.lead}</p>
+    </div>
+
+    <div class="eco-grid" data-reveal>
+      {channels.map((ch) => (
+        <a
+          href={ch.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={isDark ? "eco-card" : "eco-card eco-card--cream"}
+        >
+          <div>
+            <div class="eco-card-top">
+              <span class="eco-icon" aria-hidden="true">
+                {ch.id === "linkedin" && (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.94 8.5H3.56V19.5H6.94V8.5ZM5.25 3.5C4.14 3.5 3.25 4.39 3.25 5.5C3.25 6.6 4.14 7.5 5.25 7.5C6.35 7.5 7.25 6.6 7.25 5.5C7.25 4.39 6.35 3.5 5.25 3.5ZM20.44 13.02C20.44 9.88 18.76 8.22 16.16 8.22C14.37 8.22 13.48 9.21 13.02 9.93V8.5H9.65C9.7 9.48 9.65 19.5 9.65 19.5H13.02V13.36C13.02 13.03 13.05 12.7 13.15 12.46C13.42 11.8 14.03 11.12 15.07 11.12C16.41 11.12 17.06 12.14 17.06 13.63V19.5H20.44V13.02Z" />
+                  </svg>
+                )}
+                {ch.id === "youtube" && (
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2C2 9 2 12 2 12s0 3 .4 4.8a2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2c.4-1.8.4-4.8.4-4.8s0-3-.4-4.8ZM10 15.2V8.8L15.4 12 10 15.2Z" />
+                  </svg>
+                )}
+                {ch.id === "substack" && (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4 4h16v2.6H4V4Zm0 4.8h16v2.6H4V8.8Zm0 4.8h16V21l-8-4.5L4 21v-7.4Z" />
+                  </svg>
+                )}
+                {ch.id === "instagram" && (
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                    <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none" />
+                  </svg>
+                )}
+              </span>
+              <span class="eco-tag">{ch.tag}</span>
+            </div>
+
+            <h3 class="eco-card-title">{ch.title}</h3>
+            <p class="eco-card-handle">{ch.handle}</p>
+            <p class="eco-card-desc">{ch.desc}</p>
+          </div>
+
+          <span class="eco-card-cta">{ch.cta}</span>
+        </a>
+      ))}
+    </div>
+
+    <div class={isDark ? "eco-strip" : "eco-strip eco-strip--cream"} data-reveal>
+      <span class="eco-strip-label">{c.stripLabel}</span>
+      <div class="eco-strip-links">
+        <a href="/rss.xml" class="eco-strip-link">
+          RSS — {c.rssLabel} ↗
+        </a>
+        <a href={localizedPath(lang, "medios")} class="eco-strip-link">
+          {c.mediaLabel} →
+        </a>
+        <a href={FIRM.whatsappUrl} target="_blank" rel="noopener noreferrer" class="eco-strip-link">
+          {c.waLabel} ({FIRM.phone}) ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -2,6 +2,7 @@
 import "../../../styles/editorial-doc.css";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import EntryRoutes from "../../../components/EntryRoutes.astro";
+import DocShareBar from "../../../components/DocShareBar.astro";
 import { FIRM } from "../../../data/firm";
 import { WP_SPECIALTIES, getRelatedArticles, getRelatedCases, type WpSpecialty } from "../../../data/wp";
 import { getDictionary, LOCALES, localizedPath, type Locale } from "../../../i18n";
@@ -142,6 +143,12 @@ const serviceSchema = {
               WhatsApp {FIRM.phone}
             </a>
           </div>
+
+          <DocShareBar
+            lang={lang}
+            title={item.title}
+            canonicalUrl={`${FIRM.siteUrl}${localizedPath(lang, `especialidades/${item.slug}`)}`}
+          />
         </aside>
       </div>
 
