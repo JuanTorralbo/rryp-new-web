@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { FIRM } from "../data/firm";
+import { getPrimaryNav, type NavActiveKey } from "../data/nav-menu";
 import CookieConsent from "../components/CookieConsent.astro";
 import SiteWidgets from "../components/SiteWidgets.astro";
 import {
@@ -22,7 +23,7 @@ export interface Props {
   preloadBase?: string;
   preloadWidths?: readonly number[];
   preloadSizes?: string;
-  activeNav?: "clients" | "wealth" | "disputes" | "cases" | "firm" | "intel" | "home";
+  activeNav?: NavActiveKey;
   urgentHeaderCta?: boolean;
   fullFooter?: boolean;
   noindex?: boolean;
@@ -238,6 +239,8 @@ const entryHref =
     : hasLocalEntryRoutes
       ? "#vias-de-entrada"
       : `${localizedPath(lang)}#vias-de-entrada`;
+
+const primaryNav = getPrimaryNav(lang);
 ---
 
 <!DOCTYPE html>
@@ -332,54 +335,69 @@ const entryHref =
         </a>
 
         <nav class="main-nav" id="main-nav" aria-label={t.ariaMainNav}>
-          <a
-            href={localizedPath(lang, "private-clients")}
-            data-astro-prefetch
-            class={activeNav === "clients" ? "is-active" : undefined}
-            aria-current={activeNav === "clients" ? "page" : undefined}
-          >
-            {t.navClients}
-          </a>
-          <a
-            href={localizedPath(lang, "private-wealth")}
-            data-astro-prefetch
-            class={activeNav === "wealth" ? "is-active" : undefined}
-            aria-current={activeNav === "wealth" ? "page" : undefined}
-          >
-            {t.navWealth}
-          </a>
-          <a
-            href={localizedPath(lang, "business-disputes")}
-            data-astro-prefetch
-            class={activeNav === "disputes" ? "is-active" : undefined}
-            aria-current={activeNav === "disputes" ? "page" : undefined}
-          >
-            {t.navDisputes}
-          </a>
-          <a
-            href={localizedPath(lang, "casos")}
-            data-astro-prefetch
-            class={activeNav === "cases" ? "is-active" : undefined}
-            aria-current={activeNav === "cases" ? "page" : undefined}
-          >
-            {t.navCases}
-          </a>
-          <a
-            href={localizedPath(lang, "la-firma")}
-            data-astro-prefetch
-            class={activeNav === "firm" ? "is-active" : undefined}
-            aria-current={activeNav === "firm" ? "page" : undefined}
-          >
-            {t.navFirmShort}
-          </a>
-          <a
-            href={localizedPath(lang, "legal-intelligence")}
-            data-astro-prefetch
-            class={activeNav === "intel" ? "is-active" : undefined}
-            aria-current={activeNav === "intel" ? "page" : undefined}
-          >
-            {t.navIntel}
-          </a>
+          {primaryNav.map((group) =>
+            group.items && group.items.length > 0 ? (
+              <div class={`nav-item nav-item--has-menu ${activeNav === group.activeKey ? "is-active" : ""}`} data-nav-item>
+                <div class="nav-item-head">
+                  <a
+                    href={group.href}
+                    data-astro-prefetch
+                    class={`nav-trigger ${activeNav === group.activeKey ? "is-active" : ""}`}
+                    aria-current={activeNav === group.activeKey ? "page" : undefined}
+                  >
+                    {group.label}
+                  </a>
+                  <button
+                    type="button"
+                    class="nav-caret-btn"
+                    data-nav-toggle
+                    aria-expanded="false"
+                    aria-controls={group.id}
+                    aria-label={group.label}
+                  >
+                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                      <path d="M2.5 4.5 6 8l3.5-3.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </div>
+
+                <div class="nav-dropdown" id={group.id}>
+                  <ul class="nav-dropdown-list">
+                    {group.items.map((item) => (
+                      <li>
+                        <a
+                          href={item.href}
+                          data-astro-prefetch
+                          class={`nav-dropdown-link ${item.overview ? "nav-dropdown-link--overview" : ""}`}
+                        >
+                          <span>{item.label}</span>
+                          {item.overview && <span class="nav-dropdown-arrow" aria-hidden="true">→</span>}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                  {group.footerLinks && group.footerLinks.length > 0 && (
+                    <div class="nav-dropdown-offices">
+                      {group.footerLinks.map((office) => (
+                        <a href={office.href} data-astro-prefetch class="nav-dropdown-office">
+                          {office.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <a
+                href={group.href}
+                data-astro-prefetch
+                class={`nav-trigger ${activeNav === group.activeKey ? "is-active" : ""}`}
+                aria-current={activeNav === group.activeKey ? "page" : undefined}
+              >
+                {group.label}
+              </a>
+            )
+          )}
 
           <div class="nav-lang" id="nav-lang">
             <p class="nav-lang-mobile-label">{t.footerLangsHead}</p>
