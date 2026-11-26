@@ -11,6 +11,7 @@ import gzip
 import json
 import os
 import re
+import sys
 import urllib.error
 import urllib.request
 from http.cookies import SimpleCookie
@@ -242,7 +243,7 @@ class AstroPreviewHandler(SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", "4321"))
+    port = int(sys.argv[1]) if len(sys.argv) > 1 else int(os.environ.get("PORT", "4321"))
     server = ThreadingHTTPServer(("127.0.0.1", port), AstroPreviewHandler)
     print(f"RRYP Global Astro 5 production preview running at http://127.0.0.1:{port}/ (Groq connected: {bool(GROQ_API_KEY)})", flush=True)
     server.serve_forever()
