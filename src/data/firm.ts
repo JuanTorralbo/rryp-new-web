@@ -13,7 +13,7 @@ export const FIRM = {
   email: "info@rrypglobal.com",
   emailHref: "mailto:info@rrypglobal.com",
   socials: [
-    { label: "LinkedIn", url: "https://www.linkedin.com/company/rryp-abogados/" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/company/rryp-global/" },
     { label: "Instagram", url: "https://www.instagram.com/rrypglobal_abogados/" },
     { label: "YouTube", url: "https://www.youtube.com/@RRYPGlobal_PodcastAbogados" },
     { label: "Substack", url: "https://relacionateypunto.substack.com/" },
